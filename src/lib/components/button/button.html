@@ -1,0 +1,187 @@
+@switch (variant()) {
+  @case ('filled') {
+    <button
+      mat-flat-button
+      class="lib-mat-btn"
+      [attr.type]="type()"
+      [disabled]="disabled()"
+      [ngClass]="classes()"
+      [attr.aria-pressed]="toggle() ? selected() : null"
+      (pointerdown)="onPressStart()"
+      (pointerup)="onPressEnd()"
+      (pointerleave)="onPressCancel()"
+      (pointercancel)="onPressCancel()"
+      (keydown)="onKeyDown($event)"
+      (keyup)="onKeyUp()"
+      (blur)="onPressEnd()"
+    >
+      @if (hasInputContent()) {
+        @if (iconPosition() === 'leading' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+        @if (label()) {
+          <span [class]="labelClass()">{{ label() }}</span>
+        }
+        @if (iconPosition() === 'trailing' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+      } @else {
+        <ng-content></ng-content>
+      }
+    </button>
+  }
+  @case ('outlined') {
+    <button
+      mat-stroked-button
+      class="lib-mat-btn"
+      [attr.type]="type()"
+      [disabled]="disabled()"
+      [ngClass]="classes()"
+      [attr.aria-pressed]="toggle() ? selected() : null"
+      (pointerdown)="onPressStart()"
+      (pointerup)="onPressEnd()"
+      (pointerleave)="onPressCancel()"
+      (pointercancel)="onPressCancel()"
+      (keydown)="onKeyDown($event)"
+      (keyup)="onKeyUp()"
+      (blur)="onPressEnd()"
+    >
+      @if (hasInputContent()) {
+        @if (iconPosition() === 'leading' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+        @if (label()) {
+          <span [class]="labelClass()">{{ label() }}</span>
+        }
+        @if (iconPosition() === 'trailing' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+      } @else {
+        <ng-content></ng-content>
+      }
+    </button>
+  }
+  @case ('tonal') {
+    <button
+      matButton
+      appearance="tonal"
+      class="lib-mat-btn lib-mat-btn--variant-tonal"
+      [attr.type]="type()"
+      [disabled]="disabled()"
+      [ngClass]="classes()"
+      [attr.aria-pressed]="toggle() ? selected() : null"
+      (pointerdown)="onPressStart()"
+      (pointerup)="onPressEnd()"
+      (pointerleave)="onPressCancel()"
+      (pointercancel)="onPressCancel()"
+      (keydown)="onKeyDown($event)"
+      (keyup)="onKeyUp()"
+      (blur)="onPressEnd()"
+    >
+      @if (hasInputContent()) {
+        @if (iconPosition() === 'leading' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+        @if (label()) {
+          <span [class]="labelClass()">{{ label() }}</span>
+        }
+        @if (iconPosition() === 'trailing' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+      } @else {
+        <ng-content></ng-content>
+      }
+    </button>
+  }
+  @case ('text') {
+    <button
+      mat-button
+      class="lib-mat-btn"
+      [attr.type]="type()"
+      [disabled]="disabled()"
+      [ngClass]="classes()"
+      (pointerdown)="onPressStart()"
+      (pointerup)="onPressEnd()"
+      (pointerleave)="onPressCancel()"
+      (pointercancel)="onPressCancel()"
+      (keydown)="onKeyDown($event)"
+      (keyup)="onKeyUp()"
+      (blur)="onPressEnd()"
+    >
+      @if (hasInputContent()) {
+        @if (iconPosition() === 'leading' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+        @if (label()) {
+          <span [class]="labelClass()">{{ label() }}</span>
+        }
+        @if (iconPosition() === 'trailing' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+      } @else {
+        <ng-content></ng-content>
+      }
+    </button>
+  }
+  @case ('elevated') {
+    <button
+      mat-raised-button
+      class="lib-mat-btn"
+      [attr.type]="type()"
+      [disabled]="disabled()"
+      [ngClass]="classes()"
+      [attr.aria-pressed]="toggle() ? selected() : null"
+      (pointerdown)="onPressStart()"
+      (pointerup)="onPressEnd()"
+      (pointerleave)="onPressCancel()"
+      (pointercancel)="onPressCancel()"
+      (keydown)="onKeyDown($event)"
+      (keyup)="onKeyUp()"
+      (blur)="onPressEnd()"
+    >
+      @if (hasInputContent()) {
+        @if (iconPosition() === 'leading' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+        @if (label()) {
+          <span [class]="labelClass()">{{ label() }}</span>
+        }
+        @if (iconPosition() === 'trailing' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+      } @else {
+        <ng-content></ng-content>
+      }
+    </button>
+  }
+  @default {
+    <button
+      mat-flat-button
+      class="lib-mat-btn"
+      [attr.type]="type()"
+      [disabled]="disabled()"
+      [ngClass]="classes()"
+      (pointerdown)="onPressStart()"
+      (pointerup)="onPressEnd()"
+      (pointerleave)="onPressCancel()"
+      (pointercancel)="onPressCancel()"
+      (keydown)="onKeyDown($event)"
+      (keyup)="onKeyUp()"
+      (blur)="onPressEnd()"
+    >
+      @if (hasInputContent()) {
+        @if (iconPosition() === 'leading' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+        @if (label()) {
+          <span [class]="labelClass()">{{ label() }}</span>
+        }
+        @if (iconPosition() === 'trailing' && icon()) {
+          <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+        }
+      } @else {
+        <ng-content></ng-content>
+      }
+    </button>
+  }
+}

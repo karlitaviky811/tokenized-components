@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+:host-context(.side-modal__content) {
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-bottom: -1rem;
+}
+
+.lib-page-footer-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.lib-page-footer-actions__buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px 0;
+  justify-content: flex-end;
+}
+
+.lib-page-footer-actions__buttons lib-mat-button,
+.lib-page-footer-actions__buttons .lib-mat-btn {
+  width: auto;
+}

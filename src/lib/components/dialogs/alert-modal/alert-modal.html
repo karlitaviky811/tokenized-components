@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="message">
+        <mat-icon class="tab-icon" fontSet="material-icons-outlined" [ngStyle]="{'color': data.color}">info</mat-icon>
+        <p class="title">{{data.title}}</p>
+        @if(data.content){
+        <p class="content">{{data.content}}</p>
+        }
+    </div>
+    @if(data.extraBlock){
+    <div class="extraBlock" [ngClass]="data.subtitleAlign">
+        <p class="subtitle">{{data.subtitle}}</p>
+        <div class="extraBlock-content" [ngClass]="data.subtitleAlign">
+            <ng-container *ngFor="let word of data.extraBlock; let last = last">
+                <span class="word">{{ word }}</span>
+                <span *ngIf="!last" class="separator">|</span>
+            </ng-container>
+        </div>
+    </div>
+    }
+
+    <div class="actions">
+        @if(data.labelButtonCancel){
+        <button matButton="outlined" (click)="onCancel()">{{data.labelButtonCancel}}</button>
+        }
+        <button matButton="filled" fontSet="material-icons-outlined"
+            (click)="onConfirm()">{{data.labelButtonConfirm}}</button>
+
+    </div>
+</div>

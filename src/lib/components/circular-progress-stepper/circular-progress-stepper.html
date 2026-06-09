@@ -1,0 +1,23 @@
+<div
+  class="progressbar"
+  [class.no-js]="!jsEnabled()"
+  [attr.role]="jsEnabled() ? 'progressbar' : null"
+  [attr.aria-valuemin]="0"
+  [attr.aria-valuemax]="100"
+  [attr.aria-busy]="isAnimating()"
+  [attr.aria-live]="jsEnabled() ? 'polite' : null"
+  [style.--progress]="progressPercentage()"
+  [style.--size]="size()"
+  [style.--bar-width]="barWidth()"
+  [style.--color-bar-progress]="colorBarProgress()"
+  [style.--shadow-shadow-bar-progress]="shadowColorBarProgress()">
+
+  <div class="progress-content">
+    <span class="step-text">Paso</span>
+    <span class="step-number">{{ `${currentStep()} de ${totalsStep()}` }}</span>
+  </div>
+  @if (!jsEnabled()) {
+    <span>{{ noJsMessage() }}</span>
+  }
+
+</div>

@@ -1,0 +1,38 @@
+﻿<mat-form-field [appearance]="resolvedAppearance()" [style.width]="widthStyle() ?? null" [hideRequiredMarker]="hideRequiredMarker()">
+  @if(prefixIconSrc()){
+    <mat-icon
+      matPrefix
+      class="lib-text-field__prefix-image"
+      [svgIcon]="prefixIconSrc()"
+      (click)="pressSuffixEvent()"
+    >
+      {{ prefixIconSrc() }}
+    </mat-icon>
+  } @else if(resolvedPrefixIcon()){
+    <mat-icon matPrefix>
+      {{ resolvedPrefixIcon() }}
+    </mat-icon>
+  }
+
+  <mat-label>{{ label() }}</mat-label>
+  <input matInput [type]="type()" [formControl]="control()" [placeholder]="placeholder()" [attr.autocomplete]="autocomplete()" />
+
+  @if(shouldShowError() && error()) {
+    <mat-error>{{ error() }}</mat-error>
+  }
+
+  @if(hint()) {
+    <mat-hint>{{ hint() }}</mat-hint>
+  }
+
+  @if(shouldShowSuffix()) {
+    <mat-icon
+      matSuffix
+      class="lib-text-field__icon lib-text-field__icon--suffix"
+      [svgIcon]="suffixIcon()"
+      (click)="pressSuffixEvent()"
+    >
+      {{ suffixTextIcon() }}
+    </mat-icon>
+  }
+</mat-form-field>

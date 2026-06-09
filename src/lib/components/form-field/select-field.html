@@ -1,0 +1,94 @@
+<mat-form-field
+  class="lib-select-field__field"
+  [appearance]="matAppearance()"
+  [style.width]="widthStyle() ?? null"
+>
+  @if (label()) {
+  <mat-label>{{ label() }}</mat-label>
+  }
+  <mat-select
+    [value]="displayValue"
+    [multiple]="isMultiple()"
+    [disabled]="disabled() || disabledByControl()"
+    [required]="required()"
+    [placeholder]="placeholder()"
+    panelClass="lib-select-field-panel"
+    (openedChange)="onPanelOpenChange($event)"
+    (selectionChange)="onSelectionChange($event)"
+  >
+    @if (isMultiple()) {
+    <mat-select-trigger
+      >{{ multiTriggerLabel() || placeholder() }}</mat-select-trigger
+    >
+    } @if (filterable()) {
+    <div
+      class="lib-select-field__filter-option"
+      (mousedown)="$event.stopPropagation()"
+    >
+      <input
+        #filterInput
+        class="lib-select-field__filter-input"
+        type="text"
+        [placeholder]="filterPlaceholder()"
+        [value]="filterTerm()"
+        (mousedown)="$event.stopPropagation()"
+        (click)="$event.stopPropagation()"
+        (input)="onFilterInput($event)"
+        (keydown)="onFilterKeydown($event)"
+      />
+    </div>
+    }
+    <cdk-virtual-scroll-viewport
+          class="lib-select-field__viewport app-scrollbar-figma"
+      [itemSize]="48"
+      minBufferPx="240"
+      maxBufferPx="240"
+      [style.height.px]="virtualViewportHeight()"
+    >
+      <div
+        *cdkVirtualFor="let row of virtualRows(); trackBy: trackByVirtualRow"
+        class="lib-select-field__virtual-row"
+      >
+        @if (row.kind === 'selectAll') {
+          <div
+            class="lib-select-field__select-all-option"
+            role="button"
+            tabindex="0"
+            (mousedown)="$event.stopPropagation()"
+            (click)="toggledAllSelection(); $event.stopPropagation()"
+            (keydown.enter)="toggledAllSelection(); $event.preventDefault(); $event.stopPropagation()"
+            (keydown.space)="toggledAllSelection(); $event.preventDefault(); $event.stopPropagation()"
+          >
+            <span class="lib-select-field__option-row">
+              <lib-checkbox
+                [checked]="allSelected()"
+                [indeterminate]="selectAllIndeterminate()"
+                (click)="$event.stopPropagation()"
+                (checkedChange)="onSelectAllCheckedChange($event)"
+              />
+              <span>{{ selectAllLabel() }}</span>
+            </span>
+          </div>
+        } @else {
+          <mat-option [value]="row.option.value">
+            @if (isMultiple()) {
+              <span class="lib-select-field__option-row">
+                <lib-checkbox
+                  [checked]="isSelected(row.option.value)"
+                  (click)="$event.stopPropagation()"
+                  (checkedChange)="onOptionCheckedChange(row.option.value, $event)"
+                />
+                <span>{{ row.option.label }}</span>
+              </span>
+            } @else {
+              {{ row.option.label }}
+            }
+          </mat-option>
+        }
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </mat-select>
+  <mat-icon class="lib-select-field__arrow" matSuffix>
+    {{ panelOpen() ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+  </mat-icon>
+</mat-form-field>

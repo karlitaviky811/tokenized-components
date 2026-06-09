@@ -1,0 +1,122 @@
+/* Host: flex column para que el contenedor interno ocupe toda la altura y no quede hueco antes del padding. */
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+}
+
+.ui-list-item__container {
+  display: flex;
+  flex-direction: column;
+  /* Ocupa toda la altura del host para no dejar espacio vacío antes del padding */
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.ui-list-item__header {
+  padding-bottom: 0.5rem;
+}
+
+/* Quitar padding del MDC list item; el padding lo define el diseño Figma en .ui-list-item. */
+:host ::ng-deep .ui-list-option.mdc-list-item {
+  padding: 0;
+  min-height: calc(var(--lists-wip-common-typography-one-line-list-item-container-height, 56) * 1px);
+  background-color: var(--lists-wip-common-color-enabled-list-list-item-container-color,
+      var(--app-pallete-scheme-surface-surface-container-lowest, #FFFFFF));
+}
+
+/* Layout interno del list-item según Figma (7878:52476, state-layer): gap 16px, padding 16px horizontal, 8px vertical. */
+.ui-list-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  min-height: calc(var(--lists-wip-common-typography-one-line-list-item-container-height, 56) * 1px);
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Bordes entre items según Figma (List 7878:52476, Horizontal/Full-width divider).
+   Se aplica al contenedor del item para línea full-width entre cada elemento. */
+:host ::ng-deep mat-list .ui-list-option.ui-list-item--with-divider {
+  border-bottom: calc(var(--divider-enabled-container-divider-thickness, 1) * 1px) solid
+    var(--divider-enabled-container-divider-color, #c3c7c9);
+}
+
+/* Sin borde después del último item (diseño Figma). */
+:host ::ng-deep mat-list .ui-list-option.ui-list-item--with-divider:last-child {
+  border-bottom: none;
+}
+
+.ui-list-item__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Tipografía del label según __app-tokens (lists-wip + date-pickers-docked menu list item) */
+.ui-list-item__label {
+  color: var(--lists-wip-common-color-enabled-list-list-item-label-text-color, #181c1e);
+  font-family: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-font, Heebo), sans-serif;
+  font-size: calc(var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-size, 16) * 1px);
+  font-style: normal;
+  font-weight: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-weight, 400);
+  line-height: calc(var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-line-height, 24) * 1px);
+  letter-spacing: calc(var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-tracking, 0.5) * 1px);
+}
+
+.ui-list-item__description {
+  line-height: 1.25;
+}
+
+/* Estilos compartidos para checkbox (leading y trailing) — inlineados desde el placeholder @extend */
+.ui-list-item__leading--checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.ui-list-item__leading--checkbox .mat-mdc-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-list-item__leading--checkbox .mat-mdc-checkbox .mdc-checkbox__ripple,
+.ui-list-item__leading--checkbox .mat-mdc-checkbox .mdc-checkbox__state-layer {
+  left: 50% !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.ui-list-item__trailing--checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  align-self: center;
+  margin-left: auto;
+}
+
+.ui-list-item__trailing--checkbox .mat-mdc-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-list-item__trailing--checkbox .mat-mdc-checkbox .mdc-checkbox__ripple,
+.ui-list-item__trailing--checkbox .mat-mdc-checkbox .mdc-checkbox__state-layer {
+  left: 50% !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+}

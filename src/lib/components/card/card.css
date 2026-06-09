@@ -1,0 +1,285 @@
+:host {
+  display: block;
+}
+
+:host(.lib-card-host--full-width) {
+  width: 100%;
+  min-width: 0;
+}
+
+.ui-card {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: calc(var(--app-cards-outlined-enabled-container-outlined-card-container-shape, 12) * 1px);
+  color: var(--app-pallete-scheme-surface-on-surface, #181c1e);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  position: relative;
+  isolation: isolate;
+}
+
+.ui-card:focus-visible {
+  outline: none;
+}
+
+.ui-card:focus-visible .ui-card__focus-indicator {
+  display: block;
+}
+
+.ui-card--outlined {
+  border: 0;
+  outline: calc(var(--app-cards-outlined-enabled-outline-outlined-card-outline-width, 1) * 1px) solid
+    var(--app-cards-outlined-enabled-outline-outlined-card-outline-color, #c3c7c9);
+  outline-offset: -1px;
+  background: var(--app-cards-outlined-enabled-container-outlined-card-container-color, #f7fafc);
+}
+
+.ui-card--elevated {
+  border: 0;
+  background: var(--app-cards-elevated-enabled-container-elevated-card-container-color, #f1f4f6);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ui-card--filled {
+  border: 0;
+  background: var(--app-cards-filled-enabled-container-filled-card-container-color, #e0e3e5);
+}
+
+.ui-card--active {
+  outline-color: var(--app-pallete-scheme-surface-outline-variant, #d4d7db);
+  background: var(--app-pallete-scheme-surface-outline-variant, #d4d7db);
+}
+
+.ui-card--disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ui-card__content {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.ui-card__avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--app-pallete-scheme-primary-primary, #e42313);
+  color: var(--app-pallete-scheme-primary-on-primary, #fff);
+  font-family: var(--app-typescale-title-medium-font, Heebo), sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.00625rem;
+}
+
+.ui-card__leading {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-card__leading--icon img,
+.ui-card__leading--icon svg {
+  width: 2.08331rem;
+  height: 2.08331rem;
+  display: block;
+}
+
+.ui-card__leading--icon svg {
+  fill: currentColor;
+}
+
+.ui-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  color: inherit;
+}
+
+.ui-card__title,
+.ui-card__subhead {
+  margin: 0;
+}
+
+.ui-card__title {
+  font-family: var(--app-typescale-title-medium-font, Heebo), sans-serif;
+  font-size: calc(var(--app-typescale-title-medium-size, 16) * 1px);
+  font-weight: var(--app-typescale-title-medium-weight, 500);
+  line-height: calc(var(--app-typescale-title-medium-line-height, 24) * 1px);
+  letter-spacing: calc(var(--app-typescale-title-medium-tracking, 0.15) * 1px);
+}
+
+.ui-card--title-emphasized .ui-card__title {
+  font-weight: var(--app-typescale-title-medium-weight-emphasized, 700);
+}
+
+.ui-card__subhead {
+  font-family: var(--app-typescale-body-medium-font, Heebo), sans-serif;
+  font-size: calc(var(--app-typescale-body-medium-size, 14) * 1px);
+  font-weight: var(--app-typescale-body-medium-weight, 400);
+  line-height: calc(var(--app-typescale-body-medium-line-height, 20) * 1px);
+  letter-spacing: calc(var(--app-typescale-body-medium-tracking, 0.25) * 1px);
+}
+
+.ui-card__media {
+  width: 5rem;
+  flex: 0 0 5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--app-pallete-scheme-surface-outline-variant, #c3c7c9);
+  background: var(--app-schemes-surface-container-high, #ebe7e7);
+  position: relative;
+  z-index: 2;
+}
+
+.ui-card__media img,
+.ui-card__media svg {
+  width: 2.08331rem;
+  height: 2.08331rem;
+  display: block;
+}
+
+.ui-card__media svg {
+  fill: var(--app-schemes-outline, #b5b5b5);
+}
+
+.ui-card__media--empty {
+  opacity: 0.45;
+}
+
+.ui-card__state-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  background: transparent;
+}
+
+.ui-card__focus-indicator {
+  display: none;
+  position: absolute;
+  inset: -3px;
+  border-radius: 14px;
+  border: 3px solid var(--app-cards-outlined-focused-focus-indicator-outlined-card-focus-indicator-color, #5b5f61);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.ui-card--state-focused .ui-card__focus-indicator {
+  display: block;
+}
+
+.ui-card--state-hovered .ui-card__state-layer,
+.ui-card:hover .ui-card__state-layer {
+  opacity: 1;
+}
+
+.ui-card--state-focused .ui-card__state-layer,
+.ui-card--state-pressed .ui-card__state-layer,
+.ui-card--state-dragged .ui-card__state-layer {
+  opacity: 1;
+}
+
+.ui-card--outlined.ui-card--state-hovered,
+.ui-card--outlined:hover {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.ui-card--outlined.ui-card--state-dragged {
+  box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.ui-card--elevated.ui-card--state-hovered,
+.ui-card--elevated:hover {
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ui-card--elevated.ui-card--state-pressed {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ui-card--elevated.ui-card--state-dragged {
+  box-shadow: 0 6px 10px 4px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.ui-card--filled.ui-card--state-hovered {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ui-card--filled.ui-card--state-dragged {
+  box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.ui-card--outlined.ui-card--state-hovered .ui-card__state-layer,
+.ui-card--outlined:hover .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.08);
+}
+
+.ui-card--outlined.ui-card--state-focused .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.1);
+}
+
+.ui-card--outlined.ui-card--state-pressed .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.1);
+}
+
+.ui-card--outlined.ui-card--state-dragged .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.16);
+}
+
+.ui-card--elevated.ui-card--state-hovered .ui-card__state-layer,
+.ui-card--elevated:hover .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.08);
+}
+
+.ui-card--elevated.ui-card--state-focused .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.1);
+}
+
+.ui-card--elevated.ui-card--state-pressed .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.1);
+}
+
+.ui-card--elevated.ui-card--state-dragged .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.16);
+}
+
+.ui-card--filled.ui-card--state-hovered .ui-card__state-layer,
+.ui-card--filled:hover .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.08);
+}
+
+.ui-card--filled.ui-card--state-focused .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.1);
+}
+
+.ui-card--filled.ui-card--state-pressed .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.1);
+}
+
+.ui-card--filled.ui-card--state-dragged .ui-card__state-layer {
+  background: rgba(24, 28, 30, 0.16);
+}
+
+.ui-card--disabled .ui-card__state-layer {
+  display: none;
+}

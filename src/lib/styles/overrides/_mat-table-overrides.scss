@@ -1,0 +1,259 @@
+@use '@angular/material' as mat;
+
+/// Table overrides (M3). Tokens: tokens-by-component (pallete-scheme-*, typescale-*).
+html {
+  @include mat.table-overrides((
+    background-color: transparent,
+    row-item-outline-color: var(--pallete-scheme-surface-surface-container-highest, #e0e3e5),
+    header-headline-color: var(--pallete-scheme-surface-on-surface, #181C1E),
+    header-headline-size: 1rem,
+    header-headline-weight: 700,
+    header-headline-line-height: normal,
+    row-item-label-text-color: var(--md-sys-color-on-surface-variant),
+    row-item-outline-width: 1px,
+    row-item-label-text-size: var(--md-sys-typescale-body-medium-size),
+    row-item-label-text-weight: var(--md-sys-typescale-body-medium-weight),
+    header-container-height: 56px,
+    row-item-container-height: 56px,
+  ));
+
+  @include mat.paginator-overrides((
+    container-background-color: var(--pallete-scheme-surface-surface, #F7FAFC),
+    container-text-color: var(--md-sys-color-on-surface-variant),
+  ));
+}
+
+// Celdas: padding 0 16px (como en la especificación)
+.mdc-data-table__cell,
+.mdc-data-table__header-cell,
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+  padding: 0 16px;
+}
+
+// Header sticky: fila y celdas (th) con sticky, z-index y fondo para que el contenido no se transparente
+.shared-table__container .mat-mdc-header-row {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--pallete-scheme-surface-surface, #F7FAFC);
+  border-bottom: 1px solid var(--pallete-scheme-surface-surface-container-highest, #e0e3e5);
+}
+
+.shared-table__container th.mat-mdc-header-cell,
+.shared-table__container th.mdc-data-table__header-cell {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--pallete-scheme-surface-surface, #f5f5f5);
+  border-bottom: 1px solid var(--pallete-scheme-surface-surface-container-highest, #e0e3e5);
+}
+
+.shared-table__container .mat-mdc-header-row .mat-mdc-header-cell,
+.shared-table__container .mat-mdc-header-row .mdc-data-table__header-cell {
+  background: var(--pallete-scheme-surface-surface, #F7FAFC);
+  border-bottom: 1px solid var(--pallete-scheme-surface-surface-container-highest, #e0e3e5);
+}
+
+// th del header sticky: posición y fondo para que el contenido no se transparente al hacer scroll
+.shared-table__container th.mat-mdc-header-cell,
+.shared-table__container th.mdc-data-table__header-cell {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--pallete-scheme-surface-surface, #F7FAFC);
+}
+
+.mdc-data-table__header-cell {
+  font-family: 'Heebo', sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Última fila: borde inferior antes del paginador (mismo tono que divisores internos)
+.mdc-data-table__row:last-child > .mat-mdc-cell {
+  border-bottom: 1px solid var(--pallete-scheme-surface-surface-container-highest, #e0e3e5);
+}
+
+// Tabla: borde completo + esquinas redondeadas
+.mdc-data-table {
+  border-radius: 0.25rem;
+  border: 1px solid var(--pallete-scheme-surface-outline-variant, #C3C7C9);
+  overflow: visible;
+}
+
+// Shared-table: solo esquinas superiores redondeadas, sin borde inferior
+.shared-table__container.mdc-data-table {
+  overflow: hidden;
+  border-radius: 0.25rem 0.25rem 0 0;
+  border-bottom: none;
+}
+
+// Cuando hay paginador, la tabla mantiene el mismo borde, pero sin forzar border-bottom extra
+.mdc-data-table:has(+ .mat-mdc-paginator),
+.mat-mdc-table-sticky-header ~ .mat-mdc-paginator + .mdc-data-table {
+  border-radius: 0.25rem;
+}
+
+// Label "Items per page": Body/medium (especificidad alta para que aplique)
+.mat-mdc-paginator .mat-mdc-paginator-page-size-label {
+  margin: 0;
+  color: var(--pallete-scheme-surface-on-surface, #181C1E) !important;
+  text-align: right;
+  font-family: var(--typescale-body-medium-font, Heebo), sans-serif;
+  font-size: var(--typescale-body-medium-size, 0.875rem);
+  font-style: normal;
+  font-weight: var(--typescale-body-medium-weight, 400);
+  line-height: var(--typescale-body-medium-line-height, 1.25rem);
+  letter-spacing: var(--typescale-body-medium-tracking, 0.01563rem);
+}
+
+// Rango "1-10 de 100": Label/medium, sin márgenes
+.mat-mdc-paginator .mat-mdc-paginator-range-label {
+  margin: 0;
+  color: var(--pallete-scheme-surface-on-surface, #181C1E);
+  font-family: var(--typescale-label-medium-font, Heebo), sans-serif;
+  font-size: var(--typescale-label-medium-size, 0.75rem);
+  font-style: normal;
+  font-weight: var(--typescale-label-medium-weight, 500);
+  line-height: var(--typescale-label-medium-line-height, 1rem);
+  letter-spacing: var(--typescale-label-medium-tracking, 0.03125rem);
+}
+
+// Acciones de rango del paginador (rango + flechas anterior/siguiente)
+.mat-mdc-paginator .mat-mdc-paginator-range-actions {
+  display: flex;
+  align-items: center;
+  gap: 2.15rem;
+}
+
+// Paginador: fondo sólido surface + esquinas inferiores redondeadas; border-top: none para unión visual con la tabla
+// z-index para que quede por encima del contenido de la tabla (acciones de fila)
+.mat-mdc-paginator {
+  background-color: var(--pallete-scheme-surface-surface, #F7FAFC);
+  border-radius: 0 0 0.25rem 0.25rem;
+  border-top: none;
+  border-right: 1px solid var(--pallete-scheme-surface-outline-variant, #C3C7C9);
+  border-bottom: 1px solid var(--pallete-scheme-surface-outline-variant, #C3C7C9);
+  border-left: 1px solid var(--pallete-scheme-surface-outline-variant, #C3C7C9);
+  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+  height: 3.625rem;
+}
+
+// Contenedor interno: gap entre elementos (label | select | 1-10 de 100 | flecha izq | flecha der)
+.mat-mdc-paginator-container {
+  display: flex;
+  width: 100%;
+  height: 3.625rem;
+  padding: 0 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.125rem;
+}
+
+// Bloques con gap interno (elementos por página = label + select)
+.mat-mdc-paginator-page-size {
+  margin: 0;
+  margin-right: 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 2.125rem;
+}
+
+// Rango "1-10 de 100" con gap respecto a vecinos (heredado del container)
+// Flecha derecha: 0.5rem padding a la derecha
+.mat-mdc-paginator-navigation-next {
+  padding-right: 0.5rem;
+}
+
+// Selector de número de páginas: sin bordes ni padding
+.mat-mdc-paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field {
+  border-radius: 0;
+  border: none !important;
+  padding: 0;
+
+  .mdc-notched-outline,
+  .mdc-notched-outline .mat-mdc-notch-piece,
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  .mat-mdc-form-field-focus-overlay {
+    border-radius: 0;
+  }
+
+  .mat-mdc-form-field-flex,
+  .mat-mdc-form-field-subscript-wrapper {
+    padding: 0 !important;
+    border: none !important;
+    border-bottom: none !important;
+  }
+}
+
+.mat-mdc-paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-trigger,
+.mat-mdc-paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-value {
+  padding: 0 !important;
+  border: none !important;
+  border-bottom: none !important;
+}
+
+// Icono del select: sin padding, solo border-bottom del bloque; chevron custom (Figma)
+.mat-mdc-paginator .mat-mdc-select-arrow-wrapper {
+  padding: 0 !important;
+}
+
+.mat-mdc-paginator .mat-mdc-select-arrow svg {
+  display: none;
+}
+
+.mat-mdc-paginator .mat-mdc-select-arrow {
+  width: 22px;
+  height: 24px;
+  padding: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 24' fill='none'%3E%3Cpath d='M12 15.4L6 9.4L7.4 8L12 12.6L16.6 8L18 9.4L12 15.4Z' fill='%23181C1E'/%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+}
+
+// Scrollbar del cuerpo de la tabla: mismo fondo para vertical, horizontal y esquina
+.shared-table__body-wrap {
+  --scrollbar-track-bg: #F3F4F6;
+}
+
+.shared-table__body-wrap::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: var(--scrollbar-track-bg);
+}
+
+.shared-table__body-wrap::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-bg);
+}
+
+.shared-table__body-wrap::-webkit-scrollbar-corner {
+  background-color: var(--scrollbar-track-bg);
+}
+
+.shared-table__body-wrap::-webkit-scrollbar-thumb {
+  background-color: #6A7282;
+  border-radius: 6.25rem;
+}
+
+.shared-table__body-wrap::-webkit-scrollbar-button {
+  display: none;
+}
+
+.mat-mdc-table,
+.mdc-data-table__table {
+  border-radius: inherit;
+}
+
+.mdc-data-table__table {
+  border-collapse: separate;
+  border-spacing: 0;
+}

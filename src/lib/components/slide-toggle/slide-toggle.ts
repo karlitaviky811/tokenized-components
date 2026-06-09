@@ -1,0 +1,18 @@
+import { Component, input, output } from '@angular/core';
+import { MatSlideToggleModule, MatSlideToggleChange } from '@angular/material/slide-toggle';
+
+@Component({
+  selector: 'lib-slide-toggle, slide-toggle',
+  standalone: true, 
+  imports: [MatSlideToggleModule],
+  templateUrl: './slide-toggle.html',
+  styleUrl: './slide-toggle.css',
+})
+export class SlideToggle {
+  checked = input(false);
+  checkedChange = output<boolean>();
+
+  onChange(event: MatSlideToggleChange) {
+    this.checkedChange.emit(event.checked);
+  }
+}

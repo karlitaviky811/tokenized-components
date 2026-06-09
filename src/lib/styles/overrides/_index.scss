@@ -1,0 +1,11 @@
+/// Índice de overrides de Angular Material (M3).
+/// Referencia: global-material-theme.scss importa cada override directamente (no usa este índice).
+/// Mantener en sync con global-material-theme por si algo hace @use 'overrides'.
+@forward 'mat-slide-toggle-overrides';
+@forward 'mat-tabs-overrides';
+@forward 'mat-form-field-overrides';
+@forward 'mat-icon-button-overrides';
+@forward 'mat-list-overrides';
+@forward 'mat-checkbox-overrides';
+@forward 'mat-button-overrides';
+@forward 'mat-table-overrides';

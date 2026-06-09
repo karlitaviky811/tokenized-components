@@ -1,0 +1,79 @@
+<div
+  class="ui-list-item__container"
+  [style.width]="width() ?? '100%'"
+  [style.min-width]="width() ?? null"
+  [style.--lib-list-item-background]="backgroundColor() ?? null"
+>
+  @if (headerTemplate()) {
+  <div class="ui-list-item__header">
+    <ng-container [ngTemplateOutlet]="headerTemplate()!" />
+  </div>
+}
+<mat-list role="list">
+  @for (item of items(); track trackById($index, item)) {
+    <mat-list-item
+      role="listitem"
+      class="ui-list-option"
+      [class.ui-list-item--disabled]="item.disabled ?? false"
+      [class.ui-list-item--selected]="showCheckbox() && isItemSelected(item)"
+      [class.ui-list-item--with-divider]="showDividers()"
+      [disableRipple]="true"
+      (click)="onRowClick(item, $event)"
+    >
+      @if (itemTemplate()) {
+        <ng-container [ngTemplateOutlet]="itemTemplate()!" [ngTemplateOutletContext]="{ $implicit: item }" />
+      } @else {
+        <div class="ui-list-item" [class.ui-list-item--with-divider]="showDividers()">
+          <span class="ui-list-item__state-layer"></span>
+
+          @if (showCheckbox() && checkboxPosition() === 'leading') {
+            <span class="ui-list-item__leading ui-list-item__leading--checkbox">
+              <mat-checkbox
+                [checked]="isItemSelected(item)"
+                [disabled]="item.disabled ?? disabled()"
+                (change)="onCheckboxChange(item, $event.checked)"
+                (click)="$event.stopPropagation()"
+              />
+            </span>
+          }
+
+          @if (showAvatar() && !showCheckbox()) {
+            <span class="ui-list-item__leading">
+              @if (item.avatarImage) {
+                <img
+                  class="ui-list-item__avatar-image"
+                  [src]="item.avatarImage"
+                  [attr.alt]="item.avatarAlt || item.label"
+                  loading="lazy"
+                />
+              } @else {
+                <span class="ui-list-item__avatar-text" aria-hidden="true">
+                  {{ avatarInitial(item) }}
+                </span>
+              }
+            </span>
+          }
+
+          <span class="ui-list-item__content">
+            <span class="ui-list-item__label">{{ item.label }}</span>
+            @if (item.description) {
+              <span class="ui-list-item__description">{{ item.description }}</span>
+            }
+          </span>
+
+          @if (showCheckbox() && checkboxPosition() === 'trailing') {
+            <span class="ui-list-item__trailing ui-list-item__trailing--checkbox">
+              <lib-checkbox
+                [checked]="isItemSelected(item)"
+                [disabled]="item.disabled ?? disabled()"
+                (checkedChange)="onCheckboxChange(item, $event)"
+                (click)="$event.stopPropagation()"
+              />
+            </span>
+          }
+        </div>
+      }
+    </mat-list-item>
+  }
+</mat-list>
+</div>

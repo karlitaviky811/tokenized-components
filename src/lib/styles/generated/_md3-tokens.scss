@@ -1,0 +1,179 @@
+/*
+ * Auto-generado: node shared/lib-ui/scripts/generate-tokens-resolved.cjs
+ * M3 bridge: mapea tokens de Material 3 a las variables resueltas de tokens-by-component.
+ * --pallete-scheme-*  → _tokens-pallete-scheme.scss
+ * --typescale-*       → _tokens-typescale.scss
+ * --shape-*           → _tokens-shape.scss
+ * --elevation-*       → _tokens-elevation.scss
+ */
+
+:root {
+  /* --- Sys Colors (Material 3) --- */
+  --md-sys-color-primary: var(--pallete-scheme-primary-primary);
+  --md-sys-color-on-primary: var(--pallete-scheme-primary-on-primary);
+  --md-sys-color-primary-container: var(--pallete-scheme-primary-primary-container);
+  --md-sys-color-on-primary-container: var(--pallete-scheme-primary-on-primary-container);
+  --md-sys-color-inverse-primary: var(--pallete-scheme-primary-inverse-primary);
+
+  --md-sys-color-secondary: var(--pallete-scheme-secondary-secondary);
+  --md-sys-color-on-secondary: var(--pallete-scheme-secondary-on-secondary);
+  --md-sys-color-secondary-container: var(--pallete-scheme-secondary-secondary-container);
+  --md-sys-color-on-secondary-container: var(--pallete-scheme-secondary-on-secondary-container);
+
+  --md-sys-color-tertiary: var(--pallete-scheme-tertiary-tertiary);
+  --md-sys-color-on-tertiary: var(--pallete-scheme-tertiary-on-tertiary);
+  --md-sys-color-tertiary-container: var(--pallete-scheme-tertiary-tertiary-container);
+  --md-sys-color-on-tertiary-container: var(--pallete-scheme-tertiary-on-tertiary-container);
+
+  --md-sys-color-error: var(--pallete-scheme-error-error);
+  --md-sys-color-on-error: var(--pallete-scheme-error-on-error);
+  --md-sys-color-error-container: var(--pallete-scheme-error-error-container);
+  --md-sys-color-on-error-container: var(--pallete-scheme-error-on-error-container);
+
+  --md-sys-color-surface: var(--pallete-scheme-primary-on-primary);
+  --md-sys-color-surface-dim: var(--pallete-scheme-surface-surface-dim);
+  --md-sys-color-surface-bright: var(--pallete-scheme-surface-surface-bright);
+  --md-sys-color-surface-container-lowest: var(--pallete-scheme-surface-surface-container-lowest);
+  --md-sys-color-surface-container-low: var(--pallete-scheme-surface-surface-container-low);
+  --md-sys-color-surface-container: var(--pallete-scheme-surface-surface-container);
+  --md-sys-color-surface-container-high: var(--pallete-scheme-surface-surface-container-high);
+  --md-sys-color-surface-container-highest: var(--pallete-scheme-surface-surface-container-highest);
+  --md-sys-color-on-surface: var(--pallete-scheme-surface-on-surface);
+  --md-sys-color-on-surface-variant: var(--pallete-scheme-surface-on-surface-variant);
+  --md-sys-color-outline: var(--pallete-scheme-surface-outline);
+  --md-sys-color-outline-variant: var(--pallete-scheme-surface-outline-variant);
+  --md-sys-color-scrim: var(--pallete-scheme-surface-scrim);
+  --md-sys-color-shadow: var(--pallete-scheme-surface-shadow);
+  --md-sys-color-inverse-surface: var(--pallete-scheme-surface-inverse-surface);
+  --md-sys-color-inverse-on-surface: var(--pallete-scheme-surface-inverse-on-surface);
+  --md-sys-color-surface-tint: var(--pallete-scheme-primary-primary);
+
+  /* --- Custom semantic colors (no estándar M3) --- */
+  --app-color-warning: var(--pallete-scheme-warning-warning);
+  --app-color-on-warning: var(--pallete-scheme-warning-on-warning);
+  --app-color-warning-container: var(--pallete-scheme-warning-warning-container);
+  --app-color-on-warning-container: var(--pallete-scheme-warning-on-warning-container);
+
+  --app-color-success: var(--pallete-scheme-success-success);
+  --app-color-on-success: var(--pallete-scheme-success-on-success);
+  --app-color-success-container: var(--pallete-scheme-success-success-container);
+  --app-color-on-success-container: var(--pallete-scheme-success-on-success-container);
+
+  --app-color-information: var(--pallete-scheme-information-information);
+  --app-color-on-information: var(--pallete-scheme-information-on-information);
+  --app-color-information-container: var(--pallete-scheme-information-information-container);
+  --app-color-on-information-container: var(--pallete-scheme-information-on-information-container);
+
+  --app-color-link: var(--pallete-scheme-link-link);
+  --app-color-on-link: var(--pallete-scheme-link-on-link);
+  --app-color-link-container: var(--pallete-scheme-link-link-container);
+  --app-color-on-link-container: var(--pallete-scheme-link-on-link-container);
+
+  /* --- Sys Typography (Material 3) --- */
+  --md-sys-typescale-display-large-font: var(--typescale-display-large-font);
+  --md-sys-typescale-display-large-weight: var(--typescale-display-large-weight);
+  --md-sys-typescale-display-large-size: var(--typescale-display-large-size);
+  --md-sys-typescale-display-large-line-height: calc(var(--typescale-display-large-line-height) * 1px);
+  --md-sys-typescale-display-large-tracking: var(--typescale-display-large-tracking);
+
+  --md-sys-typescale-display-medium-font: var(--typescale-display-medium-font);
+  --md-sys-typescale-display-medium-weight: var(--typescale-display-medium-weight);
+  --md-sys-typescale-display-medium-size: var(--typescale-display-medium-size);
+  --md-sys-typescale-display-medium-line-height: calc(var(--typescale-display-medium-line-height) * 1px);
+  --md-sys-typescale-display-medium-tracking: var(--typescale-display-medium-tracking);
+
+  --md-sys-typescale-display-small-font: var(--typescale-display-small-font);
+  --md-sys-typescale-display-small-weight: var(--typescale-display-small-weight);
+  --md-sys-typescale-display-small-size: var(--typescale-display-small-size);
+  --md-sys-typescale-display-small-line-height: calc(var(--typescale-display-small-line-height) * 1px);
+  --md-sys-typescale-display-small-tracking: var(--typescale-display-small-tracking);
+
+  --md-sys-typescale-headline-large-font: var(--typescale-headline-large-font);
+  --md-sys-typescale-headline-large-weight: var(--typescale-headline-large-weight);
+  --md-sys-typescale-headline-large-size: var(--typescale-headline-large-size);
+  --md-sys-typescale-headline-large-line-height: calc(var(--typescale-headline-large-line-height) * 1px);
+  --md-sys-typescale-headline-large-tracking: var(--typescale-headline-large-tracking);
+
+  --md-sys-typescale-headline-medium-font: var(--typescale-headline-medium-font);
+  --md-sys-typescale-headline-medium-weight: var(--typescale-headline-medium-weight);
+  --md-sys-typescale-headline-medium-size: var(--typescale-headline-medium-size);
+  --md-sys-typescale-headline-medium-line-height: calc(var(--typescale-headline-medium-line-height) * 1px);
+  --md-sys-typescale-headline-medium-tracking: var(--typescale-headline-medium-tracking);
+
+  --md-sys-typescale-headline-small-font: var(--typescale-headline-small-font);
+  --md-sys-typescale-headline-small-weight: var(--typescale-headline-small-weight);
+  --md-sys-typescale-headline-small-size: var(--typescale-headline-small-size);
+  --md-sys-typescale-headline-small-line-height: calc(var(--typescale-headline-small-line-height) * 1px);
+  --md-sys-typescale-headline-small-tracking: var(--typescale-headline-small-tracking);
+
+  --md-sys-typescale-title-large-font: var(--typescale-title-large-font);
+  --md-sys-typescale-title-large-weight: var(--typescale-title-large-weight);
+  --md-sys-typescale-title-large-size: var(--typescale-title-large-size);
+  --md-sys-typescale-title-large-line-height: calc(var(--typescale-title-large-line-height) * 1px);
+  --md-sys-typescale-title-large-tracking: var(--typescale-title-large-tracking);
+
+  --md-sys-typescale-title-medium-font: var(--typescale-title-medium-font);
+  --md-sys-typescale-title-medium-weight: var(--typescale-title-medium-weight);
+  --md-sys-typescale-title-medium-size: var(--typescale-title-medium-size);
+  --md-sys-typescale-title-medium-line-height: calc(var(--typescale-title-medium-line-height) * 1px);
+  --md-sys-typescale-title-medium-tracking: var(--typescale-title-medium-tracking);
+
+  --md-sys-typescale-title-small-font: var(--typescale-title-small-font);
+  --md-sys-typescale-title-small-weight: var(--typescale-title-small-weight);
+  --md-sys-typescale-title-small-size: var(--typescale-title-small-size);
+  --md-sys-typescale-title-small-line-height: calc(var(--typescale-title-small-line-height) * 1px);
+  --md-sys-typescale-title-small-tracking: var(--typescale-title-small-tracking);
+
+  --md-sys-typescale-label-large-font: var(--typescale-label-large-font);
+  --md-sys-typescale-label-large-weight: var(--typescale-label-large-weight);
+  --md-sys-typescale-label-large-size: var(--typescale-label-large-size);
+  --md-sys-typescale-label-large-line-height: calc(var(--typescale-label-large-line-height) * 1px);
+  --md-sys-typescale-label-large-tracking: var(--typescale-label-large-tracking);
+
+  --md-sys-typescale-label-medium-font: var(--typescale-label-medium-font);
+  --md-sys-typescale-label-medium-weight: var(--typescale-label-medium-weight);
+  --md-sys-typescale-label-medium-size: var(--typescale-label-medium-size);
+  --md-sys-typescale-label-medium-line-height: calc(var(--typescale-label-medium-line-height) * 1px);
+  --md-sys-typescale-label-medium-tracking: var(--typescale-label-medium-tracking);
+
+  --md-sys-typescale-label-small-font: var(--typescale-label-small-font);
+  --md-sys-typescale-label-small-weight: var(--typescale-label-small-weight);
+  --md-sys-typescale-label-small-size: var(--typescale-label-small-size);
+  --md-sys-typescale-label-small-line-height: calc(var(--typescale-label-small-line-height) * 1px);
+  --md-sys-typescale-label-small-tracking: var(--typescale-label-small-tracking);
+
+  --md-sys-typescale-body-large-font: var(--typescale-body-large-font);
+  --md-sys-typescale-body-large-weight: var(--typescale-body-large-weight);
+  --md-sys-typescale-body-large-size: var(--typescale-body-large-size);
+  --md-sys-typescale-body-large-line-height: calc(var(--typescale-body-large-line-height) * 1px);
+  --md-sys-typescale-body-large-tracking: var(--typescale-body-large-tracking);
+
+  --md-sys-typescale-body-medium-font: var(--typescale-body-medium-font);
+  --md-sys-typescale-body-medium-weight: var(--typescale-body-medium-weight);
+  --md-sys-typescale-body-medium-size: var(--typescale-body-medium-size);
+  --md-sys-typescale-body-medium-line-height: calc(var(--typescale-body-medium-line-height) * 1px);
+  --md-sys-typescale-body-medium-tracking: var(--typescale-body-medium-tracking);
+
+  --md-sys-typescale-body-small-font: var(--typescale-body-small-font);
+  --md-sys-typescale-body-small-weight: var(--typescale-body-small-weight);
+  --md-sys-typescale-body-small-size: var(--typescale-body-small-size);
+  --md-sys-typescale-body-small-line-height: calc(var(--typescale-body-small-line-height) * 1px);
+  --md-sys-typescale-body-small-tracking: var(--typescale-body-small-tracking);
+
+  /* --- Sys Shape --- */
+  --md-sys-shape-corner-none: calc(var(--shape-none) * 1px);
+  --md-sys-shape-corner-extra-small: calc(var(--shape-extra-small) * 1px);
+  --md-sys-shape-corner-small: calc(var(--shape-small) * 1px);
+  --md-sys-shape-corner-medium: calc(var(--shape-medium) * 1px);
+  --md-sys-shape-corner-large: calc(var(--shape-large) * 1px);
+  --md-sys-shape-corner-extra-large: calc(var(--shape-extra-large) * 1px);
+  --md-sys-shape-corner-full: calc(var(--shape-full) * 1px);
+
+  /* --- Sys Elevation --- */
+  --md-sys-elevation-level0: var(--elevation-0);
+  --md-sys-elevation-level1: var(--elevation-1);
+  --md-sys-elevation-level2: var(--elevation-2);
+  --md-sys-elevation-level3: var(--elevation-3);
+  --md-sys-elevation-level4: var(--elevation-4);
+  --md-sys-elevation-level5: var(--elevation-5);
+}

@@ -1,0 +1,9 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep .lib-spinner {
+  --mdc-circular-progress-active-indicator-color: var(--lib-spinner-color, var(--Rojo-400, #e30613));
+}

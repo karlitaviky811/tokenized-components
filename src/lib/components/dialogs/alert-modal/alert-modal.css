@@ -1,0 +1,118 @@
+.container {
+    --color: #FFFFFF;
+    --message-color: #3E3E3E;
+    --message-font-size: 32px;
+    --message-font-weight: 700;
+
+    background-color: var(--color);
+    padding: 40px 48px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+}
+
+.container .message {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    white-space: pre-line;
+}
+
+.container .message mat-icon {
+    display: flex;
+    font-size: 90px;
+    width: 90px;
+    height: 90px;
+    color: red;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .extraBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.container .extraBlock.left {
+    align-items: flex-start;
+}
+
+.container .extraBlock.center {
+    align-items: center;
+}
+
+.container .extraBlock-content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    color: var(--message-color);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    gap: 8px;
+}
+
+.container .extraBlock-content.left {
+    justify-content: start;
+    padding-left: 16px;
+}
+
+.container .extraBlock-content.center {
+    justify-content: center;
+}
+
+.container .extra-block .word {
+    white-space: nowrap;
+}
+
+.container .extraBlock-content .separator {
+    color: #D2D2D2;
+}
+
+.container .title {
+    color: var(--message-color);
+    text-align: center;
+    font-size: var(--message-font-size);
+    font-style: normal;
+    font-weight: var(--message-font-weight);
+    line-height: normal;
+}
+
+.container .subtitle {
+    color: var(--message-color);
+    font-style: normal;
+    font-weight: var(--message-font-weight);
+    line-height: normal;
+}
+
+.container .content {
+    width: 712px;
+    color: var(--message-color);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.container .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+}
+
+.container .actions button {
+    width: 120px;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 16px;
+}

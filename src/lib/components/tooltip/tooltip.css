@@ -1,0 +1,32 @@
+:host.ui-tooltip-host {
+  display: inline-flex;
+}
+
+.ui-tooltip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 4px 8px;
+  border-radius: calc(var(--tooltips-plain-enabled-container-plain-tooltip-container-shape, 4) * 1px);
+  background: var(--tooltips-plain-enabled-container-plain-tooltip-container-color, #2d3133);
+  box-sizing: border-box;
+}
+
+.ui-tooltip__text {
+  color: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-color, #eef1f3);
+  font-family: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-font, 'Heebo'), sans-serif;
+  font-size: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-size, 12px);
+  font-style: normal;
+  font-weight: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-weight, 400);
+  line-height: calc(var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-line-height, 16) * 1px);
+  letter-spacing: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-tracking, 0.4px);
+}
+
+.ui-tooltip--single-line .ui-tooltip__text {
+  white-space: nowrap;
+}
+
+.ui-tooltip--multi-line .ui-tooltip__text {
+  white-space: normal;
+}

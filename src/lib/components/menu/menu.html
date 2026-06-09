@@ -1,0 +1,57 @@
+<div class="lib-menu">
+  <button
+    mat-button
+    class="lib-menu__trigger"
+    [matMenuTriggerFor]="menu"
+    [disabled]="disabled() || disabledByControl()"
+    type="button"
+  >
+    <span class="lib-menu__trigger-label">
+      {{ label() || '' }}
+    </span>
+    <span class="lib-menu__trigger-value">
+      {{ triggerLabel() }}
+    </span>
+    <mat-icon class="lib-menu__trigger-icon">
+      {{ panelOpen() ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+    </mat-icon>
+  </button>
+
+  <mat-menu
+    #menu="matMenu"
+    class="lib-menu__panel"
+    (menuOpened)="onMenuOpened()"
+    (menuClosed)="onMenuClosed()"
+  >
+    @if (filterable()) {
+    <div class="lib-menu__filter">
+      <mat-form-field appearance="outline" class="lib-menu__filter-field">
+        <mat-label>Buscar</mat-label>
+        <input
+          matInput
+          type="text"
+          (input)="onFilterInput($event)"
+        />
+      </mat-form-field>
+    </div>
+    }
+
+    @for (opt of filteredOptions(); track opt.value) {
+    @if (isMultiple()) {
+    <button mat-menu-item (click)="onOptionClick(opt, $event)">
+      <mat-checkbox
+        [checked]="isSelected(opt.value)"
+        (click)="$event.stopPropagation()"
+      >
+        {{ opt.label }}
+      </mat-checkbox>
+    </button>
+    } @else {
+    <button mat-menu-item (click)="onOptionClick(opt, $event)">
+      <span>{{ opt.label }}</span>
+    </button>
+    }
+    }
+  </mat-menu>
+</div>
+

@@ -1,0 +1,30 @@
+<div class="container" [@dialogAnimation]="dialogState()" (@dialogAnimation.done)="onAnimationDone($event)">
+  <header class="side-modal__header">
+    <div style="display: flex; align-items: center;">
+      @if (shouldShowBack()) {
+        <button type="button" class="side-modal__icon-btn" (click)="onBackClick()" aria-label="Volver">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M14 6H3.83L8.41 1.41L7 0L0 7L7 14L8.41 12.59L3.83 8H14V6Z" fill="#434749" />
+          </svg>
+        </button>
+      }
+      <h4 class="title">{{title}}</h4>
+    </div>
+
+    <button type="button" class="side-modal__icon-btn" (click)="closeDialog()" aria-label="Cerrar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z"
+          fill="#434749" />
+      </svg>
+    </button>
+  </header>
+
+  <main class="side-modal__content container-content app-scrollbar-figma">
+    <ng-container *ngComponentOutlet="content"></ng-container>
+  </main>
+  @if (footer) {
+    <footer class="side-modal__footer">
+      <ng-container *ngComponentOutlet="footer"></ng-container>
+    </footer>
+  }
+</div>

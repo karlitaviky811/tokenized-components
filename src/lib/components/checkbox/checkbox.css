@@ -1,0 +1,10 @@
+/* Wrapper del mat-checkbox; solo ripple nativo de Material */
+.lib-checkbox__wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.lib-checkbox__wrapper .mat-mdc-checkbox {
+  position: relative;
+  z-index: 1;
+}

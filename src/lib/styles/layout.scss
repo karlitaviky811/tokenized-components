@@ -1,0 +1,29 @@
+/// Layout global: solo variables en :root.
+/// El grid del shell (section.container, .main-content) lo define cada app (ej. layout-shell.scss).
+/// Evita duplicar/conflictos con el layout del host.
+:root {
+  --header-height: calc(var(--bars-size-small-app-bar-small-container-height, 64) * 1px);
+  // Opcional: altura lista/tabla como calc(100vh - header - cabecera lista - offset). Ej.: height: calc(100vh - var(--list-area-offset));
+  --list-area-offset: 259px; // 80 + 72 + 107 (header, cabecera, contenido)
+}
+
+.lib-confirm-modal-backdrop.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.import-massive-modal-backdrop.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.lib-side-modal-backdrop.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Keep confirm dialogs centered even when opened from right side sheets. */
+.lib-confirm-modal-panel.cdk-overlay-pane {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+}

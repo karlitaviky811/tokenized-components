@@ -1,0 +1,14 @@
+// Compatibilidad: misma apariencia que .app-text-title (tokens app).
+.app-typography-headline-medium {
+  color: var(--pallete-scheme-surface-on-surface, #181C1E);
+
+  /* Headline/medium-emphasized */
+  font-family: var(--typescale-Headline-medium-Font, Heebo);
+  font-size: var(--typescale-Headline-medium-Size, 1.75rem);
+  font-style: normal;
+  font-weight: var(--typescale-Headline-medium-Weight-emphasized, 500);
+  line-height: var(--typescale-Headline-medium-Line-Height, 2.25rem); /* 128.571% */
+  letter-spacing: var(--typescale-Headline-medium-Tracking, 0);
+}
+
+

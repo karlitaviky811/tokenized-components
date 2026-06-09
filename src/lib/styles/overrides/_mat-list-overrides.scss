@@ -1,0 +1,59 @@
+@use '@angular/material' as mat;
+
+/// List overrides (M3). Tokens: _app-tokens (lists-wip-common).
+html {
+  @include mat.list-overrides((
+    active-indicator-shape: calc(var(--app-lists-wip-common-shape-list-list-item-selected-container-shape) * 1px),
+    list-item-container-shape: calc(var(--app-lists-wip-common-shape-list-list-item-container-shape) * 1px),
+    list-item-disabled-label-text-color: var(--app-lists-wip-common-color-disabled-list-list-item-disabled-label-text-color),
+    list-item-disabled-label-text-opacity: calc(var(--app-lists-wip-common-color-disabled-list-list-item-disabled-label-text-opacity) / 100),
+    list-item-disabled-leading-icon-color: var(--app-lists-wip-common-color-disabled-list-list-item-disabled-leading-icon-color),
+    list-item-disabled-leading-icon-opacity: calc(var(--app-lists-wip-common-color-disabled-list-list-item-disabled-leading-icon-opacity) / 100),
+    list-item-disabled-state-layer-color: var(--app-lists-wip-common-color-disabled-list-list-item-disabled-state-layer-color),
+    list-item-disabled-state-layer-opacity: calc(var(--app-lists-wip-common-color-disabled-list-list-item-disabled-state-layer-opacity) / 100),
+    list-item-disabled-trailing-icon-color: var(--app-lists-wip-common-color-disabled-list-list-item-disabled-trailing-icon-color),
+    list-item-disabled-trailing-icon-opacity: calc(var(--app-lists-wip-common-color-disabled-list-list-item-disabled-trailing-icon-opacity) / 100),
+    list-item-focus-label-text-color: var(--app-lists-wip-common-color-focused-list-list-item-focus-label-text-color),
+    list-item-focus-state-layer-color: var(--app-lists-wip-common-color-focused-list-list-item-focus-state-layer-color),
+    list-item-focus-state-layer-opacity: calc(var(--app-lists-wip-common-color-focused-list-list-item-focus-state-layer-opacity) / 100),
+    list-item-hover-label-text-color: var(--app-lists-wip-common-color-hovered-list-list-item-hover-label-text-color),
+    list-item-label-text-color: var(--app-lists-wip-common-color-enabled-list-list-item-label-text-color),
+    list-item-leading-avatar-color: var(--app-lists-wip-common-color-enabled-list-list-item-leading-avatar-color),
+    list-item-leading-avatar-shape: 50%,
+    list-item-leading-avatar-size: calc(var(--app-lists-wip-common-typography-list-list-item-leading-avatar-size) * 1px),
+    list-item-leading-icon-color: var(--app-lists-wip-common-color-enabled-list-list-item-leading-icon-color),
+    list-item-leading-icon-size: calc(var(--app-lists-wip-common-typography-list-list-item-leading-icon-size) * 1px),
+    list-item-selected-trailing-icon-color: var(--app-lists-wip-common-color-enabled-selected-list-list-item-selected-trailing-icon-color),
+    list-item-supporting-text-color: var(--app-lists-wip-common-color-enabled-list-list-item-supporting-text-color),
+    list-item-trailing-icon-color: var(--app-lists-wip-common-color-enabled-list-list-item-trailing-icon-color),
+    list-item-trailing-icon-size: calc(var(--app-lists-wip-common-typography-list-list-item-trailing-icon-size) * 1px),
+    list-item-trailing-supporting-text-color: var(--app-lists-wip-common-color-enabled-list-list-item-trailing-supporting-text-color),
+    list-item-selected-container-color: var(--app-lists-wip-common-color-enabled-selected-list-list-item-selected-container-color),
+    list-item-hover-leading-icon-color: var(--app-lists-wip-common-color-hovered-list-list-item-hover-leading-icon-color),
+    list-item-hover-trailing-icon-color: var(--app-lists-wip-common-color-hovered-list-list-item-hover-trailing-icon-color),
+    list-item-label-text-font: var(--app-lists-wip-common-typography-list-list-item-label-text-font, 'Heebo'),
+    list-item-label-text-line-height: calc(var(--app-lists-wip-common-typography-list-list-item-label-text-line-height) * 1px),
+    list-item-label-text-size: calc(var(--app-lists-wip-common-typography-list-list-item-label-text-size) * 1px),
+    list-item-label-text-tracking: var(--app-lists-wip-common-typography-list-list-item-label-text-tracking),
+    list-item-label-text-weight: var(--app-lists-wip-common-typography-list-list-item-label-text-weight),
+    list-item-supporting-text-font: var(--app-lists-wip-common-typography-list-list-item-supporting-text-font, 'Heebo'),
+    list-item-supporting-text-line-height: calc(var(--app-lists-wip-common-typography-list-list-item-supporting-text-line-height) * 1px),
+    list-item-supporting-text-size: calc(var(--app-lists-wip-common-typography-list-list-item-supporting-text-size) * 1px),
+    list-item-supporting-text-tracking: var(--app-lists-wip-common-typography-list-list-item-supporting-text-tracking),
+    list-item-supporting-text-weight: var(--app-lists-wip-common-typography-list-list-item-supporting-text-weight),
+    list-item-trailing-supporting-text-font: var(--app-lists-wip-common-typography-list-list-item-trailing-supporting-text-font, 'Heebo'),
+    list-item-trailing-supporting-text-line-height: calc(var(--app-lists-wip-common-typography-list-list-item-trailing-supporting-text-line-height) * 1px),
+    list-item-trailing-supporting-text-size: calc(var(--app-lists-wip-common-typography-list-list-item-trailing-supporting-text-size) * 1px),
+    list-item-trailing-supporting-text-tracking: var(--app-lists-wip-common-typography-list-list-item-trailing-supporting-text-tracking),
+    list-item-trailing-supporting-text-weight: var(--app-lists-wip-common-typography-list-list-item-trailing-supporting-text-weight),
+    list-item-leading-icon-start-space: calc(var(--app-lists-wip-common-spacing-list-list-item-leading-space) * 1px),
+    list-item-leading-icon-end-space: calc(var(--app-lists-wip-common-spacing-list-list-item-between-space) * 1px),
+    list-item-one-line-container-height: calc(var(--app-lists-wip-common-typography-one-line-list-item-container-height) * 1px),
+    list-item-two-line-container-height: calc(var(--app-lists-wip-common-typography-two-lines-list-item-container-height) * 1px),
+    list-item-three-line-container-height: calc(var(--app-lists-wip-common-typography-three-lines-list-item-container-height) * 1px),
+  ));
+}
+
+.mdc-list-item:hover {
+  background-color: #fff !important;
+}

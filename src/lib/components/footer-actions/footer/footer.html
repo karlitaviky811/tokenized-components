@@ -1,0 +1,14 @@
+<lib-modal-footer-actions>
+  <lib-button
+    variant="outlined"
+    size="small"
+    [label]="'Cancelar' | translate"
+    (click)="onCancel()"
+  />
+  <lib-button
+    variant="filled"
+    size="small"
+    [label]="primaryLabel() | translate"
+    (click)="onContinue()"
+  />
+</lib-modal-footer-actions>

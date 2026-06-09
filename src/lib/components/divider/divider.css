@@ -1,0 +1,24 @@
+/* Host como flex para que el divisor vertical (align-self: stretch) tome la altura del padre. */
+:host {
+  display: flex;
+  align-items: stretch;
+}
+
+.ui-divider {
+  flex-shrink: 0;
+  background: var(--divider-enabled-container-divider-color, #c3c7c9);
+}
+
+.ui-divider--horizontal {
+  width: 100%;
+  height: var(--divider-enabled-container-divider-thickness, 0.0625rem);
+  min-height: 0.0625rem;
+}
+
+.ui-divider--vertical {
+  width: var(--divider-enabled-container-divider-thickness, 0.0625rem);
+  min-width: 0.0625rem;
+  align-self: stretch;
+  /* Permite que stretch funcione en contenedores flex con min-height */
+  min-height: 0;
+}

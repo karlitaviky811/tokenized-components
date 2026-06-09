@@ -1,0 +1,89 @@
+@property --progress {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.progressbar[role="progressbar"] {
+  --size: 64px;
+  --bar-width: 10px;
+  --color-bar-progress: #0BC626;
+  --shadow-color-bar-progress: #F0F0F0;
+
+  width: var(--size);
+  aspect-ratio: 1 / 1;
+  position: relative;
+  background: conic-gradient(
+    var(--color-bar-progress),
+    var(--color-bar-progress) var(--progress),
+    var(--shadow-color-bar-progress) 0%
+  );
+  border-radius: 50vmax;
+  display: grid;
+  place-items: center;
+  transition: --progress 500ms linear;
+}
+
+.progressbar[role="progressbar"] > span {
+  display: none;
+}
+
+.progressbar[role="progressbar"]::after {
+  content: '';
+  background: white;
+  position: absolute;
+  inset: calc(var(--bar-width) / 2);
+  aspect-ratio: 1;
+  border-radius: inherit;
+  display: grid;
+  place-items: center;
+  z-index: 0;
+}
+
+.progressbar:not([role="progressbar"]) {
+  position: relative;
+  width: var(--size, 132px);
+  aspect-ratio: 1 / 1;
+  margin: 2rem auto;
+  display: grid;
+  place-items: center;
+  background:
+#f3f4f6;
+  border-radius: 50%;
+}
+
+.progressbar:not([role="progressbar"])::after {
+  display: none;
+}
+
+.progressbar:not([role="progressbar"]) span {
+  font-size: 1rem;
+  text-align: center;
+  color: #059669;
+  padding: 1rem;
+}
+
+
+.progress-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.progress-content .step-text {
+  font-size: 10px;
+  font-weight: 400;
+  color: #3E3E3E;
+}
+
+.progress-content .step-number {
+  font-size: 12px;
+  font-weight: 400;
+  color: #3E3E3E;
+}
+

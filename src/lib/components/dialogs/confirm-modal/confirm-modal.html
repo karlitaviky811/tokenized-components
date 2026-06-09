@@ -1,0 +1,60 @@
+<div
+  class="confirm-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="confirm-modal-title"
+  [attr.aria-describedby]="supportingText || isListVariant ? 'confirm-modal-desc' : null"
+>
+  <div class="confirm-modal__container">
+    @if (data.showTopIcon) {
+      <div class="confirm-modal__top-icon" aria-hidden="true">
+        <mat-icon>{{ topIconName }}</mat-icon>
+      </div>
+    }
+
+    <header class="confirm-modal__header">
+      <h2 id="confirm-modal-title" class="confirm-modal__title">{{ data.title }}</h2>
+      @if (supportingText) {
+        <p id="confirm-modal-desc" class="confirm-modal__reference">{{ supportingText }}</p>
+      }
+    </header>
+
+    @if (isListVariant) {
+      <div
+        class="confirm-modal__list"
+        [class.confirm-modal__list--scrollable]="isScrollableList"
+        [attr.id]="!supportingText ? 'confirm-modal-desc' : null"
+      >
+        @for (item of listItems(); track item.id) {
+          <button type="button" class="confirm-modal__list-item" (click)="toggleListItem(item.id)">
+            <mat-icon class="confirm-modal__list-item-leading-icon" aria-hidden="true">error_outline</mat-icon>
+            <span class="confirm-modal__list-item-label">{{ item.label }}</span>
+            @if (item.amount) {
+              <span class="confirm-modal__list-item-amount">{{ item.amount }}</span>
+            }
+            <mat-icon class="confirm-modal__list-item-check" aria-hidden="true">
+              {{ item.selected ? 'check_box' : 'check_box_outline_blank' }}
+            </mat-icon>
+          </button>
+        }
+      </div>
+    }
+
+    <div class="confirm-modal__actions">
+      <lib-button
+        type="button"
+        variant="text"
+        (click)="onCancel()"
+        [label]="labelButtonCancel"
+        contentAlign="center"
+      ></lib-button>
+      <lib-button
+        type="button"
+        variant="text"
+        (click)="onConfirm()"
+        [label]="data.labelButtonConfirm"
+        contentAlign="center"
+      ></lib-button>
+    </div>
+  </div>
+</div>

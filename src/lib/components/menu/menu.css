@@ -1,0 +1,39 @@
+.lib-menu {
+  display: inline-flex;
+}
+
+.lib-menu__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 12rem;
+  padding-inline: 0.75rem;
+  text-transform: none;
+}
+
+.lib-menu__trigger-label {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.lib-menu__trigger-value {
+  flex: 1;
+  text-align: left;
+}
+
+.lib-menu__trigger-icon {
+  font-size: 20px;
+}
+
+.lib-menu__filter {
+  padding: 0.5rem 1rem 0.25rem;
+}
+
+.lib-menu__filter-field {
+  width: 100%;
+}
+
+.lib-menu__panel {
+  max-width: 20rem;
+}

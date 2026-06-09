@@ -1,0 +1,69 @@
+@use '@angular/material' as mat;
+
+// Variables alias por componente (--buttons-wip-*, etc.) para overrides y componentes
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@include mat.core();
+
+// Reset y tipografía base
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Heebo', sans-serif;
+}
+
+@include mat.theme((
+  color: (
+    theme-type: light,
+    primary: mat.$blue-palette,
+    tertiary: mat.$blue-palette,
+  ),
+  typography: (
+    brand-family: 'Heebo',
+    plain-family: 'Heebo',
+  ),
+  density: 0,
+));
+
+@include mat.theme-overrides((
+  primary: var(--md-sys-color-secondary),
+  secondary: var(--md-sys-color-primary),
+  tertiary: var(--md-sys-color-tertiary),
+  error: var(--app-colors-rojo-primary-rojo-50),
+));
+
+// Tipografía común en componentes Material
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-unelevated-button,
+.mat-mdc-icon-button,
+.mat-mdc-fab,
+.mat-mdc-mini-fab,
+.mat-mdc-tab,
+.mat-mdc-tab-link,
+.mat-mdc-chip,
+.mat-mdc-form-field,
+.mat-mdc-form-field input,
+.mat-mdc-select,
+.mat-mdc-select-trigger,
+.mat-mdc-select-value,
+.mat-mdc-option,
+.mat-mdc-table,
+.mat-mdc-header-cell,
+.mat-mdc-cell,
+.mat-mdc-paginator,
+.mat-mdc-menu-item,
+.mat-mdc-tooltip,
+.mat-mdc-snack-bar-label,
+.mdc-list-item__primary-text,
+.mdc-button,
+.mdc-tab,
+.mdc-text-field,
+.mdc-select,
+.mdc-data-table,
+.mdc-menu-item {
+  font-family: var(--md-sys-typescale-body-medium-font, 'Heebo'), sans-serif;
+}
