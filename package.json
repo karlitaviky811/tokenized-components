@@ -1,33 +1,36 @@
 {
-  "name": "@tokens_variables_credix/tokenized-components",
-  "version": "1.0.0",
-  "description": "Credix shared UI component library",
-  "type": "module",
+  "name": "crdx-workspace",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "build": "ng-packagr -p ng-package.json",
-    "build:watch": "ng-packagr -p ng-package.json --watch"
+    "build:lib": "ng build crdx-components",
+    "build:demo": "ng build demo",
+    "start": "ng serve demo",
+    "build": "ng build crdx-components --configuration production",
+    "release": "npm run build && cd dist/crdx-components && npm publish"
   },
-  "peerDependencies": {
-    "@angular/animations": ">=21.0.0",
-    "@angular/cdk": ">=21.0.0",
-    "@angular/common": ">=21.0.0",
-    "@angular/core": ">=21.0.0",
-    "@angular/forms": ">=21.0.0",
-    "@angular/material": ">=21.0.0",
-    "@angular/platform-browser": ">=21.0.0",
-    "@angular/router": ">=21.0.0",
-    "@ngx-translate/core": ">=17.0.0",
-    "rxjs": ">=7.0.0"
+  "dependencies": {
+    "@angular/animations": "~21.0.0",
+    "@angular/cdk": "~21.0.0",
+    "@angular/common": "~21.0.0",
+    "@angular/compiler": "~21.0.0",
+    "@angular/core": "~21.0.0",
+    "@angular/forms": "~21.0.0",
+    "@angular/material": "~21.0.0",
+    "@angular/platform-browser": "~21.0.0",
+    "@angular/platform-browser-dynamic": "~21.0.0",
+    "@angular/router": "~21.0.0",
+    "@ngx-translate/core": "~17.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular/compiler": "~21.0.0",
+    "@angular-devkit/build-angular": "~21.0.0",
+    "@angular/cli": "~21.0.0",
     "@angular/compiler-cli": "~21.0.0",
+    "@tokens_variables_credix/tokenized-styles": "^1.0.7",
     "ng-packagr": "~21.0.0",
-    "tslib": "^2.3.0",
     "typescript": "~5.9.2"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org",
-    "access": "public"
   }
 }

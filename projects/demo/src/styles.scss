@@ -1,0 +1,42 @@
+@use 'src/lib/styles/generated/app-tokens';
+@use 'src/lib/styles/generated/md3-tokens';
+@use 'src/lib/styles/index' as lib-styles;
+
+body {
+  margin: 0;
+  font-family: 'Heebo', sans-serif;
+  background: #fafafa;
+}
+
+.doc-page { max-width: 960px; }
+.doc-section { margin-bottom: 3rem; }
+.doc-section h2 { margin-bottom: 0.25rem; }
+.doc-section h2 code { font-size: 0.8em; color: #666; font-weight: 400; }
+.doc-section h3 { margin: 1rem 0 0.5rem; font-size: 0.95rem; color: #444; }
+.doc-section p { color: #555; margin: 0.25rem 0 1rem; }
+.variant-row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.75rem; }
+
+.api-table {
+  width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1rem;
+}
+.api-table th, .api-table td {
+  border: 1px solid #e0e0e0; padding: 0.4rem 0.6rem; text-align: left;
+}
+.api-table th { background: #f5f5f5; font-weight: 500; }
+.api-table td:first-child { font-family: monospace; font-weight: 500; }
+
+pre {
+  background: #1e1e2e; color: #cdd6f4; padding: 1rem; border-radius: 8px;
+  overflow-x: auto; font-size: 0.82rem; line-height: 1.5;
+}
+
+
+
+.table-demo-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  //overflow: hidden;
+}

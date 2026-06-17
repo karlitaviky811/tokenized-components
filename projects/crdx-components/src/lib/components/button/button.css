@@ -1,0 +1,381 @@
+:host {
+  display: inline-block;
+}
+
+:host(.lib-mat-btn-host--full) {
+  display: block;
+  width: 100%;
+}
+
+
+.lib-mat-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.lib-mat-btn ::ng-deep .mdc-button__label {
+  overflow: visible !important;
+  position: static !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--lib-mat-btn-gap) !important;
+}
+
+.lib-mat-btn ::ng-deep .mdc-button__label > .mat-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  align-self: center !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
+
+.lib-mat-btn ::ng-deep .mdc-button__label > span {
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: var(--lib-mat-btn-line-height) !important;
+  vertical-align: middle !important;
+}
+
+.lib-mat-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 calc(var(--buttons-wip-button-enabled-button-focus-ring-outline-offset, 2) * 1px) var(--buttons-wip-button-enabled-button-focus-ring-indicator-color, #5b5f61),
+    0 0 0 calc((var(--buttons-wip-button-enabled-button-focus-ring-indicator-thickness, 3) + var(--buttons-wip-button-enabled-button-focus-ring-outline-offset, 2)) * 1px) var(--buttons-wip-button-enabled-button-focus-ring-indicator-color, #5b5f61);
+}
+
+.lib-mat-btn.lib-mat-btn--pressed:not([disabled]) {
+  border-radius: calc(var(--lib-mat-btn-pressed-radius, var(--buttons-wip-size-medium-button-medium-shape-pressed-morph, 8)) * 1px);
+}
+
+.lib-mat-btn.lib-mat-btn--debug-padding {
+  box-shadow:
+    inset var(--lib-mat-btn-padding-x) 0 0 0 rgba(255, 0, 0, 0.6),
+    inset calc(100% - var(--lib-mat-btn-padding-x-right) - 2px) 0 0 0 rgba(0, 100, 255, 0.6);
+}
+
+.lib-mat-btn__content {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lib-mat-btn-gap);
+}
+
+.lib-mat-btn--align-start .lib-mat-btn__content,
+.lib-mat-btn--align-center .lib-mat-btn__content,
+.lib-mat-btn--align-end .lib-mat-btn__content {
+  width: 100%;
+}
+
+.lib-mat-btn--align-start .lib-mat-btn__content {
+  justify-content: flex-start;
+}
+
+.lib-mat-btn--align-center .lib-mat-btn__content {
+  justify-content: center;
+}
+
+.lib-mat-btn--align-end .lib-mat-btn__content {
+  justify-content: flex-end;
+}
+
+:host .lib-mat-btn--align-start .mdc-button__label,
+:host ::ng-deep .lib-mat-btn--align-start .mdc-button__label {
+  width: 100% !important;
+  justify-content: flex-start !important;
+}
+
+:host .lib-mat-btn--align-center .mdc-button__label,
+:host ::ng-deep .lib-mat-btn--align-center .mdc-button__label {
+  width: 100% !important;
+  justify-content: center !important;
+}
+
+:host .lib-mat-btn--align-end .mdc-button__label,
+:host ::ng-deep .lib-mat-btn--align-end .mdc-button__label {
+  width: 100% !important;
+  justify-content: flex-end !important;
+}
+
+/* Variables base (medium) */
+.lib-mat-btn {
+  --lib-mat-btn-height: calc(var(--buttons-wip-size-medium-button-medium-container-height) * 1px);
+  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-medium-button-medium-leading-space) * 1px);
+  --lib-mat-btn-padding-x-right: calc(var(--buttons-wip-size-medium-button-medium-leading-space) * 1px);
+  --lib-mat-btn-gap: calc(var(--buttons-wip-size-medium-button-medium-between-icon-label-space) * 1px);
+  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-medium-button-medium-shape-round, 1000) * 1px);
+  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-medium-button-medium-shape-square, 12) * 1px);
+  --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
+  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-medium-button-medium-label-text-size) * 1px);
+  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-medium-button-medium-label-text-line-height) * 1px);
+  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-medium-button-medium-label-text-tracking) * 1px);
+  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-medium-button-medium-icon-size) * 1px);
+
+  min-height: var(--lib-mat-btn-height);
+  height: var(--lib-mat-btn-height);
+  padding-left: var(--lib-mat-btn-padding-x) !important;
+  padding-right: var(--lib-mat-btn-padding-x) !important;
+  color: var(--buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
+  font-family: var(--buttons-wip-size-medium-button-medium-label-text-font, Heebo);
+  font-size: var(--lib-mat-btn-font-size);
+  font-style: normal;
+  font-weight: var(--buttons-wip-size-medium-button-medium-label-text-weight, 500);
+  line-height: var(--lib-mat-btn-line-height);
+  letter-spacing: var(--lib-mat-btn-tracking);
+  border-radius: var(--lib-mat-btn-radius);
+}
+
+.lib-mat-btn--variant-outlined {
+  color: var(--buttons-wip-color-outlined-enabled-button-outlined-label-color, #434749) !important;
+}
+
+.lib-mat-btn--variant-outlined:focus-visible {
+  color: var(--buttons-wip-color-outlined-focused-button-outlined-focused-label-color, #434749) !important;
+}
+
+.lib-mat-btn--variant-outlined .lib-mat-btn__content,
+.lib-mat-btn--variant-outlined .mdc-button__label {
+  color: inherit !important;
+}
+
+.lib-mat-btn--variant-tonal {
+  background-color: var(--buttons-wip-color-tonal-enabled-button-tonal-container-color, #e0e3e5) !important;
+  color: var(--buttons-wip-color-tonal-enabled-button-tonal-label-color, #434749) !important;
+  --mat-button-tonal-ripple-color: var(--buttons-wip-color-tonal-pressed-button-tonal-pressed-ripple-color, rgba(67, 71, 73, 0.1));
+}
+
+:host ::ng-deep .lib-mat-btn--variant-tonal:hover:not([disabled]) .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-color-tonal-hovered-button-tonal-hovered-container-state-layer-color, rgba(67, 71, 73, 0.08)) !important;
+  opacity: 1 !important;
+}
+
+:host ::ng-deep .lib-mat-btn--variant-tonal.cdk-program-focused .mat-mdc-button-persistent-ripple::before,
+:host ::ng-deep .lib-mat-btn--variant-tonal.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-color-tonal-focused-button-tonal-focused-container-state-layer-color, rgba(67, 71, 73, 0.1)) !important;
+  opacity: 1 !important;
+}
+
+:host ::ng-deep .lib-mat-btn--variant-tonal:active:not([disabled]) .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-color-tonal-pressed-button-tonal-pressed-container-state-layer-color, rgba(67, 71, 73, 0.1)) !important;
+  opacity: 1 !important;
+}
+
+:host ::ng-deep .lib-mat-btn--variant-tonal .mat-ripple-element {
+  background-color: var(--buttons-wip-color-tonal-pressed-button-tonal-pressed-ripple-color, rgba(67, 71, 73, 0.1)) !important;
+}
+
+.lib-mat-btn--full {
+  width: 100%;
+}
+
+/* xsmall */
+.lib-mat-btn--xsmall {
+  --lib-mat-btn-height: calc(var(--buttons-wip-size-xsmall-button-xsmall-container-height) * 1px);
+  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-xsmall-button-xsmall-leading-space) * 1px);
+  --lib-mat-btn-padding-x-right: calc(var(--buttons-wip-size-xsmall-button-xsmall-trailing-space) * 1px);
+  --lib-mat-btn-gap: calc(var(--buttons-wip-size-xsmall-button-xsmall-between-icon-label-space) * 1px);
+  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-xsmall-button-xsmall-shape-round, 1000) * 1px);
+  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-xsmall-button-xsmall-shape-square, 8) * 1px);
+  --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
+  --lib-mat-btn-pressed-radius: var(--buttons-wip-size-xsmall-button-xsmall-shape-pressed-morph);
+  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-xsmall-button-xsmall-label-text-size) * 1px);
+  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-xsmall-button-xsmall-label-text-line-height) * 1px);
+  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-xsmall-button-xsmall-label-text-tracking) * 1px);
+  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-xsmall-button-xsmall-icon-size) * 1px);
+
+  min-height: var(--lib-mat-btn-height);
+  height: var(--lib-mat-btn-height);
+  padding-left: var(--lib-mat-btn-padding-x) !important;
+  padding-right: var(--lib-mat-btn-padding-x-right) !important;
+  color: var(--buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
+  font-family: var(--buttons-wip-size-xsmall-button-xsmall-label-text-font, Heebo);
+  font-size: var(--lib-mat-btn-font-size);
+  font-style: normal;
+  font-weight: var(--buttons-wip-size-xsmall-button-xsmall-label-text-weight, 500);
+  line-height: var(--lib-mat-btn-line-height);
+  letter-spacing: var(--lib-mat-btn-tracking);
+  border-radius: var(--lib-mat-btn-radius);
+}
+
+.lib-mat-btn--xsmall .mat-icon,
+.lib-mat-btn--xsmall .mat-mdc-button-touch-target {
+  width: var(--lib-mat-btn-icon-size);
+  height: var(--lib-mat-btn-icon-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* small */
+.lib-mat-btn--small {
+  --lib-mat-btn-height: calc(var(--buttons-wip-size-small-button-small-container-height) * 1px);
+  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-small-button-small-leading-space) * 1px);
+  --lib-mat-btn-padding-x-right: calc(var(--buttons-wip-size-small-button-small-trailing-space) * 1px);
+  --lib-mat-btn-gap: calc(var(--buttons-wip-size-small-button-small-between-icon-label-space) * 1px);
+  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-small-button-small-shape-round, 1000) * 1px);
+  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-small-button-small-shape-square, 8) * 1px);
+  --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
+  --lib-mat-btn-pressed-radius: var(--buttons-wip-size-small-button-small-shape-pressed-morph);
+  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-small-button-small-label-text-size) * 1px);
+  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-small-button-small-label-text-line-height) * 1px);
+  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-small-button-small-label-text-tracking) * 1px);
+  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-small-button-small-icon-size) * 1px);
+
+  min-height: var(--lib-mat-btn-height);
+  height: var(--lib-mat-btn-height);
+  padding-left: var(--lib-mat-btn-padding-x) !important;
+  padding-right: var(--lib-mat-btn-padding-x-right) !important;
+  color: var(--buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
+  font-family: var(--buttons-wip-size-small-button-small-label-text-font, Heebo);
+  font-size: var(--lib-mat-btn-font-size);
+  font-style: normal;
+  font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500) !important;
+  line-height: var(--lib-mat-btn-line-height);
+  letter-spacing: var(--lib-mat-btn-tracking);
+  border-radius: var(--lib-mat-btn-radius);
+}
+
+.lib-mat-btn--small .mat-icon,
+.lib-mat-btn--small .mat-mdc-button-touch-target {
+  width: var(--lib-mat-btn-icon-size);
+  height: var(--lib-mat-btn-icon-size);
+  font-size: var(--lib-mat-btn-icon-size);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* medium */
+.lib-mat-btn--medium {
+  --lib-mat-btn-height: calc(var(--buttons-wip-size-medium-button-medium-container-height) * 1px);
+  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-medium-button-medium-leading-space) * 1px);
+  --lib-mat-btn-gap: calc(var(--buttons-wip-size-medium-button-medium-between-icon-label-space) * 1px);
+  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-medium-button-medium-shape-round, 1000) * 1px);
+  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-medium-button-medium-shape-square, 12) * 1px);
+  --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
+  --lib-mat-btn-pressed-radius: var(--buttons-wip-size-medium-button-medium-shape-pressed-morph);
+  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-medium-button-medium-label-text-size) * 1px);
+  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-medium-button-medium-label-text-line-height) * 1px);
+  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-medium-button-medium-label-text-tracking) * 1px);
+  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-medium-button-medium-icon-size) * 1px);
+
+  min-height: var(--lib-mat-btn-height);
+  height: var(--lib-mat-btn-height);
+  padding-left: var(--lib-mat-btn-padding-x) !important;
+  padding-right: var(--lib-mat-btn-padding-x-right) !important;
+  color: var(--buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
+  font-family: var(--buttons-wip-size-medium-button-medium-label-text-font, Heebo);
+  font-size: var(--lib-mat-btn-font-size);
+  font-style: normal;
+  font-weight: var(--buttons-wip-size-medium-button-medium-label-text-weight, 500) !important;
+  line-height: var(--lib-mat-btn-line-height);
+  letter-spacing: var(--lib-mat-btn-tracking);
+  border-radius: var(--lib-mat-btn-radius);
+}
+
+.lib-mat-btn--medium .mat-icon,
+.lib-mat-btn--medium .mat-mdc-button-touch-target {
+  width: var(--lib-mat-btn-icon-size);
+  height: var(--lib-mat-btn-icon-size);
+  font-size: var(--lib-mat-btn-icon-size);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* large */
+.lib-mat-btn--large {
+  --lib-mat-btn-height: calc(var(--buttons-wip-size-large-button-large-container-height) * 1px);
+  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-large-button-large-leading-space) * 1px);
+  --lib-mat-btn-padding-x-right: calc(var(--buttons-wip-size-large-button-large-trailing-space) * 1px);
+  --lib-mat-btn-gap: calc(var(--buttons-wip-size-large-button-large-between-icon-label-space) * 1px);
+  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-large-button-large-shape-round, 1000) * 1px);
+  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-large-button-large-shape-square, 16) * 1px);
+  --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
+  --lib-mat-btn-pressed-radius: var(--buttons-wip-size-large-button-large-shape-pressed-morph);
+  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-large-button-large-label-text-size) * 1px);
+  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-large-button-large-label-text-line-height) * 1px);
+  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-large-button-large-label-text-tracking) * 1px);
+  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-large-button-large-icon-size) * 1px);
+
+  min-height: var(--lib-mat-btn-height);
+  height: var(--lib-mat-btn-height);
+  padding-left: var(--lib-mat-btn-padding-x) !important;
+  padding-right: var(--lib-mat-btn-padding-x-right) !important;
+  color: var(--buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
+  font-family: var(--buttons-wip-size-large-button-large-label-text-font, Heebo);
+  font-size: var(--lib-mat-btn-font-size);
+  font-style: normal;
+  font-weight: var(--buttons-wip-size-large-button-large-label-text-weight, 400) !important;
+  line-height: var(--lib-mat-btn-line-height);
+  letter-spacing: var(--lib-mat-btn-tracking);
+  border-radius: var(--lib-mat-btn-radius);
+}
+
+.lib-mat-btn--large .mat-icon,
+.lib-mat-btn--large .mat-mdc-button-touch-target {
+  width: var(--lib-mat-btn-icon-size);
+  height: var(--lib-mat-btn-icon-size);
+  font-size: var(--lib-mat-btn-icon-size);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* xlarge */
+.lib-mat-btn--xlarge {
+  --lib-mat-btn-height: calc(var(--buttons-wip-size-xlarge-button-xlarge-container-height) * 1px);
+  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-xlarge-button-xlarge-leading-space) * 1px);
+  --lib-mat-btn-padding-x-right: calc(var(--buttons-wip-size-xlarge-button-xlarge-trailing-space) * 1px);
+  --lib-mat-btn-gap: calc(var(--buttons-wip-size-xlarge-button-xlarge-between-icon-label-space) * 1px);
+  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-xlarge-button-xlarge-shape-round, 1000) * 1px);
+  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-xlarge-button-xlarge-shape-square, 16) * 1px);
+  --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
+  --lib-mat-btn-pressed-radius: var(--buttons-wip-size-xlarge-button-xlarge-shape-pressed-morph);
+  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-xlarge-button-xlarge-label-text-size) * 1px);
+  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-xlarge-button-xlarge-label-text-line-height) * 1px);
+  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-xlarge-button-xlarge-label-text-tracking) * 1px);
+  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-xlarge-button-xlarge-icon-size) * 1px);
+
+  min-height: var(--lib-mat-btn-height);
+  height: var(--lib-mat-btn-height);
+  padding-left: var(--lib-mat-btn-padding-x) !important;
+  padding-right: var(--lib-mat-btn-padding-x-right) !important;
+  color: var(--buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
+  font-family: var(--buttons-wip-size-xlarge-button-xlarge-label-text-font, Heebo);
+  font-size: var(--lib-mat-btn-font-size);
+  font-style: normal;
+  font-weight: var(--buttons-wip-size-xlarge-button-xlarge-label-text-weight, 400) !important;
+  line-height: var(--lib-mat-btn-line-height);
+  letter-spacing: var(--lib-mat-btn-tracking);
+  border-radius: var(--lib-mat-btn-radius);
+}
+
+.lib-mat-btn--xlarge .mat-icon,
+.lib-mat-btn--xlarge .mat-mdc-button-touch-target {
+  width: var(--lib-mat-btn-icon-size);
+  height: var(--lib-mat-btn-icon-size);
+  font-size: var(--lib-mat-btn-icon-size);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lib-mat-btn--shape-round {
+  --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
+}
+
+.lib-mat-btn--shape-square {
+  --lib-mat-btn-radius: var(--lib-mat-btn-radius-square);
+}

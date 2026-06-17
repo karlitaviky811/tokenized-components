@@ -1,0 +1,144 @@
+import { Component } from '@angular/core';
+import { LibButtonComponent, LibIconButtonComponent, SlideToggle } from 'crdx-components';
+
+@Component({
+  selector: 'app-actions-page',
+  standalone: true,
+  imports: [LibButtonComponent, LibIconButtonComponent, SlideToggle],
+  template: `
+    <article class="doc-page">
+      <!-- BUTTON -->
+      <section class="doc-section">
+        <h2>Button <code>lib-button</code></h2>
+        <p>Botón con variantes de Material 3, formas, tamaños y soporte de toggle.</p>
+
+        <h3>Inputs</h3>
+        <table class="api-table">
+          <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+          <tr><td>label</td><td>string</td><td>''</td><td>Texto del botón</td></tr>
+          <tr><td>variant</td><td>'filled' | 'outlined' | 'tonal' | 'text' | 'elevated'</td><td>'filled'</td><td>Variante visual</td></tr>
+          <tr><td>size</td><td>'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'</td><td>'medium'</td><td>Tamaño</td></tr>
+          <tr><td>shape</td><td>'round' | 'square'</td><td>'round'</td><td>Forma del borde</td></tr>
+          <tr><td>fullWidth</td><td>boolean</td><td>false</td><td>Ocupa 100% del contenedor</td></tr>
+          <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+          <tr><td>type</td><td>'button' | 'submit' | 'reset'</td><td>'button'</td><td>Tipo HTML nativo</td></tr>
+          <tr><td>toggle</td><td>boolean</td><td>false</td><td>Habilita modo toggle</td></tr>
+          <tr><td>selected</td><td>boolean</td><td>false</td><td>Estado seleccionado (toggle)</td></tr>
+          <tr><td>icon</td><td>string</td><td>''</td><td>Nombre del ícono</td></tr>
+          <tr><td>iconPosition</td><td>'leading' | 'trailing'</td><td>'leading'</td><td>Posición del ícono</td></tr>
+          <tr><td>contentAlign</td><td>'start' | 'center' | 'end'</td><td>'center'</td><td>Alineación del contenido</td></tr>
+        </table>
+
+        <h3>Variantes</h3>
+        <div class="variant-row">
+          <lib-button label="Filled" variant="filled" shape="square" size="medium" [fullWidth]="false" />
+          <lib-button label="Outlined" variant="outlined" shape="square" size="medium" [fullWidth]="false" />
+          <lib-button label="Tonal" variant="tonal" shape="square" size="medium" [fullWidth]="false" />
+          <lib-button label="Text" variant="text" shape="square" size="medium" [fullWidth]="false" />
+          <lib-button label="Elevated" variant="elevated" shape="square" size="medium" [fullWidth]="false" />
+        </div>
+
+        <h3>Tamaños</h3>
+        <div class="variant-row">
+          <lib-button label="XSmall" variant="filled" shape="square" size="xsmall" [fullWidth]="false" />
+          <lib-button label="Small" variant="filled" shape="square" size="small" [fullWidth]="false" />
+          <lib-button label="Medium" variant="filled" shape="square" size="medium" [fullWidth]="false" />
+          <lib-button label="Large" variant="filled" shape="square" size="large" [fullWidth]="false" />
+          <lib-button label="XLarge" variant="filled" shape="square" size="xlarge" [fullWidth]="false" />
+        </div>
+
+        <h3>Shapes</h3>
+        <div class="variant-row">
+          <lib-button label="Round" variant="filled" shape="round" size="medium" [fullWidth]="false" />
+          <lib-button label="Square" variant="filled" shape="square" size="medium" [fullWidth]="false" />
+        </div>
+
+        <h3>Full Width</h3>
+        <lib-button label="Full Width" variant="filled" shape="square" size="medium" [fullWidth]="true" />
+
+        <h3>Disabled</h3>
+        <div class="variant-row">
+          <lib-button label="Disabled Filled" variant="filled" shape="square" size="medium" [disabled]="true" [fullWidth]="false" />
+          <lib-button label="Disabled Outlined" variant="outlined" shape="square" size="medium" [disabled]="true" [fullWidth]="false" />
+        </div>
+
+        <h3>Ejemplo de uso</h3>
+        <pre><code>&lt;lib-button
+  label="Guardar"
+  variant="filled"
+  shape="square"
+  size="medium"
+  [fullWidth]="true"
+  [disabled]="form.invalid"
+  type="submit"
+/&gt;</code></pre>
+      </section>
+
+      <!-- ICON BUTTON -->
+      <section class="doc-section">
+        <h2>IconButton <code>lib-icon-button</code></h2>
+        <p>Botón circular o cuadrado con ícono, sin label.</p>
+
+        <h3>Inputs</h3>
+        <table class="api-table">
+          <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+          <tr><td>size</td><td>'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'</td><td>'small'</td><td>Tamaño del botón</td></tr>
+          <tr><td>variant</td><td>'filled' | 'tonal' | 'outlined' | 'standard' | 'action'</td><td>'standard'</td><td>Variante visual</td></tr>
+          <tr><td>shape</td><td>'round' | 'square'</td><td>'round'</td><td>Forma</td></tr>
+          <tr><td>space</td><td>'narrow' | 'default' | 'wide'</td><td>'default'</td><td>Padding horizontal</td></tr>
+          <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+          <tr><td>toggle</td><td>boolean</td><td>false</td><td>Modo toggle</td></tr>
+          <tr><td>selected</td><td>boolean</td><td>false</td><td>Estado seleccionado</td></tr>
+        </table>
+
+        <h3>Variantes</h3>
+        <div class="variant-row">
+          <lib-icon-button variant="filled"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+
+        <h3>Tamaños</h3>
+        <div class="variant-row">
+          <lib-icon-button variant="filled" size="xsmall"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="filled" size="small"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="filled" size="medium"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="filled" size="large"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+
+        <h3>Ejemplo de uso</h3>
+        <pre><code>&lt;lib-icon-button variant="filled" size="medium"&gt;
+  &lt;span class="material-symbols-outlined"&gt;delete&lt;/span&gt;
+&lt;/lib-icon-button&gt;</code></pre>
+      </section>
+
+      <!-- SLIDE TOGGLE -->
+      <section class="doc-section">
+        <h2>SlideToggle <code>lib-slide-toggle</code></h2>
+        <p>Toggle switch basado en Material Slide Toggle.</p>
+
+        <h3>Inputs / Outputs</h3>
+        <table class="api-table">
+          <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+          <tr><td>checked</td><td>boolean</td><td>false</td><td>Estado activo</td></tr>
+          <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+          <tr><td>checkedChange</td><td>boolean</td><td></td><td>Emite al cambiar estado</td></tr>
+        </table>
+
+        <h3>Variantes</h3>
+        <div class="variant-row">
+          <lib-slide-toggle />
+          <lib-slide-toggle [checked]="true" />
+        </div>
+
+        <h3>Ejemplo de uso</h3>
+        <pre><code>&lt;lib-slide-toggle
+  [checked]="isActive()"
+  (checkedChange)="onToggle($event)"
+/&gt;</code></pre>
+      </section>
+    </article>
+  `,
+})
+export class ActionsPage {}

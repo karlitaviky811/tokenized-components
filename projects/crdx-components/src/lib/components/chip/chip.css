@@ -1,0 +1,33 @@
+:host {
+  display: inline-block;
+}
+
+.lib-chip--outlined {
+  --mdc-chip-elevated-container-color: transparent;
+  --mdc-chip-outline-width: calc(var(--chips-wip-filter-enabled-container-filter-chip-unselected-outline-width, 1) * 1px);
+  --mdc-chip-outline-color: var(--chips-wip-filter-enabled-container-filter-chip-unselected-outline-color, #c3c7c9);
+}
+
+.lib-chip--filled {
+  --mdc-chip-elevated-container-color: var(--chips-wip-filter-enabled-container-filter-chip-selected-container-color, #e0e3e5);
+  --mdc-chip-outline-width: 0;
+}
+
+.lib-chip--selected {
+  --mdc-chip-elevated-container-color: var(--chips-wip-filter-enabled-container-filter-chip-selected-container-color, #e0e3e5);
+}
+
+.lib-chip--small {
+  --mdc-chip-container-height: 24px;
+  --mdc-chip-label-text-size: 0.75rem;
+}
+
+.lib-chip--medium {
+  --mdc-chip-container-height: calc(var(--chips-wip-filter-enabled-container-filter-chip-container-height, 32) * 1px);
+  --mdc-chip-label-text-size: 0.875rem;
+}
+
+.lib-chip--outlined,
+.lib-chip--filled {
+  --mdc-chip-container-shape-radius: calc(var(--chips-wip-filter-enabled-container-filter-chip-container-shape, 8) * 1px);
+}

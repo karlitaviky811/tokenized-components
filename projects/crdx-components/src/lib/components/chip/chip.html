@@ -1,0 +1,16 @@
+<mat-chip
+  [ngClass]="classes()"
+  [highlighted]="selected()"
+  [disabled]="disabled()"
+  [removable]="removable()"
+  (removed)="onRemove()"
+>
+  @if (icon()) {
+    <mat-icon matChipAvatar>{{ icon() }}</mat-icon>
+  }
+  {{ label() }}
+  <ng-content />
+  @if (removable()) {
+    <mat-icon matChipRemove>cancel</mat-icon>
+  }
+</mat-chip>

@@ -1,0 +1,94 @@
+import { Component } from '@angular/core';
+import { LibSpinnerComponent, LibTooltipComponent, CircularProgressStepper } from 'crdx-components';
+
+@Component({
+  selector: 'app-feedback-page',
+  standalone: true,
+  imports: [LibSpinnerComponent, LibTooltipComponent, CircularProgressStepper],
+  template: `
+    <article class="doc-page">
+      <!-- SPINNER -->
+      <section class="doc-section">
+        <h2>Spinner <code>lib-spinner</code></h2>
+        <p>Indicador de carga circular basado en MatProgressSpinner.</p>
+
+        <h3>Inputs</h3>
+        <table class="api-table">
+          <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+          <tr><td>diameter</td><td>number</td><td>48</td><td>Diámetro en px</td></tr>
+          <tr><td>strokeWidth</td><td>number</td><td>4</td><td>Grosor del trazo</td></tr>
+          <tr><td>color</td><td>string</td><td>'var(--Rojo-400, #e30613)'</td><td>Color del spinner</td></tr>
+          <tr><td>ariaLabel</td><td>string</td><td>'Cargando'</td><td>Label accesible</td></tr>
+        </table>
+
+        <h3>Variantes</h3>
+        <div class="variant-row">
+          <lib-spinner [diameter]="24" [strokeWidth]="3" />
+          <lib-spinner />
+          <lib-spinner [diameter]="64" [strokeWidth]="6" />
+        </div>
+
+        <h3>Ejemplo de uso</h3>
+        <pre><code>&lt;lib-spinner [diameter]="32" [strokeWidth]="4" /&gt;</code></pre>
+      </section>
+
+      <!-- TOOLTIP -->
+      <section class="doc-section">
+        <h2>Tooltip <code>lib-tooltip</code></h2>
+        <p>Tooltip informativo con soporte single-line y multi-line.</p>
+
+        <h3>Inputs</h3>
+        <table class="api-table">
+          <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+          <tr><td>text</td><td>string</td><td>'Supporting text'</td><td>Contenido del tooltip</td></tr>
+          <tr><td>type</td><td>'single-line' | 'multi-line'</td><td>'single-line'</td><td>Variante</td></tr>
+          <tr><td>maxWidth</td><td>string | null</td><td>null</td><td>Ancho máximo (multi-line)</td></tr>
+        </table>
+
+        <h3>Variantes</h3>
+        <div class="variant-row">
+          <lib-tooltip text="Tooltip single-line" />
+          <lib-tooltip text="Tooltip multi-line con un texto más largo para demostrar el wrap del contenido" type="multi-line" maxWidth="200px" />
+        </div>
+
+        <h3>Ejemplo de uso</h3>
+        <pre><code>&lt;lib-tooltip text="Más información" type="single-line" /&gt;</code></pre>
+      </section>
+
+      <!-- CIRCULAR PROGRESS STEPPER -->
+      <section class="doc-section">
+        <h2>CircularProgressStepper <code>lib-circular-progress-stepper</code></h2>
+        <p>Indicador circular de progreso por pasos con animación.</p>
+
+        <h3>Inputs</h3>
+        <table class="api-table">
+          <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+          <tr><td>currentStep</td><td>number</td><td>0</td><td>Paso actual</td></tr>
+          <tr><td>totalsStep</td><td>number</td><td>0</td><td>Total de pasos</td></tr>
+          <tr><td>size</td><td>string</td><td>'64px'</td><td>Tamaño del círculo</td></tr>
+          <tr><td>barWidth</td><td>string</td><td>'10px'</td><td>Grosor de la barra</td></tr>
+          <tr><td>colorBarProgress</td><td>string</td><td>'#0BC626'</td><td>Color de progreso</td></tr>
+          <tr><td>shadowColorBarProgress</td><td>string</td><td>'#F0F0F0'</td><td>Color de fondo</td></tr>
+          <tr><td>animationDuration</td><td>number</td><td>500</td><td>Duración animación (ms)</td></tr>
+        </table>
+
+        <h3>Variantes</h3>
+        <div class="variant-row">
+          <lib-circular-progress-stepper [currentStep]="1" [totalsStep]="4" />
+          <lib-circular-progress-stepper [currentStep]="2" [totalsStep]="4" />
+          <lib-circular-progress-stepper [currentStep]="3" [totalsStep]="4" />
+          <lib-circular-progress-stepper [currentStep]="4" [totalsStep]="4" />
+        </div>
+
+        <h3>Ejemplo de uso</h3>
+        <pre><code>&lt;lib-circular-progress-stepper
+  [currentStep]="currentStep()"
+  [totalsStep]="totalSteps"
+  size="80px"
+  colorBarProgress="#19D27E"
+/&gt;</code></pre>
+      </section>
+    </article>
+  `,
+})
+export class FeedbackPage {}
