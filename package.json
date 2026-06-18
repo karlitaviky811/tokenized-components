@@ -31,6 +31,7 @@
     "@angular/compiler-cli": "~21.0.0",
     "@tokens_variables_credix/tokenized-styles": "^1.0.7",
     "ng-packagr": "~21.0.0",
+    "playwright": "^1.61.0",
     "typescript": "~5.9.2"
   }
 }

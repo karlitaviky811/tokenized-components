@@ -1,0 +1,23 @@
+<mat-form-field class="dp-field" appearance="outline">
+  <mat-label>Date</mat-label>
+  <input
+    matInput
+    [matDatepicker]="picker"
+    [value]="_displayValue()"
+    [disabled]="disabled()"
+    [min]="min()"
+    [max]="max()"
+    (dateChange)="_onChange($event)"
+    placeholder="DD/MM/YYYY"
+  >
+  <mat-datepicker-toggle matIconSuffix [for]="picker">
+    <span class="material-symbols-outlined" matDatepickerToggleIcon>calendar_today</span>
+  </mat-datepicker-toggle>
+  <mat-datepicker #picker>
+    <mat-datepicker-actions>
+      <button mat-button matDatepickerCancel class="dp-btn-cancel">Cancel</button>
+      <button mat-button matDatepickerApply  class="dp-btn-ok">OK</button>
+    </mat-datepicker-actions>
+  </mat-datepicker>
+  <mat-hint>DD/MM/YYYY</mat-hint>
+</mat-form-field>

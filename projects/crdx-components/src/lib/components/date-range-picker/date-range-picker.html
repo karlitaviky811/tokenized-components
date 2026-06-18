@@ -1,0 +1,22 @@
+<mat-form-field class="dp-range-field" appearance="outline">
+  <mat-label>Date range</mat-label>
+  <mat-date-range-input
+    [rangePicker]="picker"
+    [formGroup]="_range"
+    [min]="min()"
+    [max]="max()"
+  >
+    <input matStartDate formControlName="start" placeholder="DD/MM/YYYY">
+    <input matEndDate   formControlName="end"   placeholder="DD/MM/YYYY">
+  </mat-date-range-input>
+  <mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker">
+    <span class="material-symbols-outlined" matDatepickerToggleIcon>calendar_today</span>
+  </mat-datepicker-toggle>
+  <mat-date-range-picker #picker (closed)="_onClosed()">
+    <mat-date-range-picker-actions>
+      <button mat-button matDateRangePickerCancel class="dp-btn-cancel">Cancel</button>
+      <button mat-button matDateRangePickerApply  class="dp-btn-ok" (click)="_markApply()">Apply</button>
+    </mat-date-range-picker-actions>
+  </mat-date-range-picker>
+</mat-form-field>

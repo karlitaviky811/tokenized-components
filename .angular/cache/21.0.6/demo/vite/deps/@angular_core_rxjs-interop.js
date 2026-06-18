@@ -5,8 +5,6 @@ import {
   PendingTasks,
   ReplaySubject,
   RuntimeError,
-  __spreadProps,
-  __spreadValues,
   assertInInjectionContext,
   assertNotInReactiveContext,
   computed,
@@ -18,7 +16,11 @@ import {
   signal,
   takeUntil,
   untracked
-} from "./chunk-UF42ZH6K.js";
+} from "./chunk-MXIZ5NX2.js";
+import {
+  __spreadProps,
+  __spreadValues
+} from "./chunk-GOMI4DH3.js";
 
 // node_modules/@angular/core/fesm2022/rxjs-interop.mjs
 function takeUntilDestroyed(destroyRef) {

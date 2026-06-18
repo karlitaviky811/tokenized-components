@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LibCardComponent, SharedBreadcrumbComponent, SharedTableComponent, SharedTableCellTemplateDirective } from 'crdx-components';
+import { LibCardComponent, LibIconButtonComponent, SharedBreadcrumbComponent, SharedTableComponent, SharedTableCellTemplateDirective } from 'crdx-components';
 import type { SharedTableColumn } from 'crdx-components';
 
 interface User { name: string; email: string; role: string; status: string; [key: string]: unknown; }
@@ -7,7 +7,7 @@ interface User { name: string; email: string; role: string; status: string; [key
 @Component({
   selector: 'app-data-display-page',
   standalone: true,
-  imports: [LibCardComponent, SharedBreadcrumbComponent, SharedTableComponent, SharedTableCellTemplateDirective],
+  imports: [LibCardComponent, LibIconButtonComponent, SharedBreadcrumbComponent, SharedTableComponent, SharedTableCellTemplateDirective],
   template: `
     <article class="doc-page">
       <!-- CARD -->
@@ -42,6 +42,39 @@ interface User { name: string; email: string; role: string; status: string; [key
         <div class="variant-row">
           <lib-card title="Active" variant="outlined" [active]="true" />
           <lib-card title="Disabled" variant="outlined" [disabled]="true" />
+        </div>
+
+        <h3>Horizontal card</h3>
+        <p>Variación con <code>slot</code> de contenido proyectado y acciones trailing.</p>
+
+        <div class="component-doc">
+          <div class="component-doc__header">
+            <span class="component-doc__title">
+              <span>❖</span>
+              Horizontal card
+            </span>
+            <span class="component-doc__code-icon">&lt;/&gt;</span>
+          </div>
+          <div class="component-doc__preview">
+            @for (item of [1, 2, 3]; track item) {
+              <lib-card
+                title="Header"
+                subhead="Subhead"
+                variant="outlined"
+                width="16rem"
+                [active]="item === 3"
+              >
+                <lib-icon-button slot="trailing" size="small" variant="standard">
+                  <span class="material-symbols-outlined">arrow_drop_up</span>
+                </lib-icon-button>
+                <lib-icon-button slot="trailing" size="small" variant="standard">
+                  <span class="material-symbols-outlined">arrow_drop_down</span>
+                </lib-icon-button>
+                <div class="demo-slot">slot</div>
+              </lib-card>
+            }
+          </div>
+          <div class="component-doc__footer">Building Blocks</div>
         </div>
 
         <h3>Ejemplo de uso</h3>

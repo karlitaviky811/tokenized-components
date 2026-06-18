@@ -1,4 +1,9 @@
 import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE
+} from "./chunk-5FIGCHXT.js";
+import {
   MAT_OPTGROUP,
   MAT_OPTION_PARENT_COMPONENT,
   MatOptgroup,
@@ -7,25 +12,25 @@ import {
   MatOptionSelectionChange,
   _countGroupLabelsBeforeOption,
   _getOptionScrollPosition
-} from "./chunk-M6ZVWP5Y.js";
+} from "./chunk-RMU5NL4E.js";
 import {
   MatPseudoCheckbox,
   MatPseudoCheckboxModule
-} from "./chunk-AP5UUESL.js";
+} from "./chunk-4KUM44LS.js";
+import {
+  _MatInternalFormField
+} from "./chunk-WC2EHBN2.js";
 import {
   ErrorStateMatcher,
   ShowOnDirtyErrorStateMatcher,
   _ErrorStateTracker
-} from "./chunk-HNPGDRPQ.js";
+} from "./chunk-XLBQC3WS.js";
 import {
   MatRippleLoader
-} from "./chunk-UZQ4BVGB.js";
+} from "./chunk-DIS73S32.js";
 import {
   MatRippleModule
-} from "./chunk-FHN22RRK.js";
-import {
-  _MatInternalFormField
-} from "./chunk-EY5XKZDB.js";
+} from "./chunk-DZE7FRAQ.js";
 import {
   MAT_RIPPLE_GLOBAL_OPTIONS,
   MatRipple,
@@ -34,131 +39,49 @@ import {
   RippleState,
   _StructuralStylesLoader,
   defaultRippleAnimationConfig
-} from "./chunk-M2DC5DF6.js";
-import "./chunk-KVM3DXGC.js";
+} from "./chunk-AVOLBK2I.js";
+import "./chunk-NGX5KMVR.js";
+import "./chunk-D3JXLZEN.js";
 import {
   MATERIAL_ANIMATIONS,
   _animationsDisabled,
   _getAnimationsState
-} from "./chunk-DHUQ74DW.js";
-import "./chunk-NGX5KMVR.js";
-import "./chunk-M5D3I5TM.js";
-import "./chunk-55KSUPBT.js";
-import "./chunk-GLAEFER2.js";
+} from "./chunk-4XQO66RH.js";
 import "./chunk-SUBWRXVL.js";
-import "./chunk-4ZES77FU.js";
-import "./chunk-S3URF3UD.js";
+import "./chunk-CWMG64QM.js";
+import "./chunk-YXWGGUTT.js";
+import "./chunk-ZNPO3OVN.js";
+import "./chunk-LTVJO2VY.js";
+import "./chunk-P3QLY2AX.js";
 import "./chunk-3RUZQJQZ.js";
 import "./chunk-N4DOILP3.js";
 import "./chunk-GUGIMSVJ.js";
-import "./chunk-36WKAZAC.js";
+import "./chunk-ZUTPA67V.js";
+import "./chunk-NGIGYWNQ.js";
+import "./chunk-T2GEZK4T.js";
 import {
   BidiModule
-} from "./chunk-OEDGS3ZO.js";
-import "./chunk-X2Y6IREG.js";
-import "./chunk-7IMOPLDR.js";
-import "./chunk-7LXG454L.js";
+} from "./chunk-ZCVP7UTG.js";
+import "./chunk-W4JUNFTU.js";
 import {
   Directive,
   Injectable,
-  LOCALE_ID,
   NgModule,
   setClassMetadata,
   ɵɵdefineDirective,
   ɵɵdefineNgModule
-} from "./chunk-4SMOWUBE.js";
+} from "./chunk-L6L5BGBK.js";
 import {
-  InjectionToken,
-  Subject,
   Version,
-  __spreadProps,
-  __spreadValues,
   inject,
   startWith,
   ɵɵdefineInjectable,
   ɵɵdefineInjector
-} from "./chunk-UF42ZH6K.js";
-
-// node_modules/@angular/material/fesm2022/_date-formats-chunk.mjs
-var MAT_DATE_LOCALE = new InjectionToken("MAT_DATE_LOCALE", {
-  providedIn: "root",
-  factory: () => inject(LOCALE_ID)
-});
-var NOT_IMPLEMENTED = "Method not implemented";
-var DateAdapter = class {
-  locale;
-  _localeChanges = new Subject();
-  localeChanges = this._localeChanges;
-  setTime(target, hours, minutes, seconds) {
-    throw new Error(NOT_IMPLEMENTED);
-  }
-  getHours(date) {
-    throw new Error(NOT_IMPLEMENTED);
-  }
-  getMinutes(date) {
-    throw new Error(NOT_IMPLEMENTED);
-  }
-  getSeconds(date) {
-    throw new Error(NOT_IMPLEMENTED);
-  }
-  parseTime(value, parseFormat) {
-    throw new Error(NOT_IMPLEMENTED);
-  }
-  addSeconds(date, amount) {
-    throw new Error(NOT_IMPLEMENTED);
-  }
-  getValidDateOrNull(obj) {
-    return this.isDateInstance(obj) && this.isValid(obj) ? obj : null;
-  }
-  deserialize(value) {
-    if (value == null || this.isDateInstance(value) && this.isValid(value)) {
-      return value;
-    }
-    return this.invalid();
-  }
-  setLocale(locale) {
-    this.locale = locale;
-    this._localeChanges.next();
-  }
-  compareDate(first, second) {
-    return this.getYear(first) - this.getYear(second) || this.getMonth(first) - this.getMonth(second) || this.getDate(first) - this.getDate(second);
-  }
-  compareTime(first, second) {
-    return this.getHours(first) - this.getHours(second) || this.getMinutes(first) - this.getMinutes(second) || this.getSeconds(first) - this.getSeconds(second);
-  }
-  sameDate(first, second) {
-    if (first && second) {
-      let firstValid = this.isValid(first);
-      let secondValid = this.isValid(second);
-      if (firstValid && secondValid) {
-        return !this.compareDate(first, second);
-      }
-      return firstValid == secondValid;
-    }
-    return first == second;
-  }
-  sameTime(first, second) {
-    if (first && second) {
-      const firstValid = this.isValid(first);
-      const secondValid = this.isValid(second);
-      if (firstValid && secondValid) {
-        return !this.compareTime(first, second);
-      }
-      return firstValid == secondValid;
-    }
-    return first == second;
-  }
-  clampDate(date, min, max) {
-    if (min && this.compareDate(date, min) < 0) {
-      return min;
-    }
-    if (max && this.compareDate(date, max) > 0) {
-      return max;
-    }
-    return date;
-  }
-};
-var MAT_DATE_FORMATS = new InjectionToken("mat-date-formats");
+} from "./chunk-MXIZ5NX2.js";
+import {
+  __spreadProps,
+  __spreadValues
+} from "./chunk-GOMI4DH3.js";
 
 // node_modules/@angular/material/fesm2022/_line-chunk.mjs
 var MatLine = class _MatLine {

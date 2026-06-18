@@ -1,0 +1,22 @@
+:host {
+  display: inline-block;
+  --dp-w: var(--app-date-pickers-docked-enabled-container-container-width, 360);
+  --dp-primary:    var(--app-date-pickers-docked-enabled-container-date-selected-container-color, #E42313);
+  --dp-on-primary: var(--app-date-pickers-docked-enabled-label-text-date-selected-label-text-color, #FFFFFF);
+}
+
+.dp-field {
+  width: calc(var(--dp-w) * 1px);
+  font-family: var(--app-date-pickers-docked-enabled-label-text-date-label-text-font, Heebo), sans-serif;
+}
+
+/* Override Material outlined field to use Credix input styling */
+.dp-field.mat-mdc-form-field {
+  --mdc-outlined-text-field-label-text-font: inherit;
+  --mdc-outlined-text-field-input-text-font: inherit;
+}
+
+/* Toggle icon size aligned to Figma token */
+.dp-field .material-symbols-outlined {
+  font-size: 20px;
+}

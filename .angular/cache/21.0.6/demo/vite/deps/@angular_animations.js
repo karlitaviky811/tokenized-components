@@ -25,14 +25,15 @@ import {
   RendererFactory2,
   ViewEncapsulation,
   setClassMetadata
-} from "./chunk-4SMOWUBE.js";
+} from "./chunk-L6L5BGBK.js";
 import {
   DOCUMENT,
   RuntimeError,
   inject,
   ɵɵdefineInjectable,
   ɵɵinject
-} from "./chunk-UF42ZH6K.js";
+} from "./chunk-MXIZ5NX2.js";
+import "./chunk-GOMI4DH3.js";
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
 var AnimationBuilder = class _AnimationBuilder {

@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { LibButtonComponent, LibIconButtonComponent, SlideToggle } from 'crdx-components';
+import { Component, signal } from '@angular/core';
+import { LibButtonComponent, LibIconButtonComponent, SlideToggle, LibChipComponent } from 'crdx-components';
 
 @Component({
   selector: 'app-actions-page',
   standalone: true,
-  imports: [LibButtonComponent, LibIconButtonComponent, SlideToggle],
+  imports: [LibButtonComponent, LibIconButtonComponent, SlideToggle, LibChipComponent],
   template: `
     <article class="doc-page">
       <!-- BUTTON -->
@@ -138,7 +138,92 @@ import { LibButtonComponent, LibIconButtonComponent, SlideToggle } from 'crdx-co
   (checkedChange)="onToggle($event)"
 /&gt;</code></pre>
       </section>
+      <!-- CHIP -->
+      <section class="doc-section">
+        <h2>Chip <code>lib-chip</code></h2>
+        <p>Filter chip de Material 3. Soporta estados outlined/filled, selected, removable e ícono leading.</p>
+
+        <h3>Inputs / Outputs</h3>
+        <table class="api-table">
+          <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+          <tr><td>label</td><td>string</td><td>''</td><td>Texto del chip</td></tr>
+          <tr><td>variant</td><td>'outlined' | 'filled'</td><td>'outlined'</td><td>Variante visual</td></tr>
+          <tr><td>size</td><td>'small' | 'medium'</td><td>'medium'</td><td>Tamaño</td></tr>
+          <tr><td>selected</td><td>boolean</td><td>false</td><td>Estado seleccionado</td></tr>
+          <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+          <tr><td>removable</td><td>boolean</td><td>false</td><td>Muestra ícono de eliminar</td></tr>
+          <tr><td>icon</td><td>string</td><td>''</td><td>Nombre del ícono leading (Material Symbols)</td></tr>
+          <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+          <tr><td>removed</td><td>void</td><td></td><td>Emite al presionar el ícono de eliminar</td></tr>
+        </table>
+
+        <h3>Variantes</h3>
+        <div class="variant-row">
+          <lib-chip label="Outlined" variant="outlined" />
+          <lib-chip label="Filled" variant="filled" />
+          <lib-chip label="Selected" variant="outlined" [selected]="true" />
+          <lib-chip label="Disabled" variant="outlined" [disabled]="true" />
+        </div>
+
+        <h3>Con ícono leading</h3>
+        <div class="variant-row">
+          <lib-chip label="Filtro" variant="outlined" icon="filter_list" />
+          <lib-chip label="Activo" variant="outlined" icon="check_circle" [selected]="true" />
+          <lib-chip label="Categoría" variant="filled" icon="label" />
+        </div>
+
+        <h3>Removable</h3>
+        <div class="variant-row">
+          <lib-chip label="Eliminar" variant="outlined" [removable]="true" (removed)="onChipRemoved('Eliminar')" />
+          <lib-chip label="Tag activo" variant="filled" [removable]="true" (removed)="onChipRemoved('Tag activo')" />
+        </div>
+
+        <h3>Tamaños</h3>
+        <div class="variant-row">
+          <lib-chip label="Small" variant="outlined" size="small" />
+          <lib-chip label="Medium" variant="outlined" size="medium" />
+        </div>
+
+        <h3>Toggle interactivo</h3>
+        <div class="variant-row">
+          @for (f of filters(); track f.value) {
+            <lib-chip
+              [label]="f.label"
+              variant="outlined"
+              [selected]="f.selected"
+              (click)="toggleFilter(f.value)"
+            />
+          }
+        </div>
+
+        <h3>Ejemplo de uso</h3>
+        <pre><code>&lt;lib-chip
+  label="Filtro"
+  variant="outlined"
+  [selected]="isActive"
+  icon="filter_list"
+  [removable]="true"
+  (removed)="onRemove()"
+/&gt;</code></pre>
+      </section>
     </article>
   `,
 })
-export class ActionsPage {}
+export class ActionsPage {
+  filters = signal([
+    { value: 'all', label: 'Todos', selected: true },
+    { value: 'active', label: 'Activos', selected: false },
+    { value: 'pending', label: 'Pendientes', selected: false },
+    { value: 'closed', label: 'Cerrados', selected: false },
+  ]);
+
+  toggleFilter(value: string): void {
+    this.filters.update(filters =>
+      filters.map(f => ({ ...f, selected: f.value === value }))
+    );
+  }
+
+  onChipRemoved(label: string): void {
+    console.log('Chip removed:', label);
+  }
+}

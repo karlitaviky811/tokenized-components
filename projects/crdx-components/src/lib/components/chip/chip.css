@@ -2,32 +2,71 @@
   display: inline-block;
 }
 
+/* ── Tokens compartidos (shape, tipografía, íconos) ──── */
+.lib-chip--outlined,
+.lib-chip--filled {
+  --mdc-chip-container-shape-radius: calc(var(--chips-wip-filter-enabled-container-filter-chip-container-shape, 8) * 1px);
+
+  --mdc-chip-label-text-color: var(--chips-wip-filter-enabled-label-text-filter-chip-unselected-label-text-color, #434749);
+  --mat-chip-selected-label-text-color: var(--chips-wip-filter-enabled-label-text-filter-chip-selected-label-text-color, #ffffff);
+
+  --mdc-chip-label-text-font: var(--chips-wip-filter-enabled-label-text-filter-chip-label-text-font, 'Heebo');
+  --mdc-chip-label-text-size: var(--chips-wip-filter-enabled-label-text-silter-chip-label-text-size, 14px);
+  --mdc-chip-label-text-weight: var(--chips-wip-filter-enabled-label-text-filter-chip-label-text-weight, 500);
+  --mdc-chip-label-text-tracking: var(--chips-wip-filter-enabled-label-text-filter-chip-label-text-tracking, 0.1px);
+  --mdc-chip-label-text-line-height: calc(var(--chips-wip-filter-enabled-label-text-filter-chip-label-text-line-height, 20) * 1px);
+
+  --mat-chip-with-icon-leading-icon-size: calc(var(--chips-wip-filter-enabled-icon-filter-chip-with-icon-icon-size, 18) * 1px);
+  /* AM 21 usa --mat-chip-with-icon-icon-color para el avatar (único token, sin variante selected) */
+  --mat-chip-with-icon-icon-color: var(--chips-wip-filter-enabled-icon-filter-chip-with-leading-icon-unselected-leading-icon-color, #e42313);
+  --mat-chip-trailing-icon-color: var(--chips-wip-filter-enabled-icon-filter-chip-with-trailing-icon-unselected-trailing-icon-color, #434749);
+  --mat-chip-selected-trailing-icon-color: var(--chips-wip-filter-enabled-icon-filter-chip-with-trailing-icon-selected-trailing-icon-color, #ffffff);
+}
+
+/* ── Outlined: sin fondo, borde visible ──────────────── */
 .lib-chip--outlined {
   --mdc-chip-elevated-container-color: transparent;
   --mdc-chip-outline-width: calc(var(--chips-wip-filter-enabled-container-filter-chip-unselected-outline-width, 1) * 1px);
   --mdc-chip-outline-color: var(--chips-wip-filter-enabled-container-filter-chip-unselected-outline-color, #c3c7c9);
 }
 
+/* ── Filled: fondo siempre visible, sin borde ────────── */
 .lib-chip--filled {
-  --mdc-chip-elevated-container-color: var(--chips-wip-filter-enabled-container-filter-chip-selected-container-color, #e0e3e5);
+  --mdc-chip-elevated-container-color: var(--chips-wip-filter-enabled-container-filter-chip-elevated-selected-container-color, #e0e3e5);
   --mdc-chip-outline-width: 0;
 }
 
+/* ── Selected: outlined pasa a fondo lleno ───────────── */
 .lib-chip--selected {
-  --mdc-chip-elevated-container-color: var(--chips-wip-filter-enabled-container-filter-chip-selected-container-color, #e0e3e5);
+  --mdc-chip-elevated-container-color: var(--chips-wip-filter-enabled-container-filter-chip-elevated-selected-container-color, #5b5f61);
+  --mat-chip-elevated-selected-container-color: var(--chips-wip-filter-enabled-container-filter-chip-elevated-selected-container-color, #5b5f61);
+  --mdc-chip-outline-width: 0;
+  /* Ícono leading en selected usa el mismo color que el label (#fff) */
+  --mat-chip-with-icon-icon-color: var(--chips-wip-filter-enabled-label-text-filter-chip-selected-label-text-color, #ffffff);
 }
 
+/* ── Ícono leading: limpia estilos de avatar y centra ── */
+mat-icon[matChipAvatar] {
+  /* El slot avatar aplica border-radius:50% para imágenes; lo revertimos para íconos */
+  border-radius: 0;
+  overflow: visible;
+  /* Tamaño del ícono desde el token del chip */
+  width: var(--mat-chip-with-icon-leading-icon-size, 18px);
+  height: var(--mat-chip-with-icon-leading-icon-size, 18px);
+  font-size: var(--mat-chip-with-icon-leading-icon-size, 18px);
+  /* Centrado del glifo dentro del elemento mat-icon */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ── Tamaños ─────────────────────────────────────────── */
 .lib-chip--small {
   --mdc-chip-container-height: 24px;
-  --mdc-chip-label-text-size: 0.75rem;
+  --mdc-chip-label-text-size: 12px;
 }
 
 .lib-chip--medium {
   --mdc-chip-container-height: calc(var(--chips-wip-filter-enabled-container-filter-chip-container-height, 32) * 1px);
-  --mdc-chip-label-text-size: 0.875rem;
-}
-
-.lib-chip--outlined,
-.lib-chip--filled {
-  --mdc-chip-container-shape-radius: calc(var(--chips-wip-filter-enabled-container-filter-chip-container-shape, 8) * 1px);
 }

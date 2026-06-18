@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { LibTextFieldComponent, LibSelectFieldComponent, LibCheckboxComponent, LibMenuComponent } from 'crdx-components';
+import { LibTextFieldComponent, LibSelectFieldComponent, LibCheckboxComponent, LibRadioButtonComponent } from 'crdx-components';
+import { MatRadioModule } from '@angular/material/radio';
 
 @Component({
   selector: 'app-inputs-page',
   standalone: true,
-  imports: [ReactiveFormsModule, LibTextFieldComponent, LibSelectFieldComponent, LibCheckboxComponent, LibMenuComponent],
+  imports: [ReactiveFormsModule, LibTextFieldComponent, LibSelectFieldComponent, LibCheckboxComponent, LibRadioButtonComponent, MatRadioModule],
   template: `
     <article class="doc-page">
       <!-- TEXT FIELD -->
@@ -121,8 +122,51 @@ import { LibTextFieldComponent, LibSelectFieldComponent, LibCheckboxComponent, L
   (checkedChange)="onAccept($event)"
 &gt;Acepto los términos&lt;/lib-checkbox&gt;</code></pre>
       </section>
+
+      <!-- RADIO BUTTON -->
+      <section class="doc-section">
+        <h2>RadioButton <code>lib-radio-button</code></h2>
+        <p>Radio button de Material 3. Se agrupa con <code>mat-radio-group</code> para selección exclusiva.</p>
+
+        <h3>Inputs / Outputs</h3>
+        <table class="api-table">
+          <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+          <tr><td>value</td><td>unknown</td><td>null</td><td>Valor que representa este radio</td></tr>
+          <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+          <tr><td>checked</td><td>boolean</td><td>false</td><td>Seleccionado (uso sin grupo)</td></tr>
+          <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+          <tr><td>checkedChange</td><td>unknown</td><td></td><td>Emite el value al seleccionar</td></tr>
+        </table>
+
+        <h3>Estados</h3>
+        <div class="variant-row">
+          <lib-radio-button value="a" [checked]="false">Unselected</lib-radio-button>
+          <lib-radio-button value="b" [checked]="true">Selected</lib-radio-button>
+          <lib-radio-button value="c" [disabled]="true">Disabled</lib-radio-button>
+          <lib-radio-button value="d" [disabled]="true" [checked]="true">Disabled selected</lib-radio-button>
+        </div>
+
+        <h3>Grupo interactivo</h3>
+        <mat-radio-group [value]="selectedCard()" (change)="selectedCard.set($event.value)" class="radio-group">
+          <lib-radio-button value="classic">Tarjeta Clásica</lib-radio-button>
+          <lib-radio-button value="gold">Tarjeta Gold</lib-radio-button>
+          <lib-radio-button value="platinum">Tarjeta Platinum</lib-radio-button>
+        </mat-radio-group>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #555;">
+          Seleccionada: <strong>{{ selectedCard() }}</strong>
+        </p>
+
+        <h3>Ejemplo de uso</h3>
+        <pre><code>&lt;mat-radio-group [(ngModel)]="plan"&gt;
+  &lt;lib-radio-button value="basic"&gt;Plan Básico&lt;/lib-radio-button&gt;
+  &lt;lib-radio-button value="pro"&gt;Plan Pro&lt;/lib-radio-button&gt;
+&lt;/mat-radio-group&gt;</code></pre>
+      </section>
     </article>
   `,
+  styles: [`
+    .radio-group { display: flex; flex-direction: column; gap: 0.25rem; }
+  `],
 })
 export class InputsPage {
   nameCtrl = new FormControl('');
@@ -130,6 +174,7 @@ export class InputsPage {
   errorCtrl = new FormControl('');
   hintCtrl = new FormControl('');
   disabledCtrl = new FormControl('');
+  selectedCard = signal('classic');
   selectOptions = [
     { value: 'co', label: 'Colombia' },
     { value: 'mx', label: 'México' },

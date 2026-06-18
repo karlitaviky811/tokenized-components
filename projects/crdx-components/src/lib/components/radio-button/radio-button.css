@@ -1,0 +1,4 @@
+:host {
+  display: inline-flex;
+  --mdc-radio-state-layer-size: calc(var(--radio-button-enabled-state-layer-radio-button-state-layer-size, 40) * 1px);
+}
