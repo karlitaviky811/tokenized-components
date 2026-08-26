@@ -1,8 +1,8 @@
-/// Layout global: solo variables en :root.
+﻿/// Layout global: solo variables en :root.
 /// El grid del shell (section.container, .main-content) lo define cada app (ej. layout-shell.scss).
 /// Evita duplicar/conflictos con el layout del host.
 :root {
-  --header-height: calc(var(--bars-size-small-app-bar-small-container-height, 64) * 1px);
+  --header-height: var(--app-bars-size-small-app-bar-small-container-height, 64px);
   // Opcional: altura lista/tabla como calc(100vh - header - cabecera lista - offset). Ej.: height: calc(100vh - var(--list-area-offset));
   --list-area-offset: 259px; // 80 + 72 + 107 (header, cabecera, contenido)
 }

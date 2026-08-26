@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 
@@ -8,7 +8,8 @@ import { MatIcon } from '@angular/material/icon';
   selector: 'lib-alert-modal, app-alert',
   templateUrl: './alert-modal.html',
   imports: [MatButton, MatIcon, CommonModule],
-  styleUrl: './alert-modal.css'
+  styleUrl: './alert-modal.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AlertModal {
   readonly dialogRef = inject(DialogRef);

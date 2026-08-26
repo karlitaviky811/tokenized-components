@@ -1,0 +1,33 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-side-modal</span>
+    <h1 class="comp-hero__name">Side Modal</h1>
+    <p class="comp-hero__desc">Modal lateral que se desliza desde la derecha. Recibe un componente dinámico como contenido, ideal para paneles de detalle o formularios sin abandonar la vista actual.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API — SideModal Data</h2>
+    <table class="api-table">
+      <tr><th>Propiedad</th><th>Tipo</th><th>Descripción</th></tr>
+      <tr><td>content</td><td>Type&lt;any&gt;</td><td>Componente a renderizar</td></tr>
+      <tr><td>title</td><td>string</td><td>Título del modal</td></tr>
+      <tr><td>footer</td><td>Type&lt;any&gt; | undefined</td><td>Componente footer (opcional)</td></tr>
+      <tr><td>headerConfig</td><td>SideModalHeaderConfig</td><td>Configuración del header</td></tr>
+      <tr><td>dialogState</td><td>WritableSignal&lt;'open' | 'closed'&gt;</td><td>Controla la animación de cierre</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>const state = signal&lt;'open' | 'closed'&gt;('open');
+
+this.dialog.open(SideModal, &#123;
+  data: &#123;
+    content: MyDetailComponent,
+    title: 'Detalle',
+    dialogState: state,
+  &#125;,
+  panelClass: 'side-modal-panel',
+&#125;);</code></pre>
+  </section>
+</article>

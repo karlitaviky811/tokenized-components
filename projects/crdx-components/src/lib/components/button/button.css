@@ -1,4 +1,4 @@
-:host {
+﻿:host {
   display: inline-block;
 }
 
@@ -45,12 +45,12 @@
 .lib-mat-btn:focus-visible {
   outline: none;
   box-shadow:
-    0 0 0 calc(var(--buttons-wip-button-enabled-button-focus-ring-outline-offset, 2) * 1px) var(--buttons-wip-button-enabled-button-focus-ring-indicator-color, #5b5f61),
-    0 0 0 calc((var(--buttons-wip-button-enabled-button-focus-ring-indicator-thickness, 3) + var(--buttons-wip-button-enabled-button-focus-ring-outline-offset, 2)) * 1px) var(--buttons-wip-button-enabled-button-focus-ring-indicator-color, #5b5f61);
+    0 0 0 var(--buttons-wip-button-enabled-button-focus-ring-outline-offset, 2px) var(--buttons-wip-button-enabled-button-focus-ring-indicator-color, #5b5f61),
+    0 0 0 calc(var(--buttons-wip-button-enabled-button-focus-ring-indicator-thickness, 3px) + var(--buttons-wip-button-enabled-button-focus-ring-outline-offset, 2px)) var(--buttons-wip-button-enabled-button-focus-ring-indicator-color, #5b5f61);
 }
 
 .lib-mat-btn.lib-mat-btn--pressed:not([disabled]) {
-  border-radius: calc(var(--lib-mat-btn-pressed-radius, var(--buttons-wip-size-medium-button-medium-shape-pressed-morph, 8)) * 1px);
+  border-radius: var(--lib-mat-btn-pressed-radius, var(--buttons-wip-size-medium-button-medium-shape-pressed-morph, 8px));
 }
 
 .lib-mat-btn.lib-mat-btn--debug-padding {
@@ -106,17 +106,17 @@
 
 /* Variables base (medium) */
 .lib-mat-btn {
-  --lib-mat-btn-height: calc(var(--buttons-wip-size-medium-button-medium-container-height) * 1px);
-  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-medium-button-medium-leading-space) * 1px);
-  --lib-mat-btn-padding-x-right: calc(var(--buttons-wip-size-medium-button-medium-leading-space) * 1px);
-  --lib-mat-btn-gap: calc(var(--buttons-wip-size-medium-button-medium-between-icon-label-space) * 1px);
-  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-medium-button-medium-shape-round, 1000) * 1px);
-  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-medium-button-medium-shape-square, 12) * 1px);
+  --lib-mat-btn-height: var(--buttons-wip-size-medium-button-medium-container-height);
+  --lib-mat-btn-padding-x: var(--buttons-wip-size-medium-button-medium-leading-space);
+  --lib-mat-btn-padding-x-right: var(--buttons-wip-size-medium-button-medium-leading-space);
+  --lib-mat-btn-gap: var(--buttons-wip-size-medium-button-medium-between-icon-label-space);
+  --lib-mat-btn-radius-round: var(--buttons-wip-size-medium-button-medium-shape-round, 1000px);
+  --lib-mat-btn-radius-square: var(--buttons-wip-size-medium-button-medium-shape-square, 12px);
   --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
-  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-medium-button-medium-label-text-size) * 1px);
-  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-medium-button-medium-label-text-line-height) * 1px);
-  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-medium-button-medium-label-text-tracking) * 1px);
-  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-medium-button-medium-icon-size) * 1px);
+  --lib-mat-btn-font-size: var(--buttons-wip-size-medium-button-medium-label-text-size);
+  --lib-mat-btn-line-height: var(--buttons-wip-size-medium-button-medium-label-text-line-height);
+  --lib-mat-btn-tracking: var(--buttons-wip-size-medium-button-medium-label-text-tracking);
+  --lib-mat-btn-icon-size: var(--buttons-wip-size-medium-button-medium-icon-size);
 
   min-height: var(--lib-mat-btn-height);
   height: var(--lib-mat-btn-height);
@@ -177,18 +177,18 @@
 
 /* xsmall */
 .lib-mat-btn--xsmall {
-  --lib-mat-btn-height: calc(var(--buttons-wip-size-xsmall-button-xsmall-container-height) * 1px);
-  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-xsmall-button-xsmall-leading-space) * 1px);
-  --lib-mat-btn-padding-x-right: calc(var(--buttons-wip-size-xsmall-button-xsmall-trailing-space) * 1px);
-  --lib-mat-btn-gap: calc(var(--buttons-wip-size-xsmall-button-xsmall-between-icon-label-space) * 1px);
-  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-xsmall-button-xsmall-shape-round, 1000) * 1px);
-  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-xsmall-button-xsmall-shape-square, 8) * 1px);
+  --lib-mat-btn-height: var(--buttons-wip-size-xsmall-button-xsmall-container-height);
+  --lib-mat-btn-padding-x: var(--buttons-wip-size-xsmall-button-xsmall-leading-space);
+  --lib-mat-btn-padding-x-right: var(--buttons-wip-size-xsmall-button-xsmall-trailing-space);
+  --lib-mat-btn-gap: var(--buttons-wip-size-xsmall-button-xsmall-between-icon-label-space);
+  --lib-mat-btn-radius-round: var(--buttons-wip-size-xsmall-button-xsmall-shape-round, 1000px);
+  --lib-mat-btn-radius-square: var(--buttons-wip-size-xsmall-button-xsmall-shape-square, 8px);
   --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
   --lib-mat-btn-pressed-radius: var(--buttons-wip-size-xsmall-button-xsmall-shape-pressed-morph);
-  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-xsmall-button-xsmall-label-text-size) * 1px);
-  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-xsmall-button-xsmall-label-text-line-height) * 1px);
-  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-xsmall-button-xsmall-label-text-tracking) * 1px);
-  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-xsmall-button-xsmall-icon-size) * 1px);
+  --lib-mat-btn-font-size: var(--buttons-wip-size-xsmall-button-xsmall-label-text-size);
+  --lib-mat-btn-line-height: var(--buttons-wip-size-xsmall-button-xsmall-label-text-line-height);
+  --lib-mat-btn-tracking: var(--buttons-wip-size-xsmall-button-xsmall-label-text-tracking);
+  --lib-mat-btn-icon-size: var(--buttons-wip-size-xsmall-button-xsmall-icon-size);
 
   min-height: var(--lib-mat-btn-height);
   height: var(--lib-mat-btn-height);
@@ -215,18 +215,18 @@
 
 /* small */
 .lib-mat-btn--small {
-  --lib-mat-btn-height: calc(var(--buttons-wip-size-small-button-small-container-height) * 1px);
-  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-small-button-small-leading-space) * 1px);
-  --lib-mat-btn-padding-x-right: calc(var(--buttons-wip-size-small-button-small-trailing-space) * 1px);
-  --lib-mat-btn-gap: calc(var(--buttons-wip-size-small-button-small-between-icon-label-space) * 1px);
-  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-small-button-small-shape-round, 1000) * 1px);
-  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-small-button-small-shape-square, 8) * 1px);
+  --lib-mat-btn-height: var(--buttons-wip-size-small-button-small-container-height);
+  --lib-mat-btn-padding-x: var(--buttons-wip-size-small-button-small-leading-space);
+  --lib-mat-btn-padding-x-right: var(--buttons-wip-size-small-button-small-trailing-space);
+  --lib-mat-btn-gap: var(--buttons-wip-size-small-button-small-between-icon-label-space);
+  --lib-mat-btn-radius-round: var(--buttons-wip-size-small-button-small-shape-round, 1000px);
+  --lib-mat-btn-radius-square: var(--buttons-wip-size-small-button-small-shape-square, 8px);
   --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
   --lib-mat-btn-pressed-radius: var(--buttons-wip-size-small-button-small-shape-pressed-morph);
-  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-small-button-small-label-text-size) * 1px);
-  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-small-button-small-label-text-line-height) * 1px);
-  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-small-button-small-label-text-tracking) * 1px);
-  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-small-button-small-icon-size) * 1px);
+  --lib-mat-btn-font-size: var(--buttons-wip-size-small-button-small-label-text-size);
+  --lib-mat-btn-line-height: var(--buttons-wip-size-small-button-small-label-text-line-height);
+  --lib-mat-btn-tracking: var(--buttons-wip-size-small-button-small-label-text-tracking);
+  --lib-mat-btn-icon-size: var(--buttons-wip-size-small-button-small-icon-size);
 
   min-height: var(--lib-mat-btn-height);
   height: var(--lib-mat-btn-height);
@@ -255,17 +255,17 @@
 
 /* medium */
 .lib-mat-btn--medium {
-  --lib-mat-btn-height: calc(var(--buttons-wip-size-medium-button-medium-container-height) * 1px);
-  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-medium-button-medium-leading-space) * 1px);
-  --lib-mat-btn-gap: calc(var(--buttons-wip-size-medium-button-medium-between-icon-label-space) * 1px);
-  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-medium-button-medium-shape-round, 1000) * 1px);
-  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-medium-button-medium-shape-square, 12) * 1px);
+  --lib-mat-btn-height: var(--buttons-wip-size-medium-button-medium-container-height);
+  --lib-mat-btn-padding-x: var(--buttons-wip-size-medium-button-medium-leading-space);
+  --lib-mat-btn-gap: var(--buttons-wip-size-medium-button-medium-between-icon-label-space);
+  --lib-mat-btn-radius-round: var(--buttons-wip-size-medium-button-medium-shape-round, 1000px);
+  --lib-mat-btn-radius-square: var(--buttons-wip-size-medium-button-medium-shape-square, 12px);
   --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
   --lib-mat-btn-pressed-radius: var(--buttons-wip-size-medium-button-medium-shape-pressed-morph);
-  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-medium-button-medium-label-text-size) * 1px);
-  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-medium-button-medium-label-text-line-height) * 1px);
-  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-medium-button-medium-label-text-tracking) * 1px);
-  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-medium-button-medium-icon-size) * 1px);
+  --lib-mat-btn-font-size: var(--buttons-wip-size-medium-button-medium-label-text-size);
+  --lib-mat-btn-line-height: var(--buttons-wip-size-medium-button-medium-label-text-line-height);
+  --lib-mat-btn-tracking: var(--buttons-wip-size-medium-button-medium-label-text-tracking);
+  --lib-mat-btn-icon-size: var(--buttons-wip-size-medium-button-medium-icon-size);
 
   min-height: var(--lib-mat-btn-height);
   height: var(--lib-mat-btn-height);
@@ -294,18 +294,18 @@
 
 /* large */
 .lib-mat-btn--large {
-  --lib-mat-btn-height: calc(var(--buttons-wip-size-large-button-large-container-height) * 1px);
-  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-large-button-large-leading-space) * 1px);
-  --lib-mat-btn-padding-x-right: calc(var(--buttons-wip-size-large-button-large-trailing-space) * 1px);
-  --lib-mat-btn-gap: calc(var(--buttons-wip-size-large-button-large-between-icon-label-space) * 1px);
-  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-large-button-large-shape-round, 1000) * 1px);
-  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-large-button-large-shape-square, 16) * 1px);
+  --lib-mat-btn-height: var(--buttons-wip-size-large-button-large-container-height);
+  --lib-mat-btn-padding-x: var(--buttons-wip-size-large-button-large-leading-space);
+  --lib-mat-btn-padding-x-right: var(--buttons-wip-size-large-button-large-trailing-space);
+  --lib-mat-btn-gap: var(--buttons-wip-size-large-button-large-between-icon-label-space);
+  --lib-mat-btn-radius-round: var(--buttons-wip-size-large-button-large-shape-round, 1000px);
+  --lib-mat-btn-radius-square: var(--buttons-wip-size-large-button-large-shape-square, 16px);
   --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
   --lib-mat-btn-pressed-radius: var(--buttons-wip-size-large-button-large-shape-pressed-morph);
-  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-large-button-large-label-text-size) * 1px);
-  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-large-button-large-label-text-line-height) * 1px);
-  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-large-button-large-label-text-tracking) * 1px);
-  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-large-button-large-icon-size) * 1px);
+  --lib-mat-btn-font-size: var(--buttons-wip-size-large-button-large-label-text-size);
+  --lib-mat-btn-line-height: var(--buttons-wip-size-large-button-large-label-text-line-height);
+  --lib-mat-btn-tracking: var(--buttons-wip-size-large-button-large-label-text-tracking);
+  --lib-mat-btn-icon-size: var(--buttons-wip-size-large-button-large-icon-size);
 
   min-height: var(--lib-mat-btn-height);
   height: var(--lib-mat-btn-height);
@@ -334,18 +334,18 @@
 
 /* xlarge */
 .lib-mat-btn--xlarge {
-  --lib-mat-btn-height: calc(var(--buttons-wip-size-xlarge-button-xlarge-container-height) * 1px);
-  --lib-mat-btn-padding-x: calc(var(--buttons-wip-size-xlarge-button-xlarge-leading-space) * 1px);
-  --lib-mat-btn-padding-x-right: calc(var(--buttons-wip-size-xlarge-button-xlarge-trailing-space) * 1px);
-  --lib-mat-btn-gap: calc(var(--buttons-wip-size-xlarge-button-xlarge-between-icon-label-space) * 1px);
-  --lib-mat-btn-radius-round: calc(var(--buttons-wip-size-xlarge-button-xlarge-shape-round, 1000) * 1px);
-  --lib-mat-btn-radius-square: calc(var(--buttons-wip-size-xlarge-button-xlarge-shape-square, 16) * 1px);
+  --lib-mat-btn-height: var(--buttons-wip-size-xlarge-button-xlarge-container-height);
+  --lib-mat-btn-padding-x: var(--buttons-wip-size-xlarge-button-xlarge-leading-space);
+  --lib-mat-btn-padding-x-right: var(--buttons-wip-size-xlarge-button-xlarge-trailing-space);
+  --lib-mat-btn-gap: var(--buttons-wip-size-xlarge-button-xlarge-between-icon-label-space);
+  --lib-mat-btn-radius-round: var(--buttons-wip-size-xlarge-button-xlarge-shape-round, 1000px);
+  --lib-mat-btn-radius-square: var(--buttons-wip-size-xlarge-button-xlarge-shape-square, 16px);
   --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
   --lib-mat-btn-pressed-radius: var(--buttons-wip-size-xlarge-button-xlarge-shape-pressed-morph);
-  --lib-mat-btn-font-size: calc(var(--buttons-wip-size-xlarge-button-xlarge-label-text-size) * 1px);
-  --lib-mat-btn-line-height: calc(var(--buttons-wip-size-xlarge-button-xlarge-label-text-line-height) * 1px);
-  --lib-mat-btn-tracking: calc(var(--buttons-wip-size-xlarge-button-xlarge-label-text-tracking) * 1px);
-  --lib-mat-btn-icon-size: calc(var(--buttons-wip-size-xlarge-button-xlarge-icon-size) * 1px);
+  --lib-mat-btn-font-size: var(--buttons-wip-size-xlarge-button-xlarge-label-text-size);
+  --lib-mat-btn-line-height: var(--buttons-wip-size-xlarge-button-xlarge-label-text-line-height);
+  --lib-mat-btn-tracking: var(--buttons-wip-size-xlarge-button-xlarge-label-text-tracking);
+  --lib-mat-btn-icon-size: var(--buttons-wip-size-xlarge-button-xlarge-icon-size);
 
   min-height: var(--lib-mat-btn-height);
   height: var(--lib-mat-btn-height);
@@ -378,4 +378,184 @@
 
 .lib-mat-btn--shape-square {
   --lib-mat-btn-radius: var(--lib-mat-btn-radius-square);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   ELEVATED VARIANT — toggle states
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Elevated — toggle unselected (enabled) */
+.lib-mat-btn--variant-elevated.lib-mat-btn--toggle:not(.lib-mat-btn--selected) {
+  background-color: var(--buttons-wip-color-elevated-enabled-button-elevated-container-color-toggle-unselected, #fff) !important;
+  color: var(--buttons-wip-color-elevated-enabled-button-elevated-label-color-toggle-unselected, #e42313) !important;
+}
+
+.lib-mat-btn--variant-elevated.lib-mat-btn--toggle:not(.lib-mat-btn--selected) .mat-icon {
+  color: var(--buttons-wip-color-elevated-enabled-button-elevated-icon-color-toggle-unselected, #e42313) !important;
+}
+
+/* Elevated — toggle selected (enabled) */
+.lib-mat-btn--variant-elevated.lib-mat-btn--selected {
+  background-color: var(--buttons-wip-color-elevated-enabled-button-elevated-container-color-toggle-selected, #e42313) !important;
+  color: var(--buttons-wip-color-elevated-enabled-button-elevated-label-color-toggle-selected, #fff) !important;
+}
+
+.lib-mat-btn--variant-elevated.lib-mat-btn--selected .mat-icon {
+  color: var(--buttons-wip-color-elevated-enabled-button-elevated-icon-color-toggle-selected, #fff) !important;
+}
+
+/* Elevated — toggle unselected: hover */
+:host ::ng-deep .lib-mat-btn--variant-elevated.lib-mat-btn--toggle:not(.lib-mat-btn--selected):hover:not([disabled]) .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-color-elevated-hovered-button-elevated-hovered-container-state-layer-color-toggle-unselected, rgba(228, 35, 19, 0.08)) !important;
+  opacity: 1 !important;
+}
+
+/* Elevated — toggle selected: hover */
+:host ::ng-deep .lib-mat-btn--variant-elevated.lib-mat-btn--selected:hover:not([disabled]) .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-color-elevated-hovered-button-elevated-hovered-container-state-layer-color-toggle-selected, rgba(255, 255, 255, 0.08)) !important;
+  opacity: 1 !important;
+}
+
+/* Elevated — toggle unselected: focus */
+:host ::ng-deep .lib-mat-btn--variant-elevated.lib-mat-btn--toggle:not(.lib-mat-btn--selected).cdk-program-focused .mat-mdc-button-persistent-ripple::before,
+:host ::ng-deep .lib-mat-btn--variant-elevated.lib-mat-btn--toggle:not(.lib-mat-btn--selected).cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-color-elevated-focused-button-elevated-focused-container-state-layer-color-toggle-unselected, rgba(228, 35, 19, 0.1)) !important;
+  opacity: 1 !important;
+}
+
+/* Elevated — toggle selected: focus */
+:host ::ng-deep .lib-mat-btn--variant-elevated.lib-mat-btn--selected.cdk-program-focused .mat-mdc-button-persistent-ripple::before,
+:host ::ng-deep .lib-mat-btn--variant-elevated.lib-mat-btn--selected.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-color-elevated-focused-button-elevated-focused-container-state-layer-color-toggle-selected, rgba(255, 255, 255, 0.1)) !important;
+  opacity: 1 !important;
+}
+
+/* Elevated — toggle unselected: pressed */
+:host ::ng-deep .lib-mat-btn--variant-elevated.lib-mat-btn--toggle:not(.lib-mat-btn--selected):active:not([disabled]) .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-color-elevated-pressed-button-elevated-pressed-container-state-layer-color-toggle-unselected, rgba(228, 35, 19, 0.1)) !important;
+  opacity: 1 !important;
+}
+
+/* Elevated — toggle selected: pressed */
+:host ::ng-deep .lib-mat-btn--variant-elevated.lib-mat-btn--selected:active:not([disabled]) .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-color-elevated-pressed-button-elevated-pressed-container-state-layer-color-toggle-selected, rgba(255, 255, 255, 0.1)) !important;
+  opacity: 1 !important;
+}
+
+/* Elevated — toggle unselected: ripple */
+:host ::ng-deep .lib-mat-btn--variant-elevated.lib-mat-btn--toggle:not(.lib-mat-btn--selected) .mat-ripple-element {
+  background-color: var(--buttons-wip-color-elevated-pressed-button-elevated-pressed-ripple-color-toggle-unselected, rgba(228, 35, 19, 0.1)) !important;
+}
+
+/* Elevated — toggle selected: ripple */
+:host ::ng-deep .lib-mat-btn--variant-elevated.lib-mat-btn--selected .mat-ripple-element {
+  background-color: var(--buttons-wip-color-elevated-pressed-button-elevated-pressed-ripple-color-toggle-selected, rgba(255, 255, 255, 0.1)) !important;
+}
+
+/* Elevated — toggle selected: hover label/icon colors */
+.lib-mat-btn--variant-elevated.lib-mat-btn--selected:hover:not([disabled]) {
+  color: var(--buttons-wip-color-elevated-hovered-button-elevated-hovered-label-color-toggle-selected, #fff) !important;
+}
+
+.lib-mat-btn--variant-elevated.lib-mat-btn--selected:hover:not([disabled]) .mat-icon {
+  color: var(--buttons-wip-color-elevated-hovered-button-elevated-hovered-icon-color-toggle-selected, #fff) !important;
+}
+
+/* Elevated — toggle unselected: hover label/icon colors */
+.lib-mat-btn--variant-elevated.lib-mat-btn--toggle:not(.lib-mat-btn--selected):hover:not([disabled]) {
+  color: var(--buttons-wip-color-elevated-hovered-button-elevated-hovered-label-color-toggle-unselected, #e42313) !important;
+}
+
+.lib-mat-btn--variant-elevated.lib-mat-btn--toggle:not(.lib-mat-btn--selected):hover:not([disabled]) .mat-icon {
+  color: var(--buttons-wip-color-elevated-hovered-button-elevated-hovered-icon-color-toggle-unselected, #e42313) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   TEXT VARIANT — toggle states
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Text — toggle unselected (enabled) */
+.lib-mat-btn--variant-text.lib-mat-btn--toggle:not(.lib-mat-btn--selected) {
+  background-color: var(--buttons-wip-button-enabled-button-container-color-toggle-unselected, transparent) !important;
+  color: var(--buttons-wip-button-enabled-button-label-color-toggle-unselected, #e42313) !important;
+}
+
+.lib-mat-btn--variant-text.lib-mat-btn--toggle:not(.lib-mat-btn--selected) .mat-icon {
+  color: var(--buttons-wip-button-enabled-button-icon-color-toggle-unselected, #e42313) !important;
+}
+
+/* Text — toggle selected (enabled) */
+.lib-mat-btn--variant-text.lib-mat-btn--selected {
+  background-color: var(--buttons-wip-button-enabled-button-container-color-toggle-selected, transparent) !important;
+  color: var(--buttons-wip-button-enabled-button-label-color-toggle-selected, #e42313) !important;
+}
+
+.lib-mat-btn--variant-text.lib-mat-btn--selected .mat-icon {
+  color: var(--buttons-wip-button-enabled-button-icon-color-toggle-selected, #e42313) !important;
+}
+
+/* Text — toggle unselected: hover */
+:host ::ng-deep .lib-mat-btn--variant-text.lib-mat-btn--toggle:not(.lib-mat-btn--selected):hover:not([disabled]) .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-button-hovered-button-hovered-container-state-layer-color-toggle-unselected, rgba(228, 35, 19, 0.08)) !important;
+  opacity: 1 !important;
+}
+
+/* Text — toggle selected: hover */
+:host ::ng-deep .lib-mat-btn--variant-text.lib-mat-btn--selected:hover:not([disabled]) .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-button-hovered-button-hovered-container-state-layer-color-toggle-selected, rgba(228, 35, 19, 0.08)) !important;
+  opacity: 1 !important;
+}
+
+/* Text — toggle unselected: focus */
+:host ::ng-deep .lib-mat-btn--variant-text.lib-mat-btn--toggle:not(.lib-mat-btn--selected).cdk-program-focused .mat-mdc-button-persistent-ripple::before,
+:host ::ng-deep .lib-mat-btn--variant-text.lib-mat-btn--toggle:not(.lib-mat-btn--selected).cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-button-focused-button-focused-container-state-layer-color-toggle-unselected, rgba(228, 35, 19, 0.1)) !important;
+  opacity: 1 !important;
+}
+
+/* Text — toggle selected: focus */
+:host ::ng-deep .lib-mat-btn--variant-text.lib-mat-btn--selected.cdk-program-focused .mat-mdc-button-persistent-ripple::before,
+:host ::ng-deep .lib-mat-btn--variant-text.lib-mat-btn--selected.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-button-focused-button-focused-container-state-layer-color-toggle-selected, rgba(228, 35, 19, 0.1)) !important;
+  opacity: 1 !important;
+}
+
+/* Text — toggle unselected: pressed */
+:host ::ng-deep .lib-mat-btn--variant-text.lib-mat-btn--toggle:not(.lib-mat-btn--selected):active:not([disabled]) .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-button-pressed-button-pressed-container-state-layer-color-toggle-unselected, rgba(228, 35, 19, 0.1)) !important;
+  opacity: 1 !important;
+}
+
+/* Text — toggle selected: pressed */
+:host ::ng-deep .lib-mat-btn--variant-text.lib-mat-btn--selected:active:not([disabled]) .mat-mdc-button-persistent-ripple::before {
+  background-color: var(--buttons-wip-button-pressed-button-pressed-container-state-layer-color-toggle-selected, rgba(228, 35, 19, 0.1)) !important;
+  opacity: 1 !important;
+}
+
+/* Text — toggle unselected: ripple */
+:host ::ng-deep .lib-mat-btn--variant-text.lib-mat-btn--toggle:not(.lib-mat-btn--selected) .mat-ripple-element {
+  background-color: var(--buttons-wip-button-pressed-button-pressed-container-state-layer-color-toggle-unselected, rgba(228, 35, 19, 0.1)) !important;
+}
+
+/* Text — toggle selected: ripple */
+:host ::ng-deep .lib-mat-btn--variant-text.lib-mat-btn--selected .mat-ripple-element {
+  background-color: var(--buttons-wip-button-pressed-button-pressed-container-state-layer-color-toggle-selected, rgba(228, 35, 19, 0.1)) !important;
+}
+
+/* Text — toggle selected: hover label/icon colors */
+.lib-mat-btn--variant-text.lib-mat-btn--selected:hover:not([disabled]) {
+  color: var(--buttons-wip-button-hovered-button-hovered-label-color-toggle-selected, #e42313) !important;
+}
+
+.lib-mat-btn--variant-text.lib-mat-btn--selected:hover:not([disabled]) .mat-icon {
+  color: var(--buttons-wip-button-hovered-button-hovered-icon-color-toggle-selected, #e42313) !important;
+}
+
+/* Text — toggle unselected: hover label/icon colors */
+.lib-mat-btn--variant-text.lib-mat-btn--toggle:not(.lib-mat-btn--selected):hover:not([disabled]) {
+  color: var(--buttons-wip-button-hovered-button-hovered-label-color-toggle-unselected, #e42313) !important;
+}
+
+.lib-mat-btn--variant-text.lib-mat-btn--toggle:not(.lib-mat-btn--selected):hover:not([disabled]) .mat-icon {
+  color: var(--buttons-wip-button-hovered-button-hovered-icon-color-toggle-unselected, #e42313) !important;
 }

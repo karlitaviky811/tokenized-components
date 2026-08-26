@@ -1,22 +1,47 @@
-:host {
+﻿:host {
   display: inline-block;
-  --dp-w: var(--app-date-pickers-docked-enabled-container-container-width, 360);
-  --dp-primary:    var(--app-date-pickers-docked-enabled-container-date-selected-container-color, #E42313);
-  --dp-on-primary: var(--app-date-pickers-docked-enabled-label-text-date-selected-label-text-color, #FFFFFF);
+  width: min(100%, 220px);
 }
 
 .dp-field {
-  width: calc(var(--dp-w) * 1px);
-  font-family: var(--app-date-pickers-docked-enabled-label-text-date-label-text-font, Heebo), sans-serif;
+  width: 100%;
+  font-family: var(--date-pickers-docked-enabled-label-text-date-label-text-font, Heebo), sans-serif;
+  font-size: 14px;
 }
 
-/* Override Material outlined field to use Credix input styling */
 .dp-field.mat-mdc-form-field {
   --mdc-outlined-text-field-label-text-font: inherit;
   --mdc-outlined-text-field-input-text-font: inherit;
+  --mdc-outlined-text-field-label-text-color: var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
+  --mdc-outlined-text-field-input-text-color: var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
+  --mdc-outlined-text-field-outline-color: var(--pallete-scheme-surface-outline-variant, #c3c7c9);
+  --mdc-outlined-text-field-hover-outline-color: var(--pallete-scheme-surface-on-surface, #181c1e);
+  --mdc-outlined-text-field-focus-outline-color: var(--pallete-scheme-primary, #e42313);
+  --mdc-outlined-text-field-container-shape: 12px;
 }
 
-/* Toggle icon size aligned to Figma token */
-.dp-field .material-symbols-outlined {
-  font-size: 20px;
+:host ::ng-deep .dp-field .mdc-text-field--outlined {
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.dp-input {
+  font-size: 14px;
+}
+
+.dp-field .mat-datepicker-toggle {
+  color: var(--date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
+}
+
+/* ── Actions ────────────────────────────────────────────────────── */
+
+.dp-spacer {
+  flex: 1 0 0;
+}
+
+.dp-btn {
+  font-family: var(--buttons-wip-size-small-button-small-label-text-font, Heebo), sans-serif !important;
+  font-size: var(--buttons-wip-size-small-button-small-label-text-size, 14px) !important;
+  font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500) !important;
+  --mat-text-button-label-text-color: var(--buttons-wip-color-text-enabled-button-text-label-color, #e42313);
 }

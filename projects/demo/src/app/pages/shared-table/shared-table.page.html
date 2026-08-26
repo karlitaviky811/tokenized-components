@@ -1,0 +1,285 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-shared-table</span>
+    <h1 class="comp-hero__name">Shared Table</h1>
+    <p class="comp-hero__desc">Tabla configurable con columnas dinámicas, paginación, templates custom para celdas y soporte de row click. Incluye cuatro patrones de integración con modales.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>columns</td><td>SharedTableColumn[]</td><td><em>required</em></td><td>Definición de columnas</td></tr>
+      <tr><td>data</td><td>T[]</td><td><em>required</em></td><td>Datos de la tabla</td></tr>
+      <tr><td>caption</td><td>string</td><td>undefined</td><td>Caption accesible</td></tr>
+      <tr><td>emptyState</td><td>string</td><td>'Sin registros disponibles'</td><td>Mensaje sin datos</td></tr>
+      <tr><td>loading</td><td>boolean</td><td>false</td><td>Muestra spinner</td></tr>
+      <tr><td>showPaginator</td><td>boolean</td><td>true</td><td>Muestra paginador</td></tr>
+      <tr><td>pageSize</td><td>number</td><td>10</td><td>Filas por página</td></tr>
+      <tr><td>pageSizeOptions</td><td>number[]</td><td>[5, 10, 20]</td><td>Opciones de page size</td></tr>
+      <tr><td>enableRowClick</td><td>boolean</td><td>false</td><td>Habilita click en filas</td></tr>
+      <tr><td>totalElements</td><td>number | undefined</td><td>undefined</td><td>Total para paginación server-side</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>rowClick</td><td>T</td><td></td><td>Emite la fila clickeada</td></tr>
+      <tr><td>pageChange</td><td>TablePageEvent</td><td></td><td>Emite al cambiar página</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>SharedTableColumn</h2>
+    <pre><code>interface SharedTableColumn&lt;T&gt; &#123;
+  key: string;         // propiedad del objeto o ID de columna
+  header: string;      // texto del encabezado
+  align?: 'start' | 'center' | 'end';
+  width?: string;      // ej: '120px', '20%'
+  cell?: (row: T, index: number) =&gt; unknown;
+&#125;</code></pre>
+    <p>El tipo de fila DEBE llevar index signature, porque <code>SharedTableColumn&lt;T&gt;</code> restringe <code>T extends Record&lt;string, unknown&gt;</code>.</p>
+    <pre><code>type DemoUser = &#123;
+  id: string;
+  name: string;
+  [key: string]: unknown;   // obligatorio
+&#125;;</code></pre>
+  </section>
+
+  <section class="doc-section">
+    <h2>Demo base</h2>
+    <p>Tabla sin integración: solo columnas y datos.</p>
+    <div class="table-demo">
+      <shared-table [columns]="columns" [data]="data" [showPaginator]="false" />
+    </div>
+  </section>
+
+  <!-- ─── Integración con modales ────────────────────────────────────────────── -->
+
+  <section class="doc-section">
+    <h2>Integración con modales</h2>
+    <p>Cuatro patrones reales de combinación tabla + modal. Todos usan los stores de la librería (<code>ConfirmModalStore</code>, <code>SideModalStore</code>), no <code>Dialog</code> directo.</p>
+
+    @if (lastAction()) {
+      <p>Última acción: <code>{{ lastAction() }}</code></p>
+    }
+  </section>
+
+  <!-- 1 ─────────────────────────────────────────────────────────────────────── -->
+
+  <section class="doc-section">
+    <h2>1. Row click → confirmación</h2>
+    <p>El caso más común: la fila es clickeable y abre una confirmación antes de navegar o cargar el detalle. Requiere <code>enableRowClick</code> junto a <code>rowClick</code>; sin el input, el output nunca emite.</p>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Row click → ConfirmModal</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <div class="table-demo">
+          <shared-table
+            [columns]="columns"
+            [data]="data"
+            [showPaginator]="false"
+            [enableRowClick]="true"
+            (rowClick)="onRowClickConfirm($event)"
+          />
+        </div>
+      </div>
+      <div class="component-doc__footer">Building Blocks</div>
+    </div>
+
+    <h3>Uso</h3>
+    <pre><code>private readonly confirmModal = inject(ConfirmModalStore);
+
+onRowClickConfirm(row: DemoUser): void &#123;
+  this.confirmModal
+    .openWithDescription(
+      'Abrir ficha de ' + row.name,
+      'Rol ' + row.role,
+      'Abrir',
+      'Cancelar',
+    )
+    .closed.subscribe((confirmed) =&gt; &#123;
+      if (confirmed) &#123; /* navegar al detalle */ &#125;
+    &#125;);
+&#125;</code></pre>
+    <pre><code>&lt;shared-table
+  [columns]="columns"
+  [data]="data"
+  [enableRowClick]="true"
+  (rowClick)="onRowClickConfirm($event)"
+/&gt;</code></pre>
+  </section>
+
+  <!-- 2 ─────────────────────────────────────────────────────────────────────── -->
+
+  <section class="doc-section">
+    <h2>2. Acción por fila → confirmación destructiva</h2>
+    <p>Columna de acciones con <code>cellTemplate</code>. La confirmación se resuelve por <code>closed</code> y solo entonces se muta el estado. Nota: <code>lib-icon-button</code> no expone output propio, se escucha <code>(click)</code>.</p>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Eliminar fila → ConfirmModal</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <div class="table-demo">
+          <shared-table [columns]="deletableColumns" [data]="deletableUsers()" [showPaginator]="false">
+            <ng-template cellTemplate="actions" let-row>
+              <lib-icon-button variant="standard" size="small" (click)="onDeleteRow(row)">
+                <span class="material-symbols-outlined">delete</span>
+              </lib-icon-button>
+            </ng-template>
+          </shared-table>
+        </div>
+        <lib-button label="Restaurar listado" variant="outlined" shape="square" size="small" [fullWidth]="false" (click)="restoreDeletable()" />
+      </div>
+      <div class="component-doc__footer">Building Blocks</div>
+    </div>
+
+    <h3>Uso</h3>
+    <pre><code>onDeleteRow(row: DemoUser): void &#123;
+  this.confirmModal
+    .openWithIcon(
+      '¿Eliminar a ' + row.name + '?',
+      'Esta acción no se puede deshacer.',
+      'Eliminar',
+      'Cancelar',
+      'delete',
+    )
+    .closed.subscribe((confirmed) =&gt; &#123;
+      if (!confirmed) return;
+      this.users.update((list) =&gt; list.filter((u) =&gt; u.id !== row.id));
+    &#125;);
+&#125;</code></pre>
+    <pre><code>&lt;shared-table [columns]="deletableColumns" [data]="users()"&gt;
+  &lt;ng-template cellTemplate="actions" let-row&gt;
+    &lt;lib-icon-button (click)="onDeleteRow(row)"&gt;
+      &lt;span class="material-symbols-outlined"&gt;delete&lt;/span&gt;
+    &lt;/lib-icon-button&gt;
+  &lt;/ng-template&gt;
+&lt;/shared-table&gt;</code></pre>
+  </section>
+
+  <!-- 3 ─────────────────────────────────────────────────────────────────────── -->
+
+  <section class="doc-section">
+    <h2>3. Selección múltiple → confirmación con lista</h2>
+    <p>Checkbox por fila vía <code>cellTemplate</code>. Las filas seleccionadas se mapean a <code>ConfirmModalListItem[]</code> y se pasan a <code>openWithScrollableList</code>, para que el usuario revise el lote antes de confirmar.</p>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Selección → ConfirmModal con lista</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <div class="table-demo">
+          <shared-table [columns]="selectableColumns" [data]="data" [showPaginator]="false">
+            <ng-template cellTemplate="select" let-row>
+              <lib-checkbox
+                [checked]="isSelected(row)"
+                (checkedChange)="toggleSelection(row, $event)"
+              />
+            </ng-template>
+          </shared-table>
+        </div>
+        <lib-button
+          [label]="'Procesar (' + selectedCount() + ')'"
+          variant="filled"
+          shape="square"
+          size="small"
+          [disabled]="selectedCount() === 0"
+          [fullWidth]="false"
+          (click)="confirmSelection()"
+        />
+      </div>
+      <div class="component-doc__footer">Building Blocks</div>
+    </div>
+
+    <h3>Uso</h3>
+    <pre><code>confirmSelection(): void &#123;
+  const listItems: ConfirmModalListItem[] = this.selectedRows().map((u) =&gt; (&#123;
+    id: u.id,
+    label: u.name,
+    supportingText: u.email,
+    amount: u.amount,
+  &#125;));
+
+  this.confirmModal
+    .openWithScrollableList(
+      'Confirmar desembolso',
+      'Se procesarán ' + listItems.length + ' registros.',
+      listItems,
+      'Procesar',
+      'Cancelar',
+    )
+    .closed.subscribe((confirmed) =&gt; &#123;
+      if (confirmed) this.selectedIds.set([]);
+    &#125;);
+&#125;</code></pre>
+    <pre><code>&lt;ng-template cellTemplate="select" let-row&gt;
+  &lt;lib-checkbox
+    [checked]="isSelected(row)"
+    (checkedChange)="toggleSelection(row, $event)"
+  /&gt;
+&lt;/ng-template&gt;</code></pre>
+  </section>
+
+  <!-- 4 ─────────────────────────────────────────────────────────────────────── -->
+
+  <section class="doc-section">
+    <h2>4. Row click → panel lateral de detalle</h2>
+    <p>Cuando el detalle es extenso, un panel lateral evita perder el contexto de la tabla. Ojo con esta restricción: <code>openSideModal</code> proyecta el contenido con <code>NgComponentOutlet</code>, que NO acepta inputs. El dato de la fila se comparte por un store inyectable.</p>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Row click → SideModal</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <div class="table-demo">
+          <shared-table
+            [columns]="columns"
+            [data]="data"
+            [showPaginator]="false"
+            [enableRowClick]="true"
+            (rowClick)="onRowClickPanel($event)"
+          />
+        </div>
+      </div>
+      <div class="component-doc__footer">Building Blocks</div>
+    </div>
+
+    <h3>Uso</h3>
+    <p>Store compartido, porque el panel no puede recibir inputs:</p>
+    <pre><code>&#64;Injectable(&#123; providedIn: 'root' &#125;)
+export class SelectedUserStore &#123;
+  private readonly _user = signal&lt;DemoUser | null&gt;(null);
+  readonly user = this._user.asReadonly();
+  select(user: DemoUser | null): void &#123; this._user.set(user); &#125;
+&#125;</code></pre>
+    <p>La tabla escribe la fila y abre el panel:</p>
+    <pre><code>private readonly sideModal = inject(SideModalStore);
+private readonly selectedUser = inject(SelectedUserStore);
+
+onRowClickPanel(row: DemoUser): void &#123;
+  this.selectedUser.select(row);
+  this.sideModal.openSideModal(UserDetailPanel, 'Detalle · ' + row.name, '22rem');
+&#125;</code></pre>
+    <p>El panel lo lee por inyección:</p>
+    <pre><code>export class UserDetailPanel &#123;
+  protected readonly user = inject(SelectedUserStore).user;
+&#125;</code></pre>
+  </section>
+
+  <!-- ─── Comparativa ────────────────────────────────────────────────────────── -->
+
+  <section class="doc-section">
+    <h2>Cuándo usar cada patrón</h2>
+    <table class="api-table">
+      <tr><th>Patrón</th><th>Disparador</th><th>Modal</th><th>Usar cuando</th></tr>
+      <tr><td>1. Confirmación</td><td>rowClick</td><td>openWithDescription</td><td>La fila lleva a otra vista y conviene confirmar</td></tr>
+      <tr><td>2. Destructiva</td><td>cellTemplate + click</td><td>openWithIcon</td><td>La acción es irreversible y va por fila</td></tr>
+      <tr><td>3. Lote</td><td>checkbox + botón</td><td>openWithScrollableList</td><td>Se opera sobre varias filas y hay que revisar el lote</td></tr>
+      <tr><td>4. Panel</td><td>rowClick</td><td>openSideModal</td><td>El detalle es extenso y no se quiere perder la tabla</td></tr>
+    </table>
+  </section>
+</article>

@@ -1,4 +1,4 @@
-@use '@angular/material' as mat;
+﻿@use '@angular/material' as mat;
 
 // Asegura que el borde (outline) del checkbox sin seleccionar use siempre #181c1e,
 // en lugar del valor por defecto (#434749) de los tokens.
@@ -12,18 +12,18 @@ html {
   @include mat.checkbox-overrides((
     selected-focus-state-layer-opacity: 0.10,
     selected-hover-state-layer-opacity: 0.08,
-    // Ripple más oscuro cuando el checkbox está seleccionado y en pressed.
+    // Ripple mÃ¡s oscuro cuando el checkbox estÃ¡ seleccionado y en pressed.
     selected-pressed-state-layer-opacity: 0.20,
     unselected-focus-state-layer-opacity: 0.10,
     unselected-hover-state-layer-opacity: 0.08,
     unselected-pressed-state-layer-opacity: 0.10,
-    touch-target-size: calc(var(--checkboxes-enabled-state-layer-checkbox-state-layer-size, 40) * 1px),
+    touch-target-size: var(--checkboxes-enabled-state-layer-checkbox-state-layer-size, 40px),
     touch-target-display: block,
-    state-layer-size: calc(var(--checkboxes-enabled-state-layer-checkbox-state-layer-size, 40) * 1px),
+    state-layer-size: var(--checkboxes-enabled-state-layer-checkbox-state-layer-size, 40px),
     disabled-label-color: var(--md-sys-color-on-surface),
     disabled-selected-checkmark-color: var(--checkboxes-disabled-icon-checkbox-selected-disabled-icon-color, #f7fafc),
-    disabled-selected-icon-color: var(--checkboxes-disabled-icon-checkbox-disabled-selected-icon-color, #e42313),
-    disabled-unselected-icon-color: var(--checkboxes-disabled-icon-checkbox-disabled-unselected-icon-color, #e42313),
+    //disabled-selected-icon-color: var(--checkboxes-disabled-icon-checkbox-disabled-selected-icon-color, #e42313),
+   // disabled-unselected-icon-color: var(--checkboxes-disabled-icon-checkbox-disabled-unselected-icon-color, #e42313),
     label-text-color: var(--md-sys-color-on-surface),
     selected-checkmark-color: var(--checkboxes-enabled-icon-checkbox-selected-icon-color, #ffffff),
     selected-focus-icon-color: #181c1e,
@@ -39,7 +39,7 @@ html {
     unselected-icon-color: var(--checkboxes-enabled-icon-checkbox-unselected-icon-color, #181c1e),
     unselected-pressed-state-layer-color: var(--checkboxes-pressed-ripple-state-layer-checkbox-unselected-pressed-state-layer-color, #181c1e),
     label-text-font: var(--typescale-body-medium-font, 'Heebo'),
-    label-text-line-height: calc(var(--typescale-body-medium-line-height, 20) * 1px),
+    label-text-line-height: var(--typescale-body-medium-line-height, 20px),
     label-text-size: var(--typescale-body-medium-size, 14px),
     label-text-tracking: var(--typescale-body-medium-tracking, 0.25px),
     label-text-weight: var(--typescale-body-medium-weight, 400),

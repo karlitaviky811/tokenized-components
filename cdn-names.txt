@@ -1,0 +1,35 @@
+===== BUTTONS (CDN) =====
+--dimension-buttons-wip-size-medium-button-medium-between-icon-label-space
+--dimension-buttons-wip-size-medium-button-medium-container-height
+--dimension-buttons-wip-size-medium-button-medium-icon-size
+--dimension-buttons-wip-size-medium-button-medium-label-text-line-height
+--dimension-buttons-wip-size-medium-button-medium-label-text-size
+--dimension-buttons-wip-size-medium-button-medium-label-text-tracking
+--dimension-buttons-wip-size-medium-button-medium-label-text-weight
+--dimension-buttons-wip-size-medium-button-medium-leading-space
+--dimension-buttons-wip-size-medium-button-medium-outline-width
+--dimension-buttons-wip-size-medium-button-medium-selected-container-shape-round
+--dimension-buttons-wip-size-medium-button-medium-selected-container-shape-square
+--dimension-buttons-wip-size-medium-button-medium-shape-pressed-morph
+--dimension-buttons-wip-size-medium-button-medium-shape-round
+--dimension-buttons-wip-size-medium-button-medium-shape-square
+--dimension-buttons-wip-size-medium-button-medium-trailing-space
+--string-buttons-wip-size-medium-button-medium-label-text-font
+===== ROJO / PALETTE (CDN) =====
+--color-colors-rojo-primary-rojo-0
+--color-colors-rojo-primary-rojo-10
+--color-colors-rojo-primary-rojo-100
+--color-colors-rojo-primary-rojo-15
+--color-colors-rojo-primary-rojo-20
+--color-colors-rojo-primary-rojo-25
+--color-colors-rojo-primary-rojo-30
+--color-colors-rojo-primary-rojo-35
+===== PALLETE SCHEME (CDN) =====
+--color-pallete-scheme-error
+--color-pallete-scheme-error-container
+--color-pallete-scheme-error-on-error
+--color-pallete-scheme-error-on-error-container
+--color-pallete-scheme-information
+--color-pallete-scheme-information-container
+--color-pallete-scheme-information-on-information
+--color-pallete-scheme-information-on-information-container

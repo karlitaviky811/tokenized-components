@@ -1,0 +1,36 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-header</span>
+    <h1 class="comp-hero__name">App Bar</h1>
+    <p class="comp-hero__desc">Barra superior con leading icon, branding y acciones trailing. Sirve como punto de anclaje principal de la navegación de la app.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>showLeading</td><td>boolean</td><td>true</td><td>Muestra ícono leading</td></tr>
+      <tr><td>leadingIcon</td><td>string</td><td>'icon-menu'</td><td>Ícono del leading</td></tr>
+      <tr><td>brandLabel</td><td>string</td><td>'Credix'</td><td>Texto de marca</td></tr>
+      <tr><td>brandIcon</td><td>string</td><td>'smiley'</td><td>Ícono de marca</td></tr>
+      <tr><td>trailingActions</td><td>HeaderAction[]</td><td>[search]</td><td>Acciones trailing</td></tr>
+      <tr><td>iconBasePath</td><td>string</td><td>'assets/icons'</td><td>Path base de íconos</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>leadingClick</td><td>void</td><td></td><td>Click en leading</td></tr>
+      <tr><td>actionClick</td><td>HeaderAction</td><td></td><td>Click en acción trailing</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-header
+  brandLabel="Mi App"
+  [trailingActions]="[
+    &#123; icon: 'notifications', ariaLabel: 'Notificaciones' &#125;,
+    &#123; icon: 'profile', ariaLabel: 'Perfil' &#125;
+  ]"
+  (leadingClick)="toggleSidebar()"
+  (actionClick)="onAction($event)"
+/&gt;</code></pre>
+  </section>
+</article>

@@ -1,13 +1,12 @@
-/* Colores, paddings y tamaños desde Figma: _tokens-icon-buttons / _app-tokens (icon-buttons-*).
-   Space: narrow, default, wide (leading/trailing por tamaño). */
+﻿
 .ui-icon-btn {
-  --ui-icon-btn-size: calc(var(--icon-buttons-size-small-icon-button-small-container-height) * 1px);
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-small-icon-button-small-default-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-small-icon-button-small-default-trailing-space) * 1px);
-  --ui-icon-btn-radius: calc(var(--icon-buttons-icon-button-enabled-icon-button-container-shape-round, var(--app-icon-buttons-icon-button-enabled-icon-button-container-shape-round)) * 1px);
-  --ui-icon-btn-pressed-radius: calc(var(--icon-buttons-icon-button-enabled-icon-button-shape-pressed-morph, var(--app-icon-buttons-icon-button-enabled-icon-button-shape-pressed-morph, 0)) * 1px);
-  --ui-icon-btn-outline-width: calc(var(--icon-buttons-size-small-icon-button-small-outline-width) * 1px);
-  --ui-icon-btn-icon-size: calc(var(--icon-buttons-size-small-icon-button-small-icon-size) * 1px);
+  --ui-icon-btn-size: var(--icon-buttons-size-small-icon-button-small-container-height);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-small-icon-button-small-default-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-small-icon-button-small-default-trailing-space);
+  --ui-icon-btn-radius: var(--icon-buttons-icon-button-enabled-icon-button-container-shape-round, var(--app-icon-buttons-icon-button-enabled-icon-button-container-shape-round));
+  --ui-icon-btn-pressed-radius: var(--icon-buttons-icon-button-enabled-icon-button-shape-pressed-morph, var(--app-icon-buttons-icon-button-enabled-icon-button-shape-pressed-morph, 0px));
+  --ui-icon-btn-outline-width: var(--icon-buttons-size-small-icon-button-small-outline-width);
+  --ui-icon-btn-icon-size: var(--icon-buttons-size-small-icon-button-small-icon-size);
   --ui-icon-btn-border-width: 0;
   --ui-icon-btn-border-color: transparent;
   --ui-icon-btn-container-color: var(--icon-buttons-icon-button-enabled-icon-button-container-color, var(--app-icon-buttons-icon-button-enabled-icon-button-container-color));
@@ -31,8 +30,8 @@
     transparent
   );
   --ui-icon-btn-focus-ring-color: var(--icon-buttons-icon-button-enabled-icon-button-focus-indicator-color, var(--app-icon-buttons-icon-button-enabled-icon-button-focus-indicator-color, transparent));
-  --ui-icon-btn-focus-ring-width: calc(var(--icon-buttons-icon-button-enabled-icon-button-focus-indicator-thickness, var(--app-icon-buttons-icon-button-enabled-icon-button-focus-indicator-thickness, 0)) * 1px);
-  --ui-icon-btn-focus-ring-offset: calc(var(--icon-buttons-icon-button-enabled-icon-button-focus-indicator-offset, var(--app-icon-buttons-icon-button-enabled-icon-button-focus-indicator-offset, 0)) * 1px);
+  --ui-icon-btn-focus-ring-width: var(--icon-buttons-icon-button-enabled-icon-button-focus-indicator-thickness, var(--app-icon-buttons-icon-button-enabled-icon-button-focus-indicator-thickness, 0px));
+  --ui-icon-btn-focus-ring-offset: var(--icon-buttons-icon-button-enabled-icon-button-focus-indicator-offset, var(--app-icon-buttons-icon-button-enabled-icon-button-focus-indicator-offset, 0px));
   --ui-icon-btn-disabled-container-color: var(--icon-buttons-icon-button-disabled-icon-button-disabled-container-color, var(--ui-icon-btn-container-color));
   --ui-icon-btn-disabled-container-opacity: var(--icon-buttons-icon-button-disabled-icon-button-disabled-container-opacity, 100);
   --ui-icon-btn-disabled-icon-color: var(--icon-buttons-icon-button-disabled-icon-button-disabled-icon-color, var(--ui-icon-btn-icon-color));
@@ -150,110 +149,110 @@
 }
 
 .ui-icon-btn--xsmall {
-  --ui-icon-btn-size: calc(var(--icon-buttons-size-xsmall-icon-button-xsmall-container-height) * 1px);
-  --ui-icon-btn-icon-size: calc(var(--icon-buttons-size-xsmall-icon-button-xsmall-icon-size) * 1px);
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-xsmall-icon-button-xsmall-default-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-xsmall-icon-button-xsmall-default-trailing-space) * 1px);
-  --ui-icon-btn-outline-width: calc(var(--icon-buttons-size-xsmall-icon-button-xsmall-outline-width) * 1px);
+  --ui-icon-btn-size: var(--icon-buttons-size-xsmall-icon-button-xsmall-container-height);
+  --ui-icon-btn-icon-size: var(--icon-buttons-size-xsmall-icon-button-xsmall-icon-size);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-xsmall-icon-button-xsmall-default-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-xsmall-icon-button-xsmall-default-trailing-space);
+  --ui-icon-btn-outline-width: var(--icon-buttons-size-xsmall-icon-button-xsmall-outline-width);
 }
 
 .ui-icon-btn--small {
-  --ui-icon-btn-size: calc(var(--icon-buttons-size-small-icon-button-small-container-height) * 1px);
-  --ui-icon-btn-icon-size: calc(var(--icon-buttons-size-small-icon-button-small-icon-size) * 1px);
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-small-icon-button-small-default-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-small-icon-button-small-default-trailing-space) * 1px);
-  --ui-icon-btn-outline-width: calc(var(--icon-buttons-size-small-icon-button-small-outline-width) * 1px);
+  --ui-icon-btn-size: var(--icon-buttons-size-small-icon-button-small-container-height);
+  --ui-icon-btn-icon-size: var(--icon-buttons-size-small-icon-button-small-icon-size);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-small-icon-button-small-default-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-small-icon-button-small-default-trailing-space);
+  --ui-icon-btn-outline-width: var(--icon-buttons-size-small-icon-button-small-outline-width);
 }
 
 .ui-icon-btn--medium {
-  --ui-icon-btn-size: calc(var(--icon-buttons-size-medium-icon-button-medium-container-height) * 1px);
-  --ui-icon-btn-icon-size: calc(var(--icon-buttons-size-medium-icon-button-medium-icon-size) * 1px);
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-medium-icon-button-medium-default-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-medium-icon-button-medium-default-trailing-space) * 1px);
-  --ui-icon-btn-outline-width: calc(var(--icon-buttons-size-medium-icon-button-medium-outline-width) * 1px);
+  --ui-icon-btn-size: var(--icon-buttons-size-medium-icon-button-medium-container-height);
+  --ui-icon-btn-icon-size: var(--icon-buttons-size-medium-icon-button-medium-icon-size);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-medium-icon-button-medium-default-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-medium-icon-button-medium-default-trailing-space);
+  --ui-icon-btn-outline-width: var(--icon-buttons-size-medium-icon-button-medium-outline-width);
 }
 
 .ui-icon-btn--large {
-  --ui-icon-btn-size: calc(var(--icon-buttons-size-large-icon-button-large-container-height) * 1px);
-  --ui-icon-btn-icon-size: calc(var(--icon-buttons-size-large-icon-button-large-icon-size) * 1px);
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-large-icon-button-large-default-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-large-icon-button-large-default-trailing-space) * 1px);
-  --ui-icon-btn-outline-width: calc(var(--icon-buttons-size-large-icon-button-large-outline-width) * 1px);
+  --ui-icon-btn-size: var(--icon-buttons-size-large-icon-button-large-container-height);
+  --ui-icon-btn-icon-size: var(--icon-buttons-size-large-icon-button-large-icon-size);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-large-icon-button-large-default-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-large-icon-button-large-default-trailing-space);
+  --ui-icon-btn-outline-width: var(--icon-buttons-size-large-icon-button-large-outline-width);
 }
 
 .ui-icon-btn--xlarge {
-  --ui-icon-btn-size: calc(var(--icon-buttons-size-xlarge-icon-button-xlarge-container-height) * 1px);
-  --ui-icon-btn-icon-size: calc(var(--icon-buttons-size-xlarge-icon-button-xlarge-icon-size) * 1px);
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-xlarge-icon-button-xlarge-default-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-xlarge-icon-button-xlarge-default-trailing-space) * 1px);
-  --ui-icon-btn-outline-width: calc(var(--icon-buttons-size-xlarge-icon-button-xlarge-outline-width) * 1px);
+  --ui-icon-btn-size: var(--icon-buttons-size-xlarge-icon-button-xlarge-container-height);
+  --ui-icon-btn-icon-size: var(--icon-buttons-size-xlarge-icon-button-xlarge-icon-size);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-xlarge-icon-button-xlarge-default-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-xlarge-icon-button-xlarge-default-trailing-space);
+  --ui-icon-btn-outline-width: var(--icon-buttons-size-xlarge-icon-button-xlarge-outline-width);
 }
 
 /* Space: narrow (Figma node 396-15028), default, wide */
 .ui-icon-btn--xsmall.ui-icon-btn--space-narrow {
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-xsmall-icon-button-xsmall-narrow-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-xsmall-icon-button-xsmall-narrow-trailing-space) * 1px);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-xsmall-icon-button-xsmall-narrow-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-xsmall-icon-button-xsmall-narrow-trailing-space);
 }
 
 .ui-icon-btn--xsmall.ui-icon-btn--space-wide {
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-xsmall-icon-button-xsmall-wide-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-xsmall-icon-button-xsmall-wide-trailing-space) * 1px);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-xsmall-icon-button-xsmall-wide-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-xsmall-icon-button-xsmall-wide-trailing-space);
 }
 
 .ui-icon-btn--small.ui-icon-btn--space-narrow {
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-small-icon-button-small-narrow-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-small-icon-button-small-narrow-trailing-space) * 1px);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-small-icon-button-small-narrow-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-small-icon-button-small-narrow-trailing-space);
 }
 
 .ui-icon-btn--small.ui-icon-btn--space-wide {
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-small-icon-button-small-wide-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-small-icon-button-small-wide-trailing-space) * 1px);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-small-icon-button-small-wide-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-small-icon-button-small-wide-trailing-space);
 }
 
 .ui-icon-btn--medium.ui-icon-btn--space-narrow {
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-medium-icon-button-medium-narrow-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-medium-icon-button-medium-narrow-trailing-space) * 1px);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-medium-icon-button-medium-narrow-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-medium-icon-button-medium-narrow-trailing-space);
 }
 
 .ui-icon-btn--medium.ui-icon-btn--space-wide {
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-medium-icon-button-medium-wide-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-medium-icon-button-medium-wide-trailing-space) * 1px);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-medium-icon-button-medium-wide-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-medium-icon-button-medium-wide-trailing-space);
 }
 
 .ui-icon-btn--large.ui-icon-btn--space-narrow {
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-large-icon-button-large-narrow-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-large-icon-button-large-narrow-trailing-space) * 1px);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-large-icon-button-large-narrow-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-large-icon-button-large-narrow-trailing-space);
 }
 
 .ui-icon-btn--large.ui-icon-btn--space-wide {
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-large-icon-button-large-wide-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-large-icon-button-large-wide-trailing-space) * 1px);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-large-icon-button-large-wide-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-large-icon-button-large-wide-trailing-space);
 }
 
 .ui-icon-btn--xlarge.ui-icon-btn--space-narrow {
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-xlarge-icon-button-xlarge-narrow-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-xlarge-icon-button-xlarge-narrow-trailing-space) * 1px);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-xlarge-icon-button-xlarge-narrow-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-xlarge-icon-button-xlarge-narrow-trailing-space);
 }
 
 .ui-icon-btn--xlarge.ui-icon-btn--space-wide {
-  --ui-icon-btn-padding-inline-start: calc(var(--icon-buttons-size-xlarge-icon-button-xlarge-wide-leading-space) * 1px);
-  --ui-icon-btn-padding-inline-end: calc(var(--icon-buttons-size-xlarge-icon-button-xlarge-wide-trailing-space) * 1px);
+  --ui-icon-btn-padding-inline-start: var(--icon-buttons-size-xlarge-icon-button-xlarge-wide-leading-space);
+  --ui-icon-btn-padding-inline-end: var(--icon-buttons-size-xlarge-icon-button-xlarge-wide-trailing-space);
 }
 
 .ui-icon-btn--shape-round {
-  --ui-icon-btn-radius: calc(var(--icon-buttons-icon-button-enabled-icon-button-container-shape-round, var(--app-icon-buttons-icon-button-enabled-icon-button-container-shape-round)) * 1px);
+  --ui-icon-btn-radius: var(--icon-buttons-icon-button-enabled-icon-button-container-shape-round, var(--app-icon-buttons-icon-button-enabled-icon-button-container-shape-round));
 }
 
 .ui-icon-btn--shape-square {
-  --ui-icon-btn-radius: calc(var(--icon-buttons-icon-button-enabled-icon-button-container-shape-square, var(--app-icon-buttons-icon-button-enabled-icon-button-container-shape-square)) * 1px);
+  --ui-icon-btn-radius: var(--icon-buttons-icon-button-enabled-icon-button-container-shape-square, var(--app-icon-buttons-icon-button-enabled-icon-button-container-shape-square));
 }
 
 .ui-icon-btn--toggle-selected.ui-icon-btn--shape-round {
-  --ui-icon-btn-radius: calc(var(--icon-buttons-icon-button-enabled-icon-button-selected-container-shape-round, var(--app-icon-buttons-icon-button-enabled-icon-button-selected-container-shape-round)) * 1px);
+  --ui-icon-btn-radius: var(--icon-buttons-icon-button-enabled-icon-button-selected-container-shape-round, var(--app-icon-buttons-icon-button-enabled-icon-button-selected-container-shape-round));
 }
 
 .ui-icon-btn--toggle-selected.ui-icon-btn--shape-square {
-  --ui-icon-btn-radius: calc(var(--icon-buttons-icon-button-enabled-icon-button-selected-container-shape-square, var(--app-icon-buttons-icon-button-enabled-icon-button-selected-container-shape-square)) * 1px);
+  --ui-icon-btn-radius: var(--icon-buttons-icon-button-enabled-icon-button-selected-container-shape-square, var(--app-icon-buttons-icon-button-enabled-icon-button-selected-container-shape-square));
 }
 
 .ui-icon-btn--toggle {

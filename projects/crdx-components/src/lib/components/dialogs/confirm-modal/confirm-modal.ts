@@ -1,5 +1,5 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 import { LibButtonComponent } from '../../button/button';
@@ -32,6 +32,7 @@ export interface ConfirmModalData {
   templateUrl: './confirm-modal.html',
   imports: [LibButtonComponent, MatIconModule],
   styleUrl: './confirm-modal.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfirmModal {
   readonly dialogRef = inject(DialogRef);

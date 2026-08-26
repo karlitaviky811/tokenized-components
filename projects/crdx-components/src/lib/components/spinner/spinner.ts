@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
@@ -7,6 +7,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   imports: [MatProgressSpinnerModule],
   templateUrl: './spinner.html',
   styleUrl: './spinner.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LibSpinnerComponent {
   diameter = input<number>(48);

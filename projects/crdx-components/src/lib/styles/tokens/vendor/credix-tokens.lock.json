@@ -1,0 +1,14 @@
+﻿{
+    "url":  "https://4pgkhwcphxlnvvjb.public.blob.vercel-storage.com/styles.min.css",
+    "sha256":  "94E491EA794B8077E10627BE6297CCA725B418F9D0EF2DF3412A0BE46D066989",
+    "syncedAt":  "2026-08-21T22:24:27.5252145Z",
+    "vendorBytes":  321771,
+    "cdnVariables":  2969,
+    "logicalNames":  2963,
+    "untypedVariables":  1,
+    "typeCollisions":  5,
+    "aliasMode":  "full+app-used",
+    "aliasPlain":  2963,
+    "aliasAppPrefixed":  122,
+    "aliasBytes":  477631
+}

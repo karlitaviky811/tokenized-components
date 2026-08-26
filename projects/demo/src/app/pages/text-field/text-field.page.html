@@ -1,0 +1,57 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-text-field</span>
+    <h1 class="comp-hero__name">Text Field</h1>
+    <p class="comp-hero__desc">Campo de texto con soporte de Material Form Field, íconos, errores y hints.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>label</td><td>string</td><td><em>required</em></td><td>Label del campo</td></tr>
+      <tr><td>appearance</td><td>'outline' | 'filled'</td><td>'outline'</td><td>Estilo visual</td></tr>
+      <tr><td>placeholder</td><td>string</td><td>''</td><td>Placeholder</td></tr>
+      <tr><td>type</td><td>string</td><td>'text'</td><td>Tipo de input HTML</td></tr>
+      <tr><td>error</td><td>string | null</td><td>null</td><td>Mensaje de error estático</td></tr>
+      <tr><td>hint</td><td>string</td><td>''</td><td>Texto de ayuda</td></tr>
+      <tr><td>suffixIcon</td><td>string</td><td>''</td><td>Ícono suffix</td></tr>
+      <tr><td>prefixIcon</td><td>string</td><td>''</td><td>Ícono prefix</td></tr>
+      <tr><td>fullWidth</td><td>boolean</td><td>false</td><td>100% del ancho</td></tr>
+      <tr><td>width</td><td>string | null</td><td>null</td><td>Ancho personalizado</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <h3>Apariencia</h3>
+    <div class="variant-row">
+      <lib-text-field label="Outline" [formField]="f.name"  appearance="outline" placeholder="Escribe aquí..." />
+      <lib-text-field label="Filled"  [formField]="f.email" appearance="filled"  placeholder="correo@..."     />
+    </div>
+
+    <h3>Estados</h3>
+    <div class="variant-row">
+      <lib-text-field label="Con error" [formField]="f.error"    error="Campo requerido"       />
+      <lib-text-field label="Con hint"  [formField]="f.hint"     hint="Máximo 50 caracteres"  />
+      <lib-text-field label="Disabled"  [formField]="f.disabled" />
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>// Componente
+readonly model = signal(&#123; email: '' &#125;);
+readonly f = form(this.model);
+
+// Template
+&lt;lib-text-field
+  label="Email"
+  [formField]="f.email"
+  appearance="outline"
+  placeholder="usuario&#64;dominio.com"
+  [fullWidth]="true"
+/&gt;</code></pre>
+  </section>
+</article>

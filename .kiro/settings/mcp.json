@@ -1,0 +1,37 @@
+{
+  "mcpServers": {
+    "context7": {
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "command": "npx"
+    },
+    "engram": {
+      "args": [
+        "mcp",
+        "--tools=agent"
+      ],
+      "command": "C:\\Users\\ktovar\\go\\bin\\engram.exe",
+      "autoApprove": [
+        "mem_current_project",
+        "mem_session_start",
+        "mem_save",
+        "mem_session_summary",
+        "mem_update"
+      ]
+    },
+    "figma": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "http://127.0.0.1:3845/mcp"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "get_design_context"
+      ]
+    }
+  }
+}

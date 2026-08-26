@@ -1,0 +1,262 @@
+﻿============================================
+  DIFERENCIAS: CDN vs Paquete NPM
+============================================
+
+CDN (raw variables):           2969
+CDN (nombres logicos unicos):  2964
+NPM (resolved-root.css):       2823
+
+En ambos (match directo):      2311
+Solo en NPM:                   512
+Solo en CDN:                   653
+Renombramientos detectados:    0
+
+--- SOLO EN NPM (primeros 60) ---
+  --bottom-sheets-enabled-container-sheet-bottom-docked-container-shape-personalized-
+  --buttons-wip-button-enabled-button-container-color-toggle-selected-
+  --buttons-wip-button-enabled-button-container-color-toggle-unselected-
+  --buttons-wip-button-enabled-button-icon-color-toggle-selected-
+  --buttons-wip-button-enabled-button-icon-color-toggle-unselected-
+  --buttons-wip-button-enabled-button-label-color-toggle-selected-
+  --buttons-wip-button-enabled-button-label-color-toggle-unselected-
+  --buttons-wip-button-focused-button-focused-container-state-layer-color-toggle-selected-
+  --buttons-wip-button-focused-button-focused-container-state-layer-color-toggle-unselected-
+  --buttons-wip-button-focused-button-focused-icon-color-toggle-selected-
+  --buttons-wip-button-focused-button-focused-icon-color-toggle-unselected-
+  --buttons-wip-button-focused-button-focused-label-color-toggle-selected-
+  --buttons-wip-button-focused-button-focused-label-color-toggle-unselected-
+  --buttons-wip-button-hovered-button-hovered-container-state-layer-color-toggle-selected-
+  --buttons-wip-button-hovered-button-hovered-container-state-layer-color-toggle-unselected-
+  --buttons-wip-button-hovered-button-hovered-icon-color-toggle-selected-
+  --buttons-wip-button-hovered-button-hovered-icon-color-toggle-unselected-
+  --buttons-wip-button-hovered-button-hovered-label-color-toggle-selected-
+  --buttons-wip-button-hovered-button-hovered-label-color-toggle-unselected-
+  --buttons-wip-button-pressed-button-pressed-container-state-layer-color-toggle-selected-
+  --buttons-wip-button-pressed-button-pressed-container-state-layer-color-toggle-unselected-
+  --buttons-wip-button-pressed-button-pressed-icon-color-toggle-selected-
+  --buttons-wip-button-pressed-button-pressed-icon-color-toggle-unselected-
+  --buttons-wip-button-pressed-button-pressed-label-color-toggle-selected-
+  --buttons-wip-button-pressed-button-pressed-label-color-toggle-unselected-
+  --buttons-wip-color-elevated-enabled-button-elevated-container-color-toggle-selected-
+  --buttons-wip-color-elevated-enabled-button-elevated-container-color-toggle-unselected-
+  --buttons-wip-color-elevated-enabled-button-elevated-icon-color-toggle-selected-
+  --buttons-wip-color-elevated-enabled-button-elevated-icon-color-toggle-unselected-
+  --buttons-wip-color-elevated-enabled-button-elevated-label-color-toggle-selected-
+  --buttons-wip-color-elevated-enabled-button-elevated-label-color-toggle-unselected-
+  --buttons-wip-color-elevated-focused-button-elevated-focused-container-state-layer-color-toggle-selected-
+  --buttons-wip-color-elevated-focused-button-elevated-focused-container-state-layer-color-toggle-unselected-
+  --buttons-wip-color-elevated-focused-button-elevated-focused-icon-color-toggle-selected-
+  --buttons-wip-color-elevated-focused-button-elevated-focused-icon-color-toggle-unselected-
+  --buttons-wip-color-elevated-focused-button-elevated-focused-label-color-toggle-selected-
+  --buttons-wip-color-elevated-focused-button-elevated-focused-label-color-toggle-unselected-
+  --buttons-wip-color-elevated-hovered-button-elevated-hovered-container-state-layer-color-toggle-selected-
+  --buttons-wip-color-elevated-hovered-button-elevated-hovered-container-state-layer-color-toggle-unselected-
+  --buttons-wip-color-elevated-hovered-button-elevated-hovered-icon-color-toggle-selected-
+  --buttons-wip-color-elevated-hovered-button-elevated-hovered-icon-color-toggle-unselected-
+  --buttons-wip-color-elevated-hovered-button-elevated-hovered-label-color-toggle-selected-
+  --buttons-wip-color-elevated-hovered-button-elevated-hovered-label-color-toggle-unselected-
+  --buttons-wip-color-elevated-pressed-button-elevated-pressed-container-state-layer-color-toggle-selected-
+  --buttons-wip-color-elevated-pressed-button-elevated-pressed-container-state-layer-color-toggle-unselected-
+  --buttons-wip-color-elevated-pressed-button-elevated-pressed-icon-color-toggle-selected-
+  --buttons-wip-color-elevated-pressed-button-elevated-pressed-icon-color-toggle-unselected-
+  --buttons-wip-color-elevated-pressed-button-elevated-pressed-label-color-toggle-selected-
+  --buttons-wip-color-elevated-pressed-button-elevated-pressed-label-color-toggle-unselected-
+  --buttons-wip-color-elevated-pressed-button-elevated-pressed-ripple-color-toggle-selected-
+  --buttons-wip-color-elevated-pressed-button-elevated-pressed-ripple-color-toggle-unselected-
+  --buttons-wip-color-filled-enabled-button-filled-container-color-toggle-selected-
+  --buttons-wip-color-filled-enabled-button-filled-container-color-toggle-unselected-
+  --buttons-wip-color-filled-enabled-button-filled-icon-color-toggle-selected-
+  --buttons-wip-color-filled-enabled-button-filled-icon-color-toggle-unselected-
+  --buttons-wip-color-filled-enabled-button-filled-label-color-toggle-selected-
+  --buttons-wip-color-filled-enabled-button-filled-label-color-toggle-unselected-
+  --buttons-wip-color-filled-focused-button-filled-focused-container-state-layer-color-toggle-selected-
+  --buttons-wip-color-filled-focused-button-filled-focused-container-state-layer-color-toggle-unselected-
+  --buttons-wip-color-filled-focused-button-filled-focused-icon-color-toggle-selected-
+
+--- SOLO EN CDN (primeros 60) ---
+  --12-medium
+  --12-regular
+  --14-medium
+  --14-regular
+  --16-medium
+  --16-regular
+  --app-bars-common-app-bar-avatar-size
+  --app-bars-common-app-bar-central-icon
+  --app-bars-common-app-bar-container-color
+  --app-bars-common-app-bar-container-color-on-scroll
+  --app-bars-common-app-bar-container-elevation
+  --app-bars-common-app-bar-container-elevation-on-scroll
+  --app-bars-common-app-bar-container-shape
+  --app-bars-common-app-bar-icon-size
+  --app-bars-common-app-bar-icon-spacing
+  --app-bars-common-app-bar-leading-icon
+  --app-bars-common-app-bar-left-padding
+  --app-bars-common-app-bar-right-padding
+  --app-bars-common-app-bar-subtitle-text
+  --app-bars-common-app-bar-title-text
+  --app-bars-common-app-bar-trailing-icon
+  --app-bars-common-app-bar-web-container-color
+  --app-bars-common-search-container-color
+  --app-bars-common-search-container-color-on-scroll
+  --app-bars-common-search-label-color
+  --app-bars-common-search-left-padding
+  --app-bars-common-search-right-padding
+  --app-bars-size-large-flexible-app-bar-large-flexible-container-height
+  --app-bars-size-large-flexible-app-bar-large-flexible-container-height-with-subtitle
+  --app-bars-size-large-flexible-app-bar-large-subtitle-font-line-height
+  --app-bars-size-large-flexible-app-bar-large-subtitle-font-name
+  --app-bars-size-large-flexible-app-bar-large-subtitle-font-size
+  --app-bars-size-large-flexible-app-bar-large-subtitle-font-tracking
+  --app-bars-size-large-flexible-app-bar-large-subtitle-font-weight
+  --app-bars-size-large-flexible-app-bar-large-title-font-line-height
+  --app-bars-size-large-flexible-app-bar-large-title-font-name
+  --app-bars-size-large-flexible-app-bar-large-title-font-size
+  --app-bars-size-large-flexible-app-bar-large-title-font-tracking
+  --app-bars-size-large-flexible-app-bar-large-title-font-weight
+  --app-bars-size-medium-flexible-app-bar-medium-flexible-container-height
+  --app-bars-size-medium-flexible-app-bar-medium-flexible-container-height-with-subtitle
+  --app-bars-size-medium-flexible-app-bar-medium-subtitle-font-line-height
+  --app-bars-size-medium-flexible-app-bar-medium-subtitle-font-name
+  --app-bars-size-medium-flexible-app-bar-medium-subtitle-font-size
+  --app-bars-size-medium-flexible-app-bar-medium-subtitle-font-tracking
+  --app-bars-size-medium-flexible-app-bar-medium-subtitle-font-weight
+  --app-bars-size-medium-flexible-app-bar-medium-title-font-line-height
+  --app-bars-size-medium-flexible-app-bar-medium-title-font-name
+  --app-bars-size-medium-flexible-app-bar-medium-title-font-size
+  --app-bars-size-medium-flexible-app-bar-medium-title-font-tracking
+  --app-bars-size-medium-flexible-app-bar-medium-title-font-weight
+  --app-bars-size-small-app-bar-small-container-height
+  --app-bars-size-small-app-bar-small-subtitle-font-line-height
+  --app-bars-size-small-app-bar-small-subtitle-font-name
+  --app-bars-size-small-app-bar-small-subtitle-font-size
+  --app-bars-size-small-app-bar-small-subtitle-font-tracking
+  --app-bars-size-small-app-bar-small-subtitle-font-weight
+  --app-bars-size-small-app-bar-small-title-font-line-height
+  --app-bars-size-small-app-bar-small-title-font-name
+  --app-bars-size-small-app-bar-small-title-font-size
+
+--- RENOMBRAMIENTOS PROBABLES ---
+
+--- VALORES DISTINTOS (misma variable, distinto valor) ---
+  Muestra analizada: 200 de 2311
+  Con valor distinto: 179
+    --search-bar-enabled-avatar-search-bar-avatar-shape
+      NPM: 1000
+      CDN: var(--dimension-shape-full)
+
+    --time-pickers-input-enabled-supporting-text-time-input-time-input-field-supporting-text-color
+      NPM: #434749
+      CDN: var(--color-pallete-scheme-surface-on-surface-variant)
+
+    --date-pickers-modal-input-enabled-container-header-container-height
+      NPM: 120
+      CDN: 120px
+
+    --pallete-state-layers-on-secondary-container-opacity-16
+      NPM: rgba(67, 71, 73, 0.16)
+      CDN: #43474929
+
+    --radio-button-enabled-state-layer-radio-button-state-layer-size
+      NPM: 40
+      CDN: 40px
+
+    --time-pickers-input-enabled-container-time-input-time-input-field-container-color
+      NPM: #e0e3e5
+      CDN: var(--color-pallete-scheme-surface-container-highest)
+
+    --pallete-state-layers-surface-container-high-opacity-16
+      NPM: rgba(229, 233, 235, 0.16)
+      CDN: #e5e9eb29
+
+    --pallete-state-layers-on-primary-container-opacity-16
+      NPM: rgba(255, 255, 255, 0.16)
+      CDN: #ffffff29
+
+    --checkboxes-focused-icon-checkbox-selected-focus-icon-color
+      NPM: #ffffff
+      CDN: var(--color-pallete-scheme-primary-on-primary)
+
+    --pallete-state-layers-on-secondary-container-opacity-10
+      NPM: rgba(67, 71, 73, 0.1)
+      CDN: #4347491a
+
+    --menus-wip-standard-enabled-menu-standard-section-label-text-color
+      NPM: #434749
+      CDN: var(--color-pallete-scheme-surface-on-surface-variant)
+
+    --tabs-primary-navigation-hovered-icon-primary-navigation-tab-with-icon-inactive-hover-icon-color
+      NPM: #181c1e
+      CDN: var(--color-pallete-scheme-surface-on-surface)
+
+    --dialogs-basic-focused-state-layer-dialog-action-focus-state-layer-color
+      NPM: rgba(228, 35, 19, 0.1)
+      CDN: var(--color-pallete-state-layers-primary-opacity-10-focus-pressed)
+
+    --icon-buttons-icon-button-enabled-icon-button-narrow-leading-space
+      NPM: 4
+      CDN: 4px
+
+    --text-fields-outlined-hovered-outline-outlined-text-field-hover-outline-color
+      NPM: #181c1e
+      CDN: var(--color-pallete-scheme-surface-on-surface)
+
+    --text-fields-filled-hovered-state-layer-filled-text-field-hover-state-layer-opacity
+      NPM: 8
+      CDN: 8px
+
+    --breadcrumbs-label-enabled-breadcrumb-label-text-line-height
+      NPM: 20
+      CDN: var(--dimension-typescale-body-medium-line-height)
+
+    --buttons-wip-color-text-disabled-button-text-disabled-label-opacity
+      NPM: 38
+      CDN: 38px
+
+    --cards-outlined-focused-focus-indicator-outlined-card-focus-indicator-color
+      NPM: #5b5f61
+      CDN: var(--color-pallete-scheme-secondary)
+
+    --text-fields-outlined-disabled-trailing-icon-outlined-text-field-disabled-trailing-icon-color
+      NPM: #181c1e
+      CDN: var(--color-pallete-scheme-surface-on-surface)
+
+    --date-pickers-docked-disabled-icon-menu-button-disabled-icon-color
+      NPM: #181c1e
+      CDN: var(--color-pallete-scheme-surface-on-surface)
+
+    --checkboxes-disabled-container-checkbox-selected-disabled-container-opacity
+      NPM: 38
+      CDN: 38px
+
+    --text-fields-filled-enabled-trailing-icon-filled-text-field-trailing-icon-color
+      NPM: #434749
+      CDN: var(--color-pallete-scheme-surface-on-surface-variant)
+
+    --pallete-state-layers-surface-container-low-opacity-08
+      NPM: rgba(241, 244, 246, 0.08)
+      CDN: #f1f4f614
+
+    --pallete-state-layers-surface-tint-opacity-16
+      NPM: rgba(228, 35, 19, 0.16)
+      CDN: #e4231329
+
+    --buttons-wip-size-xsmall-button-xsmall-shape-square
+      NPM: 12
+      CDN: var(--dimension-shape-medium)
+
+    --chips-wip-filter-disabled-container-filter-chip-disabled-unselected-outline-color
+      NPM: #181c1e
+      CDN: var(--color-pallete-scheme-surface-on-surface)
+
+    --buttons-wip-filled-enabled-icon-color
+      NPM: #ffffff
+      CDN: var(--color-pallete-scheme-primary-on-primary)
+
+    --date-pickers-modal-enabled-label-text-year-selection-year-label-text-font
+      NPM: "Heebo"
+      CDN: var(--string-typescale-body-large-font)
+
+    --lists-wip-expand-shape-list-expand-trailing-icon-shape
+      NPM: 1000
+      CDN: var(--dimension-shape-full)
+

@@ -1,0 +1,28 @@
+<div class="mdp-container">
+  <div class="mdp-header">
+    <div class="mdp-header__content">
+      <span class="mdp-header__label">{{ label() }}</span>
+      <span class="mdp-header__headline">{{ _headline() }}</span>
+    </div>
+    <button mat-icon-button class="mdp-header__edit" aria-label="Edit date">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+
+  <mat-calendar
+    class="mdp-calendar"
+    [selected]="_selected()"
+    [minDate]="min()"
+    [maxDate]="max()"
+    (selectedChange)="_onSelect($event)"
+  ></mat-calendar>
+
+  <div class="mdp-actions">
+    @if (showClear()) {
+      <button mat-button class="mdp-btn mdp-btn--clear" (click)="_onClear()">Clear</button>
+    }
+    <span class="mdp-spacer"></span>
+    <button mat-button class="mdp-btn mdp-btn--cancel" (click)="_onCancel()">Cancel</button>
+    <button mat-button class="mdp-btn mdp-btn--ok" (click)="_onApply()">OK</button>
+  </div>
+</div>

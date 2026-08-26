@@ -8,7 +8,6 @@
   (click)="onCardClick()"
   (keydown)="onCardKeydown($event)"
 >
-  <!-- Header row -->
   <div class="ui-card__row" [style.min-height]="height()">
     <div class="ui-card__content">
       @if (leadingKind() === 'icon') {
@@ -48,7 +47,6 @@
       </div>
     </div>
 
-    <!-- Trailing actions slot (e.g. icon buttons) -->
     <div class="ui-card__trailing">
       <ng-content select="[slot=trailing]" />
     </div>
@@ -68,7 +66,6 @@
     }
   </div>
 
-  <!-- Body slot: projected content goes here -->
   <div class="ui-card__body">
     <ng-content />
   </div>

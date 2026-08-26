@@ -34,7 +34,6 @@
 	resize: none;
 }
 
-/* Hide browser-provided password reveal/clear controls to avoid duplicate icons. */
 :host ::ng-deep input[type='password']::-ms-reveal,
 :host ::ng-deep input[type='password']::-ms-clear {
 	display: none;

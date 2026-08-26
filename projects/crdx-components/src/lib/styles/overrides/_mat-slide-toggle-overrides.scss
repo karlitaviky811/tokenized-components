@@ -1,4 +1,4 @@
-@use '@angular/material' as mat;
+﻿@use '@angular/material' as mat;
 
 /// Slide toggle (switch) overrides (M3). Tokens: tokens-by-component (switch-*).
 html {
@@ -25,9 +25,9 @@ html {
     unselected-focus-state-layer-opacity: 0,
     selected-pressed-state-layer-opacity: 0,
     unselected-pressed-state-layer-opacity: 0,
-    track-outline-width: calc(var(--switch-enabled-track-switch-track-outline-width) * 1px),
+    track-outline-width: var(--switch-enabled-track-switch-track-outline-width),
     track-outline-color: var(--switch-enabled-track-switch-track-outline-color),
-    selected-track-outline-width: calc(var(--switch-enabled-track-switch-track-outline-width) * 1px),
+    selected-track-outline-width: var(--switch-enabled-track-switch-track-outline-width),
     selected-track-outline-color: transparent,
   ));
 }

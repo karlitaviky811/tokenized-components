@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import {
   AfterContentInit,
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ContentChildren,
   DestroyRef,
@@ -39,7 +40,8 @@ export interface SharedTableColumn<T extends Record<string, unknown> = Record<st
   standalone: true,
   imports: [CommonModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule],
   templateUrl: './shared-table.component.html',
-  styleUrl: './shared-table.component.css'
+  styleUrl: './shared-table.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SharedTableComponent<T extends Record<string, unknown> = Record<string, unknown>>
   implements AfterContentInit, AfterViewInit, OnDestroy {

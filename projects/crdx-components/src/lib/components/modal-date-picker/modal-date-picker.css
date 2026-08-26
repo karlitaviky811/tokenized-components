@@ -1,0 +1,135 @@
+:host {
+  display: inline-block;
+}
+
+.mdp-container {
+  width: 360px;
+  background-color: var(--date-pickers-modal-enabled-container-color, #e5e9eb);
+  border-radius: var(--date-pickers-modal-enabled-container-shape, 28px);
+  box-shadow: var(--shadow-elevation-3, 0px 1px 3px 0px #0000004d, 0px 4px 8px 3px #00000026);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+
+.mdp-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px 12px 12px 24px;
+  border-bottom: 1px solid var(--pallete-scheme-surface-outline-variant, #c3c7c9);
+}
+
+.mdp-header__content {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  flex: 1;
+}
+
+.mdp-header__label {
+  font-family: var(--date-pickers-modal-enabled-header-supporting-text-font, Heebo), sans-serif;
+  font-size: var(--date-pickers-modal-enabled-header-supporting-text-size, 14px);
+  font-weight: var(--date-pickers-modal-enabled-header-supporting-text-weight, 500);
+  line-height: 20px;
+  color: var(--date-pickers-modal-enabled-header-supporting-text-color, #434749);
+}
+
+.mdp-header__headline {
+  font-family: var(--date-pickers-modal-enabled-headline-header-headline-font, Heebo), sans-serif;
+  font-size: var(--date-pickers-modal-enabled-headline-header-headline-size, 32px);
+  font-weight: var(--date-pickers-modal-enabled-headline-header-headline-weight, 400);
+  line-height: 40px;
+  color: var(--date-pickers-modal-enabled-headline-header-headline-color, #434749);
+}
+
+.mdp-header__edit {
+  color: var(--date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
+}
+
+/* ── Calendar ───────────────────────────────────────────────────── */
+
+.mdp-calendar {
+  width: 100%;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-header {
+  padding: 4px 12px !important;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-period-button {
+  font-family: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-font, Heebo), sans-serif !important;
+  font-size: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 14px) !important;
+  font-weight: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500) !important;
+  color: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749) !important;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-arrow {
+  border-top-color: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749) !important;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-previous-button,
+:host ::ng-deep .mdp-calendar .mat-calendar-next-button {
+  color: var(--date-pickers-docked-enabled-icon-menu-button-icon-color, #434749) !important;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-table-header th {
+  font-family: var(--date-pickers-modal-enabled-label-text-weekdays-label-text-font, Heebo), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: var(--date-pickers-modal-enabled-label-text-weekdays-label-text-color, #181c1e) !important;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-body-cell-content {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 1000px !important;
+  font-family: var(--date-pickers-docked-enabled-label-text-date-label-text-font, Heebo), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) !important;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-body-selected {
+  background-color: var(--date-pickers-modal-enabled-container-date-selected-container-color, #e42313) !important;
+  color: var(--date-pickers-modal-enabled-label-text-date-selected-label-text-color, #fff) !important;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border: var(--date-pickers-modal-enabled-container-date-today-container-outline-width, 1px) solid var(--date-pickers-modal-enabled-container-date-today-container-outline-color, #5b5f61) !important;
+  background-color: transparent !important;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-body-today.mat-calendar-body-selected {
+  border: none !important;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+  background-color: rgba(67, 71, 73, 0.08) !important;
+}
+
+:host ::ng-deep .mdp-calendar .mat-calendar-body tr:has(> .mat-calendar-body-label[colspan="7"]) {
+  display: none !important;
+}
+
+/* ── Actions ────────────────────────────────────────────────────── */
+
+.mdp-actions {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px 8px;
+  gap: 8px;
+}
+
+.mdp-spacer {
+  flex: 1 0 0;
+}
+
+.mdp-btn {
+  font-family: var(--buttons-wip-size-small-button-small-label-text-font, Heebo), sans-serif !important;
+  font-size: var(--buttons-wip-size-small-button-small-label-text-size, 14px) !important;
+  font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500) !important;
+  --mat-text-button-label-text-color: var(--buttons-wip-color-text-enabled-button-text-label-color, #e42313);
+}

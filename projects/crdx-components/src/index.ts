@@ -12,7 +12,6 @@ export * from './lib/components/form-field/text-field';
 export * from './lib/components/form-field/select-field';
 export * from './lib/components/list-item/list-item';
 export * from './lib/components/checkbox/checkbox';
-export * from './lib/components/checkbox/checkbox-showcase.component';
 export * from './lib/components/radio-button/radio-button';
 
 /**
@@ -31,7 +30,9 @@ export * from './lib/components/divider/divider';
 export * from './lib/components/tooltip/tooltip';
 export * from './lib/components/card/card';
 export * from './lib/components/date-picker/date-picker';
+export * from './lib/components/date-picker/date-picker-header';
 export * from './lib/components/date-range-picker/date-range-picker';
+export * from './lib/components/modal-date-picker/modal-date-picker';
 export * from './lib/components/chip/chip';
 
 // Dialogs and modal containers.

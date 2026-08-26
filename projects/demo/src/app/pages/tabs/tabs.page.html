@@ -1,0 +1,73 @@
+<article class="doc-page">
+  <section class="doc-section">
+    <h2>Tabs <code>mat-tab-group</code></h2>
+    <p>Navegación por pestañas con personalización via tokens de Material 3.</p>
+
+    <h3>Inputs</h3>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>animationDuration</td><td>string</td><td>'500ms'</td><td>Duración de la animación</td></tr>
+      <tr><td>disablePagination</td><td>boolean</td><td>false</td><td>Deshabilita paginación</td></tr>
+      <tr><td>disableRipple</td><td>boolean</td><td>false</td><td>Deshabilita ripple</td></tr>
+      <tr><td>headerPosition</td><td>'above' | 'below'</td><td>'above'</td><td>Posición del header</td></tr>
+      <tr><td>color</td><td>ThemePalette</td><td>undefined</td><td>Color del tema</td></tr>
+    </table>
+
+    <h3>Variantes</h3>
+    <h4>Tabs básicos</h4>
+    <mat-tab-group>
+      <mat-tab label="Primero">Contenido del primer tab</mat-tab>
+      <mat-tab label="Segundo">Contenido del segundo tab</mat-tab>
+      <mat-tab label="Tercero">Contenido del tercer tab</mat-tab>
+    </mat-tab-group>
+
+    <h4>Con iconos</h4>
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="material-symbols-outlined">home</span>
+          <span>Inicio</span>
+        </ng-template>
+        Contenido de Inicio
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="material-symbols-outlined">person</span>
+          <span>Perfil</span>
+        </ng-template>
+        Contenido de Perfil
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="material-symbols-outlined">settings</span>
+          <span>Configuración</span>
+        </ng-template>
+        Contenido de Configuración
+      </mat-tab>
+    </mat-tab-group>
+
+    <h4>Con color (primary)</h4>
+    <mat-tab-group color="primary">
+      <mat-tab label="Activos">Lista de elementos activos</mat-tab>
+      <mat-tab label="Pendientes">Lista de elementos pendientes</mat-tab>
+      <mat-tab label="Historial">Historial de actividades</mat-tab>
+    </mat-tab-group>
+
+    <h4>Header position below</h4>
+    <mat-tab-group headerPosition="below">
+      <mat-tab label="Archivo">Contenido de Archivo</mat-tab>
+      <mat-tab label="Editar">Contenido de Editar</mat-tab>
+      <mat-tab label="Ver">Contenido de Ver</mat-tab>
+    </mat-tab-group>
+
+    <h3>Ejemplo de uso</h3>
+    <pre><code>&lt;mat-tab-group animationDuration="300ms"&gt;
+  &lt;mat-tab label="Primero"&gt;
+    Contenido del primer tab
+  &lt;/mat-tab&gt;
+  &lt;mat-tab label="Segundo"&gt;
+    Contenido del segundo tab
+  &lt;/mat-tab&gt;
+&lt;/mat-tab-group&gt;</code></pre>
+  </section>
+</article>

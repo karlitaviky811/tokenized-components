@@ -1,0 +1,95 @@
+<article class="doc-page">
+  <section class="doc-section">
+    <h2>List Item <code>lib-list-item</code></h2>
+    <p>Lista seleccionable con avatars, checkboxes y soporte de selección múltiple.</p>
+
+    <h3>Inputs</h3>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>items</td><td>LibListItemData[]</td><td>[]</td><td>Items de la lista</td></tr>
+      <tr><td>selectedIds</td><td>string[]</td><td>[]</td><td>IDs seleccionados</td></tr>
+      <tr><td>multiple</td><td>boolean</td><td>true</td><td>Permite selección múltiple</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Deshabilita toda la lista</td></tr>
+      <tr><td>showCheckbox</td><td>boolean</td><td>true</td><td>Muestra checkboxes</td></tr>
+      <tr><td>showAvatar</td><td>boolean</td><td>true</td><td>Muestra avatars</td></tr>
+      <tr><td>showDividers</td><td>boolean</td><td>true</td><td>Muestra divisores</td></tr>
+      <tr><td>checkboxPosition</td><td>'leading' | 'trailing'</td><td>'trailing'</td><td>Posición del checkbox</td></tr>
+      <tr><td>width</td><td>string</td><td>undefined</td><td>Ancho de la lista</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>selectionChange</td><td>string[]</td><td></td><td>Emite IDs seleccionados</td></tr>
+      <tr><td>itemClick</td><td>LibListItemData</td><td></td><td>Emite item clickeado</td></tr>
+    </table>
+
+    <h3>Variantes</h3>
+    <h4>Básica (solo label + description)</h4>
+    <lib-list-item
+      [items]="items"
+      [selectedIds]="selectedIds()"
+      [showCheckbox]="false"
+      [showAvatar]="false"
+      [showDividers]="false"
+      (selectionChange)="onSelectionChange($event)"
+    />
+
+    <h4>Con avatar</h4>
+    <lib-list-item
+      [items]="items"
+      [selectedIds]="selectedIds()"
+      [showCheckbox]="false"
+      [showDividers]="false"
+      (selectionChange)="onSelectionChange($event)"
+    />
+
+    <h4>Con checkbox (trailing)</h4>
+    <lib-list-item
+      [items]="items"
+      [selectedIds]="selectedIds()"
+      [showAvatar]="false"
+      [showDividers]="false"
+      (selectionChange)="onSelectionChange($event)"
+    />
+
+    <h4>Con checkbox (leading)</h4>
+    <lib-list-item
+      [items]="items"
+      [selectedIds]="selectedIds()"
+      [showAvatar]="false"
+      [showDividers]="false"
+      checkboxPosition="leading"
+      (selectionChange)="onSelectionChange($event)"
+    />
+
+    <h3>LibListItemData interface</h3>
+    <pre><code>interface LibListItemData {{ '{' }}
+  id: string;
+  label: string;
+  description?: string;
+  avatarText?: string | null;
+  avatarImage?: string | null;
+  avatarAlt?: string;
+  disabled?: boolean;
+{{ '}' }}</code></pre>
+
+    <h3>Ejemplo de uso</h3>
+    <pre><code>// Básico (solo texto)
+&lt;lib-list-item
+  [items]="items"
+  [showCheckbox]="false"
+  [showAvatar]="false"
+  [showDividers]="false"
+/&gt;
+
+// Con avatar
+&lt;lib-list-item
+  [items]="items"
+  [showCheckbox]="false"
+/&gt;
+
+// Con selección
+&lt;lib-list-item
+  [items]="items"
+  [selectedIds]="selectedUsers"
+  (selectionChange)="onSelect($event)"
+/&gt;</code></pre>
+  </section>
+</article>

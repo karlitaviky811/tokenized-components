@@ -1,20 +1,20 @@
-@use '@angular/material' as mat;
+﻿@use '@angular/material' as mat;
 
 /// Icon button overrides (M3). Tokens: tokens-by-component (icon-buttons-*).
 html {
   @include mat.icon-button-overrides((
-    icon-size: calc(var(--icon-buttons-icon-button-enabled-icon-button-icon-size, var(--app-icon-buttons-icon-button-enabled-icon-button-icon-size, 24)) * 1px),
-    container-shape: calc(var(--icon-buttons-icon-button-enabled-icon-button-container-shape-round, var(--app-icon-buttons-icon-button-enabled-icon-button-container-shape-round, 1000)) * 1px),
-    touch-target-size: calc(var(--icon-buttons-icon-button-enabled-icon-button-container-height, var(--app-icon-buttons-icon-button-enabled-icon-button-container-height, 40)) * 1px),
+    icon-size: var(--icon-buttons-icon-button-enabled-icon-button-icon-size, var(--app-icon-buttons-icon-button-enabled-icon-button-icon-size, 24px)),
+    container-shape: var(--icon-buttons-icon-button-enabled-icon-button-container-shape-round, var(--app-icon-buttons-icon-button-enabled-icon-button-container-shape-round, 1000px)),
+    touch-target-size: var(--icon-buttons-icon-button-enabled-icon-button-container-height, var(--app-icon-buttons-icon-button-enabled-icon-button-container-height, 40px)),
     disabled-icon-color: var(--icon-buttons-icon-button-disabled-icon-button-disabled-icon-color, var(--app-icon-buttons-icon-button-disabled-icon-button-disabled-icon-color)),
     disabled-state-layer-color: var(--icon-buttons-icon-button-disabled-icon-button-disabled-container-color, var(--app-icon-buttons-icon-button-disabled-icon-button-disabled-container-color)),
-    focus-state-layer-opacity: var(--icon-buttons-icon-button-focused-icon-button-focused-state-layer-opacity, var(--app-icon-buttons-icon-button-focused-icon-button-focused-state-layer-opacity)),
-    hover-state-layer-opacity: var(--icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-opacity, var(--app-icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-opacity)),
+    focus-state-layer-opacity: calc(var(--icon-buttons-icon-button-focused-icon-button-focused-state-layer-opacity, var(--app-icon-buttons-icon-button-focused-icon-button-focused-state-layer-opacity, 10)) / 100),
+    hover-state-layer-opacity: calc(var(--icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-opacity, var(--app-icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-opacity, 8)) / 100),
     icon-color: var(--icon-buttons-icon-button-enabled-icon-button-icon-color, var(--app-icon-buttons-icon-button-enabled-icon-button-icon-color)),
-    pressed-state-layer-opacity: var(--icon-buttons-icon-button-pressed-icon-button-pressed-state-layer-opacity, var(--app-icon-buttons-icon-button-pressed-icon-button-pressed-state-layer-opacity)),
+    pressed-state-layer-opacity: calc(var(--icon-buttons-icon-button-pressed-icon-button-pressed-state-layer-opacity, var(--app-icon-buttons-icon-button-pressed-icon-button-pressed-state-layer-opacity, 10)) / 100),
     ripple-color: var(--icon-buttons-color-filled-pressed-icon-button-filled-pressed-ripple-color, var(--app-icon-buttons-color-filled-pressed-icon-button-filled-pressed-ripple-color)),
     state-layer-color: var(--icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-color, var(--app-icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-color)),
     touch-target-display: block,
-    state-layer-size: calc(var(--icon-buttons-icon-button-enabled-icon-button-container-height, var(--app-icon-buttons-icon-button-enabled-icon-button-container-height, 40)) * 1px),
+    state-layer-size: var(--icon-buttons-icon-button-enabled-icon-button-container-height, var(--app-icon-buttons-icon-button-enabled-icon-button-container-height, 40px)),
   ));
 }

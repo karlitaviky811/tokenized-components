@@ -1,5 +1,5 @@
-/*
- * Confirm modal — Diseño desde Figma Tokens (node 323-2101).
+﻿/*
+ * Confirm modal â€” DiseÃ±o desde Figma Tokens (node 323-2101).
  * Tokens: --app-dialogs-basic-*, --app-colors-*, --app-font-*, --app-shape-*.
  */
 .confirm-modal {
@@ -28,7 +28,7 @@
   display: flex;
   width: 100%;
   background: var(--confirm-container-color);
-  border-radius: calc(var(--confirm-container-shape) * 1px);
+  border-radius: var(--confirm-container-shape);
   box-shadow:
     0 1px 3px 0 rgba(0, 0, 0, 0.3),
     0 4px 8px 3px rgba(0, 0, 0, 0.15);
@@ -72,9 +72,9 @@
   align-self: stretch;
   color: var(--confirm-headline-color);
   font-family: var(--confirm-headline-font), var(--app-font-type-brand, Heebo), sans-serif;
-  font-size: calc(var(--confirm-headline-size) * 1px);
+  font-size: var(--confirm-headline-size);
   font-weight: var(--confirm-headline-weight);
-  line-height: calc(var(--confirm-headline-line-height) * 1px);
+  line-height: var(--confirm-headline-line-height);
   text-align: start;
   margin: 0;
 }
@@ -85,9 +85,9 @@
   width: 100%;
   color: var(--confirm-supporting-color);
   font-family: var(--confirm-supporting-font), var(--app-font-type-plain, Heebo), sans-serif;
-  font-size: calc(var(--confirm-supporting-size) * 1px);
+  font-size: var(--confirm-supporting-size);
   font-weight: var(--confirm-supporting-weight);
-  line-height: calc(var(--confirm-supporting-line-height) * 1px);
+  line-height: var(--confirm-supporting-line-height);
   text-align: start;
   margin: 0;
 }
@@ -172,10 +172,10 @@
   padding: 1rem 1.5rem;
   min-width: 120px;
   font-family: var(--confirm-action-font), var(--app-font-type-brand, Heebo), sans-serif;
-  font-size: calc(var(--confirm-action-size) * 1px);
+  font-size: var(--confirm-action-size);
   font-weight: var(--confirm-action-weight);
   line-height: 1.25;
-  border-radius: calc(var(--confirm-btn-shape) * 1px);
+  border-radius: var(--confirm-btn-shape);
   border: none;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;

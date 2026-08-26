@@ -38,17 +38,19 @@
             "browser": "projects/demo/src/main.ts",
             "tsConfig": "projects/demo/tsconfig.app.json",
             "styles": [
-              "node_modules/@tokens_variables_credix/tokenized-styles/dist/css/resolved-root.css",
+              "projects/crdx-components/src/lib/styles/tokens/vendor/credix-tokens.css",
+              "projects/crdx-components/src/lib/styles/tokens/token-overrides.css",
+              "projects/crdx-components/src/lib/styles/tokens/token-aliases.css",
               "projects/demo/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["dist/crdx-components"]
+              "includePaths": ["dist/crdx-components", "projects/crdx-components"]
             }
           },
           "configurations": {
             "production": {
               "budgets": [
-                { "type": "initial", "maximumWarning": "500kB", "maximumError": "1MB" }
+                { "type": "initial", "maximumWarning": "1.5MB", "maximumError": "2MB" }
               ],
               "outputHashing": "all"
             },
@@ -61,7 +63,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": { "buildTarget": "demo:build:production" },
             "development": { "buildTarget": "demo:build:development" }

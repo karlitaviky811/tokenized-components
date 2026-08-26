@@ -1,0 +1,127 @@
+.shell {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+// ── Sidebar ──────────────────────────────────────────────────────────────────
+
+.shell__nav {
+  width: 240px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-right: 1px solid #e8eaeb;
+  overflow-y: auto;
+}
+
+// Brand header
+
+.shell__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1.125rem 1rem;
+  border-bottom: 1px solid #e8eaeb;
+  flex-shrink: 0;
+}
+
+.shell__brand-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: #e42313;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  font-family: 'Heebo', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.shell__brand-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #1a1d1e;
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+// Groups
+
+.shell__groups {
+  padding: 0.5rem 0 1rem;
+  flex: 1;
+}
+
+.shell__group {
+  margin-top: 0.25rem;
+}
+
+.shell__group-label {
+  display: block;
+  padding: 0.625rem 1rem 0.2rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #9ba3a7;
+  font-family: 'Heebo', sans-serif;
+}
+
+// Nav links
+
+.shell__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 1rem;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+  color: #2d3235;
+  font-size: 0.875rem;
+  font-family: 'Heebo', sans-serif;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+
+  &:hover:not(.shell__link--soon) {
+    background: #f4f5f6;
+    color: #1a1d1e;
+  }
+
+  &--active {
+    border-left-color: #e42313;
+    background: rgba(228, 35, 19, 0.06);
+    color: #e42313;
+    font-weight: 600;
+  }
+
+  &--soon {
+    color: #b8bec2;
+    cursor: default;
+    font-size: 0.8125rem;
+  }
+}
+
+.shell__badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a0a8ac;
+  background: #edf0f2;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+// ── Content area ──────────────────────────────────────────────────────────────
+
+.shell__content {
+  flex: 1;
+  overflow-y: auto;
+  background: #ffffff;
+  padding: 2.5rem 3rem;
+}

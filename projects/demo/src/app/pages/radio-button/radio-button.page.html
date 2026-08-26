@@ -1,0 +1,47 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-radio-button</span>
+    <h1 class="comp-hero__name">Radio Button</h1>
+    <p class="comp-hero__desc">Radio button de Material 3. Se agrupa con <code>mat-radio-group</code> para selección exclusiva entre opciones.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>value</td><td>unknown</td><td>null</td><td>Valor que representa este radio</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+      <tr><td>checked</td><td>boolean</td><td>false</td><td>Seleccionado (uso sin grupo)</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>checkedChange</td><td>unknown</td><td></td><td>Emite el value al seleccionar</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <h3>Estados</h3>
+    <div class="variant-row">
+      <lib-radio-button value="a" [checked]="false">Unselected</lib-radio-button>
+      <lib-radio-button value="b" [checked]="true">Selected</lib-radio-button>
+      <lib-radio-button value="c" [disabled]="true">Disabled</lib-radio-button>
+      <lib-radio-button value="d" [disabled]="true" [checked]="true">Disabled selected</lib-radio-button>
+    </div>
+
+    <h3>Grupo interactivo</h3>
+    <mat-radio-group [value]="selected()" (change)="selected.set($event.value)" class="radio-group">
+      <lib-radio-button value="classic">Tarjeta Clásica</lib-radio-button>
+      <lib-radio-button value="gold">Tarjeta Gold</lib-radio-button>
+      <lib-radio-button value="platinum">Tarjeta Platinum</lib-radio-button>
+    </mat-radio-group>
+    <p class="selected-label">Seleccionada: <strong>{{ selected() }}</strong></p>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;mat-radio-group [(ngModel)]="plan"&gt;
+  &lt;lib-radio-button value="basic"&gt;Plan Básico&lt;/lib-radio-button&gt;
+  &lt;lib-radio-button value="pro"&gt;Plan Pro&lt;/lib-radio-button&gt;
+&lt;/mat-radio-group&gt;</code></pre>
+  </section>
+</article>

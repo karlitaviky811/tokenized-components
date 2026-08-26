@@ -1,0 +1,35 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-breadcrumb</span>
+    <h1 class="comp-hero__name">Breadcrumb</h1>
+    <p class="comp-hero__desc">Navegación de migas basada en rutas de Angular Router. Lee los datos de la ruta activa y emite la URL del padre al navegar.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Propiedad</th><th>Fuente</th><th>Descripción</th></tr>
+      <tr><td>parentLabel</td><td>route.parent.data['breadcrumb']</td><td>Label del padre</td></tr>
+      <tr><td>currentLabel</td><td>route.data['breadcrumb']</td><td>Label actual</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th>Descripción</th></tr>
+      <tr><td>parentNavigate</td><td>string</td><td>Emite URL del padre al navegar</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Notas de uso</h2>
+    <p class="breadcrumb-note">
+      El breadcrumb depende del contexto de Angular Router. Configura la ruta con los datos
+      <code>breadcrumb</code> y <code>parentBreadcrumb</code> para que el componente los lea automáticamente.
+    </p>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>// En el routing:
+&#123; path: 'detail', data: &#123; breadcrumb: 'Detalle', parentBreadcrumb: 'Lista' &#125; &#125;
+
+// En el template:
+&lt;lib-breadcrumb (parentNavigate)="router.navigateByUrl($event)" /&gt;</code></pre>
+  </section>
+</article>

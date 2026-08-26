@@ -1,7 +1,7 @@
 import { animate, state, style, transition, trigger,AnimationEvent } from '@angular/animations';
 import { DialogRef,DIALOG_DATA } from '@angular/cdk/dialog';
 import { CommonModule, NgComponentOutlet } from '@angular/common';
-import { Component, inject, Type, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Type, WritableSignal } from '@angular/core';
 import { SideModalHeaderConfig } from './side-modal.state';
 
 
@@ -10,6 +10,7 @@ import { SideModalHeaderConfig } from './side-modal.state';
   imports: [CommonModule, NgComponentOutlet],
   templateUrl: './side-modal.html',
   styleUrl: './side-modal.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('dialogAnimation',[
       state('closed', style({ transform: 'translateX(100%)' })),

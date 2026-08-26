@@ -1,0 +1,53 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">Date Pickers</span>
+    <h1 class="comp-hero__name">Date Picker</h1>
+    <p class="comp-hero__desc">Componentes de selección de fecha. Incluye variante con input (docked) y variante modal inline.</p>
+  </div>
+
+  <!-- ─── DATE PICKER (input + modal popup) ────────────────────────────────── -->
+
+  <section class="doc-section">
+    <h2>Date Picker — <code>lib-date-picker</code></h2>
+    <p>Input con outline que abre un calendario modal con acciones.</p>
+
+    <h3>Default</h3>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Date Picker</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-date-picker (dateChange)="onDateChange($event)" (cleared)="onCleared()" />
+      </div>
+      <div class="component-doc__footer">Building Blocks</div>
+    </div>
+
+    @if (selected()) {
+      <p>Fecha: <code>{{ selected()!.toLocaleDateString('es', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</code></p>
+    }
+  </section>
+
+  <!-- ─── MODAL DATE PICKER (inline calendar) ──────────────────────────────── -->
+
+  <section class="doc-section">
+    <h2>Modal Date Picker — <code>lib-modal-date-picker</code></h2>
+    <p>Calendario modal inline con header, navegación y acciones.</p>
+
+    <h3>Default</h3>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Modal Date Picker</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-modal-date-picker (dateChange)="onModalDateChange($event)" (cleared)="onModalCleared()" />
+      </div>
+      <div class="component-doc__footer">Building Blocks</div>
+    </div>
+
+    @if (modalSelected()) {
+      <p>Fecha: <code>{{ modalSelected()!.toLocaleDateString('es', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</code></p>
+    }
+  </section>
+</article>

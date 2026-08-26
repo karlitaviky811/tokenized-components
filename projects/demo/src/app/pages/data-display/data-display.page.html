@@ -1,0 +1,165 @@
+<article class="doc-page">
+  <!-- CARD -->
+  <section class="doc-section">
+    <h2>Card <code>lib-card</code></h2>
+    <p>Contenedor visual con variantes M3: outlined, elevated, filled.</p>
+
+    <h3>Inputs / Outputs</h3>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>title</td><td>string</td><td>'Header'</td><td>Título del card</td></tr>
+      <tr><td>subhead</td><td>string</td><td>''</td><td>Subtítulo</td></tr>
+      <tr><td>variant</td><td>'outlined' | 'elevated' | 'filled'</td><td>'outlined'</td><td>Variante visual</td></tr>
+      <tr><td>state</td><td>'enabled' | 'hovered' | 'focused' | 'pressed' | 'dragged'</td><td>'enabled'</td><td>Estado visual</td></tr>
+      <tr><td>leadingKind</td><td>'avatar' | 'icon'</td><td>'avatar'</td><td>Tipo de leading</td></tr>
+      <tr><td>leadingIcon</td><td>string</td><td>''</td><td>Ícono/imagen leading</td></tr>
+      <tr><td>width</td><td>string</td><td>'20.5rem'</td><td>Ancho del card</td></tr>
+      <tr><td>height</td><td>string</td><td>'4.5rem'</td><td>Alto del card</td></tr>
+      <tr><td>fullWidth</td><td>boolean</td><td>false</td><td>100% del ancho</td></tr>
+      <tr><td>active</td><td>boolean</td><td>false</td><td>Estado activo</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Deshabilitado</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>cardClick</td><td>void</td><td></td><td>Emite al hacer click</td></tr>
+    </table>
+
+    <h3>Variantes</h3>
+    <div class="variant-row">
+      <lib-card title="Outlined" subhead="Subtítulo" variant="outlined" />
+      <lib-card title="Elevated" subhead="Subtítulo" variant="elevated" />
+      <lib-card title="Filled" subhead="Subtítulo" variant="filled" />
+    </div>
+    <div class="variant-row">
+      <lib-card title="Active" variant="outlined" [active]="true" />
+      <lib-card title="Disabled" variant="outlined" [disabled]="true" />
+    </div>
+
+    <h3>Horizontal card</h3>
+    <p>Variación con <code>slot</code> de contenido proyectado y acciones trailing.</p>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title">
+          <span>❖</span>
+          Horizontal card
+        </span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        @for (item of [1, 2, 3]; track item) {
+          <lib-card
+            title="Header"
+            subhead="Subhead"
+            variant="outlined"
+            width="16rem"
+            [active]="item === 3"
+          >
+            <lib-icon-button slot="trailing" size="small" variant="standard">
+              <span class="material-symbols-outlined">arrow_drop_up</span>
+            </lib-icon-button>
+            <lib-icon-button slot="trailing" size="small" variant="standard">
+              <span class="material-symbols-outlined">arrow_drop_down</span>
+            </lib-icon-button>
+            <div class="demo-slot">slot</div>
+          </lib-card>
+        }
+      </div>
+      <div class="component-doc__footer">Building Blocks</div>
+    </div>
+
+    <h3>Ejemplo de uso</h3>
+    <pre><code>&lt;lib-card
+  title="Operación #123"
+  subhead="En proceso"
+  variant="outlined"
+  [fullWidth]="true"
+  (cardClick)="onCardClick()"
+/&gt;</code></pre>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <section class="doc-section">
+    <h2>Breadcrumb <code>lib-breadcrumb</code></h2>
+    <p>Navegación de migas basada en rutas de Angular Router. Lee los datos de la ruta activa.</p>
+
+    <h3>Inputs / Outputs</h3>
+    <table class="api-table">
+      <tr><th>Propiedad</th><th>Fuente</th><th>Descripción</th></tr>
+      <tr><td>parentLabel</td><td>route.parent.data['breadcrumb']</td><td>Label del padre</td></tr>
+      <tr><td>currentLabel</td><td>route.data['breadcrumb']</td><td>Label actual</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th>Descripción</th></tr>
+      <tr><td>parentNavigate</td><td>string</td><td>Emite URL del padre al navegar</td></tr>
+    </table>
+
+    <h3>Ejemplo de uso</h3>
+    <pre><code>// En el routing:
+{{ '{' }} path: 'detail', data: {{ '{' }} breadcrumb: 'Detalle', parentBreadcrumb: 'Lista' {{ '}' }} {{ '}' }}
+
+// En el template:
+&lt;lib-breadcrumb (parentNavigate)="router.navigateByUrl($event)" /&gt;</code></pre>
+  </section>
+
+  <!-- SHARED TABLE -->
+  <section class="doc-section">
+    <h2>SharedTable <code>lib-shared-table</code></h2>
+    <p>Tabla configurable con columnas dinámicas, paginación, templates custom y row click.</p>
+
+    <h3>Inputs / Outputs</h3>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>columns</td><td>SharedTableColumn[]</td><td><em>required</em></td><td>Definición de columnas</td></tr>
+      <tr><td>data</td><td>T[]</td><td><em>required</em></td><td>Datos de la tabla</td></tr>
+      <tr><td>caption</td><td>string</td><td>undefined</td><td>Caption accesible</td></tr>
+      <tr><td>emptyState</td><td>string</td><td>'Sin registros disponibles'</td><td>Mensaje sin datos</td></tr>
+      <tr><td>loading</td><td>boolean</td><td>false</td><td>Muestra spinner</td></tr>
+      <tr><td>showPaginator</td><td>boolean</td><td>true</td><td>Muestra paginador</td></tr>
+      <tr><td>pageSize</td><td>number</td><td>10</td><td>Filas por página</td></tr>
+      <tr><td>pageSizeOptions</td><td>number[]</td><td>[5, 10, 20]</td><td>Opciones de page size</td></tr>
+      <tr><td>enableRowClick</td><td>boolean</td><td>false</td><td>Habilita click en filas</td></tr>
+      <tr><td>totalElements</td><td>number | undefined</td><td>undefined</td><td>Total para paginación server-side</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>rowClick</td><td>T</td><td></td><td>Emite la fila clickeada</td></tr>
+      <tr><td>pageChange</td><td>TablePageEvent</td><td></td><td>Emite al cambiar página</td></tr>
+    </table>
+
+    <h3>SharedTableColumn interface</h3>
+    <pre><code>interface SharedTableColumn&lt;T&gt; {{ '{' }}
+  key: string;         // propiedad del objeto o ID de columna
+  header: string;      // texto del encabezado
+  align?: 'start' | 'center' | 'end';
+  width?: string;      // ej: '120px', '20%'
+  cell?: (row: T, index: number) => unknown; // transform fn
+{{ '}' }}</code></pre>
+
+    <h3>Demo (visual)</h3>
+    <div class="table-demo">
+      <shared-table
+        [columns]="tableColumns"
+        [data]="tableData"
+        [showPaginator]="false"
+      />
+    </div>
+
+    <h3>Ejemplo de uso</h3>
+    <pre><code>// Definir columnas:
+columns: SharedTableColumn[] = [
+  {{ '{' }} key: 'name', header: 'Nombre' {{ '}' }},
+  {{ '{' }} key: 'email', header: 'Correo', width: '250px' {{ '}' }},
+  {{ '{' }} key: 'status', header: 'Estado', align: 'center' {{ '}' }},
+  {{ '{' }} key: 'amount', header: 'Monto', cell: (row) => '$' + row['amount'] {{ '}' }},
+];
+
+// Template:
+&lt;shared-table
+  [columns]="columns"
+  [data]="users"
+  [pageSize]="10"
+  [enableRowClick]="true"
+  (rowClick)="openDetail($event)"
+&gt;
+  &lt;!-- Custom cell template --&gt;
+  &lt;ng-template libCellTemplate="status" let-value&gt;
+    &lt;span [class.active]="value === 'Activo'"&gt;{{ '{{' }} value {{ '}}' }}&lt;/span&gt;
+  &lt;/ng-template&gt;
+&lt;/shared-table&gt;</code></pre>
+  </section>
+</article>

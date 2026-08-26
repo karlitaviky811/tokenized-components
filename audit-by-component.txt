@@ -1,0 +1,377 @@
+﻿================================================================
+  AUDITORIA DE TOKENS POR COMPONENTE
+================================================================
+
+LOCAL      97
+MATERIAL   56
+MISSING    115
+OK         672
+SUSPECT    95
+
+=== SUSPECT: valor con unidad incoherente (px en opacity/elevation/weight) ===
+Total: 95  |  tokens distintos: 88
+
+  --app-date-pickers-docked-enabled-label-text-date-label-text-weight
+      CDN: --dimension-date-pickers-docked-enabled-label-text-date-label-text-weight = 400px
+  --app-date-pickers-docked-enabled-label-text-menu-button-label-text-weight
+      CDN: --dimension-date-pickers-docked-enabled-label-text-menu-button-label-text-weight = 500px
+  --app-date-pickers-docked-enabled-label-text-weekdays-label-text-weight
+      CDN: --dimension-date-pickers-docked-enabled-label-text-weekdays-label-text-weight = 400px
+  --app-date-pickers-docked-hovered-state-layer-date-hover-state-layer-opacity
+      CDN: --dimension-date-pickers-docked-hovered-state-layer-date-hover-state-layer-opacity = 8px
+  --app-dialogs-basic-enabled-container-dialog-container-elevation
+      CDN: --dimension-dialogs-basic-enabled-container-dialog-container-elevation = 6px
+  --app-dialogs-basic-enabled-headline-dialog-headline-weight
+      CDN: --dimension-dialogs-basic-enabled-headline-dialog-headline-weight = 400px
+  --app-dialogs-basic-enabled-label-text-dialog-action-label-text-weight
+      CDN: --dimension-dialogs-basic-enabled-label-text-dialog-action-label-text-weight = 500px
+  --app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-weight
+      CDN: --dimension-dialogs-basic-enabled-supporting-text-dialog-supporting-text-weight = 400px
+  --app-icon-buttons-color-action-focused-icon-button-focused-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-action-focused-icon-button-focused-state-layer-opacity = 8px
+  --app-icon-buttons-color-action-hovered-icon-button-hovered-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-action-hovered-icon-button-hovered-state-layer-opacity = 8px
+  --app-icon-buttons-color-action-pressed-icon-button-pressed-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-action-pressed-icon-button-pressed-state-layer-opacity = 10px
+  --app-icon-buttons-icon-button-focused-icon-button-focused-state-layer-opacity
+      CDN: --dimension-icon-buttons-icon-button-focused-icon-button-focused-state-layer-opacity = 10px
+  --app-icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-opacity
+      CDN: --dimension-icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-opacity = 8px
+  --app-icon-buttons-icon-button-pressed-icon-button-pressed-state-layer-opacity
+      CDN: --dimension-icon-buttons-icon-button-pressed-icon-button-pressed-state-layer-opacity = 10px
+  --app-typescale-body-medium-weight
+      CDN: --dimension-typescale-body-medium-weight = 400px
+  --app-typescale-title-medium-weight
+      CDN: --dimension-typescale-title-medium-weight = 500px
+  --app-typescale-title-medium-weight-emphasized
+      CDN: --dimension-typescale-title-medium-weight-emphasized = 700px
+  --breadcrumbs-divider-breadcrumb-divider-text-weight
+      CDN: --dimension-breadcrumbs-divider-breadcrumb-divider-text-weight = 400px
+  --breadcrumbs-label-enabled-breadcrumb-label-text-weight
+      CDN: --dimension-breadcrumbs-label-enabled-breadcrumb-label-text-weight = 400px
+  --breadcrumbs-label-focused-breadcrumb-focused-indicator-weight
+      CDN: --dimension-breadcrumbs-label-focused-breadcrumb-focused-indicator-weight = 3px
+  --breadcrumbs-label-selected-breadcrumb-selected-label-text-weight
+      CDN: --dimension-breadcrumbs-label-selected-breadcrumb-selected-label-text-weight = 700px
+  --buttons-wip-color-elevated-enabled-button-elevated-elevation
+      CDN: --dimension-buttons-wip-color-elevated-enabled-button-elevated-elevation = 1px
+  --buttons-wip-size-large-button-large-label-text-weight
+      CDN: --dimension-buttons-wip-size-large-button-large-label-text-weight = 400px
+  --buttons-wip-size-medium-button-medium-label-text-weight
+      CDN: --dimension-buttons-wip-size-medium-button-medium-label-text-weight = 500px
+  --buttons-wip-size-small-button-small-label-text-weight
+      CDN: --dimension-buttons-wip-size-small-button-small-label-text-weight = 500px
+  --buttons-wip-size-xlarge-button-xlarge-label-text-weight
+      CDN: --dimension-buttons-wip-size-xlarge-button-xlarge-label-text-weight = 400px
+  --buttons-wip-size-xsmall-button-xsmall-label-text-weight
+      CDN: --dimension-buttons-wip-size-xsmall-button-xsmall-label-text-weight = 500px
+  --chips-wip-filter-enabled-label-text-filter-chip-label-text-weight
+      CDN: --dimension-chips-wip-filter-enabled-label-text-filter-chip-label-text-weight = 500px
+  --date-pickers-docked-enabled-label-text-menu-button-label-text-weight
+      CDN: --dimension-date-pickers-docked-enabled-label-text-menu-button-label-text-weight = 500px
+  --date-pickers-docked-enabled-label-text-menu-list-item-label-text-weight
+      CDN: --dimension-date-pickers-docked-enabled-label-text-menu-list-item-label-text-weight = 400px
+  --elevation-0
+      CDN: --dimension-elevation-0 = 0px
+  --elevation-1
+      CDN: --dimension-elevation-1 = 1px
+  --elevation-2
+      CDN: --dimension-elevation-2 = 3px
+  --elevation-3
+      CDN: --dimension-elevation-3 = 6px
+  --elevation-4
+      CDN: --dimension-elevation-4 = 8px
+  --elevation-5
+      CDN: --dimension-elevation-5 = 12px
+  --icon-buttons-color-action-disabled-icon-button-disabled-opacity
+      CDN: --dimension-icon-buttons-color-action-disabled-icon-button-disabled-opacity = 38px
+  --icon-buttons-color-action-focused-icon-button-focused-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-action-focused-icon-button-focused-state-layer-opacity = 8px
+  --icon-buttons-color-action-hovered-icon-button-hovered-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-action-hovered-icon-button-hovered-state-layer-opacity = 8px
+  --icon-buttons-color-action-pressed-icon-button-pressed-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-action-pressed-icon-button-pressed-state-layer-opacity = 10px
+  --icon-buttons-color-filled-disabled-icon-button-filled-disabled-container-opacity
+      CDN: --dimension-icon-buttons-color-filled-disabled-icon-button-filled-disabled-container-opacity = 10px
+  --icon-buttons-color-filled-disabled-icon-button-filled-disabled-icon-opacity
+      CDN: --dimension-icon-buttons-color-filled-disabled-icon-button-filled-disabled-icon-opacity = 38px
+  --icon-buttons-color-filled-focused-icon-button-filled-focused-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-filled-focused-icon-button-filled-focused-state-layer-opacity = 10px
+  --icon-buttons-color-filled-hovered-icon-button-filled-hovered-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-filled-hovered-icon-button-filled-hovered-state-layer-opacity = 8px
+  --icon-buttons-color-filled-pressed-icon-button-filled-pressed-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-filled-pressed-icon-button-filled-pressed-state-layer-opacity = 10px
+  --icon-buttons-color-outlined-disabled-icon-button-outlined-disabled-container-opacity-selected
+      CDN: --dimension-icon-buttons-color-outlined-disabled-icon-button-outlined-disabled-container-opacity-selected = 10px
+  --icon-buttons-color-outlined-disabled-icon-button-outlined-disabled-icon-opacity
+      CDN: --dimension-icon-buttons-color-outlined-disabled-icon-button-outlined-disabled-icon-opacity = 38px
+  --icon-buttons-color-standard-disabled-icon-button-disabled-opacity
+      CDN: --dimension-icon-buttons-color-standard-disabled-icon-button-disabled-opacity = 38px
+  --icon-buttons-color-tonal-disabled-icon-button-tonal-disabled-container-opacity
+      CDN: --dimension-icon-buttons-color-tonal-disabled-icon-button-tonal-disabled-container-opacity = 10px
+  --icon-buttons-color-tonal-disabled-icon-button-tonal-disabled-icon-opacity
+      CDN: --dimension-icon-buttons-color-tonal-disabled-icon-button-tonal-disabled-icon-opacity = 38px
+  --icon-buttons-color-tonal-focused-icon-button-tonal-focused-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-tonal-focused-icon-button-tonal-focused-state-layer-opacity = 10px
+  --icon-buttons-color-tonal-hovered-icon-button-tonal-hovered-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-tonal-hovered-icon-button-tonal-hovered-state-layer-opacity = 8px
+  --icon-buttons-color-tonal-pressed-icon-button-tonal-pressed-state-layer-opacity
+      CDN: --dimension-icon-buttons-color-tonal-pressed-icon-button-tonal-pressed-state-layer-opacity = 10px
+  --icon-buttons-icon-button-disabled-icon-button-disabled-container-opacity
+      CDN: --dimension-icon-buttons-icon-button-disabled-icon-button-disabled-container-opacity = 10px
+  --icon-buttons-icon-button-focused-icon-button-focused-state-layer-opacity
+      CDN: --dimension-icon-buttons-icon-button-focused-icon-button-focused-state-layer-opacity = 10px
+  --icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-opacity
+      CDN: --dimension-icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-opacity = 8px
+  --icon-buttons-icon-button-pressed-icon-button-pressed-state-layer-opacity
+      CDN: --dimension-icon-buttons-icon-button-pressed-icon-button-pressed-state-layer-opacity = 10px
+  --side-sheets-enabled-headline-sheet-side-docked-headline-weight
+      CDN: --dimension-side-sheets-enabled-headline-sheet-side-docked-headline-weight = 400px
+  --tabs-primary-navigation-enabled-label-text-primary-navigation-tab-with-label-text-weight
+      CDN: --dimension-tabs-primary-navigation-enabled-label-text-primary-navigation-tab-with-label-text-weight = 500px
+  --text-fields-filled-disabled-active-indicator-filled-text-field-disabled-active-indicator-opacity
+      CDN: --dimension-text-fields-filled-disabled-active-indicator-filled-text-field-disabled-active-indicator-opacity = 38px
+  --text-fields-filled-disabled-container-filled-text-field-disabled-container-opacity
+      CDN: --dimension-text-fields-filled-disabled-container-filled-text-field-disabled-container-opacity = 4px
+  --text-fields-filled-disabled-input-text-filled-text-field-disabled-input-text-opacity
+      CDN: --dimension-text-fields-filled-disabled-input-text-filled-text-field-disabled-input-text-opacity = 38px
+  --text-fields-filled-disabled-label-text-filled-text-field-disabled-label-text-opacity
+      CDN: --dimension-text-fields-filled-disabled-label-text-filled-text-field-disabled-label-text-opacity = 38px
+  --text-fields-filled-enabled-label-text-filled-text-field-label-text-weight
+      CDN: --dimension-text-fields-filled-enabled-label-text-filled-text-field-label-text-weight = 400px
+  --text-fields-outlined-disabled-input-text-outlined-text-field-disabled-input-text-opacity
+      CDN: --dimension-text-fields-outlined-disabled-input-text-outlined-text-field-disabled-input-text-opacity = 38px
+  --text-fields-outlined-disabled-leading-icon-outlined-text-field-disabled-leading-icon-opacity
+      CDN: --dimension-text-fields-outlined-disabled-leading-icon-outlined-text-field-disabled-leading-icon-opacity = 38px
+  --text-fields-outlined-disabled-trailing-icon-outlined-text-field-disabled-trailing-icon-opacity
+      CDN: --dimension-text-fields-outlined-disabled-trailing-icon-outlined-text-field-disabled-trailing-icon-opacity = 38px
+  --text-fields-outlined-enabled-supporting-text-outlined-text-field-supporting-text-weight
+      CDN: --dimension-text-fields-outlined-enabled-supporting-text-outlined-text-field-supporting-text-weight = 400px
+  --tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-weight
+      CDN: --dimension-tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-weight = 400px
+  --typescale-body-large-weight
+      CDN: --dimension-typescale-body-large-weight = 400px
+  --typescale-body-medium-weight
+      CDN: --dimension-typescale-body-medium-weight = 400px
+  --typescale-body-small-weight
+      CDN: --dimension-typescale-body-small-weight = 400px
+  --typescale-display-large-weight
+      CDN: --dimension-typescale-display-large-weight = 400px
+  --typescale-display-medium-weight
+      CDN: --dimension-typescale-display-medium-weight = 400px
+  --typescale-display-small-weight
+      CDN: --dimension-typescale-display-small-weight = 400px
+  --typescale-headline-large-weight
+      CDN: --dimension-typescale-headline-large-weight = 400px
+  --typescale-headline-large-weight-emphasized
+      CDN: --dimension-typescale-headline-large-weight-emphasized = 500px
+  --typescale-headline-medium-weight
+      CDN: --dimension-typescale-headline-medium-weight = 400px
+  --typescale-headline-medium-weight-emphasized
+      CDN: --dimension-typescale-headline-medium-weight-emphasized = 500px
+  --typescale-headline-small-weight
+      CDN: --dimension-typescale-headline-small-weight = 400px
+  --typescale-headline-small-weight-emphasized
+      CDN: --dimension-typescale-headline-small-weight-emphasized = 500px
+  --typescale-label-large-weight
+      CDN: --dimension-typescale-label-large-weight = 500px
+  --typescale-label-medium-weight
+      CDN: --dimension-typescale-label-medium-weight = 500px
+  --typescale-label-small-weight
+      CDN: --dimension-typescale-label-small-weight = 500px
+  --typescale-title-large-weight
+      CDN: --dimension-typescale-title-large-weight = 400px
+  --typescale-title-medium-weight
+      CDN: --dimension-typescale-title-medium-weight = 500px
+  --typescale-title-small-weight
+      CDN: --dimension-typescale-title-small-weight = 500px
+
+=== MISSING por componente (el CDN no publica estos) ===
+  _mat-form-field-overrides.scss  (8)
+      --text-fields-filled-enabled-container-filled-text-field-container-shape
+      --text-fields-filled-enabled-label-text-filled-text-field-label-display
+      --text-fields-filled-enabled-label-text-filled-text-field-with-label-container-padding-bottom
+      --text-fields-filled-enabled-label-text-filled-text-field-with-label-container-padding-top
+      --text-fields-filled-error-caret-filled-text-field-error-caret-color
+      --text-fields-filled-hover-active-indicator-filled-text-field-hover-active-indicator-color
+      --text-fields-filled-hover-label-text-filled-text-field-hover-label-text-color
+      --text-fields-outlined-enabled-outline-outline-text-field-outline-color
+
+  _mat-list-overrides.scss  (44)
+      --app-lists-wip-common-color-disabled-list-list-item-disabled-label-text-color
+      --app-lists-wip-common-color-disabled-list-list-item-disabled-label-text-opacity
+      --app-lists-wip-common-color-disabled-list-list-item-disabled-leading-icon-color
+      --app-lists-wip-common-color-disabled-list-list-item-disabled-leading-icon-opacity
+      --app-lists-wip-common-color-disabled-list-list-item-disabled-state-layer-color
+      --app-lists-wip-common-color-disabled-list-list-item-disabled-state-layer-opacity
+      --app-lists-wip-common-color-disabled-list-list-item-disabled-trailing-icon-color
+      --app-lists-wip-common-color-disabled-list-list-item-disabled-trailing-icon-opacity
+      --app-lists-wip-common-color-enabled-list-list-item-label-text-color
+      --app-lists-wip-common-color-enabled-list-list-item-leading-avatar-color
+      --app-lists-wip-common-color-enabled-list-list-item-leading-icon-color
+      --app-lists-wip-common-color-enabled-list-list-item-supporting-text-color
+      --app-lists-wip-common-color-enabled-list-list-item-trailing-icon-color
+      --app-lists-wip-common-color-enabled-list-list-item-trailing-supporting-text-color
+      --app-lists-wip-common-color-enabled-selected-list-list-item-selected-container-color
+      --app-lists-wip-common-color-enabled-selected-list-list-item-selected-trailing-icon-color
+      --app-lists-wip-common-color-focused-list-list-item-focus-label-text-color
+      --app-lists-wip-common-color-focused-list-list-item-focus-state-layer-color
+      --app-lists-wip-common-color-focused-list-list-item-focus-state-layer-opacity
+      --app-lists-wip-common-color-hovered-list-list-item-hover-label-text-color
+      --app-lists-wip-common-color-hovered-list-list-item-hover-leading-icon-color
+      --app-lists-wip-common-color-hovered-list-list-item-hover-trailing-icon-color
+      --app-lists-wip-common-shape-list-list-item-container-shape
+      --app-lists-wip-common-shape-list-list-item-selected-container-shape
+      --app-lists-wip-common-spacing-list-list-item-between-space
+      --app-lists-wip-common-spacing-list-list-item-leading-space
+      --app-lists-wip-common-typography-list-list-item-label-text-font
+      --app-lists-wip-common-typography-list-list-item-label-text-line-height
+      --app-lists-wip-common-typography-list-list-item-label-text-size
+      --app-lists-wip-common-typography-list-list-item-label-text-tracking
+      --app-lists-wip-common-typography-list-list-item-label-text-weight
+      --app-lists-wip-common-typography-list-list-item-leading-avatar-size
+      --app-lists-wip-common-typography-list-list-item-leading-icon-size
+      --app-lists-wip-common-typography-list-list-item-supporting-text-font
+      --app-lists-wip-common-typography-list-list-item-supporting-text-line-height
+      --app-lists-wip-common-typography-list-list-item-supporting-text-size
+      --app-lists-wip-common-typography-list-list-item-supporting-text-tracking
+      --app-lists-wip-common-typography-list-list-item-supporting-text-weight
+      --app-lists-wip-common-typography-list-list-item-trailing-icon-size
+      --app-lists-wip-common-typography-list-list-item-trailing-supporting-text-font
+      --app-lists-wip-common-typography-list-list-item-trailing-supporting-text-line-height
+      --app-lists-wip-common-typography-list-list-item-trailing-supporting-text-size
+      --app-lists-wip-common-typography-list-list-item-trailing-supporting-text-tracking
+      --app-lists-wip-common-typography-list-list-item-trailing-supporting-text-weight
+
+  _mat-table-overrides.scss  (2)
+      --pallete-scheme-surface-surface
+      --pallete-scheme-surface-surface-container-highest
+
+  _md3-tokens.scss  (23)
+      --pallete-scheme-error-error
+      --pallete-scheme-error-error-container
+      --pallete-scheme-information-information
+      --pallete-scheme-information-information-container
+      --pallete-scheme-link-link
+      --pallete-scheme-link-link-container
+      --pallete-scheme-primary-primary
+      --pallete-scheme-primary-primary-container
+      --pallete-scheme-secondary-secondary
+      --pallete-scheme-secondary-secondary-container
+      --pallete-scheme-success-success
+      --pallete-scheme-success-success-container
+      --pallete-scheme-surface-surface-bright
+      --pallete-scheme-surface-surface-container
+      --pallete-scheme-surface-surface-container-high
+      --pallete-scheme-surface-surface-container-highest
+      --pallete-scheme-surface-surface-container-low
+      --pallete-scheme-surface-surface-container-lowest
+      --pallete-scheme-surface-surface-dim
+      --pallete-scheme-tertiary-tertiary
+      --pallete-scheme-tertiary-tertiary-container
+      --pallete-scheme-warning-warning
+      --pallete-scheme-warning-warning-container
+
+  card.css  (3)
+      --app-pallete-scheme-primary-primary
+      --app-schemes-outline
+      --app-schemes-surface-container-high
+
+  chip.css  (1)
+      --chips-wip-filter-enabled-icon-filter-chip-with-icon-icon-size
+
+  circular-progress-stepper.css  (1)
+      --progress
+
+  date-picker.css  (3)
+      --app-date-pickers-docked-enabled-container-container-color
+      --app-date-pickers-docked-enabled-container-container-shape
+      --app-date-pickers-docked-enabled-header-header-height
+
+  header.css  (11)
+      --bars-common-app-bar-central-icon
+      --bars-common-app-bar-container-color
+      --bars-common-app-bar-container-shape
+      --bars-common-app-bar-icon-size
+      --bars-common-app-bar-icon-spacing
+      --bars-common-app-bar-icon-touch-target-size
+      --bars-common-app-bar-leading-icon
+      --bars-common-app-bar-left-padding
+      --bars-common-app-bar-right-padding
+      --bars-common-app-bar-trailing-icon
+      --bars-size-small-app-bar-small-container-height
+
+  layout.scss  (1)
+      --bars-size-small-app-bar-small-container-height
+
+  list-item.css  (3)
+      --app-pallete-scheme-surface-surface-container-lowest
+      --lists-wip-common-color-enabled-list-list-item-container-color
+      --lists-wip-common-color-enabled-list-list-item-label-text-color
+
+  scrollbar.scss  (4)
+      --Corner-Radius-Full
+      --Corner-Radius-Small
+      --Gris-100
+      --Gris-500
+
+  select-field.css  (4)
+      --Corner-Radius-Full
+      --Corner-Radius-Small
+      --Gris-100
+      --Gris-500
+
+  sidebar.css  (1)
+      --padding-container-main
+
+  spinner.css  (2)
+      --lib-spinner-color
+      --Rojo-400
+
+  styles.scss  (3)
+      --date-pickers-docked-enabled-container-container-color
+      --date-pickers-docked-enabled-container-container-shape
+      --date-pickers-docked-enabled-container-container-width
+
+  text-classes.scss  (1)
+      --2-semantic-pallete-scheme-surface-on-surface
+
+=== DETALLE POR COMPONENTE (solo tokens de diseno) ===
+_mat-button-overrides.scss                 OK:22   SUSPECT:2    MISSING:0
+_mat-checkbox-overrides.scss               OK:14   SUSPECT:1    MISSING:0
+_mat-form-field-overrides.scss             OK:49   SUSPECT:9    MISSING:8
+_mat-icon-button-overrides.scss            OK:16   SUSPECT:6    MISSING:0
+_mat-list-overrides.scss                   OK:3    SUSPECT:0    MISSING:44
+_mat-radio-overrides.scss                  OK:17   SUSPECT:1    MISSING:0
+_mat-slide-toggle-overrides.scss           OK:15   SUSPECT:0    MISSING:0
+_mat-table-overrides.scss                  OK:10   SUSPECT:2    MISSING:2
+_mat-tabs-overrides.scss                   OK:17   SUSPECT:1    MISSING:0
+_md3-tokens.scss                           OK:92   SUSPECT:21   MISSING:23
+breadcrumb.component.css                   OK:20   SUSPECT:4    MISSING:0
+button.css                                 OK:71   SUSPECT:5    MISSING:0
+card.css                                   OK:18   SUSPECT:3    MISSING:3
+checkbox.css                               OK:5    SUSPECT:0    MISSING:0
+chip.css                                   OK:14   SUSPECT:1    MISSING:1
+circular-progress-stepper.css              OK:0    SUSPECT:0    MISSING:1
+confirm-modal.css                          OK:19   SUSPECT:4    MISSING:0
+date-picker.css                            OK:27   SUSPECT:4    MISSING:3
+date-range-picker.css                      OK:1    SUSPECT:0    MISSING:0
+divider.css                                OK:2    SUSPECT:0    MISSING:0
+global-material-theme.scss                 OK:1    SUSPECT:0    MISSING:0
+header.css                                 OK:1    SUSPECT:0    MISSING:11
+icon-button.css                            OK:157  SUSPECT:23   MISSING:0
+layout.scss                                OK:0    SUSPECT:0    MISSING:1
+list-item.css                              OK:7    SUSPECT:1    MISSING:3
+modal-footer-actions.css                   OK:2    SUSPECT:0    MISSING:0
+radio-button.css                           OK:1    SUSPECT:0    MISSING:0
+scrollbar.scss                             OK:0    SUSPECT:0    MISSING:4
+select-field.css                           OK:0    SUSPECT:0    MISSING:4
+shared-table.component.css                 OK:1    SUSPECT:0    MISSING:0
+sidebar.css                                OK:23   SUSPECT:0    MISSING:1
+side-modal.css                             OK:6    SUSPECT:1    MISSING:0
+spinner.css                                OK:0    SUSPECT:0    MISSING:2
+styles.scss                                OK:14   SUSPECT:1    MISSING:3
+text-classes.scss                          OK:12   SUSPECT:3    MISSING:1
+text-field.css                             OK:3    SUSPECT:0    MISSING:0
+tooltip.css                                OK:7    SUSPECT:1    MISSING:0
+typography.scss                            OK:5    SUSPECT:1    MISSING:0

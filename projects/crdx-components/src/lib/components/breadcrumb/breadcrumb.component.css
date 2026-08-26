@@ -1,4 +1,4 @@
-.shared-breadcrumb {
+﻿.shared-breadcrumb {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -11,7 +11,7 @@
   font-size: var(--breadcrumbs-label-enabled-breadcrumb-label-text-size, 14px);
   font-style: normal;
   font-weight: var(--breadcrumbs-label-enabled-breadcrumb-label-text-weight, 400);
-  line-height: calc(var(--breadcrumbs-label-enabled-breadcrumb-label-text-line-height, 20) * 1px);
+  line-height: var(--breadcrumbs-label-enabled-breadcrumb-label-text-line-height, 20px);
   letter-spacing: var(--breadcrumbs-label-enabled-breadcrumb-label-text-tracking, 0.25px);
 }
 
@@ -72,9 +72,7 @@
 }
 
 .shared-breadcrumb__parent:focus-visible {
-  outline: calc(
-      var(--breadcrumbs-label-focused-breadcrumb-focused-indicator-weight, 3) * 1px
-    )
+  outline: var(--breadcrumbs-label-focused-breadcrumb-focused-indicator-weight, 3px)
     solid var(--breadcrumbs-label-focused-breadcrumb-focused-indicator-color, #5b5f61);
   outline-offset: 2px;
 }
@@ -103,7 +101,7 @@
   font-size: var(--breadcrumbs-divider-breadcrumb-divider-text-size, 14px);
   font-style: normal;
   font-weight: var(--breadcrumbs-divider-breadcrumb-divider-text-weight, 400);
-  line-height: calc(var(--breadcrumbs-divider-breadcrumb-divider-text-line-height, 20) * 1px);
+  line-height: var(--breadcrumbs-divider-breadcrumb-divider-text-line-height, 20px);
   letter-spacing: var(--breadcrumbs-divider-breadcrumb-divider-text-tracking, 0.25px);
 }
 
@@ -180,7 +178,7 @@
   text-align: center;
   font-size: var(--breadcrumbs-label-enabled-breadcrumb-label-text-size, 14px);
   font-style: normal;
-  line-height: calc(var(--breadcrumbs-label-enabled-breadcrumb-label-text-line-height, 20) * 1px);
+  line-height: var(--breadcrumbs-label-enabled-breadcrumb-label-text-line-height, 20px);
   letter-spacing: var(--breadcrumbs-label-enabled-breadcrumb-label-text-tracking, 0.25px);
   font-weight: inherit;
 }

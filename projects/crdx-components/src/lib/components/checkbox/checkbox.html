@@ -2,10 +2,12 @@
   class="lib-checkbox__wrapper"
   [class.lib-checkbox--disabled]="disabled()"
 >
+
   <mat-checkbox
     [checked]="checked()"
     [indeterminate]="indeterminate()"
     [disabled]="disabled()"
+    [class.es-error]="error()"
     (change)="onMatCheckboxChange($event)"
   >
     <ng-content />

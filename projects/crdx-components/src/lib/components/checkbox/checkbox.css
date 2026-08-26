@@ -8,3 +8,34 @@
   position: relative;
   z-index: 1;
 }
+
+
+:host ::ng-deep .es-error {
+  /* Selected error — relleno del checkbox marcado (Material 21 / M3) */
+  --mat-checkbox-selected-focus-icon-color: var(--app-checkboxes-enabled-container-checkbox-selected-error-container-color, #FF4965);
+  --mat-checkbox-selected-hover-icon-color: var(--app-checkboxes-enabled-container-checkbox-selected-error-container-color, #FF4965);
+  --mat-checkbox-selected-icon-color: var(--app-checkboxes-enabled-container-checkbox-selected-error-container-color, #FF4965);
+
+  /* Unselected error — borde del checkbox sin marcar.
+     En M3 NO hay variable de outline separada: el borde usa la misma var del icono. */
+  --mat-checkbox-unselected-focus-icon-color: var(--app-checkboxes-enabled-container-checkbox-unselected-error-outline-color, #FF4965);
+  --mat-checkbox-unselected-hover-icon-color: var(--checkboxes-hovered-container-checkbox-unselected-error-hover-outline-color, #FF4965);
+  --mat-checkbox-unselected-icon-color: var(--app-checkboxes-enabled-container-checkbox-unselected-error-outline-color, #FF4965);
+
+  /* Color del texto que acompaña al checkbox */
+  color: var(--app-checkboxes-enabled-container-checkbox-unselected-error-outline-color, #FF4965);
+
+  /* Ripple / state layer en error (focus). El alpha ya viene en el token,
+     por eso forzamos opacity:1 para que Material no lo vuelva a multiplicar. */
+  --mat-checkbox-unselected-focus-state-layer-color: var(--Checkboxes-focused-state-layer-checkbox-error-focus-state-layer-opacity, rgba(255, 73, 101, 0.10));
+  --mat-checkbox-selected-focus-state-layer-color: var(--Checkboxes-focused-state-layer-checkbox-error-focus-state-layer-opacity, rgba(255, 73, 101, 0.10));
+  --mat-checkbox-unselected-focus-state-layer-opacity: 1;
+  --mat-checkbox-selected-focus-state-layer-opacity: 1;
+
+  /* Ripple / state layer en error (hover). Mismo color de error; opacity:1
+     porque el alpha ya viene en el valor del token. */
+  --mat-checkbox-unselected-hover-state-layer-color: var(--Checkboxes-hovered-state-layer-checkbox-error-hover-state-layer-opacity, rgba(255, 73, 101, 0.10));
+  --mat-checkbox-selected-hover-state-layer-color: var(--Checkboxes-hovered-state-layer-checkbox-error-hover-state-layer-opacity, rgba(255, 73, 101, 0.10));
+  --mat-checkbox-unselected-hover-state-layer-opacity: 1;
+  --mat-checkbox-selected-hover-state-layer-opacity: 1;
+}

@@ -1,4 +1,4 @@
-:host {
+﻿:host {
   display: block;
   width: 100%;
   --bars-common-app-bar-brand-width: 47;
@@ -12,12 +12,12 @@
   width: 100%;
   flex-shrink: 0;
   align-self: stretch;
-  height: calc(var(--bars-size-small-app-bar-small-container-height, 64) * 1px);
-  padding: 0.5rem calc(var(--bars-common-app-bar-right-padding, 4) * 1px) 0.5rem calc(var(--bars-common-app-bar-left-padding, 4) * 1px);
-  background-color: var(--bars-common-app-bar-container-color, #ebeef0);
-  border-radius: calc(var(--bars-common-app-bar-container-shape, 0) * 1px);
+  height: var(--app-bars-size-small-app-bar-small-container-height, 64px);
+  padding: 0.5rem var(--app-bars-common-app-bar-right-padding, 4px) 0.5rem var(--app-bars-common-app-bar-left-padding, 4px);
+  background-color: var(--app-bars-common-app-bar-container-color, #ebeef0);
+  border-radius: var(--app-bars-common-app-bar-container-shape, 0px);
   box-sizing: border-box;
-  column-gap: calc(var(--bars-common-app-bar-icon-spacing, 0) * 1px);
+  column-gap: var(--app-bars-common-app-bar-icon-spacing, 0px);
 }
 
 .app-bar__leading,
@@ -28,14 +28,14 @@
 
 .app-bar__leading {
   justify-self: start;
-  width: calc(var(--bars-common-app-bar-icon-touch-target-size, 48) * 1px);
+  width: var(--app-bars-common-app-bar-icon-touch-target-size, 48px);
 }
 
 .app-bar__actions {
   justify-self: end;
   justify-content: flex-end;
-  gap: calc(var(--bars-common-app-bar-icon-spacing, 0) * 1px);
-  min-width: calc(var(--bars-common-app-bar-icon-touch-target-size, 48) * 1px);
+  gap: var(--app-bars-common-app-bar-icon-spacing, 0px);
+  min-width: var(--app-bars-common-app-bar-icon-touch-target-size, 48px);
 }
 
 .app-bar__actions:empty {
@@ -45,14 +45,14 @@
 .app-bar__brand {
   justify-self: center;
   position: relative;
-  width: calc(var(--bars-common-app-bar-brand-width, 47) * 1px);
-  height: calc(var(--bars-common-app-bar-brand-height, 25) * 1px);
+  width: var(--app-bars-common-app-bar-brand-width, 47px);
+  height: var(--app-bars-common-app-bar-brand-height, 25px);
   aspect-ratio: 47 / 25;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  color: var(--bars-common-app-bar-central-icon, #e42313);
+  color: var(--app-bars-common-app-bar-central-icon, #e42313);
 }
 
 .app-bar__brand-icon {
@@ -96,8 +96,8 @@
   right: 0;
   width: 32px;
   height: 18px;
-  border-bottom: 4px solid var(--bars-common-app-bar-central-icon, #e42313);
-  border-right: 4px solid var(--bars-common-app-bar-central-icon, #e42313);
+  border-bottom: 4px solid var(--app-bars-common-app-bar-central-icon, #e42313);
+  border-right: 4px solid var(--app-bars-common-app-bar-central-icon, #e42313);
   border-left: 0;
   border-top: 0;
   border-radius: 0 0 24px 24px;
@@ -111,15 +111,15 @@
   height: 48px;
   flex: 0 0 auto;
   border: 0;
-  border-radius: calc(var(--icon-buttons-size-small-icon-button-small-container-shape-round, 1000) * 1px);
+  border-radius: var(--icon-buttons-size-small-icon-button-small-container-shape-round, 1000px);
   background: transparent;
-  color: var(--bars-common-app-bar-leading-icon, #181c1e);
+  color: var(--app-bars-common-app-bar-leading-icon, #181c1e);
   cursor: pointer;
   transition: background-color 150ms ease, color 150ms ease;
 }
 
 .app-bar__icon-button--trailing {
-  color: var(--bars-common-app-bar-trailing-icon, #434749);
+  color: var(--app-bars-common-app-bar-trailing-icon, #434749);
 }
 
 .app-bar__icon-button:hover,
@@ -133,7 +133,7 @@
 }
 
 .app-bar__icon {
-  font-size: calc(var(--bars-common-app-bar-icon-size, 24) * 1px);
+  font-size: var(--app-bars-common-app-bar-icon-size, 24px);
   width: 1em;
   height: 1em;
   line-height: 1;

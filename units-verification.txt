@@ -1,0 +1,122 @@
+﻿Tokens distintos usados con calc(var(X) * 1px): 257
+
+CON unidad en el CDN  -> quitar el *1px : 196
+SIN unidad en el CDN  -> DEJAR el *1px  : 0
+No resueltos en el CDN                  : 61
+
+=== SIN UNIDAD (NO tocar estos) ===
+
+=== NO RESUELTOS EN EL CDN (revisar a mano) ===
+  --app-date-pickers-docked-enabled-container-container-shape   [date-picker.css]
+  --app-date-pickers-docked-enabled-header-header-height   [date-picker.css]
+  --app-lists-wip-common-shape-list-list-item-container-shape   [_mat-list-overrides.scss]
+  --app-lists-wip-common-shape-list-list-item-selected-container-shape   [_mat-list-overrides.scss]
+  --app-lists-wip-common-spacing-list-list-item-between-space   [_mat-list-overrides.scss]
+  --app-lists-wip-common-spacing-list-list-item-leading-space   [_mat-list-overrides.scss]
+  --app-lists-wip-common-typography-list-list-item-label-text-line-height   [_mat-list-overrides.scss]
+  --app-lists-wip-common-typography-list-list-item-label-text-size   [_mat-list-overrides.scss]
+  --app-lists-wip-common-typography-list-list-item-leading-avatar-size   [_mat-list-overrides.scss]
+  --app-lists-wip-common-typography-list-list-item-leading-icon-size   [_mat-list-overrides.scss]
+  --app-lists-wip-common-typography-list-list-item-supporting-text-line-height   [_mat-list-overrides.scss]
+  --app-lists-wip-common-typography-list-list-item-supporting-text-size   [_mat-list-overrides.scss]
+  --app-lists-wip-common-typography-list-list-item-trailing-icon-size   [_mat-list-overrides.scss]
+  --app-lists-wip-common-typography-list-list-item-trailing-supporting-text-line-height   [_mat-list-overrides.scss]
+  --app-lists-wip-common-typography-list-list-item-trailing-supporting-text-size   [_mat-list-overrides.scss]
+  --bars-common-app-bar-brand-height   [header.css]
+  --bars-common-app-bar-brand-width   [header.css]
+  --bars-common-app-bar-container-shape   [header.css]
+  --bars-common-app-bar-icon-size   [header.css]
+  --bars-common-app-bar-icon-spacing   [header.css]
+  --bars-common-app-bar-icon-touch-target-size   [header.css]
+  --bars-common-app-bar-left-padding   [header.css]
+  --bars-common-app-bar-right-padding   [header.css]
+  --bars-size-small-app-bar-small-container-height   [header.css,layout.scss]
+  --chips-wip-filter-enabled-icon-filter-chip-with-icon-icon-size   [chip.css]
+  --confirm-action-size   [confirm-modal.css]
+  --confirm-btn-shape   [confirm-modal.css]
+  --confirm-container-shape   [confirm-modal.css]
+  --confirm-headline-line-height   [confirm-modal.css]
+  --confirm-headline-size   [confirm-modal.css]
+  --confirm-supporting-line-height   [confirm-modal.css]
+  --confirm-supporting-size   [confirm-modal.css]
+  --date-pickers-docked-enabled-container-container-shape   [styles.scss]
+  --date-pickers-docked-enabled-container-container-width   [styles.scss]
+  --md-sys-typescale-body-large-line-height   [text-classes.scss]
+  --md-sys-typescale-body-large-size   [text-classes.scss]
+  --md-sys-typescale-body-large-tracking   [text-classes.scss]
+  --md-sys-typescale-body-medium-line-height   [text-classes.scss]
+  --md-sys-typescale-body-medium-size   [text-classes.scss]
+  --md-sys-typescale-body-medium-tracking   [text-classes.scss]
+  --md-sys-typescale-body-small-line-height   [text-classes.scss]
+  --md-sys-typescale-body-small-size   [text-classes.scss]
+  --md-sys-typescale-body-small-tracking   [text-classes.scss]
+  --md-sys-typescale-label-large-line-height   [text-classes.scss]
+  --md-sys-typescale-label-large-size   [text-classes.scss]
+  --md-sys-typescale-label-large-tracking   [text-classes.scss]
+  --md-sys-typescale-label-medium-line-height   [text-classes.scss]
+  --md-sys-typescale-label-medium-size   [text-classes.scss]
+  --md-sys-typescale-label-medium-tracking   [text-classes.scss]
+  --md-sys-typescale-label-small-line-height   [text-classes.scss]
+  --md-sys-typescale-label-small-size   [text-classes.scss]
+  --md-sys-typescale-label-small-tracking   [text-classes.scss]
+  --md-sys-typescale-title-large-line-height   [text-classes.scss]
+  --md-sys-typescale-title-large-size   [text-classes.scss]
+  --md-sys-typescale-title-large-tracking   [text-classes.scss]
+  --md-sys-typescale-title-medium-line-height   [text-classes.scss]
+  --md-sys-typescale-title-medium-size   [text-classes.scss]
+  --md-sys-typescale-title-medium-tracking   [text-classes.scss]
+  --md-sys-typescale-title-small-line-height   [text-classes.scss]
+  --md-sys-typescale-title-small-size   [text-classes.scss]
+  --md-sys-typescale-title-small-tracking   [text-classes.scss]
+
+=== CON UNIDAD (muestra de 25) ===
+  --app-cards-outlined-enabled-container-outlined-card-container-shape
+      = 12px
+  --app-cards-outlined-enabled-outline-outlined-card-outline-width
+      = 1px
+  --app-date-pickers-docked-enabled-container-date-container-height
+      = 48px
+  --app-date-pickers-docked-enabled-container-date-container-shape
+      = 1000px
+  --app-date-pickers-docked-enabled-container-date-container-width
+      = 48px
+  --app-date-pickers-docked-enabled-container-date-today-container-outline-width
+      = 1px
+  --app-date-pickers-docked-enabled-label-text-date-label-text-line-height
+      = 24px
+  --app-date-pickers-docked-enabled-label-text-date-label-text-size
+      = 16px
+  --app-date-pickers-docked-enabled-label-text-date-label-text-tracking
+      = 0.5px
+  --app-date-pickers-docked-enabled-label-text-menu-button-label-text-line-height
+      = 20px
+  --app-date-pickers-docked-enabled-label-text-menu-button-label-text-size
+      = 14px
+  --app-date-pickers-docked-enabled-label-text-menu-button-label-text-tracking
+      = 0.1px
+  --app-date-pickers-docked-enabled-label-text-weekdays-label-text-line-height
+      = 24px
+  --app-date-pickers-docked-enabled-label-text-weekdays-label-text-size
+      = 16px
+  --app-date-pickers-docked-enabled-label-text-weekdays-label-text-tracking
+      = 0.5px
+  --app-date-pickers-docked-enabled-state-layer-date-state-layer-height
+      = 40px
+  --app-date-pickers-docked-enabled-state-layer-date-state-layer-shape
+      = 1000px
+  --app-date-pickers-docked-enabled-state-layer-date-state-layer-width
+      = 40px
+  --app-lists-wip-common-typography-one-line-list-item-container-height
+      = 56px
+  --app-lists-wip-common-typography-three-lines-list-item-container-height
+      = 88px
+  --app-lists-wip-common-typography-two-lines-list-item-container-height
+      = 72px
+  --app-typescale-body-medium-line-height
+      = 20px
+  --app-typescale-body-medium-size
+      = 14px
+  --app-typescale-body-medium-tracking
+      = 0.25px
+  --app-typescale-title-medium-line-height
+      = 24px

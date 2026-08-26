@@ -1,0 +1,64 @@
+// lib-tooltip es presentacional: no posiciona ni se ancla. El posicionamiento
+// es responsabilidad de la vista que lo consume, como se muestra aquí.
+
+.tooltip-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.tooltip-demo__row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tooltip-demo__label {
+  font-family: 'Heebo', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #181c1e;
+}
+
+// Ancla: crea el contexto de posicionamiento para la burbuja.
+.tooltip-demo__anchor {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tooltip-demo__bubble {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tooltip-demo__bubble--below {
+  bottom: auto;
+  top: calc(100% + 6px);
+}
+
+.tooltip-demo__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #5b5f61;
+  cursor: help;
+}
+
+.tooltip-demo__trigger:focus-visible {
+  outline: 2px solid #5b5f61;
+  outline-offset: 2px;
+}
+
+.tooltip-demo__trigger .material-symbols-outlined {
+  font-size: 18px;
+}

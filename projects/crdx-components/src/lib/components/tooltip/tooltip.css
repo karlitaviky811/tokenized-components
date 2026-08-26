@@ -1,4 +1,4 @@
-:host.ui-tooltip-host {
+﻿:host.ui-tooltip-host {
   display: inline-flex;
 }
 
@@ -8,7 +8,7 @@
   justify-content: center;
   min-height: 24px;
   padding: 4px 8px;
-  border-radius: calc(var(--tooltips-plain-enabled-container-plain-tooltip-container-shape, 4) * 1px);
+  border-radius: var(--tooltips-plain-enabled-container-plain-tooltip-container-shape, 4px);
   background: var(--tooltips-plain-enabled-container-plain-tooltip-container-color, #2d3133);
   box-sizing: border-box;
 }
@@ -19,7 +19,7 @@
   font-size: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-size, 12px);
   font-style: normal;
   font-weight: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-weight, 400);
-  line-height: calc(var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-line-height, 16) * 1px);
+  line-height: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-line-height, 16px);
   letter-spacing: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-tracking, 0.4px);
 }
 

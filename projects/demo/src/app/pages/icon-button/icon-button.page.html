@@ -1,0 +1,54 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-icon-button</span>
+    <h1 class="comp-hero__name">Icon Button</h1>
+    <p class="comp-hero__desc">Botón circular o cuadrado con ícono, sin label. Ideal para acciones compactas en toolbars y listas.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>size</td><td>'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'</td><td>'small'</td><td>Tamaño del botón</td></tr>
+      <tr><td>variant</td><td>'filled' | 'tonal' | 'outlined' | 'standard' | 'action'</td><td>'standard'</td><td>Variante visual</td></tr>
+      <tr><td>shape</td><td>'round' | 'square'</td><td>'round'</td><td>Forma</td></tr>
+      <tr><td>space</td><td>'narrow' | 'default' | 'wide'</td><td>'default'</td><td>Padding horizontal</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+      <tr><td>toggle</td><td>boolean</td><td>false</td><td>Modo toggle</td></tr>
+      <tr><td>selected</td><td>boolean</td><td>false</td><td>Estado seleccionado</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <h3>Tipo</h3>
+    <div class="variant-row">
+      <lib-icon-button variant="filled">  <span class="material-symbols-outlined">edit</span></lib-icon-button>
+      <lib-icon-button variant="tonal">   <span class="material-symbols-outlined">edit</span></lib-icon-button>
+      <lib-icon-button variant="outlined"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+      <lib-icon-button variant="standard"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+    </div>
+
+    <h3>Tamaños</h3>
+    <div class="variant-row">
+      <lib-icon-button variant="filled" size="xsmall"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+      <lib-icon-button variant="filled" size="small"> <span class="material-symbols-outlined">edit</span></lib-icon-button>
+      <lib-icon-button variant="filled" size="medium"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+      <lib-icon-button variant="filled" size="large"> <span class="material-symbols-outlined">edit</span></lib-icon-button>
+    </div>
+
+    <h3>Deshabilitado</h3>
+    <div class="variant-row">
+      <lib-icon-button variant="filled"   [disabled]="true"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+      <lib-icon-button variant="outlined" [disabled]="true"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-icon-button variant="filled" size="medium"&gt;
+  &lt;span class="material-symbols-outlined"&gt;delete&lt;/span&gt;
+&lt;/lib-icon-button&gt;</code></pre>
+  </section>
+</article>

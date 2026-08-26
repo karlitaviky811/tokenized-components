@@ -1,23 +1,28 @@
 <mat-form-field class="dp-field" appearance="outline">
-  <mat-label>Date</mat-label>
+  <mat-label>{{ _label() }}</mat-label>
   <input
     matInput
+    class="dp-input"
     [matDatepicker]="picker"
     [value]="_displayValue()"
     [disabled]="disabled()"
     [min]="min()"
     [max]="max()"
     (dateChange)="_onChange($event)"
-    placeholder="DD/MM/YYYY"
+    [placeholder]="placeholder()"
   >
   <mat-datepicker-toggle matIconSuffix [for]="picker">
-    <span class="material-symbols-outlined" matDatepickerToggleIcon>calendar_today</span>
+    <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
   </mat-datepicker-toggle>
-  <mat-datepicker #picker>
+  <mat-datepicker #picker [calendarHeaderComponent]="headerComponent">
     <mat-datepicker-actions>
-      <button mat-button matDatepickerCancel class="dp-btn-cancel">Cancel</button>
-      <button mat-button matDatepickerApply  class="dp-btn-ok">OK</button>
+      @if (showClear()) {
+        <button mat-button matDatepickerCancel class="dp-btn dp-btn--clear" (click)="_onClear()">Clear</button>
+      }
+      <span class="dp-spacer"></span>
+      <button mat-button matDatepickerCancel class="dp-btn dp-btn--cancel">Cancel</button>
+      <button mat-button matDatepickerApply class="dp-btn dp-btn--ok">OK</button>
     </mat-datepicker-actions>
   </mat-datepicker>
-  <mat-hint>DD/MM/YYYY</mat-hint>
+  <mat-hint>{{ hint() }}</mat-hint>
 </mat-form-field>

@@ -1,4 +1,4 @@
-:host {
+﻿:host {
   display: block;
 }
 
@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: stretch;
   overflow: hidden;
-  border-radius: calc(var(--app-cards-outlined-enabled-container-outlined-card-container-shape, 12) * 1px);
+  border-radius: var(--app-cards-outlined-enabled-container-outlined-card-container-shape, 12px);
   color: var(--app-pallete-scheme-surface-on-surface, #181c1e);
   box-sizing: border-box;
   cursor: pointer;
@@ -61,7 +61,7 @@
 
 .ui-card--outlined {
   border: 0;
-  outline: calc(var(--app-cards-outlined-enabled-outline-outlined-card-outline-width, 1) * 1px) solid
+  outline: var(--app-cards-outlined-enabled-outline-outlined-card-outline-width, 1px) solid
     var(--app-cards-outlined-enabled-outline-outlined-card-outline-color, #c3c7c9);
   outline-offset: -1px;
   background: var(--app-cards-outlined-enabled-container-outlined-card-container-color, #f7fafc);
@@ -149,10 +149,10 @@
 
 .ui-card__title {
   font-family: var(--app-typescale-title-medium-font, Heebo), sans-serif;
-  font-size: calc(var(--app-typescale-title-medium-size, 16) * 1px);
+  font-size: var(--app-typescale-title-medium-size, 16px);
   font-weight: var(--app-typescale-title-medium-weight, 500);
-  line-height: calc(var(--app-typescale-title-medium-line-height, 24) * 1px);
-  letter-spacing: calc(var(--app-typescale-title-medium-tracking, 0.15) * 1px);
+  line-height: var(--app-typescale-title-medium-line-height, 24px);
+  letter-spacing: var(--app-typescale-title-medium-tracking, 0.15px);
 }
 
 .ui-card--title-emphasized .ui-card__title {
@@ -161,10 +161,10 @@
 
 .ui-card__subhead {
   font-family: var(--app-typescale-body-medium-font, Heebo), sans-serif;
-  font-size: calc(var(--app-typescale-body-medium-size, 14) * 1px);
+  font-size: var(--app-typescale-body-medium-size, 14px);
   font-weight: var(--app-typescale-body-medium-weight, 400);
-  line-height: calc(var(--app-typescale-body-medium-line-height, 20) * 1px);
-  letter-spacing: calc(var(--app-typescale-body-medium-tracking, 0.25) * 1px);
+  line-height: var(--app-typescale-body-medium-line-height, 20px);
+  letter-spacing: var(--app-typescale-body-medium-tracking, 0.25px);
 }
 
 .ui-card__media {

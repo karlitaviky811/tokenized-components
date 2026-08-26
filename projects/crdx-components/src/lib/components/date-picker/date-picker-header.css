@@ -1,0 +1,64 @@
+.dph {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 4px 0;
+  gap: 8px;
+}
+
+.dph__group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.dph__period {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: auto;
+  padding: 0 4px 0 8px;
+  font-family: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-font, Heebo), sans-serif;
+  font-size: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 14px);
+  font-weight: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500);
+  line-height: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-line-height, 20px);
+  letter-spacing: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-tracking, 0.1px);
+  color: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749);
+  border-radius: var(--date-pickers-docked-enabled-container-menu-button-container-shape, 1000px);
+  --mat-text-button-label-text-color: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749);
+}
+
+/* Locales such as es-ES return lowercase short month names ("ago"), while en-US
+   returns "Aug". Capitalizing in CSS keeps the adapter's locale-aware value
+   intact instead of slicing the string in TypeScript. */
+.dph__period--month {
+  text-transform: capitalize;
+}
+
+/* Material wraps button content in its own `.mdc-button__label`, so the flex
+   `gap` on `.dph__period` never reaches the label and arrow. Spacing the arrow
+   directly works regardless of that internal wrapper. */
+.dph__arrow {
+  width: 10px;
+  height: 5px;
+  margin-left: 8px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.dph__nav {
+  width: 40px;
+  height: 40px;
+  color: var(--date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
+  --mat-icon-button-icon-color: var(--date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
+}
+
+.dph__nav svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.dph__nav[disabled] {
+  opacity: 0.38;
+}

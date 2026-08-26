@@ -1,40 +1,40 @@
-@use '@angular/material' as mat;
+﻿@use '@angular/material' as mat;
 
 html {
   @include mat.radio-overrides((
-    // ── Ícono seleccionado ──────────────────────────────────────────────────
+    // â”€â”€ Ãcono seleccionado â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     selected-icon-color:         var(--radio-button-enabled-icon-radio-button-icon-selected-color, #181c1e),
     selected-hover-icon-color:   var(--radio-button-hovered-icon-radio-button-selected-hover-icon-color, #181c1e),
     selected-focus-icon-color:   var(--radio-button-focused-icon-radio-button-selected-hover-icon-color, #181c1e),
     selected-pressed-icon-color: var(--radio-button-pressed-ripple-icon-radio-button-selected-pressed-icon-color, #181c1e),
 
-    // ── Ícono no seleccionado ───────────────────────────────────────────────
+    // â”€â”€ Ãcono no seleccionado â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     unselected-icon-color:         var(--radio-button-enabled-icon-radio-button-icon-unselected-color, #434749),
     unselected-hover-icon-color:   var(--radio-button-hovered-icon-radio-button-unselected-hover-icon-color, #181c1e),
     unselected-focus-icon-color:   var(--radio-button-focused-icon-radio-button-unselected-focus-icon-color, #181c1e),
     unselected-pressed-icon-color: var(--radio-button-pressed-ripple-icon-radio-button-unselected-pressed-icon-color, #181c1e),
 
-    // ── Disabled ────────────────────────────────────────────────────────────
+    // â”€â”€ Disabled â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     disabled-selected-icon-color:    var(--radio-button-disabled-icon-radio-button-disabled-selected-icon-color, #181c1e),
     disabled-selected-icon-opacity:  0.38,
     disabled-unselected-icon-color:  var(--radio-button-disabled-icon-radio-button-disabled-unselected-icon-color, #181c1e),
     disabled-unselected-icon-opacity: 0.38,
 
-    // ── Ripple / state layer ────────────────────────────────────────────────
+    // â”€â”€ Ripple / state layer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     ripple-color:         var(--radio-button-hovered-state-layer-radio-button-unselected-hover-state-layer-color, rgba(24, 28, 30, 0.08)),
     checked-ripple-color: var(--radio-button-hovered-state-layer-radio-button-selected-hover-state-layer-color, rgba(24, 28, 30, 0.08)),
 
-    // ── Tipografía del label ────────────────────────────────────────────────
+    // â”€â”€ TipografÃ­a del label â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     label-text-color:       var(--md-sys-color-on-surface, #181c1e),
     disabled-label-color:   rgba(24, 28, 30, 0.38),
     label-text-font:        var(--typescale-body-large-font, 'Heebo'),
-    label-text-line-height: calc(var(--typescale-body-large-line-height, 24) * 1px),
-    label-text-size:        calc(var(--typescale-body-large-size, 16) * 1px),
-    label-text-tracking:    calc(var(--typescale-body-large-tracking, 0.5) * 1px),
+    label-text-line-height: var(--typescale-body-large-line-height, 24px),
+    label-text-size:        var(--typescale-body-large-size, 16px),
+    label-text-tracking:    var(--typescale-body-large-tracking, 0.5px),
     label-text-weight:      var(--typescale-body-large-weight, 400),
 
-    // ── Tamaño del state layer ──────────────────────────────────────────────
-    state-layer-size:    calc(var(--radio-button-enabled-state-layer-radio-button-state-layer-size, 40) * 1px),
+    // â”€â”€ TamaÃ±o del state layer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    state-layer-size:    var(--radio-button-enabled-state-layer-radio-button-state-layer-size, 40px),
     touch-target-display: block,
   ));
 }

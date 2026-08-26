@@ -1,116 +1,116 @@
-/// Clases de texto para usar en la app. Usan tokens de tokens-by-component/_tokens-typescale (--typescale-*).
+﻿/// Clases de texto para usar en la app. Usan tokens de tokens-by-component/_tokens-typescale (--typescale-*).
 /// Uso: <h1 class="app-text-title">...</h1>, <p class="app-text-body">...</p>
 
 $text-color: var(--2-semantic-pallete-scheme-surface-on-surface, #181C1E);
 
-// --- Títulos (Headlines) ---
+// --- TÃ­tulos (Headlines) ---
 .app-text-title {
   color: $text-color;
   font-family: var(--typescale-headline-medium-font, Heebo);
-  font-size: calc(var(--typescale-headline-medium-size, 28) * 1px);
+  font-size: var(--typescale-headline-medium-size, 28px);
   font-weight: var(--typescale-headline-medium-weight-emphasized, 500);
-  line-height: calc(var(--typescale-headline-medium-line-height, 36) * 1px);
-  letter-spacing: calc(var(--typescale-headline-medium-tracking, 0) * 1px);
+  line-height: var(--typescale-headline-medium-line-height, 36px);
+  letter-spacing: var(--typescale-headline-medium-tracking, 0px);
 }
 
 .app-text-title-large {
   color: $text-color;
   font-family: var(--typescale-headline-large-font, Heebo);
-  font-size: calc(var(--typescale-headline-large-size, 32) * 1px);
+  font-size: var(--typescale-headline-large-size, 32px);
   font-weight: var(--typescale-headline-large-weight-emphasized, 500);
-  line-height: calc(var(--typescale-headline-large-line-height, 40) * 1px);
-  letter-spacing: calc(var(--typescale-headline-large-tracking, 0) * 1px);
+  line-height: var(--typescale-headline-large-line-height, 40px);
+  letter-spacing: var(--typescale-headline-large-tracking, 0px);
 }
 
 .app-text-title-small {
   color: $text-color;
   font-family: var(--typescale-headline-small-font, Heebo);
-  font-size: calc(var(--typescale-headline-small-size, 24) * 1px);
+  font-size: var(--typescale-headline-small-size, 24px);
   font-weight: var(--typescale-headline-small-weight-emphasized, 500);
-  line-height: calc(var(--typescale-headline-small-line-height, 32) * 1px);
-  letter-spacing: calc(var(--typescale-headline-small-tracking, 0) * 1px);
+  line-height: var(--typescale-headline-small-line-height, 32px);
+  letter-spacing: var(--typescale-headline-small-tracking, 0px);
 }
 
-// --- Subtítulos (Titles) ---
+// --- SubtÃ­tulos (Titles) ---
 .app-text-subtitle {
   color: $text-color;
   font-family: var(--md-sys-typescale-title-large-font, Heebo);
-  font-size: calc(var(--md-sys-typescale-title-large-size, 22) * 1px);
+  font-size: var(--md-sys-typescale-title-large-size, 22px);
   font-weight: var(--md-sys-typescale-title-large-weight-emphasized, 500);
-  line-height: calc(var(--md-sys-typescale-title-large-line-height, 28) * 1px);
-  letter-spacing: calc(var(--md-sys-typescale-title-large-tracking, 0) * 1px);
+  line-height: var(--md-sys-typescale-title-large-line-height, 28px);
+  letter-spacing: var(--md-sys-typescale-title-large-tracking, 0px);
 }
 
 .app-text-subtitle-medium {
   color: $text-color;
   font-family: var(--md-sys-typescale-title-medium-font, Heebo);
-  font-size: calc(var(--md-sys-typescale-title-medium-size, 16) * 1px);
+  font-size: var(--md-sys-typescale-title-medium-size, 16px);
   font-weight: var(--md-sys-typescale-title-medium-weight, 500);
-  line-height: calc(var(--md-sys-typescale-title-medium-line-height, 24) * 1px);
-  letter-spacing: calc(var(--md-sys-typescale-title-medium-tracking, 0.15) * 1px);
+  line-height: var(--md-sys-typescale-title-medium-line-height, 24px);
+  letter-spacing: var(--md-sys-typescale-title-medium-tracking, 0.15px);
 }
 
 .app-text-subtitle-small {
   color: $text-color;
   font-family: var(--md-sys-typescale-title-small-font, Heebo);
-  font-size: calc(var(--md-sys-typescale-title-small-size, 14) * 1px);
+  font-size: var(--md-sys-typescale-title-small-size, 14px);
   font-weight: var(--md-sys-typescale-title-small-weight, 500);
-  line-height: calc(var(--md-sys-typescale-title-small-line-height, 20) * 1px);
-  letter-spacing: calc(var(--md-sys-typescale-title-small-tracking, 0.1) * 1px);
+  line-height: var(--md-sys-typescale-title-small-line-height, 20px);
+  letter-spacing: var(--md-sys-typescale-title-small-tracking, 0.1px);
 }
 
 // --- Cuerpo (Body) ---
 .app-text-body {
   color: $text-color;
   font-family: var(--md-sys-typescale-body-medium-font, Heebo);
-  font-size: calc(var(--md-sys-typescale-body-medium-size, 14) * 1px);
+  font-size: var(--md-sys-typescale-body-medium-size, 14px);
   font-weight: var(--md-sys-typescale-body-medium-weight, 400);
-  line-height: calc(var(--md-sys-typescale-body-medium-line-height, 20) * 1px);
-  letter-spacing: calc(var(--md-sys-typescale-body-medium-tracking, 0.25) * 1px);
+  line-height: var(--md-sys-typescale-body-medium-line-height, 20px);
+  letter-spacing: var(--md-sys-typescale-body-medium-tracking, 0.25px);
 }
 
 .app-text-body-large {
   color: $text-color;
   font-family: var(--md-sys-typescale-body-large-font, Heebo);
-  font-size: calc(var(--md-sys-typescale-body-large-size, 16) * 1px);
+  font-size: var(--md-sys-typescale-body-large-size, 16px);
   font-weight: var(--md-sys-typescale-body-large-weight, 400);
-  line-height: calc(var(--md-sys-typescale-body-large-line-height, 24) * 1px);
-  letter-spacing: calc(var(--md-sys-typescale-body-large-tracking, 0.5) * 1px);
+  line-height: var(--md-sys-typescale-body-large-line-height, 24px);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking, 0.5px);
 }
 
 .app-text-body-small {
   color: $text-color;
   font-family: var(--md-sys-typescale-body-small-font, Heebo);
-  font-size: calc(var(--md-sys-typescale-body-small-size, 12) * 1px);
+  font-size: var(--md-sys-typescale-body-small-size, 12px);
   font-weight: var(--md-sys-typescale-body-small-weight, 400);
-  line-height: calc(var(--md-sys-typescale-body-small-line-height, 16) * 1px);
-  letter-spacing: calc(var(--md-sys-typescale-body-small-tracking, 0.4) * 1px);
+  line-height: var(--md-sys-typescale-body-small-line-height, 16px);
+  letter-spacing: var(--md-sys-typescale-body-small-tracking, 0.4px);
 }
 
 // --- Etiquetas / Caption (Labels) ---
 .app-text-caption {
   color: $text-color;
   font-family: var(--md-sys-typescale-label-medium-font, Heebo);
-  font-size: calc(var(--md-sys-typescale-label-medium-size, 12) * 1px);
+  font-size: var(--md-sys-typescale-label-medium-size, 12px);
   font-weight: var(--md-sys-typescale-label-medium-weight, 500);
-  line-height: calc(var(--md-sys-typescale-label-medium-line-height, 16) * 1px);
-  letter-spacing: calc(var(--md-sys-typescale-label-medium-tracking, 0.5) * 1px);
+  line-height: var(--md-sys-typescale-label-medium-line-height, 16px);
+  letter-spacing: var(--md-sys-typescale-label-medium-tracking, 0.5px);
 }
 
 .app-text-caption-large {
   color: $text-color;
   font-family: var(--md-sys-typescale-label-large-font, Heebo);
-  font-size: calc(var(--md-sys-typescale-label-large-size, 14) * 1px);
+  font-size: var(--md-sys-typescale-label-large-size, 14px);
   font-weight: var(--md-sys-typescale-label-large-weight, 500);
-  line-height: calc(var(--md-sys-typescale-label-large-line-height, 20) * 1px);
-  letter-spacing: calc(var(--md-sys-typescale-label-large-tracking, 0.1) * 1px);
+  line-height: var(--md-sys-typescale-label-large-line-height, 20px);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking, 0.1px);
 }
 
 .app-text-caption-small {
   color: $text-color;
   font-family: var(--md-sys-typescale-label-small-font, Heebo);
-  font-size: calc(var(--md-sys-typescale-label-small-size, 11) * 1px);
+  font-size: var(--md-sys-typescale-label-small-size, 11px);
   font-weight: var(--md-sys-typescale-label-small-weight, 500);
-  line-height: calc(var(--md-sys-typescale-label-small-line-height, 16) * 1px);
-  letter-spacing: calc(var(--md-sys-typescale-label-small-tracking, 0.5) * 1px);
+  line-height: var(--md-sys-typescale-label-small-line-height, 16px);
+  letter-spacing: var(--md-sys-typescale-label-small-tracking, 0.5px);
 }

@@ -1,12 +1,13 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgComponentOutlet } from '@angular/common';
-import { Component, effect, inject, Injector, Type, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, Injector, Type, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'lib-container-custom, app-container-custom',
   imports: [NgComponentOutlet],
   templateUrl: './container-custom.html',
-  styleUrl: './container-custom.css'
+  styleUrl: './container-custom.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContainerCustom {
   private readonly dialogData = inject(DIALOG_DATA);

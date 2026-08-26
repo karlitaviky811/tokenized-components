@@ -1,0 +1,41 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-slide-toggle</span>
+    <h1 class="comp-hero__name">Slide Toggle</h1>
+    <p class="comp-hero__desc">Toggle switch basado en Material Slide Toggle. Comunica un estado binario activado/desactivado.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>checked</td><td>boolean</td><td>false</td><td>Estado activo</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>checkedChange</td><td>boolean</td><td></td><td>Emite al cambiar estado</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <h3>Estados</h3>
+    <div class="variant-row">
+      <lib-slide-toggle />
+      <lib-slide-toggle [checked]="true" />
+    </div>
+
+    <h3>Interactivo</h3>
+    <div class="interactive-row">
+      <lib-slide-toggle [checked]="active()" (checkedChange)="active.set($event)" />
+      <span class="state-label">Estado: <strong>{{ active() ? 'Activo' : 'Inactivo' }}</strong></span>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-slide-toggle
+  [checked]="isActive()"
+  (checkedChange)="onToggle($event)"
+/&gt;</code></pre>
+  </section>
+</article>

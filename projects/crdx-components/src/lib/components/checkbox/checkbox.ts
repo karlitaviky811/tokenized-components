@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'lib-checkbox',
@@ -22,11 +23,15 @@ export class LibCheckboxComponent {
   indeterminate = input(false);
   disabled = input(false);
   error = input(false);
-  /** Id para asociar label (accesibilidad). Si no se pasa, se genera uno interno. */
   labelId = input<string | null>(null);
 
   readonly checkedChange = output<boolean>();
   readonly indeterminateChange = output<boolean>();
+
+    matcher: ErrorStateMatcher = {
+    isErrorState: () => this.error()
+  };
+
 
   @HostBinding('attr.aria-disabled') get ariaDisabled(): boolean | null {
     return this.disabled() ? true : null;
@@ -56,6 +61,7 @@ export class LibCheckboxComponent {
   }
 
   protected onMatCheckboxChange(event: MatCheckboxChange): void {
+    console.log("Error value", this.error())
     this.checkedChange.emit(event.checked);
     if (event.checked && this.indeterminate()) {
       this.indeterminateChange.emit(false);

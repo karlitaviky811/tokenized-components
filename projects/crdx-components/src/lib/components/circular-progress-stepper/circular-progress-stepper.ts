@@ -1,10 +1,11 @@
-import { Component, computed, effect, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, input, signal } from '@angular/core';
 
 @Component({
   selector: 'lib-circular-progress-stepper, circular-progress-stepper',
   imports: [],
   templateUrl: './circular-progress-stepper.html',
   styleUrl: './circular-progress-stepper.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CircularProgressStepper {
   currentStep = input<number>(0);

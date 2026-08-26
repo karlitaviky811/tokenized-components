@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "target": "es2022",
     "module": "es2022",
     "moduleResolution": "bundler",
@@ -14,8 +13,8 @@
     "skipLibCheck": true,
     "lib": ["es2022", "dom"],
     "paths": {
-      "crdx-components": ["dist/crdx-components"],
-      "crdx-components/*": ["dist/crdx-components/*"]
+      "crdx-components": ["./dist/crdx-components"],
+      "crdx-components/*": ["./dist/crdx-components/*"]
     }
   },
   "angularCompilerOptions": {

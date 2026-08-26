@@ -1,0 +1,52 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-select-field</span>
+    <h1 class="comp-hero__name">Select Field</h1>
+    <p class="comp-hero__desc">Selector con soporte de modo single/multiple, filtrado y virtual scroll para listas largas.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>label</td><td>string</td><td>''</td><td>Label del campo</td></tr>
+      <tr><td>options</td><td>LibSelectOption[]</td><td>[]</td><td>Opciones disponibles</td></tr>
+      <tr><td>mode</td><td>'single' | 'multiple'</td><td>'single'</td><td>Modo de selección</td></tr>
+      <tr><td>filterable</td><td>boolean</td><td>true</td><td>Permite filtrar opciones</td></tr>
+      <tr><td>appearance</td><td>'outline' | 'filled'</td><td>'outline'</td><td>Estilo visual</td></tr>
+      <tr><td>placeholder</td><td>string</td><td>'Elegir opción'</td><td>Placeholder</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Deshabilitado</td></tr>
+      <tr><td>required</td><td>boolean</td><td>false</td><td>Requerido</td></tr>
+      <tr><td>width</td><td>string | number | null</td><td>null</td><td>Ancho personalizado</td></tr>
+      <tr><td>selectAllLabel</td><td>string</td><td>'Seleccionar todos'</td><td>Label del select all (multiple)</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>valueChange</td><td>T | T[]</td><td></td><td>Emite al cambiar selección</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <h3>Modo</h3>
+    <div class="variant-row">
+      <lib-select-field label="Single"   [options]="options" mode="single"   />
+      <lib-select-field label="Multiple" [options]="options" mode="multiple" />
+    </div>
+
+    <h3>Estados</h3>
+    <div class="variant-row">
+      <lib-select-field label="Sin filtro" [options]="options" [filterable]="false" />
+      <lib-select-field label="Disabled"   [options]="options" [disabled]="true"    />
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-select-field
+  label="País"
+  [options]="countries"
+  mode="single"
+  (valueChange)="onCountryChange($event)"
+/&gt;</code></pre>
+  </section>
+</article>

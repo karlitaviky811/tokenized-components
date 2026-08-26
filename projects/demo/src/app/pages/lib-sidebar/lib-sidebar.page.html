@@ -1,0 +1,29 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-sidebar</span>
+    <h1 class="comp-hero__name">Sidebar</h1>
+    <p class="comp-hero__desc">Barra de navegación lateral con íconos y labels opcionales. Puede coexistir con un App Bar para navegación de primer nivel.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>items</td><td>SidebarNavItem[]</td><td>[]</td><td>Items de navegación</td></tr>
+      <tr><td>selectedId</td><td>string | null</td><td>null</td><td>ID del item activo</td></tr>
+      <tr><td>showLabels</td><td>boolean</td><td>true</td><td>Muestra labels de texto</td></tr>
+      <tr><td>spritePath</td><td>string</td><td>'assets/icons/sprite.svg'</td><td>Path del sprite SVG</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>itemSelected</td><td>SidebarNavItem</td><td></td><td>Emite item seleccionado</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-sidebar
+  [items]="navItems"
+  [selectedId]="activeRoute()"
+  (itemSelected)="navigate($event)"
+/&gt;</code></pre>
+  </section>
+</article>

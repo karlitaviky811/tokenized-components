@@ -1,0 +1,82 @@
+<article class="doc-page">
+  <section class="doc-section">
+    <h2>Menu <code>mat-menu</code></h2>
+    <p>Menú desplegable de Angular Material con triggers de botón.</p>
+
+    <h3>Variantes</h3>
+    <h4>Básico con button</h4>
+    <button mat-stroked-button [matMenuTriggerFor]="basicMenu">
+      Abrir menú
+      <span class="material-symbols-outlined">arrow_drop_down</span>
+    </button>
+    <mat-menu #basicMenu="matMenu">
+      <button mat-menu-item>
+        <span class="material-symbols-outlined">person</span>
+        <span>Perfil</span>
+      </button>
+      <button mat-menu-item>
+        <span class="material-symbols-outlined">settings</span>
+        <span>Configuración</span>
+      </button>
+      <button mat-menu-item>
+        <span class="material-symbols-outlined">logout</span>
+        <span>Cerrar sesión</span>
+      </button>
+    </mat-menu>
+
+    <h4>Con icon-button</h4>
+    <button mat-icon-button [matMenuTriggerFor]="iconMenu">
+      <span class="material-symbols-outlined">more_vert</span>
+    </button>
+    <mat-menu #iconMenu="matMenu">
+      <button mat-menu-item>
+        <span class="material-symbols-outlined">content_copy</span>
+        <span>Duplicar</span>
+      </button>
+      <button mat-menu-item>
+        <span class="material-symbols-outlined">edit</span>
+        <span>Editar</span>
+      </button>
+      <button mat-menu-item>
+        <span class="material-symbols-outlined">delete</span>
+        <span>Eliminar</span>
+      </button>
+    </mat-menu>
+
+    <h4>Con dividers</h4>
+    <button mat-stroked-button [matMenuTriggerFor]="dividerMenu">
+      Más opciones
+    </button>
+    <mat-menu #dividerMenu="matMenu">
+      <button mat-menu-item>
+        <span class="material-symbols-outlined">download</span>
+        <span>Descargar</span>
+      </button>
+      <button mat-menu-item>
+        <span class="material-symbols-outlined">share</span>
+        <span>Compartir</span>
+      </button>
+      <mat-divider />
+      <button mat-menu-item>
+        <span class="material-symbols-outlined">report</span>
+        <span>Reportar</span>
+      </button>
+    </mat-menu>
+
+    <h3>Ejemplo de uso</h3>
+    <pre><code>&lt;button mat-stroked-button [matMenuTriggerFor]="menu"&gt;
+  Abrir menú
+&lt;/button&gt;
+
+&lt;mat-menu #menu="matMenu"&gt;
+  &lt;button mat-menu-item&gt;
+    &lt;span class="material-symbols-outlined"&gt;person&lt;/span&gt;
+    &lt;span&gt;Perfil&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button mat-menu-item&gt;
+    &lt;span class="material-symbols-outlined"&gt;settings&lt;/span&gt;
+    &lt;span&gt;Configuración&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/mat-menu&gt;</code></pre>
+  </section>
+</article>
