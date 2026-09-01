@@ -37,7 +37,7 @@
 #>
 [CmdletBinding()]
 param(
-  [string]$Url = 'https://4pgkhwcphxlnvvjb.public.blob.vercel-storage.com/styles.min.css',
+  [string]$Url = 'https://4pgkhwcphxlnvvjb.public.blob.vercel-storage.com/styles2.min.css',
   [switch]$OnlyUsed,
   [switch]$AllAppAliases,
   [switch]$SkipDownload

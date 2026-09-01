@@ -1,18 +1,9 @@
 @use '@angular/material' as mat;
 
-// Variables alias por componente (--buttons-wip-*, etc.) para overrides y componentes
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@include mat.core();
 
-// Reset y tipografía base
-body,
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Heebo', sans-serif;
-}
+@include mat.core();
 
 @include mat.theme((
   color: (
@@ -33,8 +24,16 @@ body,
   tertiary: var(--md-sys-color-tertiary),
   error: var(--app-colors-rojo-primary-rojo-50),
 ));
+/// Reset y tipografía base
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Heebo', sans-serif;
+}
 
-// Tipografía común en componentes Material
+/// Tipografía común en componentes Material
 .mat-mdc-button,
 .mat-mdc-raised-button,
 .mat-mdc-outlined-button,

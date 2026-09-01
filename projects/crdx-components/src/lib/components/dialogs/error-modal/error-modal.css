@@ -8,46 +8,46 @@
     height: 100%;
     outline: none;
     border: none;
-    padding: 40px 48px;
-    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    border-radius: 0.5rem;
 }
 
 .container > *:not(:last-child):not(:first-child){
-    margin-top: 24px;
+    margin-top: 1.5rem;
 }
 
 .container > *:last-child{
-    margin-top: 40px;
+    margin-top: 2.5rem;
 }
 
 .container h5{
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #3E3E3E;
 }
 
 .container p{
     flex: 1;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     color: #3E3E3E;
     text-align: center;
     font-style: normal;
-    line-height: 24px;
+    line-height: 1.5rem;
 }
 
 .container .icon{
-    width: 90px;
-    height: 90px;
-    font-size: 90px;
+    width: 5.625rem;
+    height: 5.625rem;
+    font-size: 5.625rem;
     color: #FF4965;
 }
 
 .container button{
-    height: 56px;
-    width: 160px;
-    border-radius: 16px;
-    font-size: 16px;
+    height: 3.5rem;
+    width: 10rem;
+    border-radius: 1rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
 }

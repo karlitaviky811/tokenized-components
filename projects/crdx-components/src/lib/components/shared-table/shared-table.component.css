@@ -99,7 +99,7 @@
   flex-shrink: 0;
   gap: 0 !important;
   border: none !important;
-  border-bottom: 0.0625rem solid var(--pallete-scheme-surface-outline-variant, #C3C7C9) !important;
+  border-bottom: 0.0625rem solid var(--color-pallete-scheme-surface-outline-variant, #C3C7C9) !important;
   box-shadow: none !important;
   align-self: stretch;
 }
@@ -129,14 +129,14 @@
 }
 
 .shared-table__caption {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   font-weight: 600;
   font-size: 1.125rem;
 }
 
 .shared-table__empty {
   text-align: center;
-  padding: 24px 16px;
+  padding: 1.5rem 1rem;
   color: #6b7280;
 }
 
@@ -157,7 +157,7 @@
 /* Sin paginador: cerrar "card" de tabla con borde y radio inferior */
 .shared-table__container.shared-table__container--no-paginator {
   border-radius: var(--table-radius) !important;
-  border-bottom: 1px solid var(--pallete-scheme-surface-outline-variant, #C3C7C9) !important;
+  border-bottom: 0.0625rem solid var(--color-pallete-scheme-surface-outline-variant, #C3C7C9) !important;
 }
 
 .shared-table__container.shared-table__container--no-paginator .shared-table__body-wrap {

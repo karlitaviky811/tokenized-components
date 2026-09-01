@@ -1,12 +1,14 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+
 import { NgClass } from '@angular/common';
+
 import { MatRippleModule } from '@angular/material/core';
 
 export type LibIconButtonSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
-export type LibIconButtonVariant = 'filled' | 'tonal' | 'outlined' | 'standard' | 'action';
 export type LibIconButtonShape = 'round' | 'square';
-/** Espacio horizontal (padding) según Figma: narrow, default, wide. */
+/** Padding inline desde Figma. */
 export type LibIconButtonSpace = 'narrow' | 'default' | 'wide';
+export type LibIconButtonVariant = 'filled' | 'tonal' | 'outlined' | 'standard' | 'action';
 
 @Component({
   selector: 'lib-icon-button',
@@ -20,12 +22,11 @@ export class LibIconButtonComponent {
   size = input<LibIconButtonSize>('small');
   variant = input<LibIconButtonVariant>('standard');
   shape = input<LibIconButtonShape>('round');
-  /** Variante de espacio (padding inline) desde Figma: narrow, default, wide. */
   space = input<LibIconButtonSpace>('default');
   disabled = input(false);
-  type = input<'button' | 'submit' | 'reset'>('button');
   toggle = input(false);
   selected = input(false);
+  type = input<'button' | 'submit' | 'reset'>('button');
 
   readonly classes = computed(() => ({
     'ui-icon-btn--xsmall': this.size() === 'xsmall',

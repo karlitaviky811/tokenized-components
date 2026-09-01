@@ -2,6 +2,8 @@
 @use 'src/lib/styles/index' as lib-styles;
 @use '@angular/material' as mat;
 
+@import url('https://4pgkhwcphxlnvvjb.public.blob.vercel-storage.com/styles2.min.css');
+
 // Credix brand tokens
 $crdx-primary:    #E42313;
 $crdx-doc-purple: #7B2FE0;
@@ -17,14 +19,14 @@ body {
 
 // â”€â”€â”€ Base doc layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-.doc-page { max-width: 900px; }
+.doc-page { max-width: 56.25rem; }
 
 // â”€â”€â”€ Component hero header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 .comp-hero {
   margin-bottom: 2.5rem;
   padding-bottom: 1.75rem;
-  border-bottom: 1px solid $crdx-border;
+  border-bottom: 0.0625rem solid $crdx-border;
 }
 
 .comp-hero__tag {
@@ -33,9 +35,9 @@ body {
   font-size: 0.8125rem;
   background: #f4f5f6;
   color: $crdx-primary;
-  border: 1px solid $crdx-border;
-  padding: 2px 10px;
-  border-radius: 4px;
+  border: 0.0625rem solid $crdx-border;
+  padding: 0.125rem 0.625rem;
+  border-radius: 0.25rem;
   margin-bottom: 0.625rem;
 }
 
@@ -54,14 +56,14 @@ body {
   color: #5b5f61;
   margin: 0;
   line-height: 1.6;
-  max-width: 640px;
+  max-width: 40rem;
 }
 
 .comp-hero__desc code {
   font-family: monospace;
   background: #eef1f3;
-  border-radius: 4px;
-  padding: 1px 5px;
+  border-radius: 0.25rem;
+  padding: 0.0625rem 0.3125rem;
   font-size: 0.85em;
   color: #181c1e;
 }
@@ -75,8 +77,8 @@ body {
 .doc-section p code {
   font-family: monospace;
   background: #EEF1F3;
-  border-radius: 4px;
-  padding: 1px 5px;
+  border-radius: 0.25rem;
+  padding: 0.0625rem 0.3125rem;
   font-size: 0.85em;
   color: #181C1E;
 }
@@ -87,29 +89,29 @@ body {
   width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1rem;
 }
 .api-table th, .api-table td {
-  border: 1px solid $crdx-border; padding: 0.4rem 0.6rem; text-align: left;
+  border: 0.0625rem solid $crdx-border; padding: 0.4rem 0.6rem; text-align: left;
 }
 .api-table th { background: $crdx-surface; font-weight: 500; }
 .api-table td:first-child { font-family: monospace; font-weight: 500; }
 
 pre {
-  background: #1e1e2e; color: #cdd6f4; padding: 1rem; border-radius: 8px;
+  background: #1e1e2e; color: #cdd6f4; padding: 1rem; border-radius: 0.5rem;
   overflow-x: auto; font-size: 0.82rem; line-height: 1.5;
 }
 
 .table-demo {
   display: flex;
   flex-direction: column;
-  height: 350px;
-  border: 1px solid $crdx-border;
-  border-radius: 8px;
+  height: 21.875rem;
+  border: 0.0625rem solid $crdx-border;
+  border-radius: 0.5rem;
 }
 
 // â”€â”€â”€ Component documentation frame (estilo Figma / Credix DS) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 .component-doc {
-  border: 1.5px solid $crdx-doc-purple;
-  border-radius: 8px;
+  border: 0.09375rem solid $crdx-doc-purple;
+  border-radius: 0.5rem;
   overflow: hidden;
   margin-bottom: 1.5rem;
   font-family: 'Heebo', sans-serif;
@@ -119,15 +121,15 @@ pre {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 12px;
+  padding: 0.375rem 0.75rem;
   background: #fff;
-  border-bottom: 1px solid rgba(123, 47, 224, 0.15);
+  border-bottom: 0.0625rem solid rgba(123, 47, 224, 0.15);
 }
 
 .component-doc__title {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   font-size: 0.8125rem;
   font-weight: 600;
   color: $crdx-doc-purple;
@@ -152,14 +154,14 @@ pre {
 }
 
 .component-doc__footer {
-  padding: 5px 12px;
+  padding: 0.3125rem 0.75rem;
   font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: $crdx-doc-teal;
   background: #fff;
-  border-top: 1px solid rgba(123, 47, 224, 0.1);
+  border-top: 0.0625rem solid rgba(123, 47, 224, 0.1);
 }
 
 // â”€â”€â”€ Angular Material datepicker â€” Credix token overrides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -179,95 +181,95 @@ $_dp-shadow: 0px 3px 5px -1px rgba(0, 0, 0, .20),
   @include mat.datepicker-overrides((
     // â”€â”€ Shape & Elevation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     // container-shape: Figma --date-pickers-docked-enabled-container-container-shape = 16 (nÃºmero sin unidad)
-    calendar-container-shape:               var(--date-pickers-docked-enabled-container-container-shape, 16px),
-    calendar-container-touch-shape:         var(--date-pickers-docked-enabled-container-container-shape, 16px),
+    calendar-container-shape:               var(--date-pickers-docked-enabled-container-container-shape, 1rem),
+    calendar-container-touch-shape:         var(--date-pickers-docked-enabled-container-container-shape, 1rem),
     // elevation: Figma container-elevation = 6 â†’ equivalente box-shadow M2
     calendar-container-elevation-shadow:    $_dp-shadow,
     calendar-container-touch-elevation-shadow: $_dp-shadow,
 
     // â”€â”€ Container â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    calendar-container-background-color:    var(--date-pickers-docked-enabled-container-container-color, #e5e9eb),
-    calendar-container-text-color:          var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e),
+    calendar-container-background-color:    var(--color-date-pickers-docked-enabled-container-container-color, #e5e9eb),
+    calendar-container-text-color:          var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e),
 
     // â”€â”€ Body label (etiqueta del mes visible a la izquierda del grid) â”€â”€â”€â”€â”€â”€â”€
-    calendar-body-label-text-color:         var(--date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
-    calendar-body-label-text-size:          var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 14px),
+    calendar-body-label-text-color:         var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
+    calendar-body-label-text-size:          var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
     calendar-body-label-text-weight:        var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
 
     // â”€â”€ Celdas de fecha â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    calendar-date-text-color:               var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e),
+    calendar-date-text-color:               var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e),
     calendar-date-outline-color:            transparent,
     calendar-date-disabled-state-text-color: color-mix(in srgb,
-                                               var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
+                                               var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
                                                transparent),
 
     // â”€â”€ Fecha seleccionada â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     calendar-date-selected-state-background-color:
-      var(--date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
+      var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
     calendar-date-selected-state-text-color:
-      var(--date-pickers-docked-enabled-label-text-date-selected-label-text-color, #ffffff),
+      var(--color-date-pickers-docked-enabled-label-text-date-selected-label-text-color, #ffffff),
     calendar-date-selected-disabled-state-background-color: color-mix(in srgb,
-      var(--date-pickers-docked-enabled-container-date-selected-container-color, #e42313) 38%,
+      var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313) 38%,
       transparent),
 
     // â”€â”€ Hoy â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     calendar-date-today-outline-color:
-      var(--date-pickers-docked-enabled-container-date-today-container-outline-color, #5b5f61),
+      var(--color-date-pickers-docked-enabled-container-date-today-container-outline-color, #5b5f61),
     calendar-date-today-selected-state-outline-color:
-      var(--date-pickers-docked-enabled-label-text-date-selected-label-text-color, #ffffff),
+      var(--color-date-pickers-docked-enabled-label-text-date-selected-label-text-color, #ffffff),
     calendar-date-today-disabled-state-outline-color: color-mix(in srgb,
-      var(--date-pickers-docked-enabled-container-date-today-container-outline-color, #5b5f61) 38%,
+      var(--color-date-pickers-docked-enabled-container-date-today-container-outline-color, #5b5f61) 38%,
       transparent),
 
     // â”€â”€ State layers (hover / focus) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     /*calendar-date-hover-state-background-color:
-      var(--date-pickers-docked-hovered-state-layer-date-unselected-hover-state-layer-color, rgba(67, 71, 73, .08)),
+      var(--color-date-pickers-docked-hovered-state-layer-date-unselected-hover-state-layer-color, rgba(67, 71, 73, .08)),
     calendar-date-focus-state-background-color:
-      var(--date-pickers-docked-focused-state-layer-date-unselected-focus-state-layer-color, rgba(67, 71, 73, .10)),
+      var(--color-date-pickers-docked-focused-state-layer-date-unselected-focus-state-layer-color, rgba(67, 71, 73, .10)),
 */
     // â”€â”€ Range (preview / in-range) â€” no usados en picker simple â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     calendar-date-preview-state-outline-color:
-      var(--date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
+      var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
     calendar-date-in-range-state-background-color:
-      var(--date-pickers-docked-enabled-container-menu-list-item-selected-container-color, #e0e3e5),
+      var(--color-date-pickers-docked-enabled-container-menu-list-item-selected-container-color, #e0e3e5),
     calendar-date-in-comparison-range-state-background-color:
-      var(--date-pickers-docked-enabled-container-menu-list-item-selected-container-color, #e0e3e5),
+      var(--color-date-pickers-docked-enabled-container-menu-list-item-selected-container-color, #e0e3e5),
     calendar-date-in-overlap-range-state-background-color:
-      var(--date-pickers-docked-enabled-container-menu-list-item-selected-container-color, #e0e3e5),
+      var(--color-date-pickers-docked-enabled-container-menu-list-item-selected-container-color, #e0e3e5),
     calendar-date-in-overlap-range-selected-state-background-color:
-      var(--date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
+      var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
 
     // â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    calendar-header-text-color:             var(--date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
+    calendar-header-text-color:             var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
     calendar-header-divider-color:          transparent,
-    calendar-header-text-size:              var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 14px),
+    calendar-header-text-size:              var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
     calendar-header-text-weight:            var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
 
     // â”€â”€ Period button (selector mes/aÃ±o) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    calendar-period-button-text-color:      var(--date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
-    calendar-period-button-icon-color:      var(--date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
-    calendar-period-button-text-size:       var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 14px),
+    calendar-period-button-text-color:      var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
+    calendar-period-button-icon-color:      var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
+    calendar-period-button-text-size:       var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
     calendar-period-button-text-weight:     var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
 
     // â”€â”€ Botones de navegaciÃ³n (â† â†’) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    calendar-navigation-button-icon-color:  var(--date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
+    calendar-navigation-button-icon-color:  var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
 
     // â”€â”€ Toggle (Ã­cono calendario en el input) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    toggle-icon-color:                      var(--date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
-    toggle-active-state-icon-color:         var(--date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
+    toggle-icon-color:                      var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
+    toggle-active-state-icon-color:         var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
 
     // â”€â”€ TipografÃ­a â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     calendar-text-font:                     var(--date-pickers-docked-enabled-label-text-date-label-text-font, "Heebo"),
-    calendar-text-size:                     var(--date-pickers-docked-enabled-label-text-date-label-text-size, 16px),
+    calendar-text-size:                     var(--date-pickers-docked-enabled-label-text-date-label-text-size, 1rem),
 
     // â”€â”€ Range input separator (no usado en picker simple) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     range-input-separator-color:
-      var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e),
+      var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e),
     range-input-disabled-state-separator-color: color-mix(in srgb,
-      var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
+      var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
       transparent),
     range-input-disabled-state-text-color: color-mix(in srgb,
-      var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
+      var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
       transparent),
   ));
 }
@@ -278,7 +280,7 @@ $_dp-shadow: 0px 3px 5px -1px rgba(0, 0, 0, .20),
 // .mat-calendar width:100% garantiza que el grid de fechas llene el contenedor.
 
 mat-datepicker-content {
-  width: var(--date-pickers-docked-enabled-container-container-width, 360px);
+  width: var(--date-pickers-docked-enabled-container-container-width, 22.5rem);
 
   .mat-calendar {
     width: 100%;
@@ -296,22 +298,22 @@ mat-datepicker-content {
   .mat-datepicker-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
-    padding: 4px 12px 12px;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem 0.75rem;
   }
 
   // BEM: .dp-btn es el bloque; --cancel y --ok solo cambian el color de label.
   .dp-btn {
     font-family: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-font, "Heebo");
-    font-size: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 14px);
+    font-size: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem);
     font-weight: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500);
 
     &--cancel {
-      --mat-text-button-label-text-color: var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
+      --mat-text-button-label-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
     }
 
     &--ok {
-      --mat-text-button-label-text-color: var(--date-pickers-docked-enabled-container-date-selected-container-color, #e42313);
+      --mat-text-button-label-text-color: var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313);
     }
   }
 }
@@ -325,20 +327,20 @@ mat-datepicker-content {
 
 lib-date-picker mat-datepicker-toggle .mat-mdc-icon-button,
 lib-date-range-picker mat-datepicker-toggle .mat-mdc-icon-button {
-  --mat-icon-button-icon-color: var(--date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
-  --mat-icon-button-hover-state-layer-color: var(--date-pickers-docked-hovered-state-layer-menu-button-hover-state-layer-color, rgba(67, 71, 73, .08));
+  --mat-icon-button-icon-color: var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
+  --mat-icon-button-hover-state-layer-color: var(--color-date-pickers-docked-hovered-state-layer-menu-button-hover-state-layer-color, rgba(67, 71, 73, .08));
 }
 
 lib-date-picker mat-datepicker-toggle.mat-datepicker-toggle-active .mat-mdc-icon-button,
 lib-date-range-picker mat-datepicker-toggle.mat-datepicker-toggle-active .mat-mdc-icon-button {
-  --mat-icon-button-icon-color: var(--date-pickers-docked-enabled-container-date-selected-container-color, #e42313);
+  --mat-icon-button-icon-color: var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313);
 }
 
 // â”€â”€â”€ Demo slot placeholder (representa contenido proyectado) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 .demo-slot {
   height: 2rem;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: $crdx-primary;
   display: flex;
   align-items: center;
@@ -347,5 +349,5 @@ lib-date-range-picker mat-datepicker-toggle.mat-datepicker-toggle-active .mat-md
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.05em;
-  margin: 0 16px 12px;
+  margin: 0 1rem 0.75rem;
 }

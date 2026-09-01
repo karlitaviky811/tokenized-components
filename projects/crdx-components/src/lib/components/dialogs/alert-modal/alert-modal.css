@@ -1,22 +1,22 @@
 .container {
     --color: #FFFFFF;
     --message-color: #3E3E3E;
-    --message-font-size: 32px;
+    --message-font-size: 2rem;
     --message-font-weight: 700;
 
     background-color: var(--color);
-    padding: 40px 48px;
-    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 2.5rem;
     text-align: center;
 }
 
 .container .message {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 1.5rem;
     align-items: center;
     justify-content: center;
     white-space: pre-line;
@@ -24,9 +24,9 @@
 
 .container .message mat-icon {
     display: flex;
-    font-size: 90px;
-    width: 90px;
-    height: 90px;
+    font-size: 5.625rem;
+    width: 5.625rem;
+    height: 5.625rem;
     color: red;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .container .extraBlock.left {
@@ -52,16 +52,16 @@
     flex-wrap: wrap;
     max-width: 100%;
     color: var(--message-color);
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .container .extraBlock-content.left {
     justify-content: start;
-    padding-left: 16px;
+    padding-left: 1rem;
 }
 
 .container .extraBlock-content.center {
@@ -93,10 +93,10 @@
 }
 
 .container .content {
-    width: 712px;
+    width: 44.5rem;
     color: var(--message-color);
     text-align: center;
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -106,13 +106,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 32px;
+    gap: 2rem;
 }
 
 .container .actions button {
-    width: 120px;
-    height: 56px;
-    font-size: 16px;
+    width: 7.5rem;
+    height: 3.5rem;
+    font-size: 1rem;
     font-weight: 500;
-    border-radius: 16px;
+    border-radius: 1rem;
 }

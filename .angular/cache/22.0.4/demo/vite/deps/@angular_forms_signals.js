@@ -1,4 +1,7 @@
 import {
+  httpResource
+} from "./chunk-EDIY3GPL.js";
+import {
   AbstractControl,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
@@ -12,9 +15,6 @@ import {
   ɵFORM_CONTROL_INTEGRATION
 } from "./chunk-QYEIGI56.js";
 import "./chunk-6RBSXFHB.js";
-import {
-  httpResource
-} from "./chunk-EDIY3GPL.js";
 import "./chunk-C5YKZUCU.js";
 import {
   Directive,

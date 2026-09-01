@@ -1,6 +1,4 @@
-/// Punto de entrada global de estilos para los MFEs.
-/// Los proyectos incluyen este archivo en build.options.styles (project.json).
-/// Cadena: project.json styles[] → index.scss → global-material-theme.scss → overrides (mat-form-field, mat-button, etc.).
+/// Entry point — incluir en project.json styles[]
 @use './global-material-theme.scss' as *;
 @use './overrides/mat-table-overrides';
 @use './overrides/mat-slide-toggle-overrides';
@@ -12,7 +10,8 @@
 @use './overrides/mat-radio-overrides';
 @use './overrides/mat-button-overrides';
 @use './overrides/mat-datepicker-overrides';
-@use './layout.scss' as *;
-@use './typography.scss' as *;
-@use './text-classes.scss' as *;
-@use './scrollbar.scss' as *;
+@use './overrides/mat-chips-overrides';
+@use './layout.scss';
+@use './typography.scss';
+@use './text-classes.scss';
+@use './scrollbar.scss';

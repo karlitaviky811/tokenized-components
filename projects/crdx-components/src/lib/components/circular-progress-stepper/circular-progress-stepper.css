@@ -5,8 +5,8 @@
 }
 
 .progressbar[role="progressbar"] {
-  --size: 64px;
-  --bar-width: 10px;
+  --size: 4rem;
+  --bar-width: 0.625rem;
   --color-bar-progress: #0BC626;
   --shadow-color-bar-progress: #F0F0F0;
 
@@ -42,7 +42,7 @@
 
 .progressbar:not([role="progressbar"]) {
   position: relative;
-  width: var(--size, 132px);
+  width: var(--size, 8.25rem);
   aspect-ratio: 1 / 1;
   margin: 2rem auto;
   display: grid;
@@ -76,13 +76,13 @@
 }
 
 .progress-content .step-text {
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 400;
   color: #3E3E3E;
 }
 
 .progress-content .step-number {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 400;
   color: #3E3E3E;
 }

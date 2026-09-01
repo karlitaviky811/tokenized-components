@@ -1,16 +1,27 @@
-﻿@use '@angular/material' as mat;
+@use '@angular/material' as mat;
 
+/*
+ * Button overrides (M3). Tokens: --buttons-wip-* (generate-tokens-resolved.cjs)
+ *
+ * PATRÓN de opacidades con Material:
+ *   *-state-layer-color  → color BASE sin alpha (Material aplica el opacity encima)
+ *   *-hover/focus/pressed-state-layer-opacity → opacidades M3 estándar (0.08 / 0.10 / 0.10)
+ *   *-ripple-color       → token rgba directo SIN color-mix (ya tiene el alpha correcto)
+ *
+ * MAL: state-layer-color: rgba(67,71,73,0.08) + hover-opacity: 0.08 = visual 0.0064 (invisible)
+ * BIEN: state-layer-color: #434749           + hover-opacity: 0.08 = visual 0.08
+ */
 html {
   @include mat.button-overrides((
-    // â”€â”€ Filled â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── Filled ─────────────────────────────────────────────────────────────
     filled-container-shape:          var(--buttons-wip-size-medium-button-medium-shape-round),
-    filled-container-color:          var(--buttons-wip-color-filled-enabled-button-filled-container-color, #E42313),
-    filled-label-text-color:         var(--buttons-wip-color-filled-enabled-button-filled-label-color, #fff),
-    filled-state-layer-color:        var(--buttons-wip-color-filled-enabled-button-filled-label-color, #fff),
+    filled-container-color:          var(--color-buttons-wip-color-filled-enabled-button-filled-container-color, #E42313),
+    filled-label-text-color:         var(--color-buttons-wip-color-filled-enabled-button-filled-label-color, #fff),
+    filled-state-layer-color:        var(--color-buttons-wip-color-filled-enabled-button-filled-label-color, #fff),
     filled-hover-state-layer-opacity:    0.08,
     filled-focus-state-layer-opacity:    0.10,
     filled-pressed-state-layer-opacity:  0.10,
-    filled-ripple-color:             var(--buttons-wip-color-filled-pressed-button-elevated-pressed-ripple-color, rgba(255, 255, 255, 0.10)),
+    filled-ripple-color:             var(--color-buttons-wip-color-filled-pressed-button-elevated-pressed-ripple-color, rgba(255, 255, 255, 0.10)),
     filled-container-height:         var(--buttons-wip-size-medium-button-medium-container-height),
     filled-label-text-font:          var(--buttons-wip-size-medium-button-medium-label-text-font, Heebo),
     filled-label-text-size:          var(--buttons-wip-size-medium-button-medium-label-text-size),
@@ -19,16 +30,16 @@ html {
     filled-horizontal-padding:       var(--buttons-wip-size-medium-button-medium-leading-space),
     filled-icon-spacing:             var(--buttons-wip-size-medium-button-medium-between-icon-label-space),
 
-    // â”€â”€ Outlined â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── Outlined ───────────────────────────────────────────────────────────
     outlined-container-shape:        var(--buttons-wip-size-medium-button-medium-shape-round),
-    outlined-outline-width:          var(--buttons-wip-size-medium-button-medium-outline-width, 1px),
-    outlined-outline-color:          var(--buttons-wip-color-outlined-enabled-button-outlined-outline-color, #c3c7c9),
-    outlined-label-text-color:       var(--buttons-wip-color-outlined-enabled-button-outlined-label-color, #434749),
-    outlined-state-layer-color:      var(--buttons-wip-color-outlined-enabled-button-outlined-label-color, #434749),
+    outlined-outline-width:          var(--buttons-wip-size-medium-button-medium-outline-width, 0.0625rem),
+    outlined-outline-color:          var(--color-buttons-wip-color-outlined-enabled-button-outlined-outline-color, #c3c7c9),
+    outlined-label-text-color:       var(--color-buttons-wip-color-outlined-enabled-button-outlined-label-color, #434749),
+    outlined-state-layer-color:      var(--color-buttons-wip-color-outlined-enabled-button-outlined-label-color, #434749),
     outlined-hover-state-layer-opacity:    0.08,
     outlined-focus-state-layer-opacity:    0.10,
     outlined-pressed-state-layer-opacity:  0.10,
-    outlined-ripple-color:           var(--buttons-wip-color-outlined-pressed-button-outlined-pressed-ripple-color, rgba(67, 71, 73, 0.10)),
+    outlined-ripple-color:           var(--color-buttons-wip-color-outlined-pressed-button-outlined-pressed-ripple-color, rgba(67, 71, 73, 0.10)),
     outlined-container-height:       var(--buttons-wip-size-medium-button-medium-container-height),
     outlined-label-text-font:        var(--buttons-wip-size-medium-button-medium-label-text-font, Heebo),
     outlined-label-text-size:        var(--buttons-wip-size-medium-button-medium-label-text-size),
@@ -37,15 +48,15 @@ html {
     outlined-horizontal-padding:     var(--buttons-wip-size-medium-button-medium-leading-space),
     outlined-icon-spacing:           var(--buttons-wip-size-medium-button-medium-between-icon-label-space),
 
-    // â”€â”€ Tonal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── Tonal ──────────────────────────────────────────────────────────────
     tonal-container-shape:           var(--buttons-wip-size-medium-button-medium-shape-round),
-    tonal-container-color:           var(--buttons-wip-color-tonal-enabled-button-tonal-container-color, #e0e3e5),
-    tonal-label-text-color:          var(--buttons-wip-color-tonal-enabled-button-tonal-label-color, #434749),
-    tonal-state-layer-color:         var(--buttons-wip-color-tonal-enabled-button-tonal-label-color, #434749),
+    tonal-container-color:           var(--color-buttons-wip-color-tonal-enabled-button-tonal-container-color, #e0e3e5),
+    tonal-label-text-color:          var(--color-buttons-wip-color-tonal-enabled-button-tonal-label-color, #434749),
+    tonal-state-layer-color:         var(--color-buttons-wip-color-tonal-enabled-button-tonal-label-color, #434749),
     tonal-hover-state-layer-opacity:    0.08,
     tonal-focus-state-layer-opacity:    0.10,
     tonal-pressed-state-layer-opacity:  0.10,
-    tonal-ripple-color:              var(--buttons-wip-color-tonal-pressed-button-tonal-pressed-ripple-color, rgba(67, 71, 73, 0.10)),
+    tonal-ripple-color:              var(--color-buttons-wip-color-tonal-pressed-button-tonal-pressed-ripple-color, rgba(67, 71, 73, 0.10)),
     tonal-container-height:          var(--buttons-wip-size-medium-button-medium-container-height),
     tonal-label-text-font:           var(--buttons-wip-size-medium-button-medium-label-text-font, Heebo),
     tonal-label-text-size:           var(--buttons-wip-size-medium-button-medium-label-text-size),
@@ -54,14 +65,14 @@ html {
     tonal-horizontal-padding:        var(--buttons-wip-size-medium-button-medium-leading-space),
     tonal-icon-spacing:              var(--buttons-wip-size-medium-button-medium-between-icon-label-space),
 
-    // â”€â”€ Text â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── Text ───────────────────────────────────────────────────────────────
     text-container-shape:            var(--buttons-wip-size-medium-button-medium-shape-round),
-    text-label-text-color:           var(--buttons-wip-color-text-enabled-button-text-label-color, #e42313),
-    text-state-layer-color:          var(--buttons-wip-color-text-enabled-button-text-label-color, #e42313),
+    text-label-text-color:           var(--color-buttons-wip-color-text-enabled-button-text-label-color, #e42313),
+    text-state-layer-color:          var(--color-buttons-wip-color-text-enabled-button-text-label-color, #e42313),
     text-hover-state-layer-opacity:    0.08,
     text-focus-state-layer-opacity:    0.10,
     text-pressed-state-layer-opacity:  0.10,
-    text-ripple-color:               var(--buttons-wip-color-text-pressed-button-text-pressed-ripple-color, rgba(228, 35, 19, 0.10)),
+    text-ripple-color:               var(--color-buttons-wip-color-text-pressed-button-text-pressed-ripple-color, rgba(228, 35, 19, 0.10)),
     text-container-height:           var(--buttons-wip-size-medium-button-medium-container-height),
     text-label-text-font:            var(--buttons-wip-size-medium-button-medium-label-text-font, Heebo),
     text-label-text-size:            var(--buttons-wip-size-medium-button-medium-label-text-size),
@@ -70,20 +81,19 @@ html {
     text-horizontal-padding:         var(--buttons-wip-size-medium-button-medium-leading-space),
     text-icon-spacing:               var(--buttons-wip-size-medium-button-medium-between-icon-label-space),
 
-    // â”€â”€ Protected (Elevated) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── Protected (Elevated) ───────────────────────────────────────────────
     protected-container-shape:       var(--buttons-wip-size-medium-button-medium-shape-round),
-    protected-container-color:       var(--buttons-wip-color-elevated-enabled-button-elevated-container-color, #fff),
-    protected-label-text-color:      var(--buttons-wip-color-elevated-enabled-button-elevated-label-color, #e42313),
-    protected-container-elevation-shadow: var(--shadow-elevation-1, (0px 1px 3px 1px #00000026, 0px 1px 2px 0px #0000004d)),
-    protected-disabled-container-elevation-shadow: none,
-    protected-hover-container-elevation-shadow: var(--shadow-elevation-2, (0px 2px 6px 2px #00000026, 0px 1px 2px 0px #0000004d)),
-    protected-focus-container-elevation-shadow: var(--shadow-elevation-1, (0px 1px 3px 1px #00000026, 0px 1px 2px 0px #0000004d)),
-    protected-pressed-container-elevation-shadow: var(--shadow-elevation-1, (0px 1px 3px 1px #00000026, 0px 1px 2px 0px #0000004d)),
-    protected-state-layer-color:     var(--buttons-wip-color-elevated-enabled-button-elevated-label-color, #e42313),
+    protected-container-color:       var(--color-buttons-wip-color-elevated-enabled-button-elevated-container-color, #fff),
+    protected-label-text-color:      var(--color-buttons-wip-color-elevated-enabled-button-elevated-label-color, #e42313),
+    protected-container-elevation-shadow: 0 1px 4px rgba(0, 0, 0, 0.18),
+    protected-state-layer-color:     var(--color-buttons-wip-color-elevated-enabled-button-elevated-label-color, #e42313),
     protected-hover-state-layer-opacity:    0.08,
     protected-focus-state-layer-opacity:    0.10,
     protected-pressed-state-layer-opacity:  0.10,
-    protected-ripple-color:          var(--buttons-wip-color-elevated-pressed-button-elevated-pressed-ripple-color, rgba(228, 35, 19, 0.10)),
+    protected-hover-container-elevation-shadow:    0 3px 12px rgba(0, 0, 0, 0.2),
+    protected-focus-container-elevation-shadow:    0 1px 4px  rgba(0, 0, 0, 0.2),
+    protected-pressed-container-elevation-shadow:  0 1px 4px  rgba(0, 0, 0, 0.24),
+    protected-ripple-color:          var(--color-buttons-wip-color-elevated-pressed-button-elevated-pressed-ripple-color, rgba(228, 35, 19, 0.10)),
     protected-container-height:      var(--buttons-wip-size-medium-button-medium-container-height),
     protected-label-text-font:       var(--buttons-wip-size-medium-button-medium-label-text-font, Heebo),
     protected-label-text-size:       var(--buttons-wip-size-medium-button-medium-label-text-size),

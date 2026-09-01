@@ -37,12 +37,7 @@
             "index": "projects/demo/src/index.html",
             "browser": "projects/demo/src/main.ts",
             "tsConfig": "projects/demo/tsconfig.app.json",
-            "styles": [
-              "projects/crdx-components/src/lib/styles/tokens/vendor/credix-tokens.css",
-              "projects/crdx-components/src/lib/styles/tokens/token-overrides.css",
-              "projects/crdx-components/src/lib/styles/tokens/token-aliases.css",
-              "projects/demo/src/styles.scss"
-            ],
+            "styles": ["projects/demo/src/styles.scss"],
             "stylePreprocessorOptions": {
               "includePaths": ["dist/crdx-components", "projects/crdx-components"]
             }

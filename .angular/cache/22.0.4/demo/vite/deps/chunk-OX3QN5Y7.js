@@ -12,13 +12,13 @@ import {
   Platform
 } from "./chunk-R2ERB544.js";
 import {
-  BidiModule,
-  Directionality
-} from "./chunk-RBWU7VQO.js";
-import {
   coerceElement,
   coerceNumberProperty
 } from "./chunk-6MPHAO33.js";
+import {
+  BidiModule,
+  Directionality
+} from "./chunk-RBWU7VQO.js";
 import {
   ApplicationRef,
   ChangeDetectorRef,
@@ -1331,4 +1331,4 @@ export {
   CdkScrollableModule,
   ScrollingModule
 };
-//# sourceMappingURL=chunk-7VF32NEJ.js.map
+//# sourceMappingURL=chunk-OX3QN5Y7.js.map

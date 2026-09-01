@@ -1,66 +1,73 @@
-﻿:host {
+:host {
   display: inline-block;
 }
 
-.lib-chip--outlined,
-.lib-chip--filled {
-  --mdc-chip-container-shape-radius: var(--chips-wip-filter-enabled-container-filter-chip-container-shape, 8px);
+/* El theming vive en styles/overrides/_mat-chips-overrides.scss via
+   mat.chips-overrides(). Aca solo queda lo estructural y la conmutacion de
+   appearance, que la API de tokens de Material no cubre. */
 
-  --mdc-chip-label-text-color: var(--chips-wip-filter-enabled-label-text-filter-chip-unselected-label-text-color, #434749);
-  --mat-chip-selected-label-text-color: var(--chips-wip-filter-enabled-label-text-filter-chip-selected-label-text-color, #ffffff);
-
-  --mdc-chip-label-text-font: var(--chips-wip-filter-enabled-label-text-filter-chip-label-text-font, 'Heebo');
-  --mdc-chip-label-text-size: var(--chips-wip-filter-enabled-label-text-silter-chip-label-text-size, 14px);
-  --mdc-chip-label-text-weight: var(--chips-wip-filter-enabled-label-text-filter-chip-label-text-weight, 500);
-  --mdc-chip-label-text-tracking: var(--chips-wip-filter-enabled-label-text-filter-chip-label-text-tracking, 0.1px);
-  --mdc-chip-label-text-line-height: var(--chips-wip-filter-enabled-label-text-filter-chip-label-text-line-height, 20px);
-
-  --mat-chip-with-icon-leading-icon-size: var(--chips-wip-filter-enabled-icon-filter-chip-with-icon-icon-size, 18px);
-  /* AM 21 usa --mat-chip-with-icon-icon-color para el avatar (Ãºnico token, sin variante selected) */
-  --mat-chip-with-icon-icon-color: var(--chips-wip-filter-enabled-icon-filter-chip-with-leading-icon-unselected-leading-icon-color, #e42313);
-  --mat-chip-trailing-icon-color: var(--chips-wip-filter-enabled-icon-filter-chip-with-trailing-icon-unselected-trailing-icon-color, #434749);
-  --mat-chip-selected-trailing-icon-color: var(--chips-wip-filter-enabled-icon-filter-chip-with-trailing-icon-selected-trailing-icon-color, #ffffff);
-}
+/* ── Appearance ──────────────────────────────────────────────────────────
+   Material no expone una prop de appearance para chips: siempre pinta
+   `elevated-container-color` como fondo y usa `outline-width` para el borde.
+   La distincion outlined/elevated se hace conmutando esas dos variables. */
 
 .lib-chip--outlined {
   --mdc-chip-elevated-container-color: transparent;
-  --mdc-chip-outline-width: var(--chips-wip-filter-enabled-container-filter-chip-unselected-outline-width, 1px);
-  --mdc-chip-outline-color: var(--chips-wip-filter-enabled-container-filter-chip-unselected-outline-color, #c3c7c9);
 }
 
-.lib-chip--filled {
-  --mdc-chip-elevated-container-color: var(--chips-wip-filter-enabled-container-filter-chip-elevated-selected-container-color, #e0e3e5);
+.lib-chip--elevated {
   --mdc-chip-outline-width: 0;
+  box-shadow: var(--shadow-elevation-1, 0 0.063rem 0.188rem 0.063rem #00000026, 0 0.063rem 0.125rem 0 #0000004d);
 }
 
-
+/* Selected pierde el borde en ambos estilos: el CDN define
+   flter-chip-selected-outline-width = 0. */
 .lib-chip--selected {
-  --mdc-chip-elevated-container-color: var(--chips-wip-filter-enabled-container-filter-chip-elevated-selected-container-color, #5b5f61);
-  --mat-chip-elevated-selected-container-color: var(--chips-wip-filter-enabled-container-filter-chip-elevated-selected-container-color, #5b5f61);
   --mdc-chip-outline-width: 0;
-  --mat-chip-with-icon-icon-color: var(--chips-wip-filter-enabled-label-text-filter-chip-selected-label-text-color, #ffffff);
 }
+
+/* ── Estructura ──────────────────────────────────────────────────────────
+   Material recorta el avatar a circulo; el filter chip usa el leading icon
+   cuadrado a tamano completo. */
 
 mat-icon[matChipAvatar] {
-  /* El slot avatar aplica border-radius:50% para imÃ¡genes; lo revertimos para Ã­conos */
   border-radius: 0;
   overflow: visible;
-  /* TamaÃ±o del Ã­cono desde el token del chip */
-  width: var(--mat-chip-with-icon-leading-icon-size, 18px);
-  height: var(--mat-chip-with-icon-leading-icon-size, 18px);
-  font-size: var(--mat-chip-with-icon-leading-icon-size, 18px);
-  /* Centrado del glifo dentro del elemento mat-icon */
+  width: var(--mat-chip-with-icon-icon-size, 1.125rem);
+  height: var(--mat-chip-with-icon-icon-size, 1.125rem);
+  font-size: var(--mat-chip-with-icon-icon-size, 1.125rem);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
 }
 
-.lib-chip--small {
-  --mdc-chip-container-height: 24px;
-  --mdc-chip-label-text-size: 12px;
+img[matChipAvatar] {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
-.lib-chip--medium {
-  --mdc-chip-container-height: var(--chips-wip-filter-enabled-container-filter-chip-container-height, 32px);
+.mat-mdc-standard-chip .mdc-evolution-chip__graphic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centrado vertical del label: Material aplica padding y line-height que
+   descuadran el texto respecto al alto de 2rem del contenedor. */
+.mat-mdc-standard-chip .mdc-evolution-chip__action {
+  display: flex;
+  align-items: center;
+  min-height: var(--mdc-chip-container-height);
+}
+
+.mat-mdc-standard-chip .mdc-evolution-chip__text-label,
+.mat-mdc-standard-chip .mat-mdc-chip-action-label__text {
+  display: inline-flex;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
 }

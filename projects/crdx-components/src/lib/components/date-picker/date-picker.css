@@ -1,36 +1,36 @@
-﻿:host {
+:host {
   display: inline-block;
-  width: min(100%, 220px);
+  width: min(100%, 13.75rem);
 }
 
 .dp-field {
   width: 100%;
-  font-family: var(--date-pickers-docked-enabled-label-text-date-label-text-font, Heebo), sans-serif;
-  font-size: 14px;
+  font-family: var(--color-date-pickers-docked-enabled-label-text-date-label-text-font, Heebo), sans-serif;
+  font-size: 0.875rem;
 }
 
 .dp-field.mat-mdc-form-field {
   --mdc-outlined-text-field-label-text-font: inherit;
   --mdc-outlined-text-field-input-text-font: inherit;
-  --mdc-outlined-text-field-label-text-color: var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
-  --mdc-outlined-text-field-input-text-color: var(--date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
-  --mdc-outlined-text-field-outline-color: var(--pallete-scheme-surface-outline-variant, #c3c7c9);
-  --mdc-outlined-text-field-hover-outline-color: var(--pallete-scheme-surface-on-surface, #181c1e);
-  --mdc-outlined-text-field-focus-outline-color: var(--pallete-scheme-primary, #e42313);
-  --mdc-outlined-text-field-container-shape: 12px;
+  --mdc-outlined-text-field-label-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
+  --mdc-outlined-text-field-input-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
+  --mdc-outlined-text-field-outline-color: var(--color-pallete-scheme-surface-outline-variant, #c3c7c9);
+  --mdc-outlined-text-field-hover-outline-color: var(--color-pallete-scheme-surface-on-surface, #181c1e);
+  --mdc-outlined-text-field-focus-outline-color: var(--color-pallete-scheme-primary, #e42313);
+  --mdc-outlined-text-field-container-shape: 0.75rem;
 }
 
 :host ::ng-deep .dp-field .mdc-text-field--outlined {
   background-color: #fff;
-  border-radius: 12px;
+  border-radius: 0.75rem;
 }
 
 .dp-input {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .dp-field .mat-datepicker-toggle {
-  color: var(--date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
+  color: var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
 }
 
 /* ── Actions ────────────────────────────────────────────────────── */
@@ -41,7 +41,7 @@
 
 .dp-btn {
   font-family: var(--buttons-wip-size-small-button-small-label-text-font, Heebo), sans-serif !important;
-  font-size: var(--buttons-wip-size-small-button-small-label-text-size, 14px) !important;
+  font-size: var(--buttons-wip-size-small-button-small-label-text-size, 0.875rem) !important;
   font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500) !important;
-  --mat-text-button-label-text-color: var(--buttons-wip-color-text-enabled-button-text-label-color, #e42313);
+  --mat-text-button-label-text-color: var(--color-buttons-wip-color-text-enabled-button-text-label-color, #e42313);
 }

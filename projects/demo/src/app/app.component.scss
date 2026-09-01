@@ -7,12 +7,12 @@
 // ── Sidebar ──────────────────────────────────────────────────────────────────
 
 .shell__nav {
-  width: 240px;
-  min-width: 240px;
+  width: 15rem;
+  min-width: 15rem;
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  border-right: 1px solid #e8eaeb;
+  border-right: 0.0625rem solid #e8eaeb;
   overflow-y: auto;
 }
 
@@ -21,16 +21,16 @@
 .shell__brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   padding: 1.125rem 1rem;
-  border-bottom: 1px solid #e8eaeb;
+  border-bottom: 0.0625rem solid #e8eaeb;
   flex-shrink: 0;
 }
 
 .shell__brand-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 7px;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.4375rem;
   background: #e42313;
   color: #fff;
   font-size: 0.8125rem;
@@ -79,7 +79,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.35rem 1rem;
-  border-left: 2px solid transparent;
+  border-left: 0.125rem solid transparent;
   text-decoration: none;
   color: #2d3235;
   font-size: 0.875rem;
@@ -113,8 +113,8 @@
   text-transform: uppercase;
   color: #a0a8ac;
   background: #edf0f2;
-  padding: 1px 5px;
-  border-radius: 3px;
+  padding: 0.0625rem 0.3125rem;
+  border-radius: 0.1875rem;
 }
 
 // ── Content area ──────────────────────────────────────────────────────────────

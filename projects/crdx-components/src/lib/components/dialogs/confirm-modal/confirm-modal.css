@@ -1,29 +1,29 @@
-﻿/*
- * Confirm modal â€” DiseÃ±o desde Figma Tokens (node 323-2101).
+/*
+ * Confirm modal — Diseño desde Figma Tokens (node 323-2101).
  * Tokens: --app-dialogs-basic-*, --app-colors-*, --app-font-*, --app-shape-*.
  */
 .confirm-modal {
   --confirm-container-color: var(--app-dialogs-basic-enabled-container-dialog-container-color, #f7fafc);
   --confirm-container-elevation: var(--app-dialogs-basic-enabled-container-dialog-container-elevation, 6);
-  --confirm-container-shape: var(--app-dialogs-basic-enabled-container-dialog-container-shape, 28);
+  --confirm-container-shape: var(--app-dialogs-basic-enabled-container-dialog-container-shape, 1.75rem);
   --confirm-headline-color: var(--app-dialogs-basic-enabled-headline-dialog-headline-color, #181c1e);
   --confirm-headline-font: var(--app-dialogs-basic-enabled-headline-dialog-headline-font, Heebo);
-  --confirm-headline-size: var(--app-dialogs-basic-enabled-headline-dialog-headline-size, 24);
+  --confirm-headline-size: var(--app-dialogs-basic-enabled-headline-dialog-headline-size, 1.5rem);
   --confirm-headline-weight: var(--app-dialogs-basic-enabled-headline-dialog-headline-weight, 400);
-  --confirm-headline-line-height: var(--app-dialogs-basic-enabled-headline-dialog-headline-line-height, 32);
+  --confirm-headline-line-height: var(--app-dialogs-basic-enabled-headline-dialog-headline-line-height, 2rem);
   --confirm-supporting-color: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-color, #434749);
   --confirm-supporting-font: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-font, Heebo);
-  --confirm-supporting-size: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-size, 14);
+  --confirm-supporting-size: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-size, 0.875rem);
   --confirm-supporting-weight: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-weight, 400);
-  --confirm-supporting-line-height: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-line-height, 20);
+  --confirm-supporting-line-height: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-line-height, 1.25rem);
   --confirm-action-color: var(--app-dialogs-basic-enabled-label-text-dialog-action-label-text-color, #e42313);
   --confirm-action-font: var(--app-dialogs-basic-enabled-label-text-dialog-action-label-text-font, Heebo);
-  --confirm-action-size: var(--app-dialogs-basic-enabled-label-text-dialog-action-label-text-size, 14);
+  --confirm-action-size: var(--app-dialogs-basic-enabled-label-text-dialog-action-label-text-size, 0.875rem);
   --confirm-action-weight: var(--app-dialogs-basic-enabled-label-text-dialog-action-label-text-weight, 500);
   --confirm-primary: var(--app-colors-rojo-primary-rojo-50, #e42313);
   --confirm-primary-hover: var(--app-colors-rojo-primary-rojo-40, #bf0600);
   --confirm-primary-on: var(--app-colors-rojo-primary-rojo-100, #ffffff);
-  --confirm-btn-shape: var(--app-shape-large, 16);
+  --confirm-btn-shape: var(--app-shape-large, 1rem);
 
   display: flex;
   width: 100%;
@@ -32,8 +32,8 @@
   box-shadow:
     0 1px 3px 0 rgba(0, 0, 0, 0.3),
     0 4px 8px 3px rgba(0, 0, 0, 0.15);
-  min-width: 280px;
-  max-width: 560px;
+  min-width: 17.5rem;
+  max-width: 35rem;
 }
 
 .confirm-modal__container {
@@ -94,8 +94,8 @@
 
 .confirm-modal__list {
   width: 100%;
-  border-top: 1px solid #c4c7c5;
-  border-bottom: 1px solid #c4c7c5;
+  border-top: 0.0625rem solid #c4c7c5;
+  border-bottom: 0.0625rem solid #c4c7c5;
 }
 
 .confirm-modal__list--scrollable {
@@ -110,7 +110,7 @@
   align-items: center;
   gap: 0.75rem;
   border: 0;
-  border-bottom: 1px solid #c4c7c5;
+  border-bottom: 0.0625rem solid #c4c7c5;
   background: transparent;
   padding: 0.75rem 0;
   text-align: left;
@@ -170,7 +170,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 1.5rem;
-  min-width: 120px;
+  min-width: 7.5rem;
   font-family: var(--confirm-action-font), var(--app-font-type-brand, Heebo), sans-serif;
   font-size: var(--confirm-action-size);
   font-weight: var(--confirm-action-weight);
@@ -184,16 +184,16 @@
 }
 
 .confirm-modal__btn:focus-visible {
-  outline: 2px solid var(--confirm-primary);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--confirm-primary);
+  outline-offset: 0.125rem;
 }
 
 .confirm-modal__btn--cancel {
   flex: 1;
-  max-width: 180px;
+  max-width: 11.25rem;
   background: var(--confirm-container-color);
   color: var(--confirm-action-color);
-  border: 1px solid var(--confirm-action-color);
+  border: 0.0625rem solid var(--confirm-action-color);
 }
 
 .confirm-modal__btn--cancel:hover,
@@ -206,7 +206,7 @@
 
 .confirm-modal__btn--confirm {
   flex: 1;
-  max-width: 180px;
+  max-width: 11.25rem;
   background: var(--confirm-primary);
   color: var(--confirm-primary-on);
 }

@@ -7,12 +7,12 @@ import {
   SharedStylesHost
 } from "./chunk-Y5A72D3M.js";
 import {
+  withHttpTransferCache
+} from "./chunk-EDIY3GPL.js";
+import {
   CommonModule,
   PLATFORM_BROWSER_ID
 } from "./chunk-6RBSXFHB.js";
-import {
-  withHttpTransferCache
-} from "./chunk-EDIY3GPL.js";
 import {
   DomAdapter,
   getDOM,
@@ -854,4 +854,4 @@ export {
   DomSanitizerImpl,
   VERSION
 };
-//# sourceMappingURL=chunk-CVCBWEKN.js.map
+//# sourceMappingURL=chunk-XVKY7L3V.js.map

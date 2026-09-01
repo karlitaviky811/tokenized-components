@@ -1,10 +1,10 @@
-﻿/// Layout global: solo variables en :root.
+/// Layout global: solo variables en :root.
 /// El grid del shell (section.container, .main-content) lo define cada app (ej. layout-shell.scss).
 /// Evita duplicar/conflictos con el layout del host.
 :root {
-  --header-height: var(--app-bars-size-small-app-bar-small-container-height, 64px);
+  --header-height: var(--app-bars-size-small-app-bar-small-container-height, 4rem);
   // Opcional: altura lista/tabla como calc(100vh - header - cabecera lista - offset). Ej.: height: calc(100vh - var(--list-area-offset));
-  --list-area-offset: 259px; // 80 + 72 + 107 (header, cabecera, contenido)
+  --list-area-offset: 16.1875rem; // 80 + 72 + 107 (header, cabecera, contenido)
 }
 
 .lib-confirm-modal-backdrop.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {

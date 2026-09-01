@@ -1,13 +1,13 @@
 import {
+  BreakpointObserver
+} from "./chunk-UT5EXVHO.js";
+import {
   _VisuallyHiddenLoader,
   _setInnerHtml
 } from "./chunk-VZ4FPNOW.js";
 import {
   DomSanitizer
-} from "./chunk-CVCBWEKN.js";
-import {
-  BreakpointObserver
-} from "./chunk-RUYF6U24.js";
+} from "./chunk-XVKY7L3V.js";
 import {
   ALT,
   CONTROL,
@@ -1389,4 +1389,4 @@ export {
   LiveAnnouncer,
   A11yModule
 };
-//# sourceMappingURL=chunk-QUFBUBHU.js.map
+//# sourceMappingURL=chunk-ZFH2WS2T.js.map

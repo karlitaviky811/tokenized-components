@@ -26,13 +26,13 @@
   }
 
   @if(shouldShowSuffix()) {
-    <mat-icon
-      matSuffix
-      class="lib-text-field__icon lib-text-field__icon--suffix"
-      [svgIcon]="suffixIcon()"
-      (click)="pressSuffixEvent()"
-    >
-      {{ suffixTextIcon() }}
-    </mat-icon>
+    <span matSuffix class="lib-text-field__icon-host" matRipple [matRippleCentered]="true" [matRippleColor]="'rgba(67, 71, 73, 0.12)'" (click)="pressSuffixEvent()">
+      <mat-icon
+        class="lib-text-field__icon lib-text-field__icon--suffix"
+        [svgIcon]="suffixIcon()"
+      >
+        {{ suffixTextIcon() }}
+      </mat-icon>
+    </span>
   }
 </mat-form-field>

@@ -4,13 +4,14 @@ import { DisabledReason, FormValueControl, ValidationError, WithOptionalFieldTre
 import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatRippleModule } from '@angular/material/core';
 
 type LibTextFieldAppearance = MatFormFieldAppearance | 'outlined' | 'filled';
 
 @Component({
   selector: 'lib-text-field',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatIconModule],
+  imports: [MatFormFieldModule, MatInputModule, MatIconModule, MatRippleModule],
   templateUrl: './text-field.html',
   styleUrl: './text-field.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -6,7 +6,7 @@
 
 .ui-divider {
   flex-shrink: 0;
-  background: var(--divider-enabled-container-divider-color, #c3c7c9);
+  background: var(--color-divider-enabled-container-divider-color, #c3c7c9);
 }
 
 .ui-divider--horizontal {

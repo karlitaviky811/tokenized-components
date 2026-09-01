@@ -48,13 +48,10 @@ export class LibButtonComponent {
   debugPadding = input<boolean>(false);
   readonly isPressed = signal(false);
 
-  /** Si hay label o icon por input, se usa contenido interno; si no, ng-content. */
+  /** Usa template interno si hay label/icon via input. */
   readonly hasInputContent = computed(
     () => this.label().length > 0 || this.icon().length > 0
   );
-
-  /** contentAlign ya es 'start' | 'center' | 'end'; se usa directo para las clases CSS. */
-  private readonly contentAlignNormalized = computed(() => this.contentAlign());
 
   readonly classes = computed(() => ({
     'lib-mat-btn': true,
@@ -75,9 +72,9 @@ export class LibButtonComponent {
     'lib-mat-btn--selected': this.toggle() && this.selected(),
     'lib-mat-btn--pressed': this.isPressed() || this.pressed(),
     'lib-mat-btn--debug-padding': this.debugPadding(),
-    'lib-mat-btn--align-start': this.contentAlignNormalized() === 'start',
-    'lib-mat-btn--align-center': this.contentAlignNormalized() === 'center',
-    'lib-mat-btn--align-end': this.contentAlignNormalized() === 'end',
+    'lib-mat-btn--align-start': this.contentAlign() === 'start',
+    'lib-mat-btn--align-center': this.contentAlign() === 'center',
+    'lib-mat-btn--align-end': this.contentAlign() === 'end',
   }));
 
   onPressStart(): void {

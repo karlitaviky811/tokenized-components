@@ -1,10 +1,10 @@
-﻿.container {
+.container {
   height: 100dvh;
   width: 100%;
   max-height: 100dvh;
   box-sizing: border-box;
   background-color: var(--side-sheets-enabled-container-sheet-side-docked-standard-container-color, #f8f9fa);
-  border-radius: 8px 0px 0px 8px;
+  border-radius: 0.5rem 0 0 0.5rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   margin-bottom: 1.5rem;
   padding: 1rem 1rem 0;
 }
@@ -23,20 +23,20 @@
 .title {
   color: var(--side-sheets-enabled-headline-sheet-side-docked-headline-color, #434749);
   font-family: var(--side-sheets-enabled-headline-sheet-side-docked-headline-font, 'Heebo'), sans-serif;
-  font-size: var(--side-sheets-enabled-headline-sheet-side-docked-headline-size, 22px);
+  font-size: var(--side-sheets-enabled-headline-sheet-side-docked-headline-size, 1.375rem);
   font-style: normal;
   font-weight: var(--side-sheets-enabled-headline-sheet-side-docked-headline-weight, 400);
-  line-height: var(--side-sheets-enabled-headline-sheet-side-docked-headline-line-height, 28px);
-  letter-spacing: var(--side-sheets-enabled-headline-sheet-side-docked-headline-tracking, 0px);
+  line-height: var(--side-sheets-enabled-headline-sheet-side-docked-headline-line-height, 1.75rem);
+  letter-spacing: var(--side-sheets-enabled-headline-sheet-side-docked-headline-tracking, 0);
   margin: 0;
 }
 
 .side-modal__header button {
   background-color: transparent;
   border: none;
-  height: 40px;
-  width: 40px;
-  min-width: 40px;
+  height: 2.5rem;
+  width: 2.5rem;
+  min-width: 2.5rem;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
@@ -46,7 +46,7 @@
 }
 
 .side-modal__header button mat-icon {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .side-modal__icon-btn svg {

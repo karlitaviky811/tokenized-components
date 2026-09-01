@@ -1,4 +1,4 @@
-﻿:host {
+:host {
   display: block;
   width: 100%;
   --bars-common-app-bar-brand-width: 47;
@@ -12,12 +12,12 @@
   width: 100%;
   flex-shrink: 0;
   align-self: stretch;
-  height: var(--app-bars-size-small-app-bar-small-container-height, 64px);
-  padding: 0.5rem var(--app-bars-common-app-bar-right-padding, 4px) 0.5rem var(--app-bars-common-app-bar-left-padding, 4px);
-  background-color: var(--app-bars-common-app-bar-container-color, #ebeef0);
-  border-radius: var(--app-bars-common-app-bar-container-shape, 0px);
+  height: var(--app-bars-size-small-app-bar-small-container-height, 4rem);
+  padding: 0.5rem var(--bars-common-app-bar-right-padding, 0.25rem) 0.5rem var(--bars-common-app-bar-left-padding, 0.25rem);
+  background-color: var(--bars-common-app-bar-container-color, #ebeef0);
+  border-radius: 0;
   box-sizing: border-box;
-  column-gap: var(--app-bars-common-app-bar-icon-spacing, 0px);
+  column-gap: 0;
 }
 
 .app-bar__leading,
@@ -28,14 +28,14 @@
 
 .app-bar__leading {
   justify-self: start;
-  width: var(--app-bars-common-app-bar-icon-touch-target-size, 48px);
+  width: var(--bars-common-app-bar-icon-touch-target-size, 3rem);
 }
 
 .app-bar__actions {
   justify-self: end;
   justify-content: flex-end;
-  gap: var(--app-bars-common-app-bar-icon-spacing, 0px);
-  min-width: var(--app-bars-common-app-bar-icon-touch-target-size, 48px);
+  gap: 0;
+  min-width: var(--bars-common-app-bar-icon-touch-target-size, 3rem);
 }
 
 .app-bar__actions:empty {
@@ -45,14 +45,14 @@
 .app-bar__brand {
   justify-self: center;
   position: relative;
-  width: var(--app-bars-common-app-bar-brand-width, 47px);
-  height: var(--app-bars-common-app-bar-brand-height, 25px);
+  width: var(--bars-common-app-bar-brand-width, 2.9375rem);
+  height: var(--bars-common-app-bar-brand-height, 1.5625rem);
   aspect-ratio: 47 / 25;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  color: var(--app-bars-common-app-bar-central-icon, #e42313);
+  color: var(--bars-common-app-bar-central-icon, #e42313);
 }
 
 .app-bar__brand-icon {
@@ -70,56 +70,56 @@
 
 .app-bar__brand-dot {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 0.375rem;
+  height: 0.375rem;
   border-radius: 50%;
 }
 
 .app-bar__brand-dot--primary {
-  top: 6px;
-  left: 6px;
+  top: 0.375rem;
+  left: 0.375rem;
 }
 
 .app-bar__brand-dot--secondary {
-  top: 3px;
-  left: 16px;
+  top: 0.1875rem;
+  left: 1rem;
 }
 
 .app-bar__brand-dot--tertiary {
-  top: 8px;
-  left: 26px;
+  top: 0.5rem;
+  left: 1.625rem;
 }
 
 .app-bar__brand-curve {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 32px;
-  height: 18px;
-  border-bottom: 4px solid var(--app-bars-common-app-bar-central-icon, #e42313);
-  border-right: 4px solid var(--app-bars-common-app-bar-central-icon, #e42313);
+  width: 2rem;
+  height: 1.125rem;
+  border-bottom: 0.25rem solid var(--bars-common-app-bar-central-icon, #e42313);
+  border-right: 0.25rem solid var(--bars-common-app-bar-central-icon, #e42313);
   border-left: 0;
   border-top: 0;
-  border-radius: 0 0 24px 24px;
+  border-radius: 0 0 1.5rem 1.5rem;
 }
 
 .app-bar__icon-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   flex: 0 0 auto;
   border: 0;
   border-radius: var(--icon-buttons-size-small-icon-button-small-container-shape-round, 1000px);
   background: transparent;
-  color: var(--app-bars-common-app-bar-leading-icon, #181c1e);
+  color: var(--bars-common-app-bar-leading-icon, #181c1e);
   cursor: pointer;
   transition: background-color 150ms ease, color 150ms ease;
 }
 
 .app-bar__icon-button--trailing {
-  color: var(--app-bars-common-app-bar-trailing-icon, #434749);
+  color: var(--bars-common-app-bar-trailing-icon, #434749);
 }
 
 .app-bar__icon-button:hover,
@@ -128,12 +128,12 @@
 }
 
 .app-bar__icon-button:focus-visible {
-  outline: 2px solid rgba(0, 0, 0, 0.24);
-  outline-offset: 2px;
+  outline: 0.125rem solid rgba(0, 0, 0, 0.24);
+  outline-offset: 0.125rem;
 }
 
 .app-bar__icon {
-  font-size: var(--app-bars-common-app-bar-icon-size, 24px);
+  font-size: var(--bars-common-app-bar-icon-size, 1.5rem);
   width: 1em;
   height: 1em;
   line-height: 1;

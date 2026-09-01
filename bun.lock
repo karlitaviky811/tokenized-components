@@ -24,7 +24,6 @@
         "@angular-devkit/build-angular": "~22.0.0",
         "@angular/cli": "~22.0.0",
         "@angular/compiler-cli": "~22.0.0",
-        "@tokens_variables_credix/tokenized-styles": "^1.0.7",
         "ng-packagr": "~22.0.0",
         "playwright": "^1.61.0",
         "typescript": "~6.0.0",
@@ -635,8 +634,6 @@
     "@sigstore/verify": ["@sigstore/verify@3.1.1", "", { "dependencies": { "@sigstore/bundle": "^4.0.0", "@sigstore/core": "^3.2.1", "@sigstore/protobuf-specs": "^0.5.0" } }, "sha512-qv7+G3J2cc6wwFj3yKvXOamzqhMwSk1ogPGmhpS8iXllcPrJaIIBA+4HbttlHVu1pqWTdmaCH/WE7UOC51kdoA=="],
 
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
-
-    "@tokens_variables_credix/tokenized-styles": ["@tokens_variables_credix/tokenized-styles@1.0.7", "", {}, "sha512-uzGAXXy0jZmIaXz93LZay+X4IY+XasZGeF9LZ92a+3cAZc1Uxzy3cAnmIvo4ICj6eiyzo92iA8gh/yx325CEDg=="],
 
     "@tufjs/canonical-json": ["@tufjs/canonical-json@2.0.0", "", {}, "sha512-yVtV8zsdo8qFHe+/3kw81dSLyF7D576A5cCFCi4X7B39tWT7SekaEFUnvnWJHz+9qO7qJTah1JbrDjWKqFtdWA=="],
 

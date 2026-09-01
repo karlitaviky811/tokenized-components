@@ -17,6 +17,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/for
 import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatRippleModule } from '@angular/material/core';
 import { MatSelectModule, MatSelectChange } from '@angular/material/select';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { LibCheckboxComponent } from '../checkbox/checkbox';
@@ -36,7 +37,7 @@ export type LibSelectMode = 'single' | 'multiple';
 @Component({
   selector: 'lib-select-field',
   standalone: true,
-  imports: [MatFormFieldModule, MatSelectModule, ScrollingModule, MatInputModule, MatIconModule, LibCheckboxComponent],
+  imports: [MatFormFieldModule, MatSelectModule, ScrollingModule, MatInputModule, MatIconModule, MatRippleModule, LibCheckboxComponent],
   templateUrl: './select-field.html',
   styleUrl: './select-field.css',
   providers: [

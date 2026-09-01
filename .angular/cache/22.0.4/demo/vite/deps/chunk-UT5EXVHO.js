@@ -1,9 +1,9 @@
 import {
-  coerceArray
-} from "./chunk-N4DOILP3.js";
-import {
   Platform
 } from "./chunk-R2ERB544.js";
+import {
+  coerceArray
+} from "./chunk-N4DOILP3.js";
 import {
   Service,
   setClassMetadata,
@@ -165,4 +165,4 @@ export {
   MediaMatcher,
   BreakpointObserver
 };
-//# sourceMappingURL=chunk-RUYF6U24.js.map
+//# sourceMappingURL=chunk-UT5EXVHO.js.map

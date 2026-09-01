@@ -1,4 +1,4 @@
-﻿:host.ui-tooltip-host {
+:host.ui-tooltip-host {
   display: inline-flex;
 }
 
@@ -6,9 +6,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 24px;
-  padding: 4px 8px;
-  border-radius: var(--tooltips-plain-enabled-container-plain-tooltip-container-shape, 4px);
+  min-height: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--tooltips-plain-enabled-container-plain-tooltip-container-shape, 0.25rem);
   background: var(--tooltips-plain-enabled-container-plain-tooltip-container-color, #2d3133);
   box-sizing: border-box;
 }
@@ -16,11 +16,11 @@
 .ui-tooltip__text {
   color: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-color, #eef1f3);
   font-family: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-font, 'Heebo'), sans-serif;
-  font-size: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-size, 12px);
+  font-size: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-size, 0.75rem);
   font-style: normal;
   font-weight: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-weight, 400);
-  line-height: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-line-height, 16px);
-  letter-spacing: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-tracking, 0.4px);
+  line-height: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-line-height, 1rem);
+  letter-spacing: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-tracking, 0.025rem);
 }
 
 .ui-tooltip--single-line .ui-tooltip__text {

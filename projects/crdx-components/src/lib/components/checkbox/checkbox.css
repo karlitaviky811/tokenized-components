@@ -19,7 +19,7 @@
   /* Unselected error — borde del checkbox sin marcar.
      En M3 NO hay variable de outline separada: el borde usa la misma var del icono. */
   --mat-checkbox-unselected-focus-icon-color: var(--app-checkboxes-enabled-container-checkbox-unselected-error-outline-color, #FF4965);
-  --mat-checkbox-unselected-hover-icon-color: var(--checkboxes-hovered-container-checkbox-unselected-error-hover-outline-color, #FF4965);
+  --mat-checkbox-unselected-hover-icon-color: var(--color-checkboxes-hovered-container-checkbox-unselected-error-hover-outline-color, #FF4965);
   --mat-checkbox-unselected-icon-color: var(--app-checkboxes-enabled-container-checkbox-unselected-error-outline-color, #FF4965);
 
   /* Color del texto que acompaña al checkbox */

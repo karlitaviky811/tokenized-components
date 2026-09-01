@@ -2,6 +2,22 @@
   display: block;
 }
 
+.lib-select-field__arrow-host {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
+  /* El ripple ocupa todo el circulo de 2.5rem. Sin este margen el state layer
+     queda pegado al borde del field, porque Material no separa el matSuffix. */
+  margin-right: 0.5rem;
+}
+
 :host ::ng-deep .lib-select-field__field .mat-mdc-select-arrow,
 :host ::ng-deep .lib-select-field__field .mat-mdc-select-arrow-wrapper {
   display: none !important;
@@ -28,11 +44,11 @@
 
 .lib-select-field__filter-option .lib-select-field__filter-input {
   width: 100%;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   border: none;
   outline: none;
   background: transparent;
-  font-size: 14px;
+  font-size: 0.875rem;
   box-sizing: border-box;
 }
 
@@ -43,7 +59,7 @@
   outline: none;
   background: transparent;
   font: inherit;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: inherit;
   box-sizing: border-box;
   cursor: pointer;
@@ -56,18 +72,18 @@
 .lib-select-field__option-row {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .lib-select-field__virtual-row {
-  height: 48px;
+  height: 3rem;
 }
 
 .lib-select-field__select-all-option {
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 16px;
+  padding: 0 1rem;
   box-sizing: border-box;
   cursor: pointer;
 }
@@ -89,7 +105,7 @@
 
 :host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar,
 :host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar {
-  width: 10px;
+  width: 0.625rem;
 }
 
 :host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button,

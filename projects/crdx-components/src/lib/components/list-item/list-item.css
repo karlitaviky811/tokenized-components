@@ -1,4 +1,4 @@
-﻿
+/* Host: flex column para que el contenedor interno ocupe toda la altura y no quede hueco antes del padding. */
 :host {
   display: flex;
   flex-direction: column;
@@ -9,6 +9,7 @@
 .ui-list-item__container {
   display: flex;
   flex-direction: column;
+  /* Ocupa toda la altura del host para no dejar espacio vacío antes del padding */
   flex: 1 1 0;
   min-height: 0;
 }
@@ -17,30 +18,33 @@
   padding-bottom: 0.5rem;
 }
 
+/* Quitar padding del MDC list item; el padding lo define el diseño Figma en .ui-list-item. */
 :host ::ng-deep .ui-list-option.mdc-list-item {
   padding: 0;
-  min-height: var(--lists-wip-common-typography-one-line-list-item-container-height, 56px);
-  background-color: var(--lists-wip-common-color-enabled-list-item-container-color,
+  min-height: var(--lists-wip-common-typography-one-line-list-item-container-height, 3.5rem);
+  background-color: var(--color-lists-wip-common-color-enabled-list-list-item-container-color,
       var(--app-pallete-scheme-surface-surface-container-lowest, #FFFFFF));
 }
 
-
+/* Layout interno del list-item según Figma (7878:52476, state-layer): gap 16px, padding 16px horizontal, 8px vertical. */
 .ui-list-item {
   display: flex;
   align-items: center;
-  padding: 8px 16px;
-  min-height: var(--lists-wip-common-typography-one-line-list-item-container-height, 56px);
+  padding: 0.5rem 1rem;
+  min-height: var(--lists-wip-common-typography-one-line-list-item-container-height, 3.5rem);
   position: relative;
   width: 100%;
   box-sizing: border-box;
 }
 
-
+/* Bordes entre items según Figma (List 7878:52476, Horizontal/Full-width divider).
+   Se aplica al contenedor del item para línea full-width entre cada elemento. */
 :host ::ng-deep mat-list .ui-list-option.ui-list-item--with-divider {
-  border-bottom: var(--divider-enabled-container-divider-thickness, 1px) solid
-    var(--divider-enabled-container-divider-color, #c3c7c9);
+  border-bottom: var(--divider-enabled-container-divider-thickness, 0.0625rem) solid
+    var(--color-divider-enabled-container-divider-color, #c3c7c9);
 }
 
+/* Sin borde después del último item (diseño Figma). */
 :host ::ng-deep mat-list .ui-list-option.ui-list-item--with-divider:last-child {
   border-bottom: none;
 }
@@ -54,20 +58,22 @@
   min-width: 0;
 }
 
+/* Tipografía del label según __app-tokens (lists-wip + date-pickers-docked menu list item) */
 .ui-list-item__label {
-  color: var(--lists-wip-common-color-enabled-list-item-label-text-color, #181c1e);
+  color: var(--color-lists-wip-common-color-enabled-list-list-item-label-text-color, #181c1e);
   font-family: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-font, Heebo), sans-serif;
-  font-size: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-size, 16px);
+  font-size: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-size, 1rem);
   font-style: normal;
   font-weight: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-weight, 400);
-  line-height: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-line-height, 24px);
-  letter-spacing: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-tracking, 0.5px);
+  line-height: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-line-height, 1.5rem);
+  letter-spacing: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-tracking, 0.03125rem);
 }
 
 .ui-list-item__description {
   line-height: 1.25;
 }
 
+/* Estilos compartidos para checkbox (leading y trailing) — inlineados desde el placeholder @extend */
 .ui-list-item__leading--checkbox {
   display: flex;
   align-items: center;
