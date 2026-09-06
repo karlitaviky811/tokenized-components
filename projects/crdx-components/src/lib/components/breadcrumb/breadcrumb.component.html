@@ -1,15 +1,17 @@
-<nav class="shared-breadcrumb" *ngIf="currentLabel() || parentLabel()">
-  @if (parentLabel()) {
-    <button
-      type="button"
-      class="shared-breadcrumb__parent"
-      (click)="navigateToParent()"
-    >
-      <span class="shared-breadcrumb__parent-label">{{ parentLabel() }}</span>
-    </button>
-    <span class="shared-breadcrumb__separator">/</span>
-  }
-  <span class="shared-breadcrumb__current">
-    <span class="shared-breadcrumb__current-label">{{ currentLabel() }}</span>
-  </span>
-</nav>
+@if (currentLabel() || parentLabel()) {
+  <nav class="lib-breadcrumb">
+    @if (parentLabel()) {
+      <button
+        type="button"
+        class="lib-breadcrumb__parent"
+        (click)="navigateToParent()"
+      >
+        <span class="lib-breadcrumb__parent-label">{{ parentLabel() }}</span>
+      </button>
+      <span class="lib-breadcrumb__separator">/</span>
+    }
+    <span class="lib-breadcrumb__current">
+      <span class="lib-breadcrumb__current-label">{{ currentLabel() }}</span>
+    </span>
+  </nav>
+}

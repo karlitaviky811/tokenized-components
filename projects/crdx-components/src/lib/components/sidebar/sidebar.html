@@ -1,46 +1,46 @@
-<aside class="sidebar" role="navigation" aria-label="Navegación principal" [class.sidebar--show-labels]="hasLabels()">
-  <div class="sidebar__header">
+<aside class="lib-sidebar" role="navigation" aria-label="Navegación principal" [class.lib-sidebar--show-labels]="hasLabels()">
+  <div class="lib-sidebar__header">
     <ng-content select="[sidebar-header]"></ng-content>
   </div>
 
-  <nav class="sidebar__nav" aria-label="Secciones">
-    <ul class="sidebar__list">
+  <nav class="lib-sidebar__nav" aria-label="Secciones">
+    <ul class="lib-sidebar__list">
       @for (item of items(); track trackById($index, item)) {
         <li
-          class="sidebar__item"
-          [class.sidebar__item--selected]="isSelected(item)"
-          [class.sidebar__item--disabled]="item.disabled"
+          class="lib-sidebar__item"
+          [class.lib-sidebar__item--selected]="isSelected(item)"
+          [class.lib-sidebar__item--disabled]="item.disabled"
         >
           <button
             type="button"
-            class="sidebar__button"
-            [class.sidebar__button--expanded]="hasLabels()"
-            [class.sidebar__button--selected]="isSelected(item)"
+            class="lib-sidebar__button"
+            [class.lib-sidebar__button--expanded]="hasLabels()"
+            [class.lib-sidebar__button--selected]="isSelected(item)"
             [attr.aria-label]="item.ariaLabel ?? item.label"
             [attr.aria-current]="isSelected(item) ? 'page' : null"
             [attr.title]="shouldShowLabel(item) ? null : (item.ariaLabel || item.label)"
             [disabled]="item.disabled"
             (click)="onSelect(item)"
           >
-            <span class="sidebar__active" [class.sidebar__active--expanded]="hasLabels()">
+            <span class="lib-sidebar__active" [class.lib-sidebar__active--expanded]="hasLabels()">
               @if (iconRef(item); as iconSrc) {
-                <span class="sidebar__icon" aria-hidden="true">
+                <span class="lib-sidebar__icon" aria-hidden="true">
                   <ng-container
                     [ngTemplateOutlet]="renderIcon"
-                    [ngTemplateOutletContext]="{ $implicit: iconSrc, svgClass: 'sidebar__icon-svg', imgClass: 'sidebar__icon-img' }"
+                    [ngTemplateOutletContext]="{ $implicit: iconSrc, svgClass: 'lib-sidebar__icon-svg', imgClass: 'lib-sidebar__icon-img' }"
                   ></ng-container>
                 </span>
               }
 
               @if (shouldShowLabel(item)) {
-                <span class="sidebar__label">{{ item.label }}</span>
+                <span class="lib-sidebar__label">{{ item.label }}</span>
               }
 
               @if (accessoryRef(item); as accessorySrc) {
-                <span class="sidebar__accessory" aria-hidden="true">
+                <span class="lib-sidebar__accessory" aria-hidden="true">
                   <ng-container
                     [ngTemplateOutlet]="renderIcon"
-                    [ngTemplateOutletContext]="{ $implicit: accessorySrc, svgClass: 'sidebar__accessory-svg', imgClass: 'sidebar__accessory-img' }"
+                    [ngTemplateOutletContext]="{ $implicit: accessorySrc, svgClass: 'lib-sidebar__accessory-svg', imgClass: 'lib-sidebar__accessory-img' }"
                   ></ng-container>
                 </span>
               }
@@ -51,7 +51,7 @@
     </ul>
   </nav>
 
-  <div class="sidebar__footer">
+  <div class="lib-sidebar__footer">
     <ng-content select="[sidebar-footer]"></ng-content>
   </div>
 

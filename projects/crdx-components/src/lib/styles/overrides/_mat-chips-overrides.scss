@@ -1,71 +1,44 @@
 @use '@angular/material' as mat;
 
-/// Chips overrides (M3). Fuente: CDN styles2.min.css (runtime, via index.html).
-///
-/// Alcance: el CDN solo publica el tipo `filter`. Assist, input y suggestion
-/// aun no tienen tokens, asi que este archivo cubre filter chip unicamente.
-///
-/// Esquema de nombres del CDN:
-///   - dimensiones -> --chips-wip-filter-*          (sin prefijo de tipo)
-///   - colores     -> --color-chips-wip-filter-*
-///   - fuentes     -> --string-chips-wip-filter-*
-/// Los valores ya vienen en rem, por eso no se multiplican por 1px.
-///
-/// Typos del origen que se consumen tal cual (corregirlos requiere Figma):
-///   - container-flter-chip-selected-outline-width  (falta la i de "filter")
-///   - label-text-silter-chip-label-text-size       ("silter" por "filter")
 html {
   @include mat.chips-overrides((
-    // ── Forma y densidad ────────────────────────────────────────────────
     container-shape-radius: var(--chips-wip-filter-enabled-container-filter-chip-container-shape, 0.5rem),
     container-height: var(--chips-wip-filter-enabled-container-filter-chip-container-height, 2rem),
 
-    // ── Outline ─────────────────────────────────────────────────────────
     outline-width: var(--chips-wip-filter-enabled-container-filter-chip-unselected-outline-width, 0.063rem),
     outline-color: var(--color-chips-wip-filter-enabled-container-filter-chip-unselected-outline-color, #c3c7c9),
     flat-selected-outline-width: var(--chips-wip-filter-enabled-container-flter-chip-selected-outline-width, 0),
 
-    // ── Contenedor ──────────────────────────────────────────────────────
     elevated-container-color: var(--color-chips-wip-filter-enabled-container-filter-chip-elevated-unselected-container-color, #f1f4f6),
     elevated-selected-container-color: var(--color-chips-wip-filter-enabled-container-filter-chip-elevated-selected-container-color, #5b5f61),
 
-    // ── Label ───────────────────────────────────────────────────────────
     label-text-font: var(--string-chips-wip-filter-enabled-label-text-filter-chip-label-text-font, Heebo),
     label-text-size: var(--chips-wip-filter-enabled-label-text-silter-chip-label-text-size, 0.875rem),
     label-text-line-height: var(--chips-wip-filter-enabled-label-text-filter-chip-label-text-line-height, 1.25rem),
     label-text-tracking: var(--chips-wip-filter-enabled-label-text-filter-chip-label-text-tracking, 0.006rem),
 
-    // El token de weight resuelve a --font-weight-medium, que el CDN publica
-    // como 31.25rem (500/16). font-weight no admite unidades de longitud, asi
-    // que se usa el literal para no romper el peso del label.
     label-text-weight: 500,
 
     label-text-color: var(--color-chips-wip-filter-enabled-label-text-filter-chip-unselected-label-text-color, #434749),
     selected-label-text-color: var(--color-chips-wip-filter-enabled-label-text-filter-chip-selected-label-text-color, #ffffff),
 
-    // ── Iconos ──────────────────────────────────────────────────────────
     with-icon-icon-size: var(--chips-wip-filter-enabled-icon-filter-chip-with-icon-size, 1.125rem),
     with-icon-icon-color: var(--color-chips-wip-filter-enabled-icon-filter-chip-with-leading-icon-unselected-leading-icon-color, #e42313),
     with-icon-selected-icon-color: var(--color-chips-wip-filter-enabled-icon-filter-chip-with-leading-icon-selected-leading-icon-color, #ffffff),
     with-trailing-icon-trailing-icon-color: var(--color-chips-wip-filter-enabled-icon-filter-chip-with-trailing-icon-unselected-trailing-icon-color, #434749),
     selected-trailing-icon-color: var(--color-chips-wip-filter-enabled-icon-filter-chip-with-trailing-icon-selected-trailing-icon-color, #ffffff),
 
-    // ── Hover ───────────────────────────────────────────────────────────
     hover-state-layer-color: var(--color-chips-wip-filter-hovered-state-layer-filter-chip-unselected-hover-state-layer-color, #434749),
     hover-state-layer-opacity: 0.08,
     selected-hover-state-layer-color: var(--color-chips-wip-filter-hovered-state-layer-filter-chip-selected-hover-state-layer-color, #434749),
     selected-hover-state-layer-opacity: 0.08,
 
-    // ── Focus ───────────────────────────────────────────────────────────
     focus-state-layer-color: var(--color-chips-wip-filter-focused-state-layer-filter-chip-unselected-focus-state-layer-color, #434749),
     focus-state-layer-opacity: 0.1,
     focus-outline-color: var(--color-chips-wip-filter-focused-container-filter-chip-unselected-focus-outline-color, #434749),
     selected-focus-state-layer-color: var(--color-chips-wip-filter-focused-state-layer-filter-chip-selected-focus-state-layer-color, #434749),
     selected-focus-state-layer-opacity: 0.1,
 
-    // ── Disabled ────────────────────────────────────────────────────────
-    // Las opacidades del CDN llegan como 2.375rem (38/16), invalidas para
-    // opacity, asi que se usan los literales de M3.
     disabled-label-text-color: var(--color-chips-wip-filter-disabled-label-text-filter-chip-disabled-label-text-color, #181c1e),
     disabled-outline-color: var(--color-chips-wip-filter-disabled-container-filter-chip-disabled-unselected-outline-color, #181c1e),
     disabled-container-opacity: 1,

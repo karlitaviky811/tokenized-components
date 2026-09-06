@@ -55,9 +55,9 @@
             role="button"
             tabindex="0"
             (mousedown)="$event.stopPropagation()"
-            (click)="toggledAllSelection(); $event.stopPropagation()"
-            (keydown.enter)="toggledAllSelection(); $event.preventDefault(); $event.stopPropagation()"
-            (keydown.space)="toggledAllSelection(); $event.preventDefault(); $event.stopPropagation()"
+            (click)="toggleAllSelection(); $event.stopPropagation()"
+            (keydown.enter)="toggleAllSelection(); $event.preventDefault(); $event.stopPropagation()"
+            (keydown.space)="toggleAllSelection(); $event.preventDefault(); $event.stopPropagation()"
           >
             <span class="lib-select-field__option-row">
               <lib-checkbox

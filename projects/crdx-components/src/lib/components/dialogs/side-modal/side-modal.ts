@@ -2,7 +2,7 @@ import { animate, state, style, transition, trigger,AnimationEvent } from '@angu
 import { DialogRef,DIALOG_DATA } from '@angular/cdk/dialog';
 import { CommonModule, NgComponentOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, Type, WritableSignal } from '@angular/core';
-import { SideModalHeaderConfig } from './side-modal.state';
+import { SideModalHeaderConfig } from './side-modal.store';
 
 
 @Component({
@@ -23,9 +23,9 @@ export class SideModal {
   readonly dialogData = inject(DIALOG_DATA);
   readonly dialogRef = inject(DialogRef);
 
-  readonly content: Type<any> = this.dialogData.content;
+  readonly content: Type<unknown> = this.dialogData.content;
   readonly title:string = this.dialogData.title;
-  readonly footer: Type<any> | undefined = this.dialogData.footer;
+  readonly footer: Type<unknown> | undefined = this.dialogData.footer;
   readonly headerConfig: SideModalHeaderConfig | undefined = this.dialogData.headerConfig;
   readonly dialogState:WritableSignal<'open' | 'closed'> = this.dialogData.dialogState;
 

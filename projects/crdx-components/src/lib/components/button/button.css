@@ -1,4 +1,4 @@
-﻿:host {
+:host {
   display: inline-block;
 }
 
@@ -116,16 +116,18 @@
   --lib-mat-btn-line-height: var(--buttons-wip-size-medium-button-medium-label-text-line-height);
   --lib-mat-btn-tracking: var(--buttons-wip-size-medium-button-medium-label-text-tracking);
   --lib-mat-btn-icon-size: var(--buttons-wip-size-medium-button-medium-icon-size);
+  --lib-mat-btn-font-family: var(--string-buttons-wip-size-medium-button-medium-label-text-font, Heebo);
+  --lib-mat-btn-font-weight: var(--buttons-wip-size-medium-button-medium-label-text-weight, 500);
 
   min-height: var(--lib-mat-btn-height);
   height: var(--lib-mat-btn-height);
   padding-left: var(--lib-mat-btn-padding-x) !important;
-  padding-right: var(--lib-mat-btn-padding-x) !important;
+  padding-right: var(--lib-mat-btn-padding-x-right) !important;
   color: var(--color-buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
-  font-family: var(--string-buttons-wip-size-medium-button-medium-label-text-font, Heebo);
+  font-family: var(--lib-mat-btn-font-family);
   font-size: var(--lib-mat-btn-font-size);
   font-style: normal;
-  font-weight: var(--buttons-wip-size-medium-button-medium-label-text-weight, 500);
+  font-weight: var(--lib-mat-btn-font-weight);
   line-height: var(--lib-mat-btn-line-height);
   letter-spacing: var(--lib-mat-btn-tracking);
   border-radius: var(--lib-mat-btn-radius);
@@ -188,19 +190,8 @@
   --lib-mat-btn-line-height: var(--buttons-wip-size-xsmall-button-xsmall-label-text-line-height);
   --lib-mat-btn-tracking: var(--buttons-wip-size-xsmall-button-xsmall-label-text-tracking);
   --lib-mat-btn-icon-size: var(--buttons-wip-size-xsmall-button-xsmall-icon-size);
-
-  min-height: var(--lib-mat-btn-height);
-  height: var(--lib-mat-btn-height);
-  padding-left: var(--lib-mat-btn-padding-x) !important;
-  padding-right: var(--lib-mat-btn-padding-x-right) !important;
-  color: var(--color-buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
-  font-family: var(--string-buttons-wip-size-xsmall-button-xsmall-label-text-font, Heebo);
-  font-size: var(--lib-mat-btn-font-size);
-  font-style: normal;
-  font-weight: var(--buttons-wip-size-xsmall-button-xsmall-label-text-weight, 500);
-  line-height: var(--lib-mat-btn-line-height);
-  letter-spacing: var(--lib-mat-btn-tracking);
-  border-radius: var(--lib-mat-btn-radius);
+  --lib-mat-btn-font-family: var(--string-buttons-wip-size-xsmall-button-xsmall-label-text-font, Heebo);
+  --lib-mat-btn-font-weight: var(--buttons-wip-size-xsmall-button-xsmall-label-text-weight, 500);
 }
 
 .lib-mat-btn--xsmall .mat-icon,
@@ -225,19 +216,8 @@
   --lib-mat-btn-line-height: var(--buttons-wip-size-small-button-small-label-text-line-height);
   --lib-mat-btn-tracking: var(--buttons-wip-size-small-button-small-label-text-tracking);
   --lib-mat-btn-icon-size: var(--buttons-wip-size-small-button-small-icon-size);
-
-  min-height: var(--lib-mat-btn-height);
-  height: var(--lib-mat-btn-height);
-  padding-left: var(--lib-mat-btn-padding-x) !important;
-  padding-right: var(--lib-mat-btn-padding-x-right) !important;
-  color: var(--color-buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
-  font-family: var(--string-buttons-wip-size-small-button-small-label-text-font, Heebo);
-  font-size: var(--lib-mat-btn-font-size);
-  font-style: normal;
-  font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500) !important;
-  line-height: var(--lib-mat-btn-line-height);
-  letter-spacing: var(--lib-mat-btn-tracking);
-  border-radius: var(--lib-mat-btn-radius);
+  --lib-mat-btn-font-family: var(--string-buttons-wip-size-small-button-small-label-text-font, Heebo);
+  --lib-mat-btn-font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500) !important;
 }
 
 .lib-mat-btn--small .mat-icon,
@@ -263,19 +243,8 @@
   --lib-mat-btn-line-height: var(--buttons-wip-size-medium-button-medium-label-text-line-height);
   --lib-mat-btn-tracking: var(--buttons-wip-size-medium-button-medium-label-text-tracking);
   --lib-mat-btn-icon-size: var(--buttons-wip-size-medium-button-medium-icon-size);
-
-  min-height: var(--lib-mat-btn-height);
-  height: var(--lib-mat-btn-height);
-  padding-left: var(--lib-mat-btn-padding-x) !important;
-  padding-right: var(--lib-mat-btn-padding-x-right) !important;
-  color: var(--color-buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
-  font-family: var(--string-buttons-wip-size-medium-button-medium-label-text-font, Heebo);
-  font-size: var(--lib-mat-btn-font-size);
-  font-style: normal;
-  font-weight: var(--buttons-wip-size-medium-button-medium-label-text-weight, 500) !important;
-  line-height: var(--lib-mat-btn-line-height);
-  letter-spacing: var(--lib-mat-btn-tracking);
-  border-radius: var(--lib-mat-btn-radius);
+  --lib-mat-btn-font-family: var(--string-buttons-wip-size-medium-button-medium-label-text-font, Heebo);
+  --lib-mat-btn-font-weight: var(--buttons-wip-size-medium-button-medium-label-text-weight, 500) !important;
 }
 
 .lib-mat-btn--medium .mat-icon,
@@ -302,19 +271,8 @@
   --lib-mat-btn-line-height: var(--buttons-wip-size-large-button-large-label-text-line-height);
   --lib-mat-btn-tracking: var(--buttons-wip-size-large-button-large-label-text-tracking);
   --lib-mat-btn-icon-size: var(--buttons-wip-size-large-button-large-icon-size);
-
-  min-height: var(--lib-mat-btn-height);
-  height: var(--lib-mat-btn-height);
-  padding-left: var(--lib-mat-btn-padding-x) !important;
-  padding-right: var(--lib-mat-btn-padding-x-right) !important;
-  color: var(--color-buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
-  font-family: var(--string-buttons-wip-size-large-button-large-label-text-font, Heebo);
-  font-size: var(--lib-mat-btn-font-size);
-  font-style: normal;
-  font-weight: var(--buttons-wip-size-large-button-large-label-text-weight, 400) !important;
-  line-height: var(--lib-mat-btn-line-height);
-  letter-spacing: var(--lib-mat-btn-tracking);
-  border-radius: var(--lib-mat-btn-radius);
+  --lib-mat-btn-font-family: var(--string-buttons-wip-size-large-button-large-label-text-font, Heebo);
+  --lib-mat-btn-font-weight: var(--buttons-wip-size-large-button-large-label-text-weight, 400) !important;
 }
 
 .lib-mat-btn--large .mat-icon,
@@ -341,19 +299,8 @@
   --lib-mat-btn-line-height: var(--buttons-wip-size-xlarge-button-xlarge-label-text-line-height);
   --lib-mat-btn-tracking: var(--buttons-wip-size-xlarge-button-xlarge-label-text-tracking);
   --lib-mat-btn-icon-size: var(--buttons-wip-size-xlarge-button-xlarge-icon-size);
-
-  min-height: var(--lib-mat-btn-height);
-  height: var(--lib-mat-btn-height);
-  padding-left: var(--lib-mat-btn-padding-x) !important;
-  padding-right: var(--lib-mat-btn-padding-x-right) !important;
-  color: var(--color-buttons-wip-color-filled-enabled-button-filled-label-color, #fff);
-  font-family: var(--string-buttons-wip-size-xlarge-button-xlarge-label-text-font, Heebo);
-  font-size: var(--lib-mat-btn-font-size);
-  font-style: normal;
-  font-weight: var(--buttons-wip-size-xlarge-button-xlarge-label-text-weight, 400) !important;
-  line-height: var(--lib-mat-btn-line-height);
-  letter-spacing: var(--lib-mat-btn-tracking);
-  border-radius: var(--lib-mat-btn-radius);
+  --lib-mat-btn-font-family: var(--string-buttons-wip-size-xlarge-button-xlarge-label-text-font, Heebo);
+  --lib-mat-btn-font-weight: var(--buttons-wip-size-xlarge-button-xlarge-label-text-weight, 400) !important;
 }
 
 .lib-mat-btn--xlarge .mat-icon,

@@ -1,4 +1,4 @@
-.shared-breadcrumb {
+.lib-breadcrumb {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -15,7 +15,7 @@
   letter-spacing: var(--breadcrumbs-label-enabled-breadcrumb-label-text-tracking, 0.015625rem);
 }
 
-.shared-breadcrumb__parent {
+.lib-breadcrumb__parent {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -40,7 +40,7 @@
   );
 }
 
-.shared-breadcrumb__parent::after {
+.lib-breadcrumb__parent::after {
   content: '';
   position: absolute;
   right: 0;
@@ -58,8 +58,8 @@
   pointer-events: none;
 }
 
-.shared-breadcrumb__parent:hover,
-.shared-breadcrumb__parent:focus-visible {
+.lib-breadcrumb__parent:hover,
+.lib-breadcrumb__parent:focus-visible {
   color: var(
     --color-breadcrumbs-label-hovered-breadcrumb-hovered-label-text-color,
     var(--color-pallete-scheme-surface-on-surface, #181c1e)
@@ -71,7 +71,7 @@
   outline: none;
 }
 
-.shared-breadcrumb__parent:focus-visible {
+.lib-breadcrumb__parent:focus-visible {
   outline: calc(
       var(--breadcrumbs-label-focused-breadcrumb-focused-indicator-weight, 0.1875rem)
     )
@@ -79,7 +79,7 @@
   outline-offset: 0.125rem;
 }
 
-.shared-breadcrumb__parent:active {
+.lib-breadcrumb__parent:active {
   color: var(
     --color-breadcrumbs-label-pressed-breadcrumb-pressed-label-text-color,
     var(--color-pallete-scheme-surface-on-surface, #181c1e)
@@ -90,11 +90,11 @@
   );
 }
 
-.shared-breadcrumb__parent:active::after {
+.lib-breadcrumb__parent:active::after {
   opacity: 1;
 }
 
-.shared-breadcrumb__separator {
+.lib-breadcrumb__separator {
   display: inline-flex;
   align-items: center;
   color: var(--color-breadcrumbs-divider-breadcrumb-divider-color, #181c1e);
@@ -107,7 +107,7 @@
   letter-spacing: var(--breadcrumbs-divider-breadcrumb-divider-text-tracking, 0.015625rem);
 }
 
-.shared-breadcrumb__current {
+.lib-breadcrumb__current {
   display: inline-flex;
   align-items: center;
   padding: 0.625rem 0.75rem;
@@ -132,7 +132,7 @@
   );
 }
 
-.shared-breadcrumb__current::after {
+.lib-breadcrumb__current::after {
   content: '';
   position: absolute;
   right: 0;
@@ -150,8 +150,8 @@
   pointer-events: none;
 }
 
-.shared-breadcrumb__current:hover,
-.shared-breadcrumb__current:focus-visible {
+.lib-breadcrumb__current:hover,
+.lib-breadcrumb__current:focus-visible {
   background-color: var(
     --color-breadcrumbs-label-hovered-breadcrumb-hovered-state-layer-color,
     rgba(24, 28, 30, 0.08)
@@ -159,7 +159,7 @@
   outline: none;
 }
 
-.shared-breadcrumb__current:active {
+.lib-breadcrumb__current:active {
   color: var(
     --color-breadcrumbs-label-pressed-breadcrumb-pressed-label-text-color,
     #181c1e
@@ -170,11 +170,11 @@
   );
 }
 
-.shared-breadcrumb__current:active::after {
+.lib-breadcrumb__current:active::after {
   opacity: 1;
 }
 
-.shared-breadcrumb__current-label {
+.lib-breadcrumb__current-label {
   position: relative;
   z-index: 1;
   text-align: center;
@@ -185,20 +185,20 @@
   font-weight: inherit;
 }
 
-.shared-breadcrumb__parent-label {
+.lib-breadcrumb__parent-label {
   position: relative;
   z-index: 1;
 }
 
-.shared-breadcrumb__current:active .shared-breadcrumb__current-label {
+.lib-breadcrumb__current:active .lib-breadcrumb__current-label {
   font-weight: var(
     --breadcrumbs-label-enabled-breadcrumb-label-text-weight,
     400
   );
 }
 
-.shared-breadcrumb__current:hover .shared-breadcrumb__current-label,
-.shared-breadcrumb__current:focus-visible .shared-breadcrumb__current-label {
+.lib-breadcrumb__current:hover .lib-breadcrumb__current-label,
+.lib-breadcrumb__current:focus-visible .lib-breadcrumb__current-label {
   font-weight: var(
     --breadcrumbs-label-enabled-breadcrumb-label-text-weight,
     400

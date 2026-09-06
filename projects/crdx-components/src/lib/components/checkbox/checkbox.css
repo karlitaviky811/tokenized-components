@@ -10,7 +10,7 @@
 }
 
 
-:host ::ng-deep .es-error {
+:host ::ng-deep .lib-checkbox--error {
   /* Selected error — relleno del checkbox marcado (Material 21 / M3) */
   --mat-checkbox-selected-focus-icon-color: var(--app-checkboxes-enabled-container-checkbox-selected-error-container-color, #FF4965);
   --mat-checkbox-selected-hover-icon-color: var(--app-checkboxes-enabled-container-checkbox-selected-error-container-color, #FF4965);

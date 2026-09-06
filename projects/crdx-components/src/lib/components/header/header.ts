@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { resolveUiIconResource, UiIconName, UI_ICON_NAMES } from '../../icons/register-icons';
 
 export interface HeaderAction {
@@ -11,12 +11,11 @@ export interface HeaderAction {
 @Component({
   selector: 'lib-header',
   standalone: true,
-  imports: [],
   templateUrl: './header.html',
   styleUrl: './header.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class LibHeaderComponent {
   readonly showLeading = input(true);
   readonly leadingIcon = input('icon-menu');
   readonly leadingIconPath = input<string | null>(null);
@@ -29,8 +28,8 @@ export class HeaderComponent {
   ]);
   readonly iconBasePath = input('assets/icons');
 
-  @Output() readonly leadingClick = new EventEmitter<void>();
-  @Output() readonly actionClick = new EventEmitter<HeaderAction>();
+  readonly leadingClick = output<void>();
+  readonly actionClick = output<HeaderAction>();
 
   protected readonly iconAssetBasePath = computed(() =>
     this.normalizeAssetBasePath(this.iconBasePath())

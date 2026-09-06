@@ -1,6 +1,13 @@
+:host {
+  --lib-alert-modal-bg: var(--app-dialogs-enabled-container-color, #ffffff);
+  --lib-alert-modal-text: var(--app-colors-neutral-dark, #3e3e3e);
+  --lib-alert-modal-border: var(--app-colors-neutral-border, #d2d2d2);
+  --lib-alert-modal-error: var(--app-colors-error, #ff4965);
+}
+
 .container {
-    --color: #FFFFFF;
-    --message-color: #3E3E3E;
+    --color: var(--lib-alert-modal-bg);
+    --message-color: var(--lib-alert-modal-text);
     --message-font-size: 2rem;
     --message-font-weight: 700;
 
@@ -27,7 +34,7 @@
     font-size: 5.625rem;
     width: 5.625rem;
     height: 5.625rem;
-    color: red;
+    color: var(--lib-alert-modal-error);
     justify-content: center;
     align-items: center;
 }
@@ -73,7 +80,7 @@
 }
 
 .container .extraBlock-content .separator {
-    color: #D2D2D2;
+    color: var(--lib-alert-modal-border);
 }
 
 .container .title {

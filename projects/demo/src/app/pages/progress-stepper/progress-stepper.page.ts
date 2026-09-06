@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CircularProgressStepper } from 'crdx-components';
+import { LibCircularProgressStepperComponent } from 'crdx-components';
 
 @Component({
   selector: 'app-progress-stepper-page',
   standalone: true,
-  imports: [CircularProgressStepper],
+  imports: [LibCircularProgressStepperComponent],
   templateUrl: './progress-stepper.page.html',
   styleUrl: './progress-stepper.page.scss',
 })

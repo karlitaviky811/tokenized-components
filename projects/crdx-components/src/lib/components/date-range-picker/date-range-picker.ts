@@ -4,6 +4,7 @@ import {
   effect,
   input,
   output,
+  signal,
 } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -64,7 +65,7 @@ export class LibDateRangePickerComponent {
   });
 
   // True when the user clicked Apply (not Cancel/outside-close)
-  protected _applyPending = false;
+  protected readonly _applyPending = signal(false);
 
   constructor() {
     effect(() => {
@@ -84,14 +85,14 @@ export class LibDateRangePickerComponent {
   }
 
   protected _markApply(): void {
-    this._applyPending = true;
+    this._applyPending.set(true);
   }
 
   protected _onClosed(): void {
-    if (this._applyPending) {
+    if (this._applyPending()) {
       const start = this._range.controls.start.value;
       const end   = this._range.controls.end.value;
-      if (start && end) {
+      if (start && end && start <= end) {
         this.rangeChange.emit({ start, end });
       }
     } else {
@@ -101,6 +102,6 @@ export class LibDateRangePickerComponent {
         { emitEvent: false },
       );
     }
-    this._applyPending = false;
+    this._applyPending.set(false);
   }
 }

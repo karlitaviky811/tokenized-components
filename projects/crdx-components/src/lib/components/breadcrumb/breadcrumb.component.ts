@@ -1,40 +1,33 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, inject, signal } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject, output, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
-  selector: 'lib-breadcrumb, shared-breadcrumb',
+  selector: 'lib-breadcrumb',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './breadcrumb.component.html',
   styleUrl: './breadcrumb.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SharedBreadcrumbComponent implements OnInit {
+export class LibBreadcrumbComponent {
   private readonly route = inject(ActivatedRoute, { optional: true });
-  private readonly router = inject(Router, { optional: true });
-  @Output() parentNavigate = new EventEmitter<string>();
 
-  readonly parentLabel = signal<string>('');
-  readonly parentUrl = signal<string>('');
-  readonly currentLabel = signal<string>('');
+  readonly parentNavigate = output<string>();
 
-  ngOnInit(): void {
-    const currentRoute = this.route;
-    if (!currentRoute) {
-      return;
-    }
+  readonly parentLabel = signal('');
+  readonly parentUrl = signal('');
+  readonly currentLabel = signal('');
 
-    const parentRoute = currentRoute.parent;
-    const parentData = parentRoute?.snapshot.data ?? {};
-    const currentData = currentRoute.snapshot.data ?? {};
+  constructor() {
+    const route = this.route;
+    if (!route) return;
 
-    const parentLabel = parentData['breadcrumb'] ?? currentData['parentBreadcrumb'] ?? '';
-    const parentUrl = parentData['url'] ?? currentData['parentUrl'] ?? '/';
-    const currentLabel = currentData['breadcrumb'] ?? '';
+    const parentData = route.parent?.snapshot.data ?? {};
+    const currentData = route.snapshot.data ?? {};
 
-    this.parentLabel.set(parentLabel);
-    this.parentUrl.set(parentUrl);
-    this.currentLabel.set(currentLabel);
+    this.parentLabel.set(parentData['breadcrumb'] ?? currentData['parentBreadcrumb'] ?? '');
+    this.parentUrl.set(parentData['url'] ?? currentData['parentUrl'] ?? '/');
+    this.currentLabel.set(currentData['breadcrumb'] ?? '');
   }
 
   navigateToParent(): void {
@@ -44,4 +37,3 @@ export class SharedBreadcrumbComponent implements OnInit {
     }
   }
 }
-

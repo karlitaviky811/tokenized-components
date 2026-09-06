@@ -1,8 +1,0 @@
-C:\Users\ktovar\myorg\lib-ui\scripts\tokens\codemod-remove-calc-1px.
-ps1 : No se encuentra ning£n par metro de posici¢n que acepte el 
-argumento 'powershell'.
-    + CategoryInfo          : InvalidArgument: (:) [codemod-remove- 
-   calc-1px.ps1], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : PositionalParameterNotFound,codemod-r 
-   emove-calc-1px.ps1
- 

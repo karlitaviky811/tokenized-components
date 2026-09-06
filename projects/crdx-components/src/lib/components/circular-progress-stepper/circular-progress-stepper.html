@@ -1,5 +1,5 @@
 <div
-  class="progressbar"
+  class="lib-progress-stepper"
   [class.no-js]="!jsEnabled()"
   [attr.role]="jsEnabled() ? 'progressbar' : null"
   [attr.aria-valuemin]="0"
@@ -12,9 +12,9 @@
   [style.--color-bar-progress]="colorBarProgress()"
   [style.--shadow-shadow-bar-progress]="shadowColorBarProgress()">
 
-  <div class="progress-content">
-    <span class="step-text">Paso</span>
-    <span class="step-number">{{ `${currentStep()} de ${totalsStep()}` }}</span>
+  <div class="lib-progress-stepper__content">
+    <span class="lib-progress-stepper__step-text">Paso</span>
+    <span class="lib-progress-stepper__step-number">{{ `${currentStep()} de ${totalSteps()}` }}</span>
   </div>
   @if (!jsEnabled()) {
     <span>{{ noJsMessage() }}</span>

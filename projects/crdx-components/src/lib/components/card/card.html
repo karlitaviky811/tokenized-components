@@ -8,11 +8,11 @@
   (click)="onCardClick()"
   (keydown)="onCardKeydown($event)"
 >
-  <div class="ui-card__row" [style.min-height]="height()">
-    <div class="ui-card__content">
+  <div class="lib-card__row" [style.min-height]="height()">
+    <div class="lib-card__content">
       @if (leadingKind() === 'icon') {
         <div
-          class="ui-card__leading ui-card__leading--icon"
+          class="lib-card__leading lib-card__leading--icon"
           aria-hidden="true"
           [style.width]="leadingContainerSize()"
           [style.height]="leadingContainerSize()"
@@ -34,25 +34,25 @@
           }
         </div>
       } @else {
-        <div class="ui-card__avatar" aria-hidden="true">
+        <div class="lib-card__avatar" aria-hidden="true">
           {{ initial() }}
         </div>
       }
 
-      <div class="ui-card__text">
-        <p class="ui-card__title">{{ title() }}</p>
+      <div class="lib-card__text">
+        <p class="lib-card__title">{{ title() }}</p>
         @if (subhead()) {
-          <p class="ui-card__subhead">{{ subhead() }}</p>
+          <p class="lib-card__subhead">{{ subhead() }}</p>
         }
       </div>
     </div>
 
-    <div class="ui-card__trailing">
+    <div class="lib-card__trailing">
       <ng-content select="[slot=trailing]" />
     </div>
 
     @if (showMedia()) {
-      <div class="ui-card__media" [class.ui-card__media--empty]="!hasMedia()">
+      <div class="lib-card__media" [class.lib-card__media--empty]="!hasMedia()">
         @if (hasMedia()) {
           @if (isMediaImage()) {
             <img [src]="mediaIcon()" [alt]="mediaAlt()" />
@@ -66,12 +66,12 @@
     }
   </div>
 
-  <div class="ui-card__body">
+  <div class="lib-card__body">
     <ng-content />
   </div>
 
-  <span class="ui-card__state-layer" aria-hidden="true"></span>
+  <span class="lib-card__state-layer" aria-hidden="true"></span>
   @if (state() === 'focused') {
-    <span class="ui-card__focus-indicator" aria-hidden="true"></span>
+    <span class="lib-card__focus-indicator" aria-hidden="true"></span>
   }
 </div>

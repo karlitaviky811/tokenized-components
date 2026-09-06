@@ -11,9 +11,9 @@ import { ChangeDetectionStrategy, Component, effect, inject, Injector, Type, Wri
 })
 export class ContainerCustom {
   private readonly dialogData = inject(DIALOG_DATA);
-  readonly content: Type<any> = this.dialogData.content;
+  readonly content: Type<unknown> = this.dialogData.content;
   readonly dialogState: WritableSignal<'open' | 'closed'> = this.dialogData.dialogState;
-  readonly injector:Injector;
+  readonly injector: Injector;
   private readonly dialogRef = inject(DialogRef);
 
   constructor() {
@@ -30,9 +30,5 @@ export class ContainerCustom {
       ]
     });
   }
-
-
-
-
 
 }

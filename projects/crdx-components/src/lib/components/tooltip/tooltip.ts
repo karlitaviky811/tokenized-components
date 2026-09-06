@@ -11,7 +11,7 @@ export type LibTooltipType = 'single-line' | 'multi-line';
   styleUrl: './tooltip.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    '[class.ui-tooltip-host]': 'true',
+    '[class.lib-tooltip-host]': 'true',
   },
 })
 export class LibTooltipComponent {
@@ -25,7 +25,7 @@ export class LibTooltipComponent {
   maxWidth = input<string | null>(null);
 
   readonly classes = computed(() => ({
-    'ui-tooltip--single-line': this.type() === 'single-line',
-    'ui-tooltip--multi-line': this.type() === 'multi-line',
+    'lib-tooltip--single-line': this.type() === 'single-line',
+    'lib-tooltip--multi-line': this.type() === 'multi-line',
   }));
 }

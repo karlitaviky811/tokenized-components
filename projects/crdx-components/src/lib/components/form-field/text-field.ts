@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, input, model, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, input, model, output, viewChild } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { DisabledReason, FormValueControl, ValidationError, WithOptionalFieldTree } from '@angular/forms/signals';
 import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 
@@ -61,6 +61,20 @@ export class LibTextFieldComponent implements FormValueControl<string> {
     () => this.showSuffix() || (this.suffixIconBand() && (!!this.suffixIcon() || !!this.suffixTextIcon()))
   );
   readonly shouldShowError = computed(() => this.invalid() || !!this.error());
+
+  private readonly matInput = viewChild(MatInput);
+
+  constructor() {
+    // MatInput's errorState only updates automatically when bound to an NgControl.
+    // This component uses FormValueControl (signals), so we sync it manually to
+    // make MatFormField render the mat-error slot instead of mat-hint.
+    effect(() => {
+      const input = this.matInput();
+      if (input) {
+        input.errorState = this.shouldShowError();
+      }
+    });
+  }
 
   pressSuffixEvent(): void {
     this.suffixEvent.emit();

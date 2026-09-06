@@ -1,0 +1,82 @@
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
+import { Overlay } from '@angular/cdk/overlay';
+import { inject, Injectable, signal, Type, WritableSignal } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { SideModal } from './side-modal';
+
+export interface SideModalHeaderConfig {
+  showBackButton?: () => boolean;
+  onBack?: () => void;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SideModalStore {
+  private readonly dialog = inject(Dialog);
+  private readonly overlay = inject(Overlay);
+  private readonly dialogState: WritableSignal<'open' | 'closed' | 'action'> = signal('open');
+  private currentDialogRef?: DialogRef<unknown, unknown>;
+  private readonly router = inject(Router);
+  private navSub?: Subscription;
+
+  openSideModal(
+    content: Type<unknown>,
+    title: string,
+    width: string,
+    footer?: Type<unknown>,
+    headerConfig?: SideModalHeaderConfig
+  ): DialogRef<unknown, unknown> {
+    this.navSub?.unsubscribe();
+    this.dialogState.set('open');
+    const positionBuilder = this.overlay.position();
+    const strategy = positionBuilder.global().end();
+
+    this.currentDialogRef = this.dialog.open<unknown>(SideModal, {
+      width: width,
+      height: '100%',
+      disableClose: true,
+      hasBackdrop: true,
+      backdropClass: 'lib-side-modal-backdrop',
+      positionStrategy: strategy,
+      data: {
+        title: title,
+        content,
+        dialogState: this.dialogState,
+        footer,
+        headerConfig,
+      },
+      closeOnNavigation: true
+    });
+
+    this.navSub = this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.closeSideModal();
+        this.navSub?.unsubscribe();
+        this.navSub = undefined;
+      }
+    });
+
+    return this.currentDialogRef;
+  }
+
+  isOnAction(): boolean {
+    return this.dialogState() === 'action';
+  }
+
+  closeSideModal(_data?: unknown): void {
+    void _data;
+    this.navSub?.unsubscribe();
+    this.navSub = undefined;
+    if (this.currentDialogRef) {
+      this.currentDialogRef.close();
+      this.currentDialogRef = undefined;
+    }
+    this.dialogState.set('closed');
+  }
+
+  actionSideModal(): void {
+    this.dialogState.set('action');
+  }
+}

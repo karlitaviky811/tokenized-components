@@ -31,18 +31,6 @@
 	height: 1.5rem;
 }
 
-:host[data-state='error'] ::ng-deep .mat-mdc-form-field,
-:host[data-state='error-hover'] ::ng-deep .mat-mdc-form-field,
-:host[data-state='error-focus'] ::ng-deep .mat-mdc-form-field {
-	--mdc-outlined-text-field-outline-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color, #ba1a1a);
-	--mdc-outlined-text-field-hover-outline-color: var(--color-text-fields-outlined-error-hover-outlined-text-field-error-hover-outline-color, #ba1a1a);
-	--mdc-outlined-text-field-focus-outline-color: var(--color-text-fields-outlined-error-focus-outlined-text-field-error-focus-outline-color, #ba1a1a);
-	--mdc-outlined-text-field-label-text-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color, #ba1a1a);
-	--mdc-filled-text-field-active-indicator-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color, #ba1a1a);
-	--mdc-filled-text-field-focus-active-indicator-color: var(--color-text-fields-outlined-error-focus-outlined-text-field-error-focus-outline-color, #ba1a1a);
-	--mdc-filled-text-field-label-text-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color, #ba1a1a);
-}
-
 .lib-text-field__field textarea.mat-mdc-input-element {
 	resize: none;
 }

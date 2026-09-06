@@ -1,9 +1,15 @@
+:host {
+  --lib-error-modal-bg: var(--app-dialogs-enabled-container-color, #ffffff);
+  --lib-error-modal-text: var(--app-colors-neutral-dark, #3e3e3e);
+  --lib-error-modal-error: var(--app-colors-error, #ff4965);
+}
+
 .container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: var(--lib-error-modal-bg);
     width: 100%;
     height: 100%;
     outline: none;
@@ -23,14 +29,14 @@
 .container h5{
     font-size: 1.5rem;
     font-weight: 700;
-    color: #3E3E3E;
+    color: var(--lib-error-modal-text);
 }
 
 .container p{
     flex: 1;
     font-size: 1rem;
     font-weight: 400;
-    color: #3E3E3E;
+    color: var(--lib-error-modal-text);
     text-align: center;
     font-style: normal;
     line-height: 1.5rem;
@@ -40,7 +46,7 @@
     width: 5.625rem;
     height: 5.625rem;
     font-size: 5.625rem;
-    color: #FF4965;
+    color: var(--lib-error-modal-error);
 }
 
 .container button{

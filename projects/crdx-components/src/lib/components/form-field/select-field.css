@@ -1,3 +1,5 @@
+/* === Base styles === */
+
 .lib-select-field__field {
   display: block;
 }
@@ -52,7 +54,6 @@
   box-sizing: border-box;
 }
 
-
 .lib-select-field__multi-trigger-input {
   width: 100%;
   border: none;
@@ -68,6 +69,8 @@
 .lib-select-field__multi-trigger-input::placeholder {
   color: rgba(0, 0, 0, 0.42);
 }
+
+/* === Option items === */
 
 .lib-select-field__option-row {
   display: inline-flex;
@@ -88,6 +91,7 @@
   cursor: pointer;
 }
 
+/* === Virtual scroll panel === */
 
 :host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel,
 :host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel {
@@ -102,6 +106,15 @@
   scrollbar-width: thin;
   scrollbar-color: var(--Gris-500, #6a7282) var(--Gris-100, #f3f4f6);
 }
+
+:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-pseudo-checkbox,
+:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-pseudo-checkbox,
+:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-mdc-option .mdc-list-item__start,
+:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-mdc-option .mdc-list-item__start {
+  display: none !important;
+}
+
+/* === Scrollbar === */
 
 :host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar,
 :host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar {
@@ -184,11 +197,4 @@
 :host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-thumb:active,
 :host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-thumb:active {
   background: color-mix(in srgb, var(--Gris-500, #6a7282) 65%, black);
-}
-
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-pseudo-checkbox,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-pseudo-checkbox,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-mdc-option .mdc-list-item__start,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-mdc-option .mdc-list-item__start {
-  display: none !important;
 }

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { LibSpinnerComponent, LibTooltipComponent, CircularProgressStepper } from 'crdx-components';
+import { LibSpinnerComponent, LibTooltipComponent, LibCircularProgressStepperComponent } from 'crdx-components';
 
 @Component({
   selector: 'app-feedback-page',
   standalone: true,
-  imports: [LibSpinnerComponent, LibTooltipComponent, CircularProgressStepper],
+  imports: [LibSpinnerComponent, LibTooltipComponent, LibCircularProgressStepperComponent],
   templateUrl: './feedback.page.html',
 })
 export class FeedbackPage {}

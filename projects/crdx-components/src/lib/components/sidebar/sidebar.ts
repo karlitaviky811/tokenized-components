@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 
 export interface SidebarNavItem {
@@ -20,13 +20,13 @@ export interface SidebarNavItem {
   styleUrl: './sidebar.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarComponent {
+export class LibSidebarComponent {
   readonly items = input<readonly SidebarNavItem[]>([]);
   readonly selectedId = input<string | null>(null);
   readonly showLabels = input(true);
   readonly spritePath = input('assets/icons/sprite.svg');
 
-  @Output() readonly itemSelected = new EventEmitter<SidebarNavItem>();
+  readonly itemSelected = output<SidebarNavItem>();
 
   protected readonly hasLabels = computed(() => this.showLabels() && this.items().some(({ label }) => !!label));
 

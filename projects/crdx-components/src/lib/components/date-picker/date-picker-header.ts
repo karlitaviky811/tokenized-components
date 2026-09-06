@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   DestroyRef,
   inject,
@@ -34,7 +33,6 @@ import { DateAdapter } from '@angular/material/core';
 export class LibDatePickerHeaderComponent<D> {
   private readonly calendar = inject<MatCalendar<D>>(MatCalendar);
   private readonly dateAdapter = inject<DateAdapter<D>>(DateAdapter);
-  private readonly cdr = inject(ChangeDetectorRef);
 
   protected readonly monthLabel = signal('');
   protected readonly yearLabel = signal('');
@@ -46,7 +44,6 @@ export class LibDatePickerHeaderComponent<D> {
       .pipe(takeUntilDestroyed(inject(DestroyRef)))
       .subscribe(() => {
         this.updateLabels();
-        this.cdr.markForCheck();
       });
   }
 

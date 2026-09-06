@@ -1,9 +1,9 @@
-<div class="dph">
-  <div class="dph__group">
+<div class="lib-dph">
+  <div class="lib-dph__group">
     <button
       mat-icon-button
       type="button"
-      class="dph__nav"
+      class="lib-dph__nav"
       [disabled]="!previousMonthEnabled()"
       (click)="previousMonth()"
       aria-label="Previous month"
@@ -16,12 +16,12 @@
     <button
       mat-button
       type="button"
-      class="dph__period dph__period--month"
+      class="lib-dph__period lib-dph__period--month"
       (click)="toggleMonthView()"
       aria-label="Choose month"
     >
       <span>{{ monthLabel() }}</span>
-      <svg class="dph__arrow" viewBox="0 0 10 5" focusable="false" aria-hidden="true">
+      <svg class="lib-dph__arrow" viewBox="0 0 10 5" focusable="false" aria-hidden="true">
         <polygon points="0,0 5,5 10,0" />
       </svg>
     </button>
@@ -29,7 +29,7 @@
     <button
       mat-icon-button
       type="button"
-      class="dph__nav"
+      class="lib-dph__nav"
       [disabled]="!nextMonthEnabled()"
       (click)="nextMonth()"
       aria-label="Next month"
@@ -40,11 +40,11 @@
     </button>
   </div>
 
-  <div class="dph__group">
+  <div class="lib-dph__group">
     <button
       mat-icon-button
       type="button"
-      class="dph__nav"
+      class="lib-dph__nav"
       [disabled]="!previousYearEnabled()"
       (click)="previousYear()"
       aria-label="Previous year"
@@ -57,12 +57,12 @@
     <button
       mat-button
       type="button"
-      class="dph__period"
+      class="lib-dph__period"
       (click)="toggleYearView()"
       aria-label="Choose year"
     >
       <span>{{ yearLabel() }}</span>
-      <svg class="dph__arrow" viewBox="0 0 10 5" focusable="false" aria-hidden="true">
+      <svg class="lib-dph__arrow" viewBox="0 0 10 5" focusable="false" aria-hidden="true">
         <polygon points="0,0 5,5 10,0" />
       </svg>
     </button>
@@ -70,7 +70,7 @@
     <button
       mat-icon-button
       type="button"
-      class="dph__nav"
+      class="lib-dph__nav"
       [disabled]="!nextYearEnabled()"
       (click)="nextYear()"
       aria-label="Next year"

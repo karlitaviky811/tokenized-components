@@ -7,7 +7,7 @@
   min-width: 0;
 }
 
-.ui-card {
+.lib-card {
   display: flex;
   align-items: stretch;
   overflow: hidden;
@@ -20,15 +20,15 @@
   isolation: isolate;
 }
 
-.ui-card:focus-visible {
+.lib-card:focus-visible {
   outline: none;
 }
 
-.ui-card:focus-visible .ui-card__focus-indicator {
+.lib-card:focus-visible .lib-card__focus-indicator {
   display: block;
 }
 
-.ui-card--outlined {
+.lib-card--outlined {
   border: 0;
   outline: var(--app-cards-outlined-enabled-outline-outlined-card-outline-width, 0.0625rem) solid
     var(--app-cards-outlined-enabled-outline-outlined-card-outline-color, #c3c7c9);
@@ -36,28 +36,28 @@
   background: var(--app-cards-outlined-enabled-container-outlined-card-container-color, #f7fafc);
 }
 
-.ui-card--elevated {
+.lib-card--elevated {
   border: 0;
   background: var(--app-cards-elevated-enabled-container-elevated-card-container-color, #f1f4f6);
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.ui-card--filled {
+.lib-card--filled {
   border: 0;
   background: var(--app-cards-filled-enabled-container-filled-card-container-color, #e0e3e5);
 }
 
-.ui-card--active {
+.lib-card--active {
   outline-color: var(--app-pallete-scheme-surface-outline-variant, #d4d7db);
   background: var(--app-pallete-scheme-surface-outline-variant, #d4d7db);
 }
 
-.ui-card--disabled {
+.lib-card--disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
-.ui-card__content {
+.lib-card__content {
   flex: 1 1 auto;
   min-width: 0;
   display: flex;
@@ -68,7 +68,7 @@
   z-index: 2;
 }
 
-.ui-card__avatar {
+.lib-card__avatar {
   width: 2.5rem;
   height: 2.5rem;
   flex: 0 0 auto;
@@ -85,7 +85,7 @@
   letter-spacing: 0.00625rem;
 }
 
-.ui-card__leading {
+.lib-card__leading {
   width: 2.5rem;
   height: 2.5rem;
   flex: 0 0 auto;
@@ -94,18 +94,18 @@
   justify-content: center;
 }
 
-.ui-card__leading--icon img,
-.ui-card__leading--icon svg {
+.lib-card__leading--icon img,
+.lib-card__leading--icon svg {
   width: 2.08331rem;
   height: 2.08331rem;
   display: block;
 }
 
-.ui-card__leading--icon svg {
+.lib-card__leading--icon svg {
   fill: currentColor;
 }
 
-.ui-card__text {
+.lib-card__text {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -113,12 +113,12 @@
   color: inherit;
 }
 
-.ui-card__title,
-.ui-card__subhead {
+.lib-card__title,
+.lib-card__subhead {
   margin: 0;
 }
 
-.ui-card__title {
+.lib-card__title {
   font-family: var(--app-typescale-title-medium-font, Heebo), sans-serif;
   font-size: var(--app-typescale-title-medium-size, 1rem);
   font-weight: var(--app-typescale-title-medium-weight, 500);
@@ -126,11 +126,11 @@
   letter-spacing: var(--app-typescale-title-medium-tracking, 0.009375rem);
 }
 
-.ui-card--title-emphasized .ui-card__title {
+.lib-card--title-emphasized .lib-card__title {
   font-weight: var(--app-typescale-title-medium-weight-emphasized, 700);
 }
 
-.ui-card__subhead {
+.lib-card__subhead {
   font-family: var(--app-typescale-body-medium-font, Heebo), sans-serif;
   font-size: var(--app-typescale-body-medium-size, 0.875rem);
   font-weight: var(--app-typescale-body-medium-weight, 400);
@@ -138,7 +138,7 @@
   letter-spacing: var(--app-typescale-body-medium-tracking, 0.015625rem);
 }
 
-.ui-card__media {
+.lib-card__media {
   width: 5rem;
   flex: 0 0 5rem;
   display: inline-flex;
@@ -150,22 +150,22 @@
   z-index: 2;
 }
 
-.ui-card__media img,
-.ui-card__media svg {
+.lib-card__media img,
+.lib-card__media svg {
   width: 2.08331rem;
   height: 2.08331rem;
   display: block;
 }
 
-.ui-card__media svg {
+.lib-card__media svg {
   fill: var(--app-schemes-outline, #b5b5b5);
 }
 
-.ui-card__media--empty {
+.lib-card__media--empty {
   opacity: 0.45;
 }
 
-.ui-card__state-layer {
+.lib-card__state-layer {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -174,7 +174,7 @@
   background: transparent;
 }
 
-.ui-card__focus-indicator {
+.lib-card__focus-indicator {
   display: none;
   position: absolute;
   inset: -0.1875rem;
@@ -184,102 +184,102 @@
   z-index: 3;
 }
 
-.ui-card--state-focused .ui-card__focus-indicator {
+.lib-card--state-focused .lib-card__focus-indicator {
   display: block;
 }
 
-.ui-card--state-hovered .ui-card__state-layer,
-.ui-card:hover .ui-card__state-layer {
+.lib-card--state-hovered .lib-card__state-layer,
+.lib-card:hover .lib-card__state-layer {
   opacity: 1;
 }
 
-.ui-card--state-focused .ui-card__state-layer,
-.ui-card--state-pressed .ui-card__state-layer,
-.ui-card--state-dragged .ui-card__state-layer {
+.lib-card--state-focused .lib-card__state-layer,
+.lib-card--state-pressed .lib-card__state-layer,
+.lib-card--state-dragged .lib-card__state-layer {
   opacity: 1;
 }
 
-.ui-card--outlined.ui-card--state-hovered,
-.ui-card--outlined:hover {
+.lib-card--outlined.lib-card--state-hovered,
+.lib-card--outlined:hover {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
-.ui-card--outlined.ui-card--state-dragged {
+.lib-card--outlined.lib-card--state-dragged {
   box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.ui-card--elevated.ui-card--state-hovered,
-.ui-card--elevated:hover {
+.lib-card--elevated.lib-card--state-hovered,
+.lib-card--elevated:hover {
   box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.ui-card--elevated.ui-card--state-pressed {
+.lib-card--elevated.lib-card--state-pressed {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.ui-card--elevated.ui-card--state-dragged {
+.lib-card--elevated.lib-card--state-dragged {
   box-shadow: 0 6px 10px 4px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
-.ui-card--filled.ui-card--state-hovered {
+.lib-card--filled.lib-card--state-hovered {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.ui-card--filled.ui-card--state-dragged {
+.lib-card--filled.lib-card--state-dragged {
   box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.ui-card--outlined.ui-card--state-hovered .ui-card__state-layer,
-.ui-card--outlined:hover .ui-card__state-layer {
+.lib-card--outlined.lib-card--state-hovered .lib-card__state-layer,
+.lib-card--outlined:hover .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.08);
 }
 
-.ui-card--outlined.ui-card--state-focused .ui-card__state-layer {
+.lib-card--outlined.lib-card--state-focused .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.1);
 }
 
-.ui-card--outlined.ui-card--state-pressed .ui-card__state-layer {
+.lib-card--outlined.lib-card--state-pressed .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.1);
 }
 
-.ui-card--outlined.ui-card--state-dragged .ui-card__state-layer {
+.lib-card--outlined.lib-card--state-dragged .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.16);
 }
 
-.ui-card--elevated.ui-card--state-hovered .ui-card__state-layer,
-.ui-card--elevated:hover .ui-card__state-layer {
+.lib-card--elevated.lib-card--state-hovered .lib-card__state-layer,
+.lib-card--elevated:hover .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.08);
 }
 
-.ui-card--elevated.ui-card--state-focused .ui-card__state-layer {
+.lib-card--elevated.lib-card--state-focused .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.1);
 }
 
-.ui-card--elevated.ui-card--state-pressed .ui-card__state-layer {
+.lib-card--elevated.lib-card--state-pressed .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.1);
 }
 
-.ui-card--elevated.ui-card--state-dragged .ui-card__state-layer {
+.lib-card--elevated.lib-card--state-dragged .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.16);
 }
 
-.ui-card--filled.ui-card--state-hovered .ui-card__state-layer,
-.ui-card--filled:hover .ui-card__state-layer {
+.lib-card--filled.lib-card--state-hovered .lib-card__state-layer,
+.lib-card--filled:hover .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.08);
 }
 
-.ui-card--filled.ui-card--state-focused .ui-card__state-layer {
+.lib-card--filled.lib-card--state-focused .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.1);
 }
 
-.ui-card--filled.ui-card--state-pressed .ui-card__state-layer {
+.lib-card--filled.lib-card--state-pressed .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.1);
 }
 
-.ui-card--filled.ui-card--state-dragged .ui-card__state-layer {
+.lib-card--filled.lib-card--state-dragged .lib-card__state-layer {
   background: rgba(24, 28, 30, 0.16);
 }
 
-.ui-card--disabled .ui-card__state-layer {
+.lib-card--disabled .lib-card__state-layer {
   display: none;
 }

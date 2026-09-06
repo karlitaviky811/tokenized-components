@@ -2,7 +2,7 @@
   display: inline-block;
 }
 
-.mdp-container {
+.lib-mdp__container {
   width: 22.5rem;
   background-color: var(--color-date-pickers-modal-enabled-container-color, #e5e9eb);
   border-radius: var(--color-date-pickers-modal-enabled-container-shape, 1.75rem);
@@ -14,7 +14,7 @@
 
 /* ── Header ─────────────────────────────────────────────────────── */
 
-.mdp-header {
+.lib-mdp__header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -22,14 +22,14 @@
   border-bottom: 0.0625rem solid var(--color-pallete-scheme-surface-outline-variant, #c3c7c9);
 }
 
-.mdp-header__content {
+.lib-mdp__header__content {
   display: flex;
   flex-direction: column;
   gap: 2.25rem;
   flex: 1;
 }
 
-.mdp-header__label {
+.lib-mdp__header__label {
   font-family: var(--color-date-pickers-modal-enabled-header-supporting-text-font, Heebo), sans-serif;
   font-size: var(--color-date-pickers-modal-enabled-header-supporting-text-size, 0.875rem);
   font-weight: var(--color-date-pickers-modal-enabled-header-supporting-text-weight, 500);
@@ -37,7 +37,7 @@
   color: var(--color-date-pickers-modal-enabled-header-supporting-text-color, #434749);
 }
 
-.mdp-header__headline {
+.lib-mdp__header__headline {
   font-family: var(--color-date-pickers-modal-enabled-headline-header-headline-font, Heebo), sans-serif;
   font-size: var(--color-date-pickers-modal-enabled-headline-header-headline-size, 2rem);
   font-weight: var(--color-date-pickers-modal-enabled-headline-header-headline-weight, 400);
@@ -45,44 +45,44 @@
   color: var(--color-date-pickers-modal-enabled-headline-header-headline-color, #434749);
 }
 
-.mdp-header__edit {
+.lib-mdp__header__edit {
   color: var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
 }
 
 /* ── Calendar ───────────────────────────────────────────────────── */
 
-.mdp-calendar {
+.lib-mdp__calendar {
   width: 100%;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-header {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-header {
   padding: 0.25rem 0.75rem !important;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-period-button {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-period-button {
   font-family: var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-font, Heebo), sans-serif !important;
   font-size: var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem) !important;
   font-weight: var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500) !important;
   color: var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749) !important;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-arrow {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-arrow {
   border-top-color: var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749) !important;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-previous-button,
-:host ::ng-deep .mdp-calendar .mat-calendar-next-button {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-previous-button,
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-next-button {
   color: var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749) !important;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-table-header th {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-table-header th {
   font-family: var(--color-date-pickers-modal-enabled-label-text-weekdays-label-text-font, Heebo), sans-serif !important;
   font-size: 1rem !important;
   font-weight: 400 !important;
   color: var(--color-date-pickers-modal-enabled-label-text-weekdays-label-text-color, #181c1e) !important;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-body-cell-content {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-body-cell-content {
   width: 2.5rem !important;
   height: 2.5rem !important;
   border-radius: 1000px !important;
@@ -92,42 +92,42 @@
   color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) !important;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-body-selected {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-body-selected {
   background-color: var(--color-date-pickers-modal-enabled-container-date-selected-container-color, #e42313) !important;
   color: var(--color-date-pickers-modal-enabled-label-text-date-selected-label-text-color, #fff) !important;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-body-today:not(.mat-calendar-body-selected) {
   border: var(--color-date-pickers-modal-enabled-container-date-today-container-outline-width, 0.0625rem) solid var(--color-date-pickers-modal-enabled-container-date-today-container-outline-color, #5b5f61) !important;
   background-color: transparent !important;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-body-today.mat-calendar-body-selected {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-body-today.mat-calendar-body-selected {
   border: none !important;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
   background-color: rgba(67, 71, 73, 0.08) !important;
 }
 
-:host ::ng-deep .mdp-calendar .mat-calendar-body tr:has(> .mat-calendar-body-label[colspan="7"]) {
+:host ::ng-deep .lib-mdp__calendar .mat-calendar-body tr:has(> .mat-calendar-body-label[colspan="7"]) {
   display: none !important;
 }
 
 /* ── Actions ────────────────────────────────────────────────────── */
 
-.mdp-actions {
+.lib-mdp__actions {
   display: flex;
   align-items: center;
   padding: 0.25rem 0.75rem 0.5rem;
   gap: 0.5rem;
 }
 
-.mdp-spacer {
+.lib-mdp__spacer {
   flex: 1 0 0;
 }
 
-.mdp-btn {
+.lib-mdp__btn {
   font-family: var(--buttons-wip-size-small-button-small-label-text-font, Heebo), sans-serif !important;
   font-size: var(--buttons-wip-size-small-button-small-label-text-size, 0.875rem) !important;
   font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500) !important;

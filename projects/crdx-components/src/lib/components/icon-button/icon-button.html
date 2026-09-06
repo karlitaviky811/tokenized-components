@@ -1,5 +1,5 @@
 <button
-  class="ui-icon-btn"
+  class="lib-icon-btn"
   [attr.type]="type()"
   [disabled]="disabled()"
   matRipple
@@ -8,7 +8,7 @@
   [ngClass]="classes()"
   [attr.aria-pressed]="toggle() ? selected() : null"
 >
-  <span class="ui-icon-btn__content">
+  <span class="lib-icon-btn__content">
     <ng-content></ng-content>
   </span>
 </button>

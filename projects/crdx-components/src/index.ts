@@ -39,7 +39,7 @@ export * from './lib/components/chip/chip';
 export * from './lib/components/dialogs/confirm-modal/confirm-modal';
 export * from './lib/components/dialogs/confirm-modal/confirm-modal.store';
 export * from './lib/components/dialogs/side-modal/side-modal';
-export * from './lib/components/dialogs/side-modal/side-modal.state';
+export * from './lib/components/dialogs/side-modal/side-modal.store';
 
 // Footer layouts.
 export * from './lib/components/footer-actions/page-footer-actions/page-footer-actions';

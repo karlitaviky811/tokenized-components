@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { ConfirmModalStore } from '../../dialogs/confirm-modal/confirm-modal.store';
 import { LibButtonComponent } from '../../button/button';
 import { ModalFooterActionsComponent } from '../modal-footer-actions/modal-footer-actions';
-import { SideModalStore } from '../../dialogs/side-modal/side-modal.state';
+import { SideModalStore } from '../../dialogs/side-modal/side-modal.store';
 import { TranslatePipe } from '@ngx-translate/core';
 import { FooterFlowStore } from './footer-flow.store';
 

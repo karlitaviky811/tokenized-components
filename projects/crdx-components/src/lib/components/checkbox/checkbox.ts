@@ -61,7 +61,6 @@ export class LibCheckboxComponent {
   }
 
   protected onMatCheckboxChange(event: MatCheckboxChange): void {
-    console.log("Error value", this.error())
     this.checkedChange.emit(event.checked);
     if (event.checked && this.indeterminate()) {
       this.indeterminateChange.emit(false);

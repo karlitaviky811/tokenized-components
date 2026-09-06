@@ -1,3 +1,8 @@
+:host {
+  --lib-side-modal-icon: #434749;
+  --lib-side-modal-subtitle: #696d6f;
+}
+
 .container {
   height: 100dvh;
   width: 100%;
@@ -21,7 +26,7 @@
 }
 
 .title {
-  color: var(--side-sheets-enabled-headline-sheet-side-docked-headline-color, #434749);
+  color: var(--side-sheets-enabled-headline-sheet-side-docked-headline-color, var(--lib-side-modal-icon));
   font-family: var(--side-sheets-enabled-headline-sheet-side-docked-headline-font, 'Heebo'), sans-serif;
   font-size: var(--side-sheets-enabled-headline-sheet-side-docked-headline-size, 1.375rem);
   font-style: normal;
@@ -42,7 +47,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #696D6F;
+  color: var(--lib-side-modal-subtitle);
 }
 
 .side-modal__header button mat-icon {

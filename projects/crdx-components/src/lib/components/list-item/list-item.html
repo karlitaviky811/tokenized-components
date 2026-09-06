@@ -1,11 +1,11 @@
 <div
-  class="ui-list-item__container"
+  class="lib-list-item__container"
   [style.width]="width() ?? '100%'"
   [style.min-width]="width() ?? null"
   [style.--lib-list-item-background]="backgroundColor() ?? null"
 >
   @if (headerTemplate()) {
-  <div class="ui-list-item__header">
+  <div class="lib-list-item__header">
     <ng-container [ngTemplateOutlet]="headerTemplate()!" />
   </div>
 }
@@ -14,20 +14,20 @@
     <mat-list-item
       role="listitem"
       class="ui-list-option"
-      [class.ui-list-item--disabled]="item.disabled ?? false"
-      [class.ui-list-item--selected]="showCheckbox() && isItemSelected(item)"
-      [class.ui-list-item--with-divider]="showDividers()"
+      [class.lib-list-item--disabled]="item.disabled ?? false"
+      [class.lib-list-item--selected]="showCheckbox() && isItemSelected(item)"
+      [class.lib-list-item--with-divider]="showDividers()"
       [disableRipple]="true"
       (click)="onRowClick(item, $event)"
     >
       @if (itemTemplate()) {
         <ng-container [ngTemplateOutlet]="itemTemplate()!" [ngTemplateOutletContext]="{ $implicit: item }" />
       } @else {
-        <div class="ui-list-item" [class.ui-list-item--with-divider]="showDividers()">
-          <span class="ui-list-item__state-layer"></span>
+        <div class="lib-list-item" [class.lib-list-item--with-divider]="showDividers()">
+          <span class="lib-list-item__state-layer"></span>
 
           @if (showCheckbox() && checkboxPosition() === 'leading') {
-            <span class="ui-list-item__leading ui-list-item__leading--checkbox">
+            <span class="lib-list-item__leading lib-list-item__leading--checkbox">
               <mat-checkbox
                 [checked]="isItemSelected(item)"
                 [disabled]="item.disabled ?? disabled()"
@@ -38,31 +38,31 @@
           }
 
           @if (showAvatar()) {
-            <span class="ui-list-item__leading">
+            <span class="lib-list-item__leading">
               @if (item.avatarImage) {
                 <img
-                  class="ui-list-item__avatar-image"
+                  class="lib-list-item__avatar-image"
                   [src]="item.avatarImage"
                   [attr.alt]="item.avatarAlt || item.label"
                   loading="lazy"
                 />
               } @else {
-                <span class="ui-list-item__avatar-text" aria-hidden="true">
+                <span class="lib-list-item__avatar-text" aria-hidden="true">
                   {{ avatarInitial(item) }}
                 </span>
               }
             </span>
           }
 
-          <span class="ui-list-item__content">
-            <span class="ui-list-item__label">{{ item.label }}</span>
+          <span class="lib-list-item__content">
+            <span class="lib-list-item__label">{{ item.label }}</span>
             @if (item.description) {
-              <span class="ui-list-item__description">{{ item.description }}</span>
+              <span class="lib-list-item__description">{{ item.description }}</span>
             }
           </span>
 
           @if (showCheckbox() && checkboxPosition() === 'trailing') {
-            <span class="ui-list-item__trailing ui-list-item__trailing--checkbox">
+            <span class="lib-list-item__trailing lib-list-item__trailing--checkbox">
               <lib-checkbox
                 [checked]="isItemSelected(item)"
                 [disabled]="item.disabled ?? disabled()"

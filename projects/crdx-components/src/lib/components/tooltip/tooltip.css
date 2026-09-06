@@ -1,8 +1,8 @@
-:host.ui-tooltip-host {
+:host.lib-tooltip-host {
   display: inline-flex;
 }
 
-.ui-tooltip {
+.lib-tooltip {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@
   box-sizing: border-box;
 }
 
-.ui-tooltip__text {
+.lib-tooltip__text {
   color: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-color, #eef1f3);
   font-family: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-font, 'Heebo'), sans-serif;
   font-size: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-size, 0.75rem);
@@ -23,10 +23,10 @@
   letter-spacing: var(--tooltips-plain-enabled-supporting-text-plain-tooltip-supporting-text-tracking, 0.025rem);
 }
 
-.ui-tooltip--single-line .ui-tooltip__text {
+.lib-tooltip--single-line .lib-tooltip__text {
   white-space: nowrap;
 }
 
-.ui-tooltip--multi-line .ui-tooltip__text {
+.lib-tooltip--multi-line .lib-tooltip__text {
   white-space: normal;
 }

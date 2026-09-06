@@ -17,12 +17,82 @@
       <tr><td>showPaginator</td><td>boolean</td><td>true</td><td>Muestra paginador</td></tr>
       <tr><td>pageSize</td><td>number</td><td>10</td><td>Filas por página</td></tr>
       <tr><td>pageSizeOptions</td><td>number[]</td><td>[5, 10, 20]</td><td>Opciones de page size</td></tr>
-      <tr><td>enableRowClick</td><td>boolean</td><td>false</td><td>Habilita click en filas</td></tr>
+      <tr><td>enableRowClick</td><td>boolean</td><td>false</td><td>Habilita click en filas (agrega cursor pointer y hover)</td></tr>
       <tr><td>totalElements</td><td>number | undefined</td><td>undefined</td><td>Total para paginación server-side</td></tr>
+      <tr><td>height</td><td>string</td><td>undefined</td><td>Altura fija del componente, ej: '400px', '60vh'</td></tr>
+      <tr><td>minHeight</td><td>string</td><td>undefined</td><td>Altura mínima, ej: '200px'</td></tr>
+      <tr><td>maxHeight</td><td>string</td><td>undefined</td><td>Altura máxima, ej: '600px'</td></tr>
       <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
       <tr><td>rowClick</td><td>T</td><td></td><td>Emite la fila clickeada</td></tr>
       <tr><td>pageChange</td><td>TablePageEvent</td><td></td><td>Emite al cambiar página</td></tr>
     </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Layout y altura</h2>
+    <p>El componente tiene dos modos de altura, seleccionados según el contexto del padre.</p>
+
+    <h3>Modo stretch (default)</h3>
+    <p>
+      Sin pasar <code>height</code>, la tabla usa <code>flex: 1 1 0</code> para ocupar todo el
+      espacio disponible del padre. El padre debe ser un flex column con altura definida.
+    </p>
+    <pre><code>// SCSS del padre
+.mi-pagina &#123;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;   // o 100%, o un valor fijo
+  padding: 1rem;
+  gap: 1rem;
+&#125;</code></pre>
+    <pre><code>&lt;!-- la tabla ocupa todo lo que queda bajo el encabezado --&gt;
+&lt;div class="mi-pagina"&gt;
+  &lt;h1&gt;Título&lt;/h1&gt;
+  &lt;lib-shared-table [columns]="cols" [data]="rows" /&gt;
+&lt;/div&gt;</code></pre>
+
+    <h3>Modo altura fija</h3>
+    <p>
+      Cuando el padre es un flujo de documento normal (sin flex/grid), pasá <code>height</code>
+      directamente. La tabla se autogestiona sin necesitar CSS externo.
+    </p>
+    <pre><code>&lt;lib-shared-table
+  [height]="'400px'"
+  [columns]="cols"
+  [data]="rows"
+/&gt;</code></pre>
+    <pre><code>&lt;!-- altura mínima y máxima --&gt;
+&lt;lib-shared-table
+  [minHeight]="'200px'"
+  [maxHeight]="'600px'"
+  [columns]="cols"
+  [data]="rows"
+/&gt;</code></pre>
+
+    <h3>Cuándo usar cada modo</h3>
+    <table class="api-table">
+      <tr><th>Modo</th><th>Cuándo</th><th>CSS requerido en el padre</th></tr>
+      <tr>
+        <td>Stretch (default)</td>
+        <td>Layout de página completa, sidebar + content</td>
+        <td><code>display:flex; flex-direction:column; height:algo</code></td>
+      </tr>
+      <tr>
+        <td><code>[height]</code></td>
+        <td>Tabla embebida en flujo normal, sin flex context</td>
+        <td>Ninguno</td>
+      </tr>
+    </table>
+
+    <h3>Tokens CSS personalizables</h3>
+    <pre><code>lib-shared-table &#123;
+  --lib-table-border:      #c3c7c9;            // color del borde del paginador
+  --lib-table-radius:      0.25rem;            // radio de esquinas
+  --lib-table-overlay-bg:  rgba(255,255,255,0.92); // fondo del spinner de carga
+  --lib-table-spinner:     #6750a4;            // color del spinner
+  --lib-table-row-hover:   rgba(0,0,0,0.04);  // hover de fila clickeable
+  --lib-table-text-muted:  #6b7280;            // texto de estado vacío
+&#125;</code></pre>
   </section>
 
   <section class="doc-section">

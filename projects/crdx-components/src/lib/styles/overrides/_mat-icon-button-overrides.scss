@@ -1,6 +1,5 @@
 @use '@angular/material' as mat;
 
-/// Icon button overrides (M3). Tokens: tokens-by-component (icon-buttons-*).
 html {
   @include mat.icon-button-overrides((
     icon-size: var(--icon-buttons-icon-button-enabled-icon-button-icon-size, 1.5rem),

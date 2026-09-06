@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LibCardComponent, LibIconButtonComponent, SharedBreadcrumbComponent, SharedTableComponent, SharedTableCellTemplateDirective } from 'crdx-components';
+import { LibCardComponent, LibIconButtonComponent, LibBreadcrumbComponent, SharedTableComponent, SharedTableCellTemplateDirective } from 'crdx-components';
 import type { SharedTableColumn } from 'crdx-components';
 
 interface User { name: string; email: string; role: string; status: string; [key: string]: unknown; }
@@ -7,7 +7,7 @@ interface User { name: string; email: string; role: string; status: string; [key
 @Component({
   selector: 'app-data-display-page',
   standalone: true,
-  imports: [LibCardComponent, LibIconButtonComponent, SharedBreadcrumbComponent, SharedTableComponent, SharedTableCellTemplateDirective],
+  imports: [LibCardComponent, LibIconButtonComponent, LibBreadcrumbComponent, SharedTableComponent, SharedTableCellTemplateDirective],
   templateUrl: './data-display.page.html',
 })
 export class DataDisplayPage {

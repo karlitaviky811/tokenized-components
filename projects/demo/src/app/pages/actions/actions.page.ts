@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { LibButtonComponent, LibIconButtonComponent, SlideToggle, LibChipComponent } from 'crdx-components';
+import { LibButtonComponent, LibIconButtonComponent, LibSlideToggleComponent, LibChipComponent } from 'crdx-components';
 
 @Component({
   selector: 'app-actions-page',
   standalone: true,
-  imports: [LibButtonComponent, LibIconButtonComponent, SlideToggle, LibChipComponent],
+  imports: [LibButtonComponent, LibIconButtonComponent, LibSlideToggleComponent, LibChipComponent],
   templateUrl: './actions.page.html',
 })
 export class ActionsPage {

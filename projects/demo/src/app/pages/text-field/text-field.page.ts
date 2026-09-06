@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { disabled, form, FormField } from '@angular/forms/signals';
+import { disabled, form, FormField, required } from '@angular/forms/signals';
 import { LibTextFieldComponent } from 'crdx-components';
 
 @Component({
@@ -13,5 +13,6 @@ export class TextFieldPage {
   readonly model = signal({ name: '', email: '', error: '', hint: '', disabled: '' });
   readonly f = form(this.model, (p) => {
     disabled(p.disabled);
+    required(p.error, { message: 'Campo requerido' });
   });
 }

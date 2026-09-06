@@ -1,6 +1,5 @@
 @use '@angular/material' as mat;
 
-/// Tabs overrides (M3). Tokens: tokens-by-component (tabs-*).
 html {
   @include mat.tabs-overrides((
     active-indicator-height: var(--tabs-primary-navigation-enabled-active-indicator-primary-navigation-tab-active-indicator-height, 0.25rem),
@@ -29,11 +28,10 @@ html {
   ));
 
   & .mat-mdc-tab-ripple.mat-mdc-tab-ripple {
-    border-bottom: none; // la línea gris va en el contenedor para que quede detrás del indicador
+    border-bottom: none;
   }
 }
 
-// Línea gris continua en todo el ancho (queda detrás). Indicador rojo encima con z-index.
 .mat-mdc-tab-header .mat-mdc-tab-label-container {
   border-bottom: 0.125rem solid #e9e9e9;
 }
@@ -54,7 +52,6 @@ html {
   max-width: 100%;
 }
 
-// Indicador rojo debajo del label, alineado al texto (ligero inset horizontal)
 .mat-mdc-tab-header .mdc-tab-indicator {
   position: absolute !important;
   top: auto !important;
@@ -83,7 +80,6 @@ html {
   display: block !important;
 }
 
-// Ancho dinámico: cada tab ocupa solo el ancho de su título (label). Indicador abajo del label.
 .mat-mdc-tab-header .mat-mdc-tab {
   flex: 0 0 auto;
   min-width: 0;
@@ -96,20 +92,6 @@ html {
   min-width: fit-content;
 }
 
-// Contenedor del indicador: fijado abajo del tab (debajo del label), encima de la línea gris.
-
-// --- Customización del tab seleccionado ---
-// 1) Via tokens del mixin (arriba): active-label-text-color, active-indicator-color, active-ripple-color, etc.
-// 2) Via variables CSS (en :root o en _tokens-pallete.scss), p. ej.:
-//    --app-tabs-primary-navigation-enabled-label-text-primary-navigation-tab-with-label-text-active-color
-//    --app-tabs-primary-navigation-enabled-active-indicator-primary-navigation-tab-active-indicator-color
-// 3) Via CSS aquí: el tab seleccionado tiene la clase .mdc-tab--active. Ejemplo:
-
-// Tab seleccionado: selector .mat-mdc-tab.mdc-tab--active (y .mdc-tab__text-label para la etiqueta).
-// Añade aquí reglas extra para el ítem activo, p. ej.:
-// .mat-mdc-tab-header .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label { font-weight: 600; }
-
-// Hover en tab: border-radius y background según tokens.
 .mat-mdc-tab-header .mat-mdc-tab:hover {
   border-radius: var(--tabs-primary-navigation-enabled-container-primary-navigation-tab-container-shape, 0);
   background: var(--color-tabs-primary-navigation-focused-state-layer-primary-navigation-tab-inactive-focus-state-layer-color, rgba(24, 28, 30, 0.1));

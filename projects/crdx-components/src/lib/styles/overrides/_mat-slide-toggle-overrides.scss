@@ -1,6 +1,5 @@
 @use '@angular/material' as mat;
 
-/// Slide toggle (switch) overrides (M3). Tokens: tokens-by-component (switch-*).
 html {
   @include mat.slide-toggle-overrides((
     selected-track-color: var(--color-switch-enabled-track-switch-selected-track-color),

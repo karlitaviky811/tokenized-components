@@ -3,6 +3,7 @@ import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { ConfirmModal, ConfirmModalData } from './confirm-modal';
 import { NavigationStart, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 export interface ConfirmModalOpenOptions {
   description?: string;
@@ -22,6 +23,7 @@ export class ConfirmModalStore {
   protected dialogState: WritableSignal<'open' | 'closed'> = signal('open');
   private readonly router = inject(Router);
   private currentDialogRef?: DialogRef<string, unknown>;
+  private navSub?: Subscription;
 
   open(
     title: string,
@@ -58,13 +60,15 @@ export class ConfirmModalStore {
       },
       closeOnNavigation: true
     });
-    const sub = this.router.events.subscribe(event => {
+    this.navSub?.unsubscribe();
+    this.navSub = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.close();
-        sub.unsubscribe();
+        this.navSub?.unsubscribe();
+        this.navSub = undefined;
       }
     });
-    return this.currentDialogRef
+    return this.currentDialogRef;
   }
 
   openBasic(title: string, confirmLabel: string, cancelLabel = 'Cancelar'): DialogRef<string, unknown> {
@@ -130,6 +134,8 @@ export class ConfirmModalStore {
   }
 
   close(): void {
+    this.navSub?.unsubscribe();
+    this.navSub = undefined;
     if (this.currentDialogRef) {
       this.currentDialogRef.close();
       this.currentDialogRef = undefined;

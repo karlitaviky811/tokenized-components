@@ -1,8 +1,8 @@
-<mat-form-field class="dp-field" appearance="outline">
+<mat-form-field class="lib-dp-field" appearance="outline">
   <mat-label>{{ _label() }}</mat-label>
   <input
     matInput
-    class="dp-input"
+    class="lib-dp-input"
     [matDatepicker]="picker"
     [value]="_displayValue()"
     [disabled]="disabled()"
@@ -17,11 +17,11 @@
   <mat-datepicker #picker [calendarHeaderComponent]="headerComponent">
     <mat-datepicker-actions>
       @if (showClear()) {
-        <button mat-button matDatepickerCancel class="dp-btn dp-btn--clear" (click)="_onClear()">Clear</button>
+        <button mat-button matDatepickerCancel class="lib-dp-btn lib-dp-btn--clear" (click)="_onClear()">Clear</button>
       }
-      <span class="dp-spacer"></span>
-      <button mat-button matDatepickerCancel class="dp-btn dp-btn--cancel">Cancel</button>
-      <button mat-button matDatepickerApply class="dp-btn dp-btn--ok">OK</button>
+      <span class="lib-dp-spacer"></span>
+      <button mat-button matDatepickerCancel class="lib-dp-btn lib-dp-btn--cancel">Cancel</button>
+      <button mat-button matDatepickerApply class="lib-dp-btn lib-dp-btn--ok">OK</button>
     </mat-datepicker-actions>
   </mat-datepicker>
   <mat-hint>{{ hint() }}</mat-hint>

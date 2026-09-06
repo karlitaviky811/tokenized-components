@@ -7,11 +7,11 @@ import {
   ContentChildren,
   DestroyRef,
   ElementRef,
-  EventEmitter,
+  HostBinding,
   effect,
   input,
   OnDestroy,
-  Output,
+  output,
   QueryList,
   ViewChild,
   inject,
@@ -55,14 +55,21 @@ export class SharedTableComponent<T extends Record<string, unknown> = Record<str
   readonly pageSizeOptions = input<ReadonlyArray<number>>([5, 10, 20]);
   readonly enableRowClick = input(false);
   readonly totalElements = input<number | undefined>();
-  @Output() rowClick = new EventEmitter<T>();
-  @Output() pageChange = new EventEmitter<TablePageEvent>();
+  readonly height = input<string | undefined>();
+  readonly minHeight = input<string | undefined>();
+  readonly maxHeight = input<string | undefined>();
+  readonly rowClick = output<T>();
+  readonly pageChange = output<TablePageEvent>();
+
+  @HostBinding('class.lib-table--clickable-rows')
+  get _clickableRows(): boolean { return this.enableRowClick(); }
   @ContentChildren(SharedTableCellTemplateDirective, { descendants: true })
   cellTemplatesQuery!: QueryList<SharedTableCellTemplateDirective>;
   cellTemplates: Record<string, SharedTableCellTemplateDirective['template']> = {};
   private removeScrollSync: (() => void) | null = null;
   private _paginator?: MatPaginator;
   private readonly destroyRef = inject(DestroyRef);
+  private readonly _el = inject(ElementRef<HTMLElement>);
 
   readonly dataSource = new MatTableDataSource<T>();
   displayedColumns: string[] = [];
@@ -76,6 +83,13 @@ export class SharedTableComponent<T extends Record<string, unknown> = Record<str
     effect(() => {
       const rows = this.data();
       this.dataSource.data = rows.slice();
+    });
+
+    effect(() => {
+      const el = this._el.nativeElement;
+      el.style.setProperty('--_lib-table-height',     this.height()    ?? '');
+      el.style.setProperty('--_lib-table-min-height', this.minHeight() ?? '');
+      el.style.setProperty('--_lib-table-max-height', this.maxHeight() ?? '');
     });
   }
 

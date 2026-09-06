@@ -4,11 +4,16 @@
   initial-value: 0%;
 }
 
-.progressbar[role="progressbar"] {
+.lib-progress-stepper[role="progressbar"] {
+  --lib-progress-stepper-fill: var(--comp-progress-fill, #0BC626);
+  --lib-progress-stepper-track: var(--comp-progress-track, #F0F0F0);
+  --lib-progress-stepper-complete: var(--comp-progress-complete, #059669);
+  --lib-progress-stepper-text: var(--comp-progress-text, #3E3E3E);
+
   --size: 4rem;
   --bar-width: 0.625rem;
-  --color-bar-progress: #0BC626;
-  --shadow-color-bar-progress: #F0F0F0;
+  --color-bar-progress: var(--lib-progress-stepper-fill);
+  --shadow-color-bar-progress: var(--lib-progress-stepper-track);
 
   width: var(--size);
   aspect-ratio: 1 / 1;
@@ -24,11 +29,11 @@
   transition: --progress 500ms linear;
 }
 
-.progressbar[role="progressbar"] > span {
+.lib-progress-stepper[role="progressbar"] > span {
   display: none;
 }
 
-.progressbar[role="progressbar"]::after {
+.lib-progress-stepper[role="progressbar"]::after {
   content: '';
   background: white;
   position: absolute;
@@ -40,7 +45,12 @@
   z-index: 0;
 }
 
-.progressbar:not([role="progressbar"]) {
+.lib-progress-stepper:not([role="progressbar"]) {
+  --lib-progress-stepper-fill: var(--comp-progress-fill, #0BC626);
+  --lib-progress-stepper-track: var(--comp-progress-track, #F0F0F0);
+  --lib-progress-stepper-complete: var(--comp-progress-complete, #059669);
+  --lib-progress-stepper-text: var(--comp-progress-text, #3E3E3E);
+
   position: relative;
   width: var(--size, 8.25rem);
   aspect-ratio: 1 / 1;
@@ -52,19 +62,19 @@
   border-radius: 50%;
 }
 
-.progressbar:not([role="progressbar"])::after {
+.lib-progress-stepper:not([role="progressbar"])::after {
   display: none;
 }
 
-.progressbar:not([role="progressbar"]) span {
+.lib-progress-stepper:not([role="progressbar"]) span {
   font-size: 1rem;
   text-align: center;
-  color: #059669;
+  color: var(--lib-progress-stepper-complete);
   padding: 1rem;
 }
 
 
-.progress-content {
+.lib-progress-stepper__content {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -75,15 +85,14 @@
   text-align: center;
 }
 
-.progress-content .step-text {
+.lib-progress-stepper__content .lib-progress-stepper__step-text {
   font-size: 0.625rem;
   font-weight: 400;
-  color: #3E3E3E;
+  color: var(--lib-progress-stepper-text);
 }
 
-.progress-content .step-number {
+.lib-progress-stepper__content .lib-progress-stepper__step-number {
   font-size: 0.75rem;
   font-weight: 400;
-  color: #3E3E3E;
+  color: var(--lib-progress-stepper-text);
 }
-

@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { SlideToggle } from 'crdx-components';
+import { LibSlideToggleComponent } from 'crdx-components';
 
 @Component({
   selector: 'app-slide-toggle-page',
   standalone: true,
-  imports: [SlideToggle],
+  imports: [LibSlideToggleComponent],
   templateUrl: './slide-toggle.page.html',
   styleUrl: './slide-toggle.page.scss',
 })

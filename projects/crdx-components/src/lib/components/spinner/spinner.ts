@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'lib-spinner, spinner',
+  selector: 'lib-spinner',
   standalone: true,
   imports: [MatProgressSpinnerModule],
   templateUrl: './spinner.html',

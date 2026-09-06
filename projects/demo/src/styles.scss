@@ -302,8 +302,8 @@ mat-datepicker-content {
     padding: 0.25rem 0.75rem 0.75rem;
   }
 
-  // BEM: .dp-btn es el bloque; --cancel y --ok solo cambian el color de label.
-  .dp-btn {
+  // BEM: .lib-dp-btn es el bloque; --cancel y --ok solo cambian el color de label.
+  .lib-dp-btn {
     font-family: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-font, "Heebo");
     font-size: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem);
     font-weight: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500);

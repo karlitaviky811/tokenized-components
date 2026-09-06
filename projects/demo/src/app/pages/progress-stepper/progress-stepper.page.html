@@ -10,7 +10,7 @@
     <table class="api-table">
       <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
       <tr><td>currentStep</td><td>number</td><td>0</td><td>Paso actual</td></tr>
-      <tr><td>totalsStep</td><td>number</td><td>0</td><td>Total de pasos</td></tr>
+      <tr><td>totalSteps</td><td>number</td><td>0</td><td>Total de pasos</td></tr>
       <tr><td>size</td><td>string</td><td>'64px'</td><td>Tamaño del círculo</td></tr>
       <tr><td>barWidth</td><td>string</td><td>'10px'</td><td>Grosor de la barra</td></tr>
       <tr><td>colorBarProgress</td><td>string</td><td>'#0BC626'</td><td>Color de progreso</td></tr>
@@ -24,10 +24,10 @@
 
     <h3>Progreso (1 de 4 → 4 de 4)</h3>
     <div class="variant-row variant-row--steppers">
-      <lib-circular-progress-stepper [currentStep]="1" [totalsStep]="4" />
-      <lib-circular-progress-stepper [currentStep]="2" [totalsStep]="4" />
-      <lib-circular-progress-stepper [currentStep]="3" [totalsStep]="4" />
-      <lib-circular-progress-stepper [currentStep]="4" [totalsStep]="4" />
+      <lib-circular-progress-stepper [currentStep]="1" [totalSteps]="4" />
+      <lib-circular-progress-stepper [currentStep]="2" [totalSteps]="4" />
+      <lib-circular-progress-stepper [currentStep]="3" [totalSteps]="4" />
+      <lib-circular-progress-stepper [currentStep]="4" [totalSteps]="4" />
     </div>
   </section>
 
@@ -35,7 +35,7 @@
     <h2>Uso</h2>
     <pre><code>&lt;lib-circular-progress-stepper
   [currentStep]="currentStep()"
-  [totalsStep]="totalSteps"
+  [totalSteps]="totalSteps"
   size="80px"
   colorBarProgress="#19D27E"
 /&gt;</code></pre>

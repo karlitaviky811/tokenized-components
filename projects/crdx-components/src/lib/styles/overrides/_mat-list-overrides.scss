@@ -1,6 +1,5 @@
 @use '@angular/material' as mat;
 
-/// List overrides (M3). Tokens: _app-tokens (lists-wip-common).
 html {
   @include mat.list-overrides((
     active-indicator-shape: var(--app-lists-wip-common-shape-list-list-item-selected-container-shape),

@@ -4,18 +4,18 @@
   align-items: stretch;
 }
 
-.ui-divider {
+.lib-divider {
   flex-shrink: 0;
   background: var(--color-divider-enabled-container-divider-color, #c3c7c9);
 }
 
-.ui-divider--horizontal {
+.lib-divider--horizontal {
   width: 100%;
   height: var(--divider-enabled-container-divider-thickness, 0.0625rem);
   min-height: 0.0625rem;
 }
 
-.ui-divider--vertical {
+.lib-divider--vertical {
   width: var(--divider-enabled-container-divider-thickness, 0.0625rem);
   min-width: 0.0625rem;
   align-self: stretch;

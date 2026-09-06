@@ -3,13 +3,13 @@
   width: min(100%, 13.75rem);
 }
 
-.dp-field {
+.lib-dp-field {
   width: 100%;
   font-family: var(--color-date-pickers-docked-enabled-label-text-date-label-text-font, Heebo), sans-serif;
   font-size: 0.875rem;
 }
 
-.dp-field.mat-mdc-form-field {
+.lib-dp-field.mat-mdc-form-field {
   --mdc-outlined-text-field-label-text-font: inherit;
   --mdc-outlined-text-field-input-text-font: inherit;
   --mdc-outlined-text-field-label-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
@@ -20,26 +20,30 @@
   --mdc-outlined-text-field-container-shape: 0.75rem;
 }
 
-:host ::ng-deep .dp-field .mdc-text-field--outlined {
+:host ::ng-deep .lib-dp-field .mdc-text-field--outlined {
   background-color: #fff;
   border-radius: 0.75rem;
 }
 
-.dp-input {
+.lib-dp-input {
   font-size: 0.875rem;
 }
 
-.dp-field .mat-datepicker-toggle {
+.lib-dp-field .mat-datepicker-toggle {
   color: var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
+  /* Material no separa el matIconSuffix del borde del field, y el toggle es un
+     icon button de 2.5rem: sin este margen el icono queda pegado al borde.
+     Mismo criterio que .lib-select-field__arrow-host. */
+  margin-right: 0.5rem;
 }
 
 /* ── Actions ────────────────────────────────────────────────────── */
 
-.dp-spacer {
+.lib-dp-spacer {
   flex: 1 0 0;
 }
 
-.dp-btn {
+.lib-dp-btn {
   font-family: var(--buttons-wip-size-small-button-small-label-text-font, Heebo), sans-serif !important;
   font-size: var(--buttons-wip-size-small-button-small-label-text-size, 0.875rem) !important;
   font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500) !important;

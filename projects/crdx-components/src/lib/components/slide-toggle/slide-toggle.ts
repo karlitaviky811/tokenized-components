@@ -2,14 +2,14 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
 import { MatSlideToggleModule, MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
-  selector: 'lib-slide-toggle, slide-toggle',
+  selector: 'lib-slide-toggle',
   standalone: true, 
   imports: [MatSlideToggleModule],
   templateUrl: './slide-toggle.html',
   styleUrl: './slide-toggle.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SlideToggle {
+export class LibSlideToggleComponent {
   checked = input(false);
   checkedChange = output<boolean>();
 

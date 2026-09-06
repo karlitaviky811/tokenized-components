@@ -1,7 +1,5 @@
 @use '@angular/material' as mat;
 
-// Asegura que el borde (outline) del checkbox sin seleccionar use siempre #181c1e,
-// en lugar del valor por defecto (#434749) de los tokens.
 html {
   --checkboxes-enabled-container-checkbox-unselected-outline-color: #181c1e;
   --checkboxes-hovered-container-checkbox-unselected-hover-outline-color: #181c1e;
@@ -12,7 +10,6 @@ html {
   @include mat.checkbox-overrides((
     selected-focus-state-layer-opacity: 0.10,
     selected-hover-state-layer-opacity: 0.08,
-    // Ripple más oscuro cuando el checkbox está seleccionado y en pressed.
     selected-pressed-state-layer-opacity: 0.20,
     unselected-focus-state-layer-opacity: 0.10,
     unselected-hover-state-layer-opacity: 0.08,

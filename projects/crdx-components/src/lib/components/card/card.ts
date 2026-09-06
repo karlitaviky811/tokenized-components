@@ -61,21 +61,21 @@ export class LibCardComponent {
   readonly hasSubhead = computed(() => this.subhead().trim().length > 0);
 
   readonly classes = computed(() => ({
-    'ui-card': true,
-    'ui-card--outlined': this.variant() === 'outlined',
-    'ui-card--elevated': this.variant() === 'elevated',
-    'ui-card--filled': this.variant() === 'filled',
-    'ui-card--state-enabled': this.state() === 'enabled',
-    'ui-card--state-hovered': this.state() === 'hovered',
-    'ui-card--state-focused': this.state() === 'focused',
-    'ui-card--state-pressed': this.state() === 'pressed',
-    'ui-card--state-dragged': this.state() === 'dragged',
-    'ui-card--leading-avatar': this.leadingKind() === 'avatar',
-    'ui-card--leading-icon': this.leadingKind() === 'icon',
-    'ui-card--with-media': this.showMedia() && this.hasMedia(),
-    'ui-card--title-emphasized': !this.hasSubhead(),
-    'ui-card--active': this.active(),
-    'ui-card--disabled': this.disabled(),
+    'lib-card': true,
+    'lib-card--outlined': this.variant() === 'outlined',
+    'lib-card--elevated': this.variant() === 'elevated',
+    'lib-card--filled': this.variant() === 'filled',
+    'lib-card--state-enabled': this.state() === 'enabled',
+    'lib-card--state-hovered': this.state() === 'hovered',
+    'lib-card--state-focused': this.state() === 'focused',
+    'lib-card--state-pressed': this.state() === 'pressed',
+    'lib-card--state-dragged': this.state() === 'dragged',
+    'lib-card--leading-avatar': this.leadingKind() === 'avatar',
+    'lib-card--leading-icon': this.leadingKind() === 'icon',
+    'lib-card--with-media': this.showMedia() && this.hasMedia(),
+    'lib-card--title-emphasized': !this.hasSubhead(),
+    'lib-card--active': this.active(),
+    'lib-card--disabled': this.disabled(),
   }));
 
   onCardClick(): void {

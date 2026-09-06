@@ -1,34 +1,28 @@
 @use '@angular/material' as mat;
 
-// Elevation shadow for the modal datepicker (Figma: elevation-3)
 $_dp-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
              0px 4px 8px 3px rgba(0, 0, 0, 0.15);
 
 html {
   @include mat.datepicker-overrides((
-    // ── Shape & Elevation ───────────────────────────────────────────────
     calendar-container-shape:                   var(--color-date-pickers-modal-enabled-container-shape, 1.75rem),
     calendar-container-touch-shape:             var(--color-date-pickers-modal-enabled-container-shape, 1.75rem),
     calendar-container-elevation-shadow:        var(--shadow-elevation-3, $_dp-shadow),
     calendar-container-touch-elevation-shadow:  var(--shadow-elevation-3, $_dp-shadow),
 
-    // ── Container ───────────────────────────────────────────────────────
     calendar-container-background-color:        var(--color-date-pickers-modal-enabled-container-color, #e5e9eb),
     calendar-container-text-color:              var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e),
 
-    // ── Body label ──────────────────────────────────────────────────────
     calendar-body-label-text-color:             var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
     calendar-body-label-text-size:              var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
     calendar-body-label-text-weight:            var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
 
-    // ── Date cells ──────────────────────────────────────────────────────
     calendar-date-text-color:                   var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e),
     calendar-date-outline-color:                transparent,
     calendar-date-disabled-state-text-color:    color-mix(in srgb,
                                                   var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
                                                   transparent),
 
-    // ── Selected date ───────────────────────────────────────────────────
     calendar-date-selected-state-background-color:
       var(--color-date-pickers-modal-enabled-container-date-selected-container-color, #e42313),
     calendar-date-selected-state-text-color:
@@ -37,7 +31,6 @@ html {
       var(--color-date-pickers-modal-enabled-container-date-selected-container-color, #e42313) 38%,
       transparent),
 
-    // ── Today ───────────────────────────────────────────────────────────
     calendar-date-today-outline-color:
       var(--color-date-pickers-modal-enabled-container-date-today-container-outline-color, #5b5f61),
     calendar-date-today-selected-state-outline-color:
@@ -46,30 +39,24 @@ html {
       var(--color-date-pickers-modal-enabled-container-date-today-container-outline-color, #5b5f61) 38%,
       transparent),
 
-    // ── Header ──────────────────────────────────────────────────────────
     calendar-header-text-color:                 var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
     calendar-header-divider-color:              transparent,
     calendar-header-text-size:                  var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
     calendar-header-text-weight:                var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
 
-    // ── Period button (month/year selector) ─────────────────────────────
     calendar-period-button-text-color:          var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
     calendar-period-button-icon-color:          var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
     calendar-period-button-text-size:           var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
     calendar-period-button-text-weight:         var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
 
-    // ── Navigation buttons (← →) ───────────────────────────────────────
     calendar-navigation-button-icon-color:      var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
 
-    // ── Toggle icon ─────────────────────────────────────────────────────
     toggle-icon-color:                          var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
     toggle-active-state-icon-color:             var(--color-date-pickers-modal-enabled-container-date-selected-container-color, #e42313),
 
-    // ── Typography ──────────────────────────────────────────────────────
     calendar-text-font:                         var(--color-date-pickers-docked-enabled-label-text-date-label-text-font, "Heebo"),
     calendar-text-size:                         var(--color-date-pickers-docked-enabled-label-text-date-label-text-size, 1rem),
 
-    // ── Range input ─────────────────────────────────────────────────────
     range-input-separator-color:
       var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e),
     range-input-disabled-state-separator-color: color-mix(in srgb,
@@ -91,7 +78,6 @@ html {
     opacity: 0 !important;
   }
 
-  // Center date numbers in cells
   .mat-calendar-body-cell-content {
     display: flex;
     align-items: center;

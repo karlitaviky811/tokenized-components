@@ -3,7 +3,9 @@ import {
   Component,
   computed,
   effect,
+  inject,
   input,
+  LOCALE_ID,
   output,
   signal,
 } from '@angular/core';
@@ -26,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LibModalDatePickerComponent {
+  private readonly localeId = inject(LOCALE_ID);
   value = input<Date | null>(null);
   disabled = input(false);
   min = input<Date | null>(null);
@@ -47,7 +50,7 @@ export class LibModalDatePickerComponent {
   protected readonly _headline = computed(() => {
     const date = this._selected();
     if (!date) return '\u00A0';
-    return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    return date.toLocaleDateString(this.localeId, { weekday: 'short', month: 'short', day: 'numeric' });
   });
 
   protected _onSelect(date: Date | null): void {

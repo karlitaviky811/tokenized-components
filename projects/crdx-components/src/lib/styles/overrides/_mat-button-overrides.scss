@@ -1,19 +1,7 @@
 @use '@angular/material' as mat;
 
-/*
- * Button overrides (M3). Tokens: --buttons-wip-* (generate-tokens-resolved.cjs)
- *
- * PATRÓN de opacidades con Material:
- *   *-state-layer-color  → color BASE sin alpha (Material aplica el opacity encima)
- *   *-hover/focus/pressed-state-layer-opacity → opacidades M3 estándar (0.08 / 0.10 / 0.10)
- *   *-ripple-color       → token rgba directo SIN color-mix (ya tiene el alpha correcto)
- *
- * MAL: state-layer-color: rgba(67,71,73,0.08) + hover-opacity: 0.08 = visual 0.0064 (invisible)
- * BIEN: state-layer-color: #434749           + hover-opacity: 0.08 = visual 0.08
- */
 html {
   @include mat.button-overrides((
-    // ── Filled ─────────────────────────────────────────────────────────────
     filled-container-shape:          var(--buttons-wip-size-medium-button-medium-shape-round),
     filled-container-color:          var(--color-buttons-wip-color-filled-enabled-button-filled-container-color, #E42313),
     filled-label-text-color:         var(--color-buttons-wip-color-filled-enabled-button-filled-label-color, #fff),
@@ -30,7 +18,6 @@ html {
     filled-horizontal-padding:       var(--buttons-wip-size-medium-button-medium-leading-space),
     filled-icon-spacing:             var(--buttons-wip-size-medium-button-medium-between-icon-label-space),
 
-    // ── Outlined ───────────────────────────────────────────────────────────
     outlined-container-shape:        var(--buttons-wip-size-medium-button-medium-shape-round),
     outlined-outline-width:          var(--buttons-wip-size-medium-button-medium-outline-width, 0.0625rem),
     outlined-outline-color:          var(--color-buttons-wip-color-outlined-enabled-button-outlined-outline-color, #c3c7c9),
@@ -48,7 +35,6 @@ html {
     outlined-horizontal-padding:     var(--buttons-wip-size-medium-button-medium-leading-space),
     outlined-icon-spacing:           var(--buttons-wip-size-medium-button-medium-between-icon-label-space),
 
-    // ── Tonal ──────────────────────────────────────────────────────────────
     tonal-container-shape:           var(--buttons-wip-size-medium-button-medium-shape-round),
     tonal-container-color:           var(--color-buttons-wip-color-tonal-enabled-button-tonal-container-color, #e0e3e5),
     tonal-label-text-color:          var(--color-buttons-wip-color-tonal-enabled-button-tonal-label-color, #434749),
@@ -65,7 +51,6 @@ html {
     tonal-horizontal-padding:        var(--buttons-wip-size-medium-button-medium-leading-space),
     tonal-icon-spacing:              var(--buttons-wip-size-medium-button-medium-between-icon-label-space),
 
-    // ── Text ───────────────────────────────────────────────────────────────
     text-container-shape:            var(--buttons-wip-size-medium-button-medium-shape-round),
     text-label-text-color:           var(--color-buttons-wip-color-text-enabled-button-text-label-color, #e42313),
     text-state-layer-color:          var(--color-buttons-wip-color-text-enabled-button-text-label-color, #e42313),
@@ -81,7 +66,6 @@ html {
     text-horizontal-padding:         var(--buttons-wip-size-medium-button-medium-leading-space),
     text-icon-spacing:               var(--buttons-wip-size-medium-button-medium-between-icon-label-space),
 
-    // ── Protected (Elevated) ───────────────────────────────────────────────
     protected-container-shape:       var(--buttons-wip-size-medium-button-medium-shape-round),
     protected-container-color:       var(--color-buttons-wip-color-elevated-enabled-button-elevated-container-color, #fff),
     protected-label-text-color:      var(--color-buttons-wip-color-elevated-enabled-button-elevated-label-color, #e42313),

@@ -302,7 +302,7 @@ export class LibSelectFieldComponent<T = string> implements ControlValueAccessor
     return this.value();
   }
 
-  toggledAllSelection(){
+  toggleAllSelection(){
     if (this.allSelected()) {
       this.onToggleSelectAll(false);
       return;
