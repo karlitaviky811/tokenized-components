@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-app-bar-page',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './app-bar.page.html',
   styleUrl: './app-bar.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppBarPage {}

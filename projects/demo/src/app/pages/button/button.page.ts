@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LibButtonComponent } from 'crdx-components';
 
 @Component({
@@ -7,5 +7,6 @@ import { LibButtonComponent } from 'crdx-components';
   imports: [LibButtonComponent],
   templateUrl: './button.page.html',
   styleUrl: './button.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonPage {}

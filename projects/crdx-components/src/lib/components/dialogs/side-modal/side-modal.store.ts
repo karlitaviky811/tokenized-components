@@ -16,7 +16,7 @@ export interface SideModalHeaderConfig {
 export class SideModalStore {
   private readonly dialog = inject(Dialog);
   private readonly overlay = inject(Overlay);
-  private readonly dialogState: WritableSignal<'open' | 'closed' | 'action'> = signal('open');
+  private readonly dialogState: WritableSignal<'open' | 'closed' | 'action'> = signal('closed');
   private currentDialogRef?: DialogRef<unknown, unknown>;
   private readonly router = inject(Router);
   private navSub?: Subscription;

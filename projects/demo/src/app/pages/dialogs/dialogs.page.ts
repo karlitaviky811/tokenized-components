@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Dialog } from '@angular/cdk/dialog';
 import { LibButtonComponent, ConfirmModal } from 'crdx-components';
 
@@ -7,6 +7,7 @@ import { LibButtonComponent, ConfirmModal } from 'crdx-components';
   standalone: true,
   imports: [LibButtonComponent],
   templateUrl: './dialogs.page.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogsPage {
   private readonly dialog = inject(Dialog);

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { LibButtonComponent, LibIconButtonComponent, LibSlideToggleComponent, LibChipComponent } from 'crdx-components';
 
 @Component({
@@ -6,6 +6,7 @@ import { LibButtonComponent, LibIconButtonComponent, LibSlideToggleComponent, Li
   standalone: true,
   imports: [LibButtonComponent, LibIconButtonComponent, LibSlideToggleComponent, LibChipComponent],
   templateUrl: './actions.page.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ActionsPage {
   filters = signal([
@@ -21,7 +22,6 @@ export class ActionsPage {
     );
   }
 
-  onChipRemoved(label: string): void {
-    console.log('Chip removed:', label);
+  onChipRemoved(_label: string): void {
   }
 }

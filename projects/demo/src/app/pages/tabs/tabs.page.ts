@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
@@ -6,5 +6,6 @@ import { MatTabsModule } from '@angular/material/tabs';
   standalone: true,
   imports: [MatTabsModule],
   templateUrl: './tabs.page.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsPage {}

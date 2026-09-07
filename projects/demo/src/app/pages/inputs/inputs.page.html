@@ -64,12 +64,12 @@
 
     <h3>Variantes</h3>
     <div class="variant-row">
-      <lib-select-field label="Single" [options]="selectOptions" mode="single" />
-      <lib-select-field label="Multiple" [options]="selectOptions" mode="multiple" />
+      <lib-select-field label="Single" [options]="selectOptions()" mode="single" />
+      <lib-select-field label="Multiple" [options]="selectOptions()" mode="multiple" />
     </div>
     <div class="variant-row">
-      <lib-select-field label="Sin filtro" [options]="selectOptions" [filterable]="false" />
-      <lib-select-field label="Disabled" [options]="selectOptions" [disabled]="true" />
+      <lib-select-field label="Sin filtro" [options]="selectOptions()" [filterable]="false" />
+      <lib-select-field label="Disabled" [options]="selectOptions()" [disabled]="true" />
     </div>
 
     <h3>Ejemplo de uso</h3>

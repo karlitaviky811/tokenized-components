@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { LibRadioButtonComponent } from 'crdx-components';
 import { MatRadioModule } from '@angular/material/radio';
 
@@ -8,6 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
   imports: [LibRadioButtonComponent, MatRadioModule],
   templateUrl: './radio-button.page.html',
   styleUrl: './radio-button.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RadioButtonPage {
   selected = signal('classic');

@@ -1,6 +1,6 @@
 {
   "name": "crdx-components",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Credix shared UI component library",
   "peerDependencies": {
     "@angular/animations": ">=22.0.0",

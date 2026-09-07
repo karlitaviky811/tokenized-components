@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { LibChipComponent } from 'crdx-components';
 
 @Component({
@@ -7,6 +7,7 @@ import { LibChipComponent } from 'crdx-components';
   imports: [LibChipComponent],
   templateUrl: './chip.page.html',
   styleUrl: './chip.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChipPage {
   filters = signal([

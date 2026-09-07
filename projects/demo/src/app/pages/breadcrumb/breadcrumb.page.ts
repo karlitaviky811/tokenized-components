@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-breadcrumb-page',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './breadcrumb.page.html',
   styleUrl: './breadcrumb.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbPage {}

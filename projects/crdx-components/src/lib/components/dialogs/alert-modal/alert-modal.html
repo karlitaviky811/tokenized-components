@@ -1,6 +1,6 @@
 <div class="container" role="dialog" aria-modal="true">
     <div class="message">
-        <mat-icon class="tab-icon" fontSet="material-icons-outlined" [ngStyle]="{'color': data.color}">info</mat-icon>
+        <mat-icon class="tab-icon" fontSet="material-icons-outlined" [style.color]="data.color">info</mat-icon>
         <p class="title">{{data.title}}</p>
         @if(data.content){
         <p class="content">{{data.content}}</p>
@@ -10,10 +10,12 @@
     <div class="extraBlock" [ngClass]="data.subtitleAlign">
         <p class="subtitle">{{data.subtitle}}</p>
         <div class="extraBlock-content" [ngClass]="data.subtitleAlign">
-            <ng-container *ngFor="let word of data.extraBlock; let last = last">
+            @for (word of data.extraBlock; track $index) {
                 <span class="word">{{ word }}</span>
-                <span *ngIf="!last" class="separator">|</span>
-            </ng-container>
+                @if (!$last) {
+                    <span class="separator">|</span>
+                }
+            }
         </div>
     </div>
     }

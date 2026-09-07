@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ConfirmModalStore } from '../../dialogs/confirm-modal/confirm-modal.store';
 import { LibButtonComponent } from '../../button/button';
 import { ModalFooterActionsComponent } from '../modal-footer-actions/modal-footer-actions';
@@ -17,6 +18,7 @@ export class FooterComponent {
   private readonly sideModalStore = inject(SideModalStore);
   private readonly confirmModalStore = inject(ConfirmModalStore);
   private readonly flowStore = inject(FooterFlowStore);
+  private readonly destroyRef = inject(DestroyRef);
 
   readonly primaryLabel = computed(() =>
     this.flowStore.currentStep() < this.flowStore.totalSteps() ? 'NEXT' : 'SAVE'
@@ -41,7 +43,7 @@ export class FooterComponent {
       'Cancelar',
     );
 
-    dialogRef.closed.subscribe((result: unknown) => {
+    dialogRef.closed.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((result: unknown) => {
       if (result === true) {
         this.sideModalStore.closeSideModal({ step: this.flowStore.totalSteps(), saved: true });
       }

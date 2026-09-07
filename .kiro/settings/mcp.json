@@ -32,7 +32,8 @@
       "autoApprove": [
         "get_design_context",
         "get_metadata",
-        "get_screenshot"
+        "get_screenshot",
+        "get_variable_defs"
       ]
     }
   }

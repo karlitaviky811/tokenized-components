@@ -40,6 +40,8 @@ export * from './lib/components/dialogs/confirm-modal/confirm-modal';
 export * from './lib/components/dialogs/confirm-modal/confirm-modal.store';
 export * from './lib/components/dialogs/side-modal/side-modal';
 export * from './lib/components/dialogs/side-modal/side-modal.store';
+export * from './lib/components/dialogs/container-custom/container-custom';
+export * from './lib/components/dialogs/container-custom/custom-modal.store';
 
 // Footer layouts.
 export * from './lib/components/footer-actions/page-footer-actions/page-footer-actions';

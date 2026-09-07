@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LibCardComponent, LibIconButtonComponent } from 'crdx-components';
 
 @Component({
@@ -7,5 +7,6 @@ import { LibCardComponent, LibIconButtonComponent } from 'crdx-components';
   imports: [LibCardComponent, LibIconButtonComponent],
   templateUrl: './card.page.html',
   styleUrl: './card.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardPage {}

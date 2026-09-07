@@ -1,4 +1,4 @@
-import { inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { ConfirmModal, ConfirmModalData } from './confirm-modal';
@@ -18,11 +18,11 @@ export interface ConfirmModalOpenOptions {
   providedIn: 'root'
 })
 export class ConfirmModalStore {
-  readonly dialog = inject(Dialog);
+  private readonly dialog = inject(Dialog);
   private readonly overlay = inject(Overlay);
-  protected dialogState: WritableSignal<'open' | 'closed'> = signal('open');
+  private readonly dialogState = signal<'open' | 'closed'>('closed');
   private readonly router = inject(Router);
-  private currentDialogRef?: DialogRef<string, unknown>;
+  private currentDialogRef?: DialogRef<boolean, unknown>;
   private navSub?: Subscription;
 
   open(
@@ -33,12 +33,12 @@ export class ConfirmModalStore {
     width = '19.5rem',
     labelButtonCancel = 'Cancelar',
     options: ConfirmModalOpenOptions = {}
-  ): DialogRef<string, unknown> {
+  ): DialogRef<boolean, unknown> {
     this.dialogState.set('open');
     const positionBuilder = this.overlay.position();
     const strategy = positionBuilder.global().centerHorizontally().centerVertically();
 
-    this.currentDialogRef = this.dialog.open<string>(ConfirmModal, {
+    this.currentDialogRef = this.dialog.open<boolean>(ConfirmModal, {
       width,
       height: options.height,
       disableClose: true,
@@ -71,7 +71,7 @@ export class ConfirmModalStore {
     return this.currentDialogRef;
   }
 
-  openBasic(title: string, confirmLabel: string, cancelLabel = 'Cancelar'): DialogRef<string, unknown> {
+  openBasic(title: string, confirmLabel: string, cancelLabel = 'Cancelar'): DialogRef<boolean, unknown> {
     return this.open(title, confirmLabel, '', '', '19.5rem', cancelLabel);
   }
 
@@ -80,7 +80,7 @@ export class ConfirmModalStore {
     description: string,
     confirmLabel: string,
     cancelLabel = 'Cancelar'
-  ): DialogRef<string, unknown> {
+  ): DialogRef<boolean, unknown> {
     return this.open(title, confirmLabel, '', '', '19.5rem', cancelLabel, {
       description,
     });
@@ -92,7 +92,7 @@ export class ConfirmModalStore {
     confirmLabel: string,
     cancelLabel = 'Cancelar',
     topIconName = 'check_box'
-  ): DialogRef<string, unknown> {
+  ): DialogRef<boolean, unknown> {
     return this.open(title, confirmLabel, '', '', '19.5rem', cancelLabel, {
       description,
       showTopIcon: true,
@@ -107,7 +107,7 @@ export class ConfirmModalStore {
     confirmLabel: string,
     cancelLabel = 'Cancelar',
     showTopIcon = false
-  ): DialogRef<string, unknown> {
+  ): DialogRef<boolean, unknown> {
     return this.open(title, confirmLabel, '', '', '19.5rem', cancelLabel, {
       description,
       showTopIcon,
@@ -123,7 +123,7 @@ export class ConfirmModalStore {
     confirmLabel: string,
     cancelLabel = 'Cancelar',
     showTopIcon = false
-  ): DialogRef<string, unknown> {
+  ): DialogRef<boolean, unknown> {
     return this.open(title, confirmLabel, '', '', '19.5rem', cancelLabel, {
       description,
       showTopIcon,

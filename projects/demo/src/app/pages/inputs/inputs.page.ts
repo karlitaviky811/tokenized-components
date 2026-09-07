@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { disabled, form, FormField } from '@angular/forms/signals';
 import { LibTextFieldComponent, LibSelectFieldComponent, LibCheckboxComponent, LibRadioButtonComponent } from 'crdx-components';
 import { MatRadioModule } from '@angular/material/radio';
@@ -9,6 +9,7 @@ import { MatRadioModule } from '@angular/material/radio';
   imports: [FormField, LibTextFieldComponent, LibSelectFieldComponent, LibCheckboxComponent, LibRadioButtonComponent, MatRadioModule],
   templateUrl: './inputs.page.html',
   styleUrl: './inputs.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputsPage {
   readonly textModel = signal({ name: '', email: '', error: '', hint: '', disabled: '' });
@@ -17,10 +18,10 @@ export class InputsPage {
   });
 
   selectedCard = signal('classic');
-  selectOptions = [
+  protected readonly selectOptions = signal([
     { value: 'co', label: 'Colombia' },
     { value: 'mx', label: 'México' },
     { value: 'ar', label: 'Argentina' },
     { value: 'pe', label: 'Perú' },
-  ];
+  ]);
 }

@@ -29,14 +29,14 @@
 
     <h3>Modo</h3>
     <div class="variant-row">
-      <lib-select-field label="Single"   [options]="options" mode="single"   />
-      <lib-select-field label="Multiple" [options]="options" mode="multiple" />
+      <lib-select-field label="Single"   [options]="options()" mode="single"   />
+      <lib-select-field label="Multiple" [options]="options()" mode="multiple" />
     </div>
 
     <h3>Estados</h3>
     <div class="variant-row">
-      <lib-select-field label="Sin filtro" [options]="options" [filterable]="false" />
-      <lib-select-field label="Disabled"   [options]="options" [disabled]="true"    />
+      <lib-select-field label="Sin filtro" [options]="options()" [filterable]="false" />
+      <lib-select-field label="Disabled"   [options]="options()" [disabled]="true"    />
     </div>
   </section>
 

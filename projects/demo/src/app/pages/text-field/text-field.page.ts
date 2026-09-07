@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { disabled, form, FormField, required } from '@angular/forms/signals';
 import { LibTextFieldComponent } from 'crdx-components';
 
@@ -8,6 +8,7 @@ import { LibTextFieldComponent } from 'crdx-components';
   imports: [FormField, LibTextFieldComponent],
   templateUrl:  './text-field.page.html',
   styleUrl: './text-field.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextFieldPage {
   readonly model = signal({ name: '', email: '', error: '', hint: '', disabled: '' });

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LibSpinnerComponent, LibTooltipComponent, LibCircularProgressStepperComponent } from 'crdx-components';
 
 @Component({
@@ -6,5 +6,6 @@ import { LibSpinnerComponent, LibTooltipComponent, LibCircularProgressStepperCom
   standalone: true,
   imports: [LibSpinnerComponent, LibTooltipComponent, LibCircularProgressStepperComponent],
   templateUrl: './feedback.page.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeedbackPage {}

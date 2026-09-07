@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LibCheckboxComponent } from 'crdx-components';
 
 @Component({
@@ -7,5 +7,6 @@ import { LibCheckboxComponent } from 'crdx-components';
   imports: [LibCheckboxComponent],
   templateUrl: './checkbox.page.html',
   styleUrl: './checkbox.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckboxPage {}

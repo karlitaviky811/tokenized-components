@@ -15,7 +15,7 @@ export interface ModalData {
 export class CustomModalStore {
   private readonly dialog = inject(Dialog);
   private readonly overlay = inject(Overlay);
-  readonly dialogState: WritableSignal<'open' | 'closed'> = signal('open');
+  private readonly dialogState: WritableSignal<'open' | 'closed'> = signal('closed');
   private currentDialogRef?: DialogRef<string, unknown>;
   private readonly router = inject(Router);
   private navSub?: Subscription;

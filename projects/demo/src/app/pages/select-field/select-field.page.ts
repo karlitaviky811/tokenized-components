@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { LibSelectFieldComponent } from 'crdx-components';
 
 @Component({
@@ -7,12 +7,13 @@ import { LibSelectFieldComponent } from 'crdx-components';
   imports: [LibSelectFieldComponent],
   templateUrl: './select-field.page.html',
   styleUrl: './select-field.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectFieldPage {
-  options = [
+  protected readonly options = signal([
     { value: 'co', label: 'Colombia'  },
     { value: 'mx', label: 'México'    },
     { value: 'ar', label: 'Argentina' },
     { value: 'pe', label: 'Perú'      },
-  ];
+  ]);
 }

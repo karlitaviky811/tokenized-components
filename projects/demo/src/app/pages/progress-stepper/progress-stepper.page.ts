@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LibCircularProgressStepperComponent } from 'crdx-components';
 
 @Component({
@@ -7,5 +7,6 @@ import { LibCircularProgressStepperComponent } from 'crdx-components';
   imports: [LibCircularProgressStepperComponent],
   templateUrl: './progress-stepper.page.html',
   styleUrl: './progress-stepper.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgressStepperPage {}

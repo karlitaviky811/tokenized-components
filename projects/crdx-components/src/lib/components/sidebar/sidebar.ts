@@ -12,6 +12,9 @@ export interface SidebarNavItem {
   disabled?: boolean;
 }
 
+export type SidebarType = 'docked' | 'floating';
+export type SidebarAlignment = 'top' | 'middle';
+
 @Component({
   selector: 'lib-sidebar',
   standalone: true,
@@ -19,12 +22,19 @@ export interface SidebarNavItem {
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[class.lib-sidebar-host--floating]': "type() === 'floating'",
+  },
 })
 export class LibSidebarComponent {
   readonly items = input<readonly SidebarNavItem[]>([]);
   readonly selectedId = input<string | null>(null);
   readonly showLabels = input(true);
   readonly spritePath = input('assets/icons/sprite.svg');
+  /** Docked: sin sombra ni bordes; Floating: contenedor modal con sombra y bordes redondeados. */
+  readonly type = input<SidebarType>('docked');
+  /** Alineación vertical del grupo de nav items. */
+  readonly alignment = input<SidebarAlignment>('top');
 
   readonly itemSelected = output<SidebarNavItem>();
 

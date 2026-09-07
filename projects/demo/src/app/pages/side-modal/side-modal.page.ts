@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-side-modal-page',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './side-modal.page.html',
   styleUrl: './side-modal.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SideModalPage {}

@@ -1,25 +1,22 @@
-import { CommonModule } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
 import {
-  AfterContentInit,
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  ContentChildren,
   DestroyRef,
   ElementRef,
-  HostBinding,
+  afterNextRender,
+  contentChildren,
   effect,
   input,
-  OnDestroy,
   output,
-  QueryList,
-  ViewChild,
+  signal,
+  viewChild,
   inject,
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SharedTableCellTemplateDirective } from './shared-table-cell-template.directive';
 
 export interface TablePageEvent {
@@ -38,13 +35,13 @@ export interface SharedTableColumn<T extends Record<string, unknown> = Record<st
 @Component({
   selector: 'lib-shared-table, shared-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule],
+  imports: [NgTemplateOutlet, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule],
   templateUrl: './shared-table.component.html',
   styleUrl: './shared-table.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { '[class.lib-table--clickable-rows]': 'enableRowClick()' },
 })
-export class SharedTableComponent<T extends Record<string, unknown> = Record<string, unknown>>
-  implements AfterContentInit, AfterViewInit, OnDestroy {
+export class SharedTableComponent<T extends Record<string, unknown> = Record<string, unknown>> {
   readonly columns = input.required<ReadonlyArray<SharedTableColumn<T>>>();
   readonly data = input.required<ReadonlyArray<T>>();
   readonly caption = input<string | undefined>();
@@ -61,28 +58,25 @@ export class SharedTableComponent<T extends Record<string, unknown> = Record<str
   readonly rowClick = output<T>();
   readonly pageChange = output<TablePageEvent>();
 
-  @HostBinding('class.lib-table--clickable-rows')
-  get _clickableRows(): boolean { return this.enableRowClick(); }
-  @ContentChildren(SharedTableCellTemplateDirective, { descendants: true })
-  cellTemplatesQuery!: QueryList<SharedTableCellTemplateDirective>;
-  cellTemplates: Record<string, SharedTableCellTemplateDirective['template']> = {};
-  private removeScrollSync: (() => void) | null = null;
-  private _paginator?: MatPaginator;
   private readonly destroyRef = inject(DestroyRef);
   private readonly _el = inject(ElementRef<HTMLElement>);
 
   readonly dataSource = new MatTableDataSource<T>();
-  displayedColumns: string[] = [];
+  readonly cellTemplatesQuery = contentChildren(SharedTableCellTemplateDirective, { descendants: true });
+  readonly headerWrapRef = viewChild<ElementRef<HTMLDivElement>>('headerWrap');
+  readonly bodyWrapRef = viewChild<ElementRef<HTMLDivElement>>('bodyWrap');
+  readonly _paginatorRef = viewChild(MatPaginator);
+  readonly displayedColumns = signal<string[]>([]);
+  readonly cellTemplates = signal<Record<string, SharedTableCellTemplateDirective['template']>>({});
+  private paginatorSub?: Subscription;
 
   constructor() {
     effect(() => {
-      const columns = this.columns();
-      this.displayedColumns = columns.map((column) => String(column.key));
+      this.displayedColumns.set(this.columns().map((c) => String(c.key)));
     });
 
     effect(() => {
-      const rows = this.data();
-      this.dataSource.data = rows.slice();
+      this.dataSource.data = this.data().slice();
     });
 
     effect(() => {
@@ -91,57 +85,43 @@ export class SharedTableComponent<T extends Record<string, unknown> = Record<str
       el.style.setProperty('--_lib-table-min-height', this.minHeight() ?? '');
       el.style.setProperty('--_lib-table-max-height', this.maxHeight() ?? '');
     });
-  }
 
-  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator | undefined) {
-    this._paginator = paginator;
-    // En modo server-side (totalElements definido) NO conectamos al dataSource
-    // para que Material no intente paginar los datos localmente
-    if (this.totalElements() === undefined) {
-      this.dataSource.paginator = paginator ?? null;
-    }
-  }
-
-  @ViewChild('headerWrap') headerWrapRef?: ElementRef<HTMLDivElement>;
-  @ViewChild('bodyWrap') bodyWrapRef?: ElementRef<HTMLDivElement>;
-
-  ngAfterViewInit(): void {
-    const header = this.headerWrapRef?.nativeElement;
-    const body = this.bodyWrapRef?.nativeElement;
-    if (header && body) {
-      const onScroll = () => { header.scrollLeft = body.scrollLeft; };
-      body.addEventListener('scroll', onScroll);
-      this.removeScrollSync = () => body.removeEventListener('scroll', onScroll);
-    }
-
-    // Modo server-side: escuchar eventos del paginator y emitirlos hacia arriba
-    if (this._paginator && this.totalElements() !== undefined) {
-      this._paginator.page.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event: PageEvent) => {
-        this.pageChange.emit({ pageIndex: event.pageIndex, pageSize: event.pageSize });
-      });
-    }
-  }
-
-  ngAfterContentInit(): void {
-    const rebuildTemplateMap = () => {
+    effect(() => {
       const map: Record<string, SharedTableCellTemplateDirective['template']> = {};
-      this.cellTemplatesQuery.forEach((entry) => {
-        if (entry.key) {
-          map[entry.key] = entry.template;
-        }
+      this.cellTemplatesQuery().forEach((entry) => {
+        if (entry.key) map[entry.key] = entry.template;
       });
-      this.cellTemplates = map;
-    };
+      this.cellTemplates.set(map);
+    });
 
-    rebuildTemplateMap();
-    this.cellTemplatesQuery.changes
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(() => rebuildTemplateMap());
-  }
+    effect(() => {
+      const paginator = this._paginatorRef();
+      const isServerSide = this.totalElements() !== undefined;
 
-  ngOnDestroy(): void {
-    this.removeScrollSync?.();
-    this.removeScrollSync = null;
+      this.paginatorSub?.unsubscribe();
+      this.paginatorSub = undefined;
+
+      if (isServerSide) {
+        if (paginator) {
+          this.paginatorSub = paginator.page.subscribe((event: PageEvent) => {
+            this.pageChange.emit({ pageIndex: event.pageIndex, pageSize: event.pageSize });
+          });
+        }
+      } else {
+        this.dataSource.paginator = paginator ?? null;
+      }
+    });
+
+    afterNextRender(() => {
+      const header = this.headerWrapRef()?.nativeElement;
+      const body   = this.bodyWrapRef()?.nativeElement;
+      if (header && body) {
+        const onScroll = () => { header.scrollLeft = body.scrollLeft; };
+        body.addEventListener('scroll', onScroll);
+        this.destroyRef.onDestroy(() => body.removeEventListener('scroll', onScroll));
+      }
+      this.destroyRef.onDestroy(() => this.paginatorSub?.unsubscribe());
+    });
   }
 
   getCellValue(column: SharedTableColumn<T>, row: T, index: number): unknown {
@@ -157,8 +137,6 @@ export class SharedTableComponent<T extends Record<string, unknown> = Record<str
   columnId(column: SharedTableColumn<T>): string {
     return String(column.key);
   }
-
-  columnTrackBy = (_: number, column: SharedTableColumn<T>) => column.key;
 
   resolveTextAlign(column: SharedTableColumn<T>): 'start' | 'center' | 'end' {
     return column.align ?? 'start';

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { LibDatePickerComponent, LibModalDatePickerComponent } from 'crdx-components';
 
 @Component({
@@ -7,6 +7,7 @@ import { LibDatePickerComponent, LibModalDatePickerComponent } from 'crdx-compon
   imports: [LibDatePickerComponent, LibModalDatePickerComponent],
   templateUrl: './date-picker.page.html',
   styleUrl: './date-picker.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatePickerPage {
   readonly selected      = signal<Date | null>(null);

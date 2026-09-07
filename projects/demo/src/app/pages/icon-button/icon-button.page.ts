@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LibIconButtonComponent } from 'crdx-components';
 
 @Component({
@@ -7,5 +7,6 @@ import { LibIconButtonComponent } from 'crdx-components';
   imports: [LibIconButtonComponent],
   templateUrl: './icon-button.page.html',
   styleUrl: './icon-button.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconButtonPage {}

@@ -23,7 +23,7 @@
     <h3>Variantes</h3>
     <h4>Básica (solo label + description)</h4>
     <lib-list-item
-      [items]="items"
+      [items]="items()"
       [selectedIds]="selectedIds()"
       [showCheckbox]="false"
       [showAvatar]="false"
@@ -33,7 +33,7 @@
 
     <h4>Con avatar</h4>
     <lib-list-item
-      [items]="items"
+      [items]="items()"
       [selectedIds]="selectedIds()"
       [showCheckbox]="false"
       [showDividers]="false"
@@ -42,7 +42,7 @@
 
     <h4>Con checkbox (trailing)</h4>
     <lib-list-item
-      [items]="items"
+      [items]="items()"
       [selectedIds]="selectedIds()"
       [showAvatar]="false"
       [showDividers]="false"
@@ -51,7 +51,7 @@
 
     <h4>Con checkbox (leading)</h4>
     <lib-list-item
-      [items]="items"
+      [items]="items()"
       [selectedIds]="selectedIds()"
       [showAvatar]="false"
       [showDividers]="false"
@@ -73,7 +73,7 @@
     <h3>Ejemplo de uso</h3>
     <pre><code>// Básico (solo texto)
 &lt;lib-list-item
-  [items]="items"
+  [items]="items()"
   [showCheckbox]="false"
   [showAvatar]="false"
   [showDividers]="false"
@@ -81,13 +81,13 @@
 
 // Con avatar
 &lt;lib-list-item
-  [items]="items"
+  [items]="items()"
   [showCheckbox]="false"
 /&gt;
 
 // Con selección
 &lt;lib-list-item
-  [items]="items"
+  [items]="items()"
   [selectedIds]="selectedUsers"
   (selectionChange)="onSelect($event)"
 /&gt;</code></pre>

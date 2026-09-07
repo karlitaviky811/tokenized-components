@@ -2,7 +2,7 @@
   <div class="comp-hero">
     <span class="comp-hero__tag">lib-sidebar</span>
     <h1 class="comp-hero__name">Sidebar</h1>
-    <p class="comp-hero__desc">Barra de navegación lateral con íconos y labels opcionales. Puede coexistir con un App Bar para navegación de primer nivel.</p>
+    <p class="comp-hero__desc">Navigation rail lateral con íconos y labels opcionales. Soporta variantes Docked/Floating y alineación Top/Middle, según el diseño de Figma "Navigation Rail: Expanded".</p>
   </div>
 
   <section class="doc-section">
@@ -11,7 +11,9 @@
       <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
       <tr><td>items</td><td>SidebarNavItem[]</td><td>[]</td><td>Items de navegación</td></tr>
       <tr><td>selectedId</td><td>string | null</td><td>null</td><td>ID del item activo</td></tr>
-      <tr><td>showLabels</td><td>boolean</td><td>true</td><td>Muestra labels de texto</td></tr>
+      <tr><td>showLabels</td><td>boolean</td><td>true</td><td>Muestra labels (expanded) u oculta (collapsed)</td></tr>
+      <tr><td>type</td><td>'docked' | 'floating'</td><td>'docked'</td><td>Docked (plano) o Floating (modal con sombra)</td></tr>
+      <tr><td>alignment</td><td>'top' | 'middle'</td><td>'top'</td><td>Alineación vertical de los items</td></tr>
       <tr><td>spritePath</td><td>string</td><td>'assets/icons/sprite.svg'</td><td>Path del sprite SVG</td></tr>
       <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
       <tr><td>itemSelected</td><td>SidebarNavItem</td><td></td><td>Emite item seleccionado</td></tr>
@@ -19,8 +21,53 @@
   </section>
 
   <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <h3>Expanded · Docked (default)</h3>
+    <div class="sidebar-demo">
+      <lib-sidebar
+        [items]="navItems"
+        [selectedId]="selectedId()"
+        (itemSelected)="onSelect($event)"
+      />
+    </div>
+
+    <h3>Expanded · Floating</h3>
+    <div class="sidebar-demo">
+      <lib-sidebar
+        type="floating"
+        [items]="navItems"
+        [selectedId]="selectedId()"
+        (itemSelected)="onSelect($event)"
+      />
+    </div>
+
+    <h3>Alignment · Middle</h3>
+    <div class="sidebar-demo">
+      <lib-sidebar
+        alignment="middle"
+        [items]="navItems"
+        [selectedId]="selectedId()"
+        (itemSelected)="onSelect($event)"
+      />
+    </div>
+
+    <h3>Collapsed (solo íconos)</h3>
+    <div class="sidebar-demo">
+      <lib-sidebar
+        [showLabels]="false"
+        [items]="navItems"
+        [selectedId]="selectedId()"
+        (itemSelected)="onSelect($event)"
+      />
+    </div>
+  </section>
+
+  <section class="doc-section">
     <h2>Uso</h2>
     <pre><code>&lt;lib-sidebar
+  type="floating"
+  alignment="top"
   [items]="navItems"
   [selectedId]="activeRoute()"
   (itemSelected)="navigate($event)"

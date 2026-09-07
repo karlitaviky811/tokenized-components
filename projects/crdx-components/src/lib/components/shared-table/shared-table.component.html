@@ -10,7 +10,7 @@
         [dataSource]="dataSource"
         class="shared-table__mat-table shared-table__mat-table--header"
       >
-        @for (column of columns(); track columnTrackBy($index, column)) {
+        @for (column of columns(); track column.key) {
           <ng-container [matColumnDef]="columnId(column)">
             <th
               mat-header-cell
@@ -22,7 +22,7 @@
             </th>
           </ng-container>
         }
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>
       </table>
     </div>
     <!-- Cuerpo: scroll horizontal aquí (barra debajo del header) -->
@@ -36,7 +36,7 @@
         [dataSource]="dataSource"
         class="shared-table__mat-table shared-table__mat-table--body"
       >
-        @for (column of columns(); track columnTrackBy($index, column)) {
+        @for (column of columns(); track column.key) {
           <ng-container [matColumnDef]="columnId(column)">
             <td
               mat-cell
@@ -44,9 +44,9 @@
               [style.text-align]="resolveTextAlign(column)"
               [style.width]="resolveWidth(column)"
             >
-              @if (cellTemplates[column.key]) {
+              @if (cellTemplates()[column.key]) {
                 <ng-container
-                  [ngTemplateOutlet]="cellTemplates[column.key]"
+                  [ngTemplateOutlet]="cellTemplates()[column.key]"
                   [ngTemplateOutletContext]="{
                     $implicit: row,
                     index: i,
@@ -59,11 +59,11 @@
             </td>
           </ng-container>
         }
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns()"></tr>
         <tr mat-no-data-row>
           <td
             class="shared-table__empty"
-            [attr.colspan]="displayedColumns.length || 1"
+            [attr.colspan]="displayedColumns().length || 1"
           >
 
             @if (!loading()) {

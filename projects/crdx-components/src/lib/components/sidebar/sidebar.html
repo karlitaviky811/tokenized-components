@@ -1,4 +1,11 @@
-<aside class="lib-sidebar" role="navigation" aria-label="Navegación principal" [class.lib-sidebar--show-labels]="hasLabels()">
+<aside
+  class="lib-sidebar"
+  role="navigation"
+  aria-label="Navegación principal"
+  [class.lib-sidebar--show-labels]="hasLabels()"
+  [class.lib-sidebar--floating]="type() === 'floating'"
+  [class.lib-sidebar--align-middle]="alignment() === 'middle'"
+>
   <div class="lib-sidebar__header">
     <ng-content select="[sidebar-header]"></ng-content>
   </div>
@@ -61,7 +68,10 @@
         <use [attr.href]="src"></use>
       </svg>
     } @else {
-      <img [attr.class]="imgClass" [src]="src" alt="" />
+      <span
+        [attr.class]="imgClass"
+        [style.--lib-sidebar-icon-src]="'url(&quot;' + src + '&quot;)'"
+      ></span>
     }
   </ng-template>
 </aside>

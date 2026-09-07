@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LibDividerComponent } from 'crdx-components';
 
 @Component({
@@ -6,5 +6,6 @@ import { LibDividerComponent } from 'crdx-components';
   standalone: true,
   imports: [LibDividerComponent],
   templateUrl: './layout.page.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutPage {}

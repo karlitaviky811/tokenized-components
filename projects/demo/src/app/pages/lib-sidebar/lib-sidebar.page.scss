@@ -1,1 +1,11 @@
-// Sidebar page — styles handled globally via styles.scss
+// El sidebar es height:100%; el contenedor le da una altura acotada para el demo.
+.sidebar-demo {
+  height: 25rem;
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #fafafa;
+  border: 0.0625rem solid #e0e3e5;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
