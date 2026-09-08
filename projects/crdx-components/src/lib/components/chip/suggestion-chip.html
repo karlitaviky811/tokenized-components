@@ -1,0 +1,19 @@
+<button
+  type="button"
+  class="lib-suggestion-chip"
+  [class.lib-suggestion-chip--outlined]="appearance() === 'outlined'"
+  [class.lib-suggestion-chip--elevated]="appearance() === 'elevated'"
+  [class.lib-suggestion-chip--selected]="selected()"
+  [class.lib-suggestion-chip--has-icon]="hasIcon()"
+  [attr.aria-pressed]="selected()"
+  [disabled]="disabled()"
+  (click)="onToggle()"
+>
+  <span class="lib-suggestion-chip__state-layer">
+    @if (hasIcon()) {
+      <mat-icon class="lib-suggestion-chip__icon">{{ icon() }}</mat-icon>
+    }
+    <span class="lib-suggestion-chip__label">{{ label() }}</span>
+    <ng-content />
+  </span>
+</button>

@@ -75,4 +75,108 @@
   (removed)="onRemove()"
 /&gt;</code></pre>
   </section>
+
+  <!-- ASSIST CHIP -->
+  <div class="comp-hero" style="margin-top: 3rem;">
+    <span class="comp-hero__tag">lib-assist-chip</span>
+    <h1 class="comp-hero__name">Assist Chip</h1>
+    <p class="comp-hero__desc">Assist chip de Material 3 (Figma 261:718). Representa acciones inteligentes o contextuales. No tiene estado seleccionado.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>label</td><td>string</td><td>''</td><td>Texto del chip</td></tr>
+      <tr><td>appearance</td><td>'outlined' | 'elevated'</td><td>'outlined'</td><td>Estilo visual</td></tr>
+      <tr><td>icon</td><td>string</td><td>''</td><td>Ícono leading (Material Symbols)</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <h3>Estilo</h3>
+    <div class="variant-row">
+      <lib-assist-chip label="Outlined" appearance="outlined" />
+      <lib-assist-chip label="Elevated" appearance="elevated" />
+      <lib-assist-chip label="Disabled" appearance="outlined" [disabled]="true" />
+    </div>
+
+    <h3>Con ícono</h3>
+    <div class="variant-row">
+      <lib-assist-chip label="Agregar" appearance="outlined" icon="add_circle" />
+      <lib-assist-chip label="Evento"  appearance="elevated" icon="event" />
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-assist-chip
+  label="Agregar al calendario"
+  appearance="outlined"
+  icon="event"
+/&gt;</code></pre>
+  </section>
+
+  <!-- SUGGESTION CHIP -->
+  <div class="comp-hero" style="margin-top: 3rem;">
+    <span class="comp-hero__tag">lib-suggestion-chip</span>
+    <h1 class="comp-hero__name">Suggestion Chip</h1>
+    <p class="comp-hero__desc">Suggestion chip de Material 3 (Figma 261:71). Presenta sugerencias dinámicas. Es un toggle: soporta estado seleccionado.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>label</td><td>string</td><td>''</td><td>Texto del chip</td></tr>
+      <tr><td>appearance</td><td>'outlined' | 'elevated'</td><td>'outlined'</td><td>Estilo visual</td></tr>
+      <tr><td>selected</td><td>boolean</td><td>false</td><td>Estado seleccionado</td></tr>
+      <tr><td>icon</td><td>string</td><td>''</td><td>Ícono leading (Material Symbols)</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>selectedChange</td><td>boolean</td><td></td><td>Emite el nuevo estado al hacer click</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <h3>Estado</h3>
+    <div class="variant-row">
+      <lib-suggestion-chip label="Unselected" appearance="outlined" />
+      <lib-suggestion-chip label="Selected"   appearance="outlined" [selected]="true" />
+      <lib-suggestion-chip label="Elevated"   appearance="elevated" />
+      <lib-suggestion-chip label="Disabled"   appearance="outlined" [disabled]="true" />
+    </div>
+
+    <h3>Con ícono (selected)</h3>
+    <div class="variant-row">
+      <lib-suggestion-chip label="Favorito" appearance="outlined" icon="star" [selected]="true" />
+    </div>
+
+    <h3>Toggle interactivo</h3>
+    <div class="variant-row">
+      @for (s of suggestions(); track s.value) {
+        <lib-suggestion-chip
+          [label]="s.label"
+          appearance="outlined"
+          [selected]="s.selected"
+          (selectedChange)="toggleSuggestion(s.value, $event)"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-suggestion-chip
+  label="Angular"
+  appearance="outlined"
+  [selected]="isSelected"
+  (selectedChange)="onToggle($event)"
+/&gt;</code></pre>
+  </section>
 </article>

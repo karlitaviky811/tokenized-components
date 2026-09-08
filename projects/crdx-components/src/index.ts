@@ -34,6 +34,8 @@ export * from './lib/components/date-picker/date-picker-header';
 export * from './lib/components/date-range-picker/date-range-picker';
 export * from './lib/components/modal-date-picker/modal-date-picker';
 export * from './lib/components/chip/chip';
+export * from './lib/components/chip/assist-chip';
+export * from './lib/components/chip/suggestion-chip';
 
 // Dialogs and modal containers.
 export * from './lib/components/dialogs/confirm-modal/confirm-modal';
