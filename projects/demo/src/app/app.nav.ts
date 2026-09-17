@@ -13,6 +13,7 @@ export interface NavItem {
   readonly label: string;
   readonly path?: string;
   readonly loadComponent?: LazyComponent;
+  readonly data?: Record<string, unknown>;
 }
 
 /** A navigable entry: has both a route path and a component to load. */
@@ -64,17 +65,20 @@ export const NAV_GROUPS: readonly NavGroup[] = [
     label: 'Data Display',
     items: [
       { label: 'Cards',      path: 'card',         loadComponent: () => import('./pages/card/card.page').then(m => m.CardPage) },
-      { label: 'Breadcrumb', path: 'breadcrumb',   loadComponent: () => import('./pages/breadcrumb/breadcrumb.page').then(m => m.BreadcrumbPage) },
+      { label: 'Breadcrumb', path: 'breadcrumb',   loadComponent: () => import('./pages/breadcrumb/breadcrumb.page').then(m => m.BreadcrumbPage), data: { breadcrumb: 'Breadcrumb', parentBreadcrumb: 'Componentes', parentUrl: '/button' } },
       { label: 'Table',      path: 'shared-table', loadComponent: () => import('./pages/shared-table/shared-table.page').then(m => m.SharedTablePage) },
       { label: 'List Item',  path: 'list-item',    loadComponent: () => import('./pages/list-item/list-item.page').then(m => m.ListItemPage) },
+      { label: 'Badges',     path: 'badges',       loadComponent: () => import('./pages/badges/badges.page').then(m => m.BadgesPage) },
     ],
   },
   {
     label: 'Feedback',
     items: [
-      { label: 'Spinner',          path: 'spinner',          loadComponent: () => import('./pages/spinner/spinner.page').then(m => m.SpinnerPage) },
-      { label: 'Tooltip',          path: 'tooltip',          loadComponent: () => import('./pages/tooltip/tooltip.page').then(m => m.TooltipPage) },
-      { label: 'Progress Stepper', path: 'progress-stepper', loadComponent: () => import('./pages/progress-stepper/progress-stepper.page').then(m => m.ProgressStepperPage) },
+      { label: 'Spinner',               path: 'spinner',              loadComponent: () => import('./pages/spinner/spinner.page').then(m => m.SpinnerPage) },
+      { label: 'Tooltip',               path: 'tooltip',              loadComponent: () => import('./pages/tooltip/tooltip.page').then(m => m.TooltipPage) },
+      { label: 'Progress Stepper',      path: 'progress-stepper',     loadComponent: () => import('./pages/progress-stepper/progress-stepper.page').then(m => m.ProgressStepperPage) },
+      { label: 'Progress Indicators',   path: 'progress-indicator',   loadComponent: () => import('./pages/progress-indicator/progress-indicator.page').then(m => m.ProgressIndicatorPage) },
+      { label: 'Snackbars',             path: 'snackbar',             loadComponent: () => import('./pages/snackbar/snackbar.page').then(m => m.SnackbarPage) },
     ],
   },
   {
@@ -88,8 +92,10 @@ export const NAV_GROUPS: readonly NavGroup[] = [
   {
     label: 'Overlay',
     items: [
-      { label: 'Dialogs',     path: 'confirm-modal', loadComponent: () => import('./pages/confirm-modal/confirm-modal.page').then(m => m.ConfirmModalPage) },
-      { label: 'Side Sheets', path: 'side-modal',    loadComponent: () => import('./pages/side-modal/side-modal.page').then(m => m.SideModalPage) },
+      { label: 'Dialogs',        path: 'confirm-modal',  loadComponent: () => import('./pages/confirm-modal/confirm-modal.page').then(m => m.ConfirmModalPage) },
+      { label: 'Dynamic Dialog', path: 'dynamic-dialog', loadComponent: () => import('./pages/dynamic-dialog/dynamic-dialog.page').then(m => m.DynamicDialogPage) },
+      { label: 'Side Sheets',    path: 'side-modal',     loadComponent: () => import('./pages/side-modal/side-modal.page').then(m => m.SideModalPage) },
+      { label: 'Bottom Sheets',  path: 'bottom-sheet',   loadComponent: () => import('./pages/bottom-sheet/bottom-sheet.page').then(m => m.BottomSheetPage) },
     ],
   },
   {
@@ -100,15 +106,18 @@ export const NAV_GROUPS: readonly NavGroup[] = [
     ],
   },
   {
+    label: 'Mobile',
+    items: [
+      { label: 'Mobile Preview', path: 'mobile-preview', loadComponent: () => import('./pages/mobile-preview/mobile-preview.page').then(m => m.MobilePreviewPage) },
+    ],
+  },
+  {
     label: 'Coming Soon',
     items: [
       { label: 'Avatars'         },
-      { label: 'Badges'          },
-      { label: 'Bottom Sheets'   },
       { label: 'Carousel'        },
       { label: 'Navigation Rail' },
       { label: 'Search'          },
-      { label: 'Snackbars'       },
     ],
   },
 ];

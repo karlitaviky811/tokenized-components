@@ -8,6 +8,6 @@ import { DEFAULT_PATH, NAV_GROUPS, isNavPage } from './app.nav';
 export const APP_ROUTES: Routes = [
   { path: '', redirectTo: DEFAULT_PATH, pathMatch: 'full' },
   ...NAV_GROUPS.flatMap(group =>
-    group.items.filter(isNavPage).map(({ path, loadComponent }) => ({ path, loadComponent })),
+    group.items.filter(isNavPage).map(({ path, loadComponent, data }) => ({ path, loadComponent, data })),
   ),
 ];

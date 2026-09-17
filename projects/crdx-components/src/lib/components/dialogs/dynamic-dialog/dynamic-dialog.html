@@ -1,0 +1,17 @@
+<div class="dynamic-dialog" role="dialog" aria-modal="true">
+  @if (data.headerTemplate) {
+    <div class="dynamic-dialog__header">
+      <ng-container [ngTemplateOutlet]="data.headerTemplate" />
+    </div>
+  }
+  @if (data.bodyTemplate) {
+    <div class="dynamic-dialog__body">
+      <ng-container [ngTemplateOutlet]="data.bodyTemplate" />
+    </div>
+  }
+  @if (data.actionsTemplate) {
+    <div class="dynamic-dialog__actions">
+      <ng-container [ngTemplateOutlet]="data.actionsTemplate" />
+    </div>
+  }
+</div>

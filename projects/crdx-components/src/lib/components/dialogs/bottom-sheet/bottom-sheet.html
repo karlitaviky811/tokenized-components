@@ -1,0 +1,16 @@
+<div
+  class="container"
+  role="dialog"
+  aria-modal="true"
+  [@sheetAnimation]="dialogState()"
+  (@sheetAnimation.done)="onAnimationDone($event)"
+>
+  @if (showDragHandle) {
+    <div class="header">
+      <div class="drag-handle" aria-hidden="true"></div>
+    </div>
+  }
+  <div class="content">
+    <ng-container *ngComponentOutlet="content"></ng-container>
+  </div>
+</div>

@@ -1,79 +1,75 @@
-<div
-  class="lib-list-item__container"
-  [style.width]="width() ?? '100%'"
-  [style.min-width]="width() ?? null"
-  [style.--lib-list-item-background]="backgroundColor() ?? null"
+<mat-list-item
+  role="listitem"
+  class="ui-list-option"
+  [class.lib-list-item--disabled]="disabled()"
+  [class.lib-list-item--selected]="showCheckbox() && selected()"
+  [class.lib-list-item--multiline]="!!data().description"
+  [class.lib-list-item--compact]="density() === 'compact'"
+  [disableRipple]="true"
+  (click)="rowClick.emit()"
 >
-  @if (headerTemplate()) {
-  <div class="lib-list-item__header">
-    <ng-container [ngTemplateOutlet]="headerTemplate()!" />
-  </div>
-}
-<mat-list role="list">
-  @for (item of items(); track trackById($index, item)) {
-    <mat-list-item
-      role="listitem"
-      class="ui-list-option"
-      [class.lib-list-item--disabled]="item.disabled ?? false"
-      [class.lib-list-item--selected]="showCheckbox() && isItemSelected(item)"
-      [class.lib-list-item--with-divider]="showDividers()"
-      [disableRipple]="true"
-      (click)="onRowClick(item, $event)"
-    >
-      @if (itemTemplate()) {
-        <ng-container [ngTemplateOutlet]="itemTemplate()!" [ngTemplateOutletContext]="{ $implicit: item }" />
-      } @else {
-        <div class="lib-list-item" [class.lib-list-item--with-divider]="showDividers()">
-          <span class="lib-list-item__state-layer"></span>
+  <div
+    class="lib-list-item"
+  
+    [class.lib-list-item--multiline]="!!data().description"
+  >
+    <span class="lib-list-item__state-layer"></span>
 
-          @if (showCheckbox() && checkboxPosition() === 'leading') {
-            <span class="lib-list-item__leading lib-list-item__leading--checkbox">
-              <mat-checkbox
-                [checked]="isItemSelected(item)"
-                [disabled]="item.disabled ?? disabled()"
-                (change)="onCheckboxChange(item, $event.checked)"
-                (click)="$event.stopPropagation()"
-              />
-            </span>
-          }
+    @if (showCheckbox() && checkboxPosition() === 'leading') {
+      <span class="lib-list-item__leading lib-list-item__leading--checkbox">
+        <lib-checkbox
+          [checked]="selected()"
+          [disabled]="disabled()"
+          (checkedChange)="selectedChange.emit($event)"
+          (click)="$event.stopPropagation()"
+        />
+      </span>
+    }
 
-          @if (showAvatar()) {
-            <span class="lib-list-item__leading">
-              @if (item.avatarImage) {
-                <img
-                  class="lib-list-item__avatar-image"
-                  [src]="item.avatarImage"
-                  [attr.alt]="item.avatarAlt || item.label"
-                  loading="lazy"
-                />
-              } @else {
-                <span class="lib-list-item__avatar-text" aria-hidden="true">
-                  {{ avatarInitial(item) }}
-                </span>
-              }
-            </span>
-          }
-
-          <span class="lib-list-item__content">
-            <span class="lib-list-item__label">{{ item.label }}</span>
-            @if (item.description) {
-              <span class="lib-list-item__description">{{ item.description }}</span>
-            }
+    @if (showAvatar()) {
+      <span class="lib-list-item__leading">
+        @if (data().avatarImage) {
+          <img
+            class="lib-list-item__avatar-image"
+            [src]="data().avatarImage"
+            [attr.alt]="data().avatarAlt || data().label"
+            loading="lazy"
+          />
+        } @else {
+          <span class="lib-list-item__avatar-text" aria-hidden="true">
+            {{ avatarInitial() }}
           </span>
+        }
+      </span>
+    }
 
-          @if (showCheckbox() && checkboxPosition() === 'trailing') {
-            <span class="lib-list-item__trailing lib-list-item__trailing--checkbox">
-              <lib-checkbox
-                [checked]="isItemSelected(item)"
-                [disabled]="item.disabled ?? disabled()"
-                (checkedChange)="onCheckboxChange(item, $event)"
-                (click)="$event.stopPropagation()"
-              />
-            </span>
-          }
-        </div>
+    <span class="lib-list-item__content">
+      <span class="lib-list-item__label">{{ data().label }}</span>
+      @if (data().description) {
+        <span class="lib-list-item__description">{{ data().description }}</span>
       }
-    </mat-list-item>
-  }
-</mat-list>
-</div>
+    </span>
+
+    @if (trailingTemplate()) {
+      <span class="lib-list-item__trailing">
+        <ng-container
+          [ngTemplateOutlet]="trailingTemplate()!"
+          [ngTemplateOutletContext]="{ $implicit: data() }"
+        />
+      </span>
+    } @else if (effectiveTrailingCheckbox()) {
+      <span class="lib-list-item__trailing lib-list-item__trailing--checkbox">
+        <lib-checkbox
+          [checked]="selected()"
+          [disabled]="disabled()"
+          (checkedChange)="selectedChange.emit($event)"
+          (click)="$event.stopPropagation()"
+        />
+      </span>
+    } @else if (effectiveTrailingIcon()) {
+      <span class="lib-list-item__trailing">
+        <mat-icon>{{ trailingIcon() }}</mat-icon>
+      </span>
+    }
+  </div>
+</mat-list-item>

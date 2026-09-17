@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { LibCardComponent, LibIconButtonComponent } from 'crdx-components';
+import { LibCardComponent, LibIconButtonComponent, LibStackedCardComponent } from 'crdx-components';
 
 @Component({
   selector: 'app-card-page',
   standalone: true,
-  imports: [LibCardComponent, LibIconButtonComponent],
+  imports: [LibCardComponent, LibIconButtonComponent, LibStackedCardComponent],
   templateUrl: './card.page.html',
   styleUrl: './card.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

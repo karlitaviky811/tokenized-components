@@ -2,10 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  effect,
   input,
+  linkedSignal,
   output,
-  signal,
 } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -66,11 +65,7 @@ export class LibDatePickerComponent {
   /** Custom header with separate month/year navigation groups. */
   protected readonly headerComponent = LibDatePickerHeaderComponent;
 
-  protected readonly _selected = signal<Date | null>(null);
-
-  constructor() {
-    effect(() => { this._selected.set(this.value()); });
-  }
+  protected readonly _selected = linkedSignal<Date | null>(() => this.value());
 
   protected readonly _displayValue = computed(() => this.value() ?? this._selected());
   protected readonly _label = computed(() => this.label());

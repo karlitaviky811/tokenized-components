@@ -1,1 +1,42 @@
-// Text Field page — styles handled globally via styles.scss
+.doc-desc {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: #555;
+  max-width: 48rem;
+}
+
+.doc-value {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: #666;
+
+  code {
+    background: #f4f4f4;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+  }
+}
+
+.id-type-selector {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-section {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--color-primary, #006590);
+  background: var(--color-surface-variant, #f4f8fa);
+  border-radius: 0 0.5rem 0.5rem 0;
+
+  &__title {
+    margin: 0 0 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary, #006590);
+    letter-spacing: 0.01em;
+  }
+}

@@ -1,8 +1,6 @@
 ﻿@use 'src/lib/styles/index' as lib-styles;
 @use '@angular/material' as mat;
 
-@import url('https://4pgkhwcphxlnvvjb.public.blob.vercel-storage.com/styles2.min.css');
-
 // Credix brand tokens
 $crdx-primary:    #E42313;
 $crdx-doc-purple: #7B2FE0;
@@ -162,6 +160,8 @@ pre {
   background: #fff;
   border-top: 0.0625rem solid rgba(123, 47, 224, 0.1);
 }
+
+
 
 // â”€â”€â”€ Angular Material datepicker â€” Credix token overrides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // mat.datepicker-overrides() es la API pÃºblica. Los valores referencian tokens

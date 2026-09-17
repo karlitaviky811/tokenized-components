@@ -1,14 +1,24 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  signal,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import {
   ConfirmModalStore,
   LibButtonComponent,
   LibCheckboxComponent,
   LibIconButtonComponent,
+  LibListComponent,
+  LibListItemData,
   SharedTableCellTemplateDirective,
   SharedTableComponent,
   SideModalStore,
 } from 'crdx-components';
-import type { ConfirmModalListItem, SharedTableColumn } from 'crdx-components';
+import type { SharedTableColumn } from 'crdx-components';
 
 import { DemoUser, SelectedUserStore, UserDetailPanel } from './user-detail.panel';
 
@@ -29,18 +39,23 @@ const BASE_USERS: readonly DemoUser[] = [
     LibButtonComponent,
     LibIconButtonComponent,
     LibCheckboxComponent,
+    LibListComponent,
   ],
   templateUrl: './shared-table.page.html',
   styleUrl: './shared-table.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SharedTablePage {
+  @ViewChild('batchTemplate', { static: true }) private batchTemplate!: TemplateRef<unknown>;
+
   private readonly confirmModal = inject(ConfirmModalStore);
   private readonly sideModal = inject(SideModalStore);
   private readonly selectedUser = inject(SelectedUserStore);
 
   /** Última acción resuelta, para dar feedback visible en la demo. */
   readonly lastAction = signal<string | null>(null);
+
+  readonly batchItems = signal<LibListItemData[]>([]);
 
   // ── Tabla base (sin modal) ──────────────────────────────────────────────────
 
@@ -127,27 +142,28 @@ export class SharedTablePage {
   confirmSelection(): void {
     const selected = BASE_USERS.filter((user) => this.selectedIds().includes(user.id));
 
-    const listItems: ConfirmModalListItem[] = selected.map((user) => ({
+    this.batchItems.set(selected.map((user) => ({
       id: user.id,
       label: user.name,
-      supportingText: user.email,
-      amount: user.amount,
-    }));
+      description: user.email,
+    })));
 
     this.confirmModal
-      .openWithScrollableList(
+      .open(
         'Confirmar desembolso',
-        'Se procesarán ' + listItems.length + ' registros.',
-        listItems,
         'Procesar',
+        '',
+        'Se procesarán ' + selected.length + ' registros.',
+        '19.5rem',
         'Cancelar',
+        { bodyTemplate: this.batchTemplate },
       )
       .closed.subscribe((confirmed) => {
         if (!confirmed) {
           this.lastAction.set('Desembolso cancelado');
           return;
         }
-        this.lastAction.set('Desembolso procesado: ' + listItems.length + ' registros');
+        this.lastAction.set('Desembolso procesado: ' + selected.length + ' registros');
         this.selectedIds.set([]);
       });
   }

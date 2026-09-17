@@ -1,0 +1,98 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">BottomSheetStore</span>
+    <h1 class="comp-hero__name">Bottom Sheet</h1>
+    <p class="comp-hero__desc">
+      Superficie suplementaria anclada al fondo de la pantalla. Se abre mediante
+      <code>BottomSheetStore</code> (CDK Dialog), acepta un componente dinámico como contenido
+      y soporta drag handle configurable. Sigue la especificación M3 Bottom Sheets.
+    </p>
+  </div>
+
+  <!-- API -->
+  <section class="doc-section">
+    <h2>API — <code>BottomSheetStore.open()</code></h2>
+    <table class="api-table">
+      <tr><th>Parámetro</th><th>Tipo</th><th>Descripción</th></tr>
+      <tr><td>content</td><td>Type&lt;unknown&gt;</td><td>Componente Angular a renderizar dentro del sheet</td></tr>
+      <tr><td>config</td><td>BottomSheetConfig</td><td>Configuración opcional del sheet</td></tr>
+    </table>
+
+    <h3>BottomSheetConfig</h3>
+    <table class="api-table">
+      <tr><th>Propiedad</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>showDragHandle</td><td>boolean</td><td>true</td><td>Muestra u oculta el indicador de arrastre en el header</td></tr>
+    </table>
+  </section>
+
+  <!-- Variantes -->
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Con drag handle (default)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button
+          label="Abrir Bottom Sheet"
+          variant="outlined"
+          shape="square"
+          size="medium"
+          [fullWidth]="false"
+          (click)="openDefault()"
+        />
+      </div>
+      <div class="component-doc__footer">showDragHandle=true (default) · contenido dinámico · backdrop con scrim</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Sin drag handle</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button
+          label="Abrir sin drag handle"
+          variant="outlined"
+          shape="square"
+          size="medium"
+          [fullWidth]="false"
+          (click)="openNoDragHandle()"
+        />
+      </div>
+      <div class="component-doc__footer">showDragHandle=false · útil cuando el contexto ya provee un mecanismo de cierre</div>
+    </div>
+  </section>
+
+  <!-- Uso -->
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>// 1. Inyectar el store
+private readonly sheetStore = inject(BottomSheetStore);
+
+// 2. Abrir con configuración mínima
+this.sheetStore.open(MiContenidoComponent);
+
+// 3. Abrir con opciones
+this.sheetStore.open(MiContenidoComponent, &#123;
+  showDragHandle: false,
+&#125;);
+
+// 4. Cerrar programáticamente
+this.sheetStore.close();</code></pre>
+  </section>
+
+  <!-- Tokens -->
+  <section class="doc-section">
+    <h2>Tokens de diseño</h2>
+    <table class="api-table">
+      <tr><th>Token CSS</th><th>Valor M3</th><th>Descripción</th></tr>
+      <tr><td>--bottom-sheets-enabled-container-sheet-bottom-docked-container-shape</td><td>28px</td><td>Radio de esquinas superiores</td></tr>
+      <tr><td>--bottom-sheets-enabled-container-sheet-bottom-docked-container-color</td><td>--mat-sys-surface-container-low</td><td>Color de fondo del container</td></tr>
+      <tr><td>--bottom-sheets-enabled-container-sheet-bottom-docked-container-text-color</td><td>--mat-sys-on-surface</td><td>Color del texto del contenido</td></tr>
+      <tr><td>--bottom-sheets-enabled-drag-handle-sheet-bottom-docked-drag-handle-color</td><td>#434749</td><td>Color del indicador de arrastre</td></tr>
+    </table>
+  </section>
+</article>

@@ -7,6 +7,8 @@ html {
   --checkboxes-pressed-ripple-container-checkbox-unselected-pressed-outline-color: #181c1e;
 
   --checkboxes-pressed-ripple-icon-checkbox-selected-pressed-icon-color: #181c1e;
+  --mat-checkbox-disabled-selected-icon-opacity: var(--color-checkboxes-disabled-container-checkbox-selected-disabled-container-opacity, 0.38);
+  --mat-checkbox-disabled-unselected-icon-opacity: var(--color-checkboxes-disabled-container-checkbox-unselected-disabled-outline-opacity, 0.38);
   @include mat.checkbox-overrides((
     selected-focus-state-layer-opacity: 0.10,
     selected-hover-state-layer-opacity: 0.08,
@@ -19,8 +21,8 @@ html {
     state-layer-size: var(--checkboxes-enabled-state-layer-checkbox-state-layer-size, 2.5rem),
     disabled-label-color: var(--md-sys-color-on-surface),
     disabled-selected-checkmark-color: var(--color-checkboxes-disabled-icon-checkbox-selected-disabled-icon-color, #f7fafc),
-    disabled-selected-icon-color: var(--color-checkboxes-disabled-icon-checkbox-disabled-selected-icon-color, #e42313),
-    disabled-unselected-icon-color: var(--color-checkboxes-disabled-icon-checkbox-disabled-unselected-icon-color, #e42313),
+    disabled-selected-icon-color: var(--color-checkboxes-disabled-container-checkbox-selected-disabled-container-color, #181c1e),
+    disabled-unselected-icon-color: var(--color-checkboxes-disabled-container-checkbox-unselected-disabled-outline-color, #181c1e),
     label-text-color: var(--md-sys-color-on-surface),
     selected-checkmark-color: var(--color-checkboxes-enabled-icon-checkbox-selected-icon-color, #ffffff),
     selected-focus-icon-color: #181c1e,

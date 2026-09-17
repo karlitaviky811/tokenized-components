@@ -1,0 +1,172 @@
+<article class="doc-page">
+
+  <!-- ── lib-badge ────────────────────────────────────────────────────── -->
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-badge</span>
+    <h1 class="comp-hero__name">Badge</h1>
+    <p class="comp-hero__desc">
+      Indicador numérico o de punto siguiendo la especificación M3 Badges.
+      Se posiciona sobre íconos de navegación para comunicar conteos o actividad.
+      Variante <code>large</code> muestra un número; <code>small</code> es un punto sin contenido.
+    </p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>label</td><td>string</td><td>''</td><td>Número o texto a mostrar. Solo visible en size="large"</td></tr>
+      <tr><td>size</td><td>'large' | 'small'</td><td>'large'</td><td>Large muestra label, small es un punto indicador</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Large — con número</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-badge size="large" label="3" />
+        <lib-badge size="large" [label]="count().toString()" />
+        <lib-badge size="large" label="99" />
+        <lib-badge size="large" label="999" />
+      </div>
+      <div class="component-doc__footer">size="large" · label hasta 999 · max-width 34px</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Small — punto indicador</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-badge size="small" />
+      </div>
+      <div class="component-doc__footer">size="small" · sin contenido · 6×6 px · indica actividad sin cantidad</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;!-- Large con número --&gt;
+&lt;lib-badge size="large" label="3" /&gt;
+&lt;lib-badge size="large" [label]="notifications().toString()" /&gt;
+
+&lt;!-- Small dot --&gt;
+&lt;lib-badge size="small" /&gt;</code></pre>
+  </section>
+
+  <section class="doc-section">
+    <h2>Tokens de diseño</h2>
+    <table class="api-table">
+      <tr><th>Token CSS</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>--badges-container-badge-large-color</td><td>#ff4965</td><td>Color de fondo — variante large</td></tr>
+      <tr><td>--badges-container-badge-color</td><td>#ff4965</td><td>Color de fondo — variante small</td></tr>
+      <tr><td>--badges-container-badge-large-size</td><td>1rem (16px)</td><td>Alto del badge large</td></tr>
+      <tr><td>--badges-container-badge-shape</td><td>1000px</td><td>Border-radius (pill)</td></tr>
+      <tr><td>--badges-label-text-badge-large-label-text-color</td><td>#ffffff</td><td>Color del texto</td></tr>
+    </table>
+  </section>
+
+  <!-- ── lib-state-badge ──────────────────────────────────────────────── -->
+  <div class="comp-hero" style="margin-top: 3rem;">
+    <span class="comp-hero__tag">lib-state-badge</span>
+    <h1 class="comp-hero__name">State Badge</h1>
+    <p class="comp-hero__desc">
+      Etiqueta de estado semántica con 5 variantes: <code>error</code>, <code>success</code>,
+      <code>information</code>, <code>warning</code> y <code>neutral</code>. Cada variante
+      tiene colores de fondo y texto propios, más un ícono contextual opcional.
+    </p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>label</td><td>string</td><td>''</td><td>Texto de la etiqueta</td></tr>
+      <tr><td>variant</td><td>'error' | 'success' | 'information' | 'warning' | 'neutral'</td><td>'error'</td><td>Variante semántica — define colores e ícono</td></tr>
+      <tr><td>showIcon</td><td>boolean</td><td>true</td><td>Muestra u oculta el ícono de estado</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Todas las variantes — con ícono</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-state-badge variant="error"       label="Error" />
+        <lib-state-badge variant="success"     label="Éxito" />
+        <lib-state-badge variant="information" label="Info" />
+        <lib-state-badge variant="warning"     label="Alerta" />
+        <lib-state-badge variant="neutral"     label="Neutral" />
+      </div>
+      <div class="component-doc__footer">showIcon=true (default) · ícono semántico por variante</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Sin ícono</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-state-badge variant="error"       label="Error"   [showIcon]="false" />
+        <lib-state-badge variant="success"     label="Éxito"   [showIcon]="false" />
+        <lib-state-badge variant="information" label="Info"    [showIcon]="false" />
+        <lib-state-badge variant="warning"     label="Alerta"  [showIcon]="false" />
+        <lib-state-badge variant="neutral"     label="Neutral" [showIcon]="false" />
+      </div>
+      <div class="component-doc__footer">showIcon=false · solo texto con color de variante</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Labels contextuales</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-state-badge variant="error"       label="Rechazado" />
+        <lib-state-badge variant="success"     label="Aprobado" />
+        <lib-state-badge variant="information" label="En revisión" />
+        <lib-state-badge variant="warning"     label="Pendiente" />
+        <lib-state-badge variant="neutral"     label="Inactivo" />
+      </div>
+      <div class="component-doc__footer">Casos de uso reales — estados de solicitudes o registros</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;!-- Con ícono (default) --&gt;
+&lt;lib-state-badge variant="success" label="Aprobado" /&gt;
+&lt;lib-state-badge variant="error"   label="Rechazado" /&gt;
+
+&lt;!-- Sin ícono --&gt;
+&lt;lib-state-badge variant="warning" label="Pendiente" [showIcon]="false" /&gt;
+
+&lt;!-- Dinámico --&gt;
+&lt;lib-state-badge [variant]="estado()" [label]="estadoLabel()" /&gt;</code></pre>
+  </section>
+
+  <section class="doc-section">
+    <h2>Tokens de diseño</h2>
+    <table class="api-table">
+      <tr><th>Token CSS</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>--badges-state-badge-container-state-badge-shape</td><td>1000px</td><td>Border-radius</td></tr>
+      <tr><td>--badges-state-badge-container-state-badge-lateral-padding</td><td>0.5rem</td><td>Padding horizontal</td></tr>
+      <tr><td>--badges-state-badge-container-state-badge-height-padding</td><td>0.25rem</td><td>Padding vertical</td></tr>
+      <tr><td>--badges-state-badge-container-state-badge-content-gap</td><td>0.25rem</td><td>Espacio entre label e ícono</td></tr>
+      <tr><td>--badges-state-badge-container-state-badge-label-error-color</td><td>#ffdad4</td><td>Fondo variant error</td></tr>
+      <tr><td>--badges-state-badge-text-state-badge-label-error-color</td><td>#e42313</td><td>Texto variant error</td></tr>
+      <tr><td>--badges-state-badge-container-state-badge-label-succes-color</td><td>#e9ffec</td><td>Fondo variant success</td></tr>
+      <tr><td>--badges-state-badge-text-state-badge-label-succes-color</td><td>#00a661</td><td>Texto variant success</td></tr>
+    </table>
+  </section>
+
+</article>

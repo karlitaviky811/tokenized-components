@@ -1,56 +1,73 @@
 /*
- * Confirm modal — Diseño desde Figma Tokens (node 323-2101).
- * Tokens: --app-dialogs-basic-*, --app-colors-*, --app-font-*, --app-shape-*.
+ * Confirm modal — Diseño desde Figma Tokens:
+ *   323-2101 Basic dialog  (w=312, white header + divider + actions)
+ *   323-2124 List dialog   (w=312, gray throughout + list full-width + actions)
+ *   323-2142 Scrollable list (w=280, gray + list max-height 168px + scroll)
  */
+
+:host {
+  display: block;
+}
+
 .confirm-modal {
-  --confirm-container-color: var(--app-dialogs-basic-enabled-container-dialog-container-color, #f7fafc);
-  --confirm-container-elevation: var(--app-dialogs-basic-enabled-container-dialog-container-elevation, 6);
-  --confirm-container-shape: var(--app-dialogs-basic-enabled-container-dialog-container-shape, 1.75rem);
-  --confirm-headline-color: var(--app-dialogs-basic-enabled-headline-dialog-headline-color, #181c1e);
-  --confirm-headline-font: var(--app-dialogs-basic-enabled-headline-dialog-headline-font, Heebo);
-  --confirm-headline-size: var(--app-dialogs-basic-enabled-headline-dialog-headline-size, 1.5rem);
-  --confirm-headline-weight: var(--app-dialogs-basic-enabled-headline-dialog-headline-weight, 400);
-  --confirm-headline-line-height: var(--app-dialogs-basic-enabled-headline-dialog-headline-line-height, 2rem);
-  --confirm-supporting-color: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-color, #434749);
-  --confirm-supporting-font: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-font, Heebo);
-  --confirm-supporting-size: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-size, 0.875rem);
-  --confirm-supporting-weight: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-weight, 400);
-  --confirm-supporting-line-height: var(--app-dialogs-basic-enabled-supporting-text-dialog-supporting-text-line-height, 1.25rem);
-  --confirm-action-color: var(--app-dialogs-basic-enabled-label-text-dialog-action-label-text-color, #e42313);
-  --confirm-action-font: var(--app-dialogs-basic-enabled-label-text-dialog-action-label-text-font, Heebo);
-  --confirm-action-size: var(--app-dialogs-basic-enabled-label-text-dialog-action-label-text-size, 0.875rem);
-  --confirm-action-weight: var(--app-dialogs-basic-enabled-label-text-dialog-action-label-text-weight, 500);
-  --confirm-primary: var(--app-colors-rojo-primary-rojo-50, #e42313);
-  --confirm-primary-hover: var(--app-colors-rojo-primary-rojo-40, #bf0600);
-  --confirm-primary-on: var(--app-colors-rojo-primary-rojo-100, #ffffff);
-  --confirm-btn-shape: var(--app-shape-large, 1rem);
+  --confirm-container-color: var(--dialogs-basic-enabled-container-dialog-container-color, #f7fafc);
+  --confirm-container-shape: var(--dialogs-basic-enabled-container-dialog-container-shape, 1.75rem);
+  --confirm-headline-color: var(--dialogs-basic-enabled-headline-dialog-headline-color, #181c1e);
+  --confirm-headline-font: var(--dialogs-basic-enabled-headline-dialog-headline-font, Heebo);
+  --confirm-headline-size: var(--dialogs-basic-enabled-headline-dialog-headline-size, 1.5rem);
+  --confirm-headline-weight: var(--dialogs-basic-enabled-headline-dialog-headline-weight, 400);
+  --confirm-headline-line-height: var(--dialogs-basic-enabled-headline-dialog-headline-line-height, 2rem);
+  --confirm-supporting-color: var(--dialogs-basic-enabled-supporting-text-dialog-supporting-text-color, #434749);
+  --confirm-supporting-font: var(--dialogs-basic-enabled-supporting-text-dialog-supporting-text-font, Heebo);
+  --confirm-supporting-size: var(--dialogs-basic-enabled-supporting-text-dialog-supporting-text-size, 0.875rem);
+  --confirm-supporting-weight: var(--dialogs-basic-enabled-supporting-text-dialog-supporting-text-weight, 400);
+  --confirm-supporting-line-height: var(--dialogs-basic-enabled-supporting-text-dialog-supporting-text-line-height, 1.25rem);
+  --confirm-action-color: var(--dialogs-basic-enabled-label-text-dialog-action-label-text-color, #e42313);
+  --confirm-primary: var(--colors-rojo-primary-rojo-50, #e42313);
+  --confirm-primary-hover: var(--colors-rojo-primary-rojo-40, #bf0600);
+  --confirm-primary-on: var(--colors-rojo-primary-rojo-100, #ffffff);
 
   display: flex;
+  flex-direction: column;
+  overflow: hidden;
   width: 100%;
   background: var(--confirm-container-color);
   border-radius: var(--confirm-container-shape);
-  box-shadow:
+  box-shadow: var(
+    --shadow-elevation-3,
     0 1px 3px 0 rgba(0, 0, 0, 0.3),
-    0 4px 8px 3px rgba(0, 0, 0, 0.15);
+    0 4px 8px 3px rgba(0, 0, 0, 0.15)
+  );
   min-width: 17.5rem;
   max-width: 35rem;
 }
 
-.confirm-modal__container {
+/* ── Text content (headline + supporting text) ───────────────────────── */
+
+.confirm-modal__text-content {
   display: flex;
-  padding: 1.5rem 1.5rem 1.25rem 1.5rem;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 1.25rem;
-  align-self: stretch;
-  width: 100%;
+  gap: 1rem;
+  padding: 1.5rem;
 }
+
+/* Basic: white background, no bottom padding (separator provides gap) */
+.confirm-modal--basic .confirm-modal__text-content {
+  background: var(--dialogs-basic-enabled-container-dialog-container-color-top, #ffffff);
+  padding-bottom: 0;
+}
+
+.confirm-modal--with-icon .confirm-modal__text-content {
+  align-items: center;
+}
+
+/* ── Top icon ─────────────────────────────────────────────────────────── */
 
 .confirm-modal__top-icon {
   width: 100%;
   display: flex;
   justify-content: center;
-  color: #5f6368;
+  color: var(--pallete-scheme-surface-on-surface-variant, #5b5f61);
 }
 
 .confirm-modal__top-icon .mat-icon {
@@ -59,11 +76,12 @@
   font-size: 1.5rem;
 }
 
+/* ── Header (title + supporting text) ───────────────────────────────── */
+
 .confirm-modal__header {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: flex-start;
   align-self: stretch;
   width: 100%;
 }
@@ -71,7 +89,7 @@
 .confirm-modal__title {
   align-self: stretch;
   color: var(--confirm-headline-color);
-  font-family: var(--confirm-headline-font), var(--app-font-type-brand, Heebo), sans-serif;
+  font-family: var(--confirm-headline-font), var(--font-type-brand, Heebo), sans-serif;
   font-size: var(--confirm-headline-size);
   font-weight: var(--confirm-headline-weight);
   line-height: var(--confirm-headline-line-height);
@@ -79,12 +97,16 @@
   margin: 0;
 }
 
+.confirm-modal--with-icon .confirm-modal__title {
+  text-align: center;
+}
+
 .confirm-modal__reference,
 .confirm-modal__content {
   align-self: stretch;
   width: 100%;
   color: var(--confirm-supporting-color);
-  font-family: var(--confirm-supporting-font), var(--app-font-type-plain, Heebo), sans-serif;
+  font-family: var(--confirm-supporting-font), var(--font-type-plain, Heebo), sans-serif;
   font-size: var(--confirm-supporting-size);
   font-weight: var(--confirm-supporting-weight);
   line-height: var(--confirm-supporting-line-height);
@@ -92,128 +114,47 @@
   margin: 0;
 }
 
-.confirm-modal__list {
+/* ── Separator (basic variant only) ─────────────────────────────────── */
+
+.confirm-modal__separator {
   width: 100%;
-  border-top: 0.0625rem solid #c4c7c5;
-  border-bottom: 0.0625rem solid #c4c7c5;
+  height: 0.0625rem;
+  background: var(--pallete-scheme-surface-outline-variant, #c4c7c9);
+  margin-top: 1rem;
 }
 
-.confirm-modal__list--scrollable {
-  max-height: 14rem;
-  overflow-y: auto;
-}
+/* ── Body template ───────────────────────────────────────────────────── */
 
-.confirm-modal__list-item {
+.confirm-modal__body {
+  padding: 0 1.5rem;
   width: 100%;
-  display: grid;
-  grid-template-columns: 2.5rem 1fr auto auto;
-  align-items: center;
-  gap: 0.75rem;
-  border: 0;
-  border-bottom: 0.0625rem solid #c4c7c5;
-  background: transparent;
-  padding: 0.75rem 0;
-  text-align: left;
-  cursor: pointer;
 }
 
-.confirm-modal__list-item:last-child {
-  border-bottom: 0;
+/* Gap between consecutive siblings inside the body (e.g. form fields) */
+.confirm-modal__body > * + * {
+  margin-top: 0.5rem;
 }
 
-.confirm-modal__list-item-leading-icon {
-  color: #1f2328;
-  width: 1.25rem;
-  height: 1.25rem;
-  font-size: 1.25rem;
-}
-
-.confirm-modal__list-item-label {
-  color: #1d1b20;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-}
-
-.confirm-modal__list-item-amount {
-  color: #5f6368;
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-.confirm-modal__list-item-check {
-  color: #1f2328;
-  width: 1.25rem;
-  height: 1.25rem;
-  font-size: 1.25rem;
-}
+/* ── Actions ─────────────────────────────────────────────────────────── */
 
 .confirm-modal__actions {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  align-self: stretch;
-  width: 100%;
-  min-width: 0;
+  align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;
+  /* 323-2124 / 323-2142: pad=20/24/20/16 */
+  padding: 1.25rem 1.5rem 1.25rem 1rem;
+  width: 100%;
+}
+
+/* 323-2101 Basic: pad=20/24/20/8 */
+.confirm-modal--basic .confirm-modal__actions {
+  padding-left: 0.5rem;
 }
 
 .confirm-modal__actions > * {
   display: flex;
   width: auto;
-  align-self: flex-end;
-}
-
-.confirm-modal__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 1.5rem;
-  min-width: 7.5rem;
-  font-family: var(--confirm-action-font), var(--app-font-type-brand, Heebo), sans-serif;
-  font-size: var(--confirm-action-size);
-  font-weight: var(--confirm-action-weight);
-  line-height: 1.25;
-  border-radius: var(--confirm-btn-shape);
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-  box-shadow: none;
-  outline: none;
-}
-
-.confirm-modal__btn:focus-visible {
-  outline: 0.125rem solid var(--confirm-primary);
-  outline-offset: 0.125rem;
-}
-
-.confirm-modal__btn--cancel {
-  flex: 1;
-  max-width: 11.25rem;
-  background: var(--confirm-container-color);
-  color: var(--confirm-action-color);
-  border: 0.0625rem solid var(--confirm-action-color);
-}
-
-.confirm-modal__btn--cancel:hover,
-.confirm-modal__btn--cancel:focus,
-.confirm-modal__btn--cancel:active {
-  background: var(--confirm-container-color);
-  color: var(--confirm-primary-hover);
-  border-color: var(--confirm-primary-hover);
-}
-
-.confirm-modal__btn--confirm {
-  flex: 1;
-  max-width: 11.25rem;
-  background: var(--confirm-primary);
-  color: var(--confirm-primary-on);
-}
-
-.confirm-modal__btn--confirm:hover,
-.confirm-modal__btn--confirm:focus,
-.confirm-modal__btn--confirm:active {
-  background: var(--confirm-primary-hover);
-  color: var(--confirm-primary-on);
+  align-self: center;
 }

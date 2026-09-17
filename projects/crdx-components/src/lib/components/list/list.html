@@ -1,0 +1,42 @@
+<div
+  class="lib-list__container"
+  [style.width]="width() ?? '100%'"
+  [style.min-width]="width() ?? null"
+  [style.--lib-list-background]="backgroundColor() ?? null"
+>
+  @if (headerTemplate()) {
+    <div class="lib-list__header">
+      <ng-container [ngTemplateOutlet]="headerTemplate()!" />
+    </div>
+  }
+  <mat-list role="list">
+    @for (item of items(); track trackById($index, item); let last = $last) {
+      @if (itemTemplate()) {
+        <mat-list-item role="listitem">
+          <ng-container
+            [ngTemplateOutlet]="itemTemplate()!"
+            [ngTemplateOutletContext]="{ $implicit: item }"
+          />
+        </mat-list-item>
+      } @else {
+        <lib-list-item
+          [data]="item"
+          [selected]="isItemSelected(item)"
+          [disabled]="item.disabled ?? disabled()"
+          [showAvatar]="showAvatar()"
+          [showCheckbox]="showCheckbox()"
+          [checkboxPosition]="checkboxPosition()"
+          [trailingType]="trailingType()"
+          [trailingIcon]="trailingIcon()"
+          [density]="density()"
+          [trailingTemplate]="trailingTemplate() ?? null"
+          (selectedChange)="onSelectedChange(item, $event)"
+          (rowClick)="onRowClick(item)"
+        />
+      }
+      @if (showDividers() && !last) {
+        <lib-divider />
+      }
+    }
+  </mat-list>
+</div>

@@ -1,4 +1,4 @@
-﻿<mat-form-field [appearance]="resolvedAppearance()" [style.width]="widthStyle() ?? null" [hideRequiredMarker]="hideRequiredMarker()">
+<mat-form-field class="lib-text-field__field" [appearance]="resolvedAppearance()" [style.width]="widthStyle() ?? null" [hideRequiredMarker]="hideRequiredMarker()">
   @if(prefixIconSrc()){
     <mat-icon
       matPrefix
@@ -15,17 +15,55 @@
   }
 
   <mat-label>{{ label() }}</mat-label>
-  <input matInput [type]="type()" [value]="value()" (input)="value.set($any($event.target).value)" (blur)="touch.emit()" [disabled]="disabled()" [placeholder]="placeholder()" [attr.autocomplete]="autocomplete()" />
 
-  @if(shouldShowError() && error()) {
-    <mat-error>{{ error() }}</mat-error>
+  @if (usesMask()) {
+    <!-- ngModel activates ngx-mask's CVA mode: writeValue handles initial/programmatic values,
+         onChange emits the clean value (dropSpecialCharacters strips separators and prefix). -->
+    <input
+      matInput
+      [type]="resolvedType()"
+      [mask]="ngxMask()"
+      [prefix]="ngxPrefix()"
+      [thousandSeparator]="'.'"
+      [decimalMarker]="','"
+      [dropSpecialCharacters]="true"
+      [ngModel]="value()"
+      (ngModelChange)="_onValueChange($any($event))"
+      (blur)="_onBlur()"
+      [disabled]="disabled()"
+      [placeholder]="placeholder()"
+      [attr.autocomplete]="autocomplete()"
+    />
+  } @else {
+    <input
+      matInput
+      [type]="resolvedType()"
+      [value]="value()"
+      (input)="_onValueChange($any($event.target).value)"
+      (keydown)="blockSpaceForEmail($event)"
+      (blur)="_onBlur()"
+      [disabled]="disabled()"
+      [placeholder]="placeholder()"
+      [attr.autocomplete]="autocomplete()"
+      [attr.maxlength]="charLimit()"
+    />
   }
 
-  @if(hint()) {
-    <mat-hint>{{ hint() }}</mat-hint>
-  }
+  <mat-error>
+    @if (error()) {
+      {{ error() }}
+    } @else if (errors()[0]?.message) {
+      {{ errors()[0]!.message }}
+    }
+  </mat-error>
 
-  @if(shouldShowSuffix()) {
+  <mat-hint>{{ hint() }}</mat-hint>
+
+  @if(loading()) {
+    <span matSuffix class="lib-text-field__icon-host lib-text-field__icon-host--spinner">
+      <span class="lib-text-field__loading-ring"></span>
+    </span>
+  } @else if(shouldShowSuffix()) {
     <span matSuffix class="lib-text-field__icon-host" matRipple [matRippleCentered]="true" [matRippleColor]="'rgba(67, 71, 73, 0.12)'" (click)="pressSuffixEvent()">
       <mat-icon
         class="lib-text-field__icon lib-text-field__icon--suffix"

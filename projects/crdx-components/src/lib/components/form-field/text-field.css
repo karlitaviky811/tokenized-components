@@ -3,6 +3,7 @@
 }
 
 .lib-text-field__field {
+	display: block;
 	width: 100%;
 }
 
@@ -35,8 +36,27 @@
 	resize: none;
 }
 
+.lib-text-field__icon-host--spinner {
+  cursor: default;
+  overflow: visible;
+}
+
+.lib-text-field__loading-ring {
+  display: inline-block;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  border: 0.125rem solid rgba(0, 0, 0, 0.12);
+  border-top-color: var(--mat-sys-primary, var(--color-pallete-scheme-primary, #006590));
+  animation: lib-tf-spin 0.75s linear infinite;
+}
+
+@keyframes lib-tf-spin {
+  to { transform: rotate(360deg); }
+}
+
 /* Hide browser-provided password reveal/clear controls to avoid duplicate icons. */
-:host ::ng-deep input[type='password']::-ms-reveal,
-:host ::ng-deep input[type='password']::-ms-clear {
+:host input[type='password']::-ms-reveal,
+:host input[type='password']::-ms-clear {
 	display: none;
 }

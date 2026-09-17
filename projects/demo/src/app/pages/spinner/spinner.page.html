@@ -17,13 +17,19 @@
   </section>
 
   <section class="doc-section">
-    <h2>Variantes</h2>
+    <h2>Tamaños</h2>
 
-    <h3>Tamaños</h3>
-    <div class="variant-row variant-row--spinners">
-      <lib-spinner [diameter]="24" [strokeWidth]="3" />
-      <lib-spinner />
-      <lib-spinner [diameter]="64" [strokeWidth]="6" />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Small / Medium / Large</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview variant-row--spinners" style="gap: 2rem; align-items: center;">
+        <lib-spinner [diameter]="24" [strokeWidth]="3" />
+        <lib-spinner />
+        <lib-spinner [diameter]="64" [strokeWidth]="6" />
+      </div>
+      <div class="component-doc__footer">diameter: 24px · 48px (default) · 64px</div>
     </div>
   </section>
 

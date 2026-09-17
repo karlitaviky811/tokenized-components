@@ -1,0 +1,41 @@
+.mobile-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 1rem;
+  min-height: 100dvh;
+  background: #f5f5f5;
+}
+
+.mobile-preview__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem; /* 16px — Figma gap */
+  width: 100%;
+  max-width: 23.4375rem; /* 375px — Figma frame width */
+  min-height: 18.75rem; /* 300px — Figma frame height */
+  padding: 1.5rem;
+  background: #ebeef0; /* rgba(235,238,240) — Figma fill */
+  border-radius: 0.5rem; /* 8px — Figma cornerRadius */
+}
+
+.mobile-preview__label {
+  font-family: Heebo, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5b5f61; /* rgba(91,95,97) — Figma fill */
+}
+
+.mobile-preview__logo {
+  width: 13.0625rem; /* 209px */
+  height: 3.6875rem; /* 59px */
+}
+
+.mobile-preview__subtitle {
+  font-family: Heebo, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #5b5f61;
+}

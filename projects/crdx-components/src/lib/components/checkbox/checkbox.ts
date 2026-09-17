@@ -4,19 +4,20 @@ import {
   input,
   output,
   computed,
-  HostBinding,
 } from '@angular/core';
-import { MatCheckboxChange } from '@angular/material/checkbox';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'lib-checkbox',
   standalone: true,
-  imports: [MatCheckboxModule],
+  imports: [MatCheckbox],
   templateUrl: './checkbox.html',
   styleUrl: './checkbox.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[attr.aria-disabled]': 'disabled() ? true : null',
+  },
 })
 export class LibCheckboxComponent {
   checked = input(false);
@@ -32,10 +33,6 @@ export class LibCheckboxComponent {
     isErrorState: () => this.error()
   };
 
-
-  @HostBinding('attr.aria-disabled') get ariaDisabled(): boolean | null {
-    return this.disabled() ? true : null;
-  }
 
   protected readonly ariaChecked = computed(() => {
     if (this.indeterminate()) return 'mixed';

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "angular-best-practices": {
+      "source": "alfredoperez/angular-best-practices",
+      "sourceType": "github",
+      "skillPath": "skills/angular-best-practices/SKILL.md",
+      "computedHash": "bd5a37f3523908e9f3fdb94b12f597cb757e946b4d63621b6982a9abfbaf234d"
+    },
+    "angular-best-practices-material": {
+      "source": "alfredoperez/angular-best-practices",
+      "sourceType": "github",
+      "skillPath": "skills/angular-best-practices-material/SKILL.md",
+      "computedHash": "228af942474dea311d22bed4791afc4e5eda14377cef2c838f9f53db9d148c19"
+    },
+    "clean-css": {
+      "source": "gosukiwi/clean-code-skills",
+      "sourceType": "github",
+      "skillPath": "skills/clean-css/SKILL.md",
+      "computedHash": "105c83a1fe67beee866646311328e437f365af1ec99e711dd4015986c15c4ecc"
+    }
+  }
+}

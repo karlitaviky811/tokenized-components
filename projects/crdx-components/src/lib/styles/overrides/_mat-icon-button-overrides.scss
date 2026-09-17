@@ -1,19 +1,36 @@
 @use '@angular/material' as mat;
 
+/* Overrides GLOBALES del icon-button (Modelo B).
+   Solo tokens verdaderamente globales: forma base y opacidades de state-layer.
+   Los COLORES (icon/state-layer/ripple/container) y los TAMAÑOS se aplican por
+   instancia mediante clases en icon-button.css, porque el icon-button M3 no
+   tiene variantes de color nativas y este mixin es global. */
 html {
   @include mat.icon-button-overrides((
-    icon-size: var(--icon-buttons-icon-button-enabled-icon-button-icon-size, 1.5rem),
     container-shape: var(--icon-buttons-icon-button-enabled-icon-button-container-shape-round, 1000px),
-    touch-target-size: var(--icon-buttons-icon-button-enabled-icon-button-container-height, 2.5rem),
-    disabled-icon-color: var(--color-icon-buttons-icon-button-disabled-icon-button-disabled-icon-color, var(--app-icon-buttons-icon-button-disabled-icon-button-disabled-icon-color)),
-    disabled-state-layer-color: var(--color-icon-buttons-icon-button-disabled-icon-button-disabled-container-color, var(--app-icon-buttons-icon-button-disabled-icon-button-disabled-container-color)),
-    focus-state-layer-opacity: var(--icon-buttons-icon-button-focused-icon-button-focused-state-layer-opacity, var(--app-icon-buttons-icon-button-focused-icon-button-focused-state-layer-opacity)),
-    hover-state-layer-opacity: var(--icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-opacity, var(--app-icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-opacity)),
-    icon-color: var(--color-icon-buttons-icon-button-enabled-icon-button-icon-color, var(--app-icon-buttons-icon-button-enabled-icon-button-icon-color)),
-    pressed-state-layer-opacity: var(--icon-buttons-icon-button-pressed-icon-button-pressed-state-layer-opacity, var(--app-icon-buttons-icon-button-pressed-icon-button-pressed-state-layer-opacity)),
-    ripple-color: var(--color-icon-buttons-color-filled-pressed-icon-button-filled-pressed-ripple-color, var(--app-icon-buttons-color-filled-pressed-icon-button-filled-pressed-ripple-color)),
-    state-layer-color: var(--color-icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-color, var(--app-icon-buttons-icon-button-hovered-icon-button-hovered-state-layer-color)),
+    hover-state-layer-opacity: 0.08,
+    focus-state-layer-opacity: 0.10,
+    pressed-state-layer-opacity: 0.10,
     touch-target-display: block,
-    state-layer-size: var(--icon-buttons-icon-button-enabled-icon-button-container-height, 2.5rem),
   ));
+}
+
+/* Material inyecta vertical-align: baseline en .mat-mdc-icon-button svg,
+   lo que desplaza el ícono fuera del centro visual del botón. */
+.mat-mdc-icon-button img,
+.mat-mdc-icon-button svg {
+  vertical-align: middle;
+}
+
+/* Icon sizing para contenido proyectado vía ng-content (bypassa View Encapsulation).
+   --lib-icon-btn-icon-size se define por tamaño en icon-button.css y se hereda
+   por la cascada CSS hasta los descendientes proyectados. */
+.lib-icon-btn .mat-icon,
+.lib-icon-btn .material-symbols-outlined,
+.lib-icon-btn svg {
+  width: var(--lib-icon-btn-icon-size, 1.5rem);
+  height: var(--lib-icon-btn-icon-size, 1.5rem);
+  font-size: var(--lib-icon-btn-icon-size, 1.5rem);
+  line-height: 1;
+  vertical-align: middle;
 }

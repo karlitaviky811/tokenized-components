@@ -12,46 +12,272 @@
       <tr><td>label</td><td>string</td><td><em>required</em></td><td>Label del campo</td></tr>
       <tr><td>appearance</td><td>'outline' | 'filled'</td><td>'outline'</td><td>Estilo visual</td></tr>
       <tr><td>placeholder</td><td>string</td><td>''</td><td>Placeholder</td></tr>
-      <tr><td>type</td><td>string</td><td>'text'</td><td>Tipo de input HTML</td></tr>
       <tr><td>error</td><td>string | null</td><td>null</td><td>Mensaje de error estático</td></tr>
       <tr><td>hint</td><td>string</td><td>''</td><td>Texto de ayuda</td></tr>
       <tr><td>suffixIcon</td><td>string</td><td>''</td><td>Ícono suffix</td></tr>
       <tr><td>prefixIcon</td><td>string</td><td>''</td><td>Ícono prefix</td></tr>
       <tr><td>fullWidth</td><td>boolean</td><td>false</td><td>100% del ancho</td></tr>
-      <tr><td>width</td><td>string | null</td><td>null</td><td>Ancho personalizado</td></tr>
+      <tr><td>format</td><td>'id' | 'currency' | 'numeric' | 'alphanumeric' | 'email'</td><td>'alphanumeric'</td><td>Modo de entrada</td></tr>
+      <tr><td>mask</td><td>string</td><td>''</td><td>Máscara para format='id' (# = dígito, X = alfanum)</td></tr>
+      <tr><td>currencySymbol</td><td>'$' | '₡'</td><td>'₡'</td><td>Símbolo para format='currency'</td></tr>
+      <tr><td>charLimit</td><td>number | null</td><td>null</td><td>Límite de caracteres para format='alphanumeric'</td></tr>
+      <tr><td>loading</td><td>boolean</td><td>false</td><td>Muestra spinner en sufijo (reemplaza suffixIcon cuando está activo)</td></tr>
     </table>
   </section>
 
   <section class="doc-section">
-    <h2>Variantes</h2>
+    <h2>Apariencia y estados</h2>
 
-    <h3>Apariencia</h3>
-    <div class="variant-row">
-      <lib-text-field label="Outline" [formField]="f.name"  appearance="outline" placeholder="Escribe aquí..." />
-      <lib-text-field label="Filled"  [formField]="f.email" appearance="filled"  placeholder="correo@..."     />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outline / Filled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-text-field label="Outline" [formField]="f.name"  appearance="outline" placeholder="Escribe aquí..." />
+        <lib-text-field label="Filled"  [formField]="f.email" appearance="filled"  placeholder="correo@..."     />
+      </div>
+      <div class="component-doc__footer">appearance — Outline (default) · Filled</div>
     </div>
 
-    <h3>Estados</h3>
-    <div class="variant-row">
-      <lib-text-field label="Con error" [formField]="f.error"    error="Campo requerido"       />
-      <lib-text-field label="Con hint"  [formField]="f.hint"     hint="Máximo 50 caracteres"  />
-      <lib-text-field label="Disabled"  [formField]="f.disabled" />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Error / Hint / Disabled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-text-field label="Con error"   [formField]="f.error"    />
+        <lib-text-field label="Con hint"    [formField]="f.hint"     hint="Máximo 50 caracteres" />
+        <lib-text-field label="Disabled"    [formField]="f.disabled" />
+      </div>
+      <div class="component-doc__footer">Estados — Error · Hint · Disabled</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Estados de feedback</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Error con ícono SVG</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+        <lib-text-field
+          label="Número de cuenta"
+          placeholder="1234-5678"
+          [error]="accountError()"
+          [suffixIcon]="accountError() ? 'info-error' : ''"
+          [showSuffix]="!!accountError()"
+          [value]="accountValue()"
+          (valueChange)="onAccountValueChange($event)"
+          (touch)="onAccountBlur()"
+        />
+        <p class="doc-desc" style="margin: 0; font-size: 0.8rem; color: #888;">
+          Ingresa menos de 8 dígitos y sal del campo para ver el ícono de error.
+        </p>
+      </div>
+      <div class="component-doc__footer">error + suffixIcon="info-error" — el ícono SVG aparece sólo cuando hay error activo</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Cargando resultado</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+        <lib-text-field
+          label="Buscar cliente"
+          placeholder="Nombre o cédula..."
+          [loading]="isLoading()"
+          [value]="searchValue()"
+          (valueChange)="onSearchChange($event)"
+        />
+        <p class="doc-desc" style="margin: 0; font-size: 0.8rem; color: #888;">
+          Escribe algo — el spinner aparece mientras se simula la búsqueda (1.5 s).
+        </p>
+      </div>
+      <div class="component-doc__footer">loading=true — Spinner en sufijo mientras dura la operación async · desaparece al completar</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Formatos de entrada</h2>
+
+    <!-- Identificación -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> format="id"</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+        <p class="doc-desc" style="margin: 0;">
+          Máscara dinámica parametrizada por tipo de documento. Los separadores se renderizan automáticamente;
+          el modelo recibe sólo los dígitos. Al salir del campo sin completar la longitud exacta se muestra un error.
+        </p>
+        <div class="id-type-selector">
+          @for (t of idTypes; track t.mask; let i = $index) {
+            <lib-suggestion-chip
+              [label]="t.label"
+              [selected]="selectedIdIndex() === i"
+              (selectedChange)="selectIdType(i)"
+            />
+          }
+        </div>
+        <lib-text-field
+          [label]="currentIdType().label"
+          format="id"
+          [mask]="currentIdType().mask"
+          [placeholder]="currentIdType().placeholder"
+          [error]="idDocError()"
+          [value]="idDocValue()"
+          (valueChange)="onIdValueChange($event)"
+          (touch)="onIdBlur()"
+        />
+        <p class="doc-value" style="margin: 0;">
+          Valor: <code>{{ idDocValue() || '—' }}</code>
+          &nbsp;|&nbsp;
+          Longitud requerida: <code>{{ currentIdType().dataLength }}</code>
+        </p>
+
+        @if (isIdComplete()) {
+          <div class="contact-section">
+            <p class="contact-section__title">Datos de contacto</p>
+            <div class="variant-row" style="margin-bottom: 0;">
+              <lib-text-field
+                label="Celular"
+                format="id"
+                mask="####-####"
+                placeholder="8888-8888"
+                [formField]="cf.celular"
+              />
+              <lib-text-field
+                label="Correo electrónico"
+                format="email"
+                placeholder="usuario@dominio.com"
+                [formField]="cf.correo"
+              />
+            </div>
+          </div>
+        }
+      </div>
+      <div class="component-doc__footer">format="id" — Máscara parametrizada por tipo de documento</div>
+    </div>
+
+    <!-- Moneda -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> format="currency"</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-text-field
+            label="Monto en colones"
+            format="currency"
+            currencySymbol="₡"
+            placeholder="0,00"
+            [formField]="ff.montoColones"
+          />
+          <lib-text-field
+            label="Monto en dólares"
+            format="currency"
+            currencySymbol="$"
+            placeholder="0,00"
+            [formField]="ff.montoDolares"
+          />
+        </div>
+        <p class="doc-value" style="margin: 0;">
+          Colones: <code>{{ formatModel().montoColones || '—' }}</code>
+          &nbsp;|&nbsp;
+          Dólares: <code>{{ formatModel().montoDolares || '—' }}</code>
+        </p>
+      </div>
+      <div class="component-doc__footer">format="currency" — Símbolo + miles + decimales. El modelo almacena el número limpio.</div>
+    </div>
+
+    <!-- Numérico -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> format="numeric"</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+        <lib-text-field
+          label="Cantidad"
+          format="numeric"
+          placeholder="0,00"
+          [formField]="ff.cantidad"
+        />
+        <p class="doc-value" style="margin: 0;">Valor: <code>{{ formatModel().cantidad || '—' }}</code></p>
+      </div>
+      <div class="component-doc__footer">format="numeric" — Solo dígitos con separador de miles. Sin símbolo de moneda.</div>
+    </div>
+
+    <!-- Alfanumérico -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> format="alphanumeric"</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-text-field
+          label="Descripción (máx. 80)"
+          format="alphanumeric"
+          [charLimit]="80"
+          hint="Letras, números y caracteres especiales"
+          [formField]="ff.descripcion"
+          [fullWidth]="true"
+        />
+      </div>
+      <div class="component-doc__footer">format="alphanumeric" — Sin restricción, con charLimit opcional</div>
+    </div>
+
+    <!-- Email -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> format="email"</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+        <lib-text-field
+          label="Correo electrónico"
+          format="email"
+          placeholder="usuario@dominio.com"
+          [formField]="ff.correo"
+        />
+        <p class="doc-value" style="margin: 0;">Valor: <code>{{ formatModel().correo || '—' }}</code></p>
+      </div>
+      <div class="component-doc__footer">format="email" — Bloquea espacios. Valida al blur (@ + dominio + mín. 6 chars).</div>
     </div>
   </section>
 
   <section class="doc-section">
     <h2>Uso</h2>
-    <pre><code>// Componente
-readonly model = signal(&#123; email: '' &#125;);
-readonly f = form(this.model);
+    <pre><code>// TS — validación de longitud exacta en el componente consumidor
+readonly idDocValue = signal('');
+readonly idDocError = signal&lt;string | null&gt;(null);
+
+onIdValueChange(value: string): void &#123;
+  this.idDocValue.set(value);
+  this.idDocError.set(null);
+&#125;
+
+onIdBlur(): void &#123;
+  if (this.idDocValue().length &lt; requiredLength) &#123;
+    this.idDocError.set(`Longitud requerida: $&#123;requiredLength&#125; caracteres`);
+  &#125;
+&#125;
 
 // Template
 &lt;lib-text-field
-  label="Email"
-  [formField]="f.email"
-  appearance="outline"
-  placeholder="usuario&#64;dominio.com"
-  [fullWidth]="true"
+  label="Cédula"
+  format="id"
+  mask="#-####-####"
+  [error]="idDocError()"
+  [value]="idDocValue()"
+  (valueChange)="onIdValueChange($event)"
+  (touch)="onIdBlur()"
 /&gt;</code></pre>
   </section>
 </article>

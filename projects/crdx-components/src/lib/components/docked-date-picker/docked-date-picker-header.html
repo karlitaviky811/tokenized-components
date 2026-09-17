@@ -1,0 +1,113 @@
+<div class="ddp-header">
+  <!-- Grupo navegación de mes -->
+  <div class="ddp-nav ddp-nav--month">
+    <button
+      type="button"
+      class="ddp-nav__arrow"
+      aria-label="Previous month"
+      [disabled]="!previousMonthEnabled()"
+      (click)="previousMonth()"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <button type="button" class="ddp-nav__label" (click)="openMonthView()">
+      <span>{{ monthLabel() }}</span>
+      <mat-icon class="ddp-nav__caret">arrow_drop_down</mat-icon>
+    </button>
+
+    <button
+      type="button"
+      class="ddp-nav__arrow"
+      aria-label="Next month"
+      [disabled]="!nextMonthEnabled()"
+      (click)="nextMonth()"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+  <!-- Grupo navegación de año -->
+  <div class="ddp-nav ddp-nav--year">
+    <button
+      type="button"
+      class="ddp-nav__arrow"
+      aria-label="Previous year"
+      [disabled]="!previousYearEnabled()"
+      (click)="previousYear()"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <button type="button" class="ddp-nav__label" (click)="openYearView()">
+      <span>{{ yearLabel() }}</span>
+      <mat-icon class="ddp-nav__caret">arrow_drop_down</mat-icon>
+    </button>
+
+    <button
+      type="button"
+      class="ddp-nav__arrow"
+      aria-label="Next year"
+      [disabled]="!nextYearEnabled()"
+      (click)="nextYear()"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</div>
+
+<!-- Vista Month: lista vertical -->
+@if (view() === 'month') {
+  <ul
+    #list
+    class="ddp-list app-scrollbar-figma"
+    role="listbox"
+    aria-label="Select month"
+    tabindex="0"
+    (keydown)="onListKeydown($event, 'month')"
+  >
+    @for (m of months(); track m.index) {
+      <li
+        class="ddp-list__item"
+        role="option"
+        [class.ddp-list__item--focused]="m.focused"
+        [class.ddp-list__item--disabled]="m.disabled"
+        [attr.aria-selected]="m.focused"
+        [attr.aria-disabled]="m.disabled"
+        [attr.data-focused]="m.focused"
+        [attr.tabindex]="m.focused ? 0 : -1"
+        (click)="selectMonth(m.index)"
+      >
+        <mat-icon class="ddp-list__check">{{ m.focused ? 'check' : '' }}</mat-icon>
+        <span class="ddp-list__label">{{ m.label }}</span>
+      </li>
+    }
+  </ul>
+}
+
+<!-- Vista Year: lista vertical -->
+@if (view() === 'year') {
+  <ul
+    #list
+    class="ddp-list app-scrollbar-figma"
+    role="listbox"
+    aria-label="Select year"
+    tabindex="0"
+    (keydown)="onListKeydown($event, 'year')"
+  >
+    @for (y of years(); track y.year) {
+      <li
+        class="ddp-list__item"
+        role="option"
+        [class.ddp-list__item--focused]="y.focused"
+        [attr.aria-selected]="y.focused"
+        [attr.data-focused]="y.focused"
+        [attr.tabindex]="y.focused ? 0 : -1"
+        (click)="selectYear(y.year)"
+      >
+        <mat-icon class="ddp-list__check">{{ y.focused ? 'check' : '' }}</mat-icon>
+        <span class="ddp-list__label">{{ y.label }}</span>
+      </li>
+    }
+  </ul>
+}

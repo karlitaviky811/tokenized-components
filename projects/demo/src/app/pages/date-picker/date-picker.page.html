@@ -50,4 +50,27 @@
       <p>Fecha: <code>{{ modalSelected()!.toLocaleDateString('es', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</code></p>
     }
   </section>
+
+  <!-- ─── DOCKED DATE PICKER (input + listas mes/año) ──────────────────────── -->
+
+  <section class="doc-section">
+    <h2>Docked Date Picker — <code>lib-docked-date-picker</code></h2>
+    <p>Input con calendario anclado. Las vistas de mes y año son listas verticales scrolleables (Figma 273:6136).</p>
+
+    <h3>Default</h3>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Docked Date Picker</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-docked-date-picker (dateChange)="onDockedDateChange($event)" (cleared)="onDockedCleared()" />
+      </div>
+      <div class="component-doc__footer">Building Blocks</div>
+    </div>
+
+    @if (dockedSelected()) {
+      <p>Fecha: <code>{{ dockedSelected()!.toLocaleDateString('es', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</code></p>
+    }
+  </section>
 </article>

@@ -16,18 +16,30 @@
   </section>
 
   <section class="doc-section">
-    <h2>Variantes</h2>
+    <h2>Estados</h2>
 
-    <h3>Estados</h3>
-    <div class="variant-row">
-      <lib-slide-toggle />
-      <lib-slide-toggle [checked]="true" />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Off / On</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-slide-toggle />
+        <lib-slide-toggle [checked]="true" />
+      </div>
+      <div class="component-doc__footer">checked=false (Off) · checked=true (On)</div>
     </div>
 
-    <h3>Interactivo</h3>
-    <div class="interactive-row">
-      <lib-slide-toggle [checked]="active()" (checkedChange)="active.set($event)" />
-      <span class="state-label">Estado: <strong>{{ active() ? 'Activo' : 'Inactivo' }}</strong></span>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Toggle interactivo</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="gap: 1.5rem;">
+        <lib-slide-toggle [checked]="active()" (checkedChange)="active.set($event)" />
+        <span class="state-label">Estado: <strong>{{ active() ? 'Activo' : 'Inactivo' }}</strong></span>
+      </div>
+      <div class="component-doc__footer">Binding bidireccional con signal — el estado se refleja en tiempo real</div>
     </div>
   </section>
 

@@ -18,6 +18,20 @@
   </section>
 
   <section class="doc-section">
+    <h2>Demo</h2>
+    <div class="variant-row">
+      <lib-button
+        label="Abrir Side Modal"
+        variant="outlined"
+        shape="square"
+        size="medium"
+        [fullWidth]="false"
+        (click)="openSideModal()"
+      />
+    </div>
+  </section>
+
+  <section class="doc-section">
     <h2>Uso</h2>
     <pre><code>const state = signal&lt;'open' | 'closed'&gt;('open');
 

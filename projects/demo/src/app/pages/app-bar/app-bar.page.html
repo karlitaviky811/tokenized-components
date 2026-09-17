@@ -22,6 +22,28 @@
   </section>
 
   <section class="doc-section">
+    <h2>Demo</h2>
+    <div class="app-bar-preview">
+      <lib-header
+        brandLabel="Mi App"
+        [trailingActions]="[
+          { icon: 'search', ariaLabel: 'Buscar' },
+          { icon: 'profile', ariaLabel: 'Perfil' }
+        ]"
+      />
+    </div>
+
+    <h3>Sin leading</h3>
+    <div class="app-bar-preview">
+      <lib-header
+        [showLeading]="false"
+        brandLabel="Sin menú"
+        [trailingActions]="[{ icon: 'search', ariaLabel: 'Buscar' }]"
+      />
+    </div>
+  </section>
+
+  <section class="doc-section">
     <h2>Uso</h2>
     <pre><code>&lt;lib-header
   brandLabel="Mi App"

@@ -8,8 +8,8 @@
 }
 
 .lib-dp-range-field.mat-mdc-form-field {
-  --mdc-outlined-text-field-label-text-font: inherit;
-  --mdc-outlined-text-field-input-text-font: inherit;
+  --mat-form-field-outlined-label-text-font: inherit;
+  --mat-form-field-outlined-input-text-font: inherit;
 }
 
 .lib-dp-range-field .material-symbols-outlined {

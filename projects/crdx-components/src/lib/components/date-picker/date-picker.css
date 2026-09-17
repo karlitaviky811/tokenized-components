@@ -10,17 +10,17 @@
 }
 
 .lib-dp-field.mat-mdc-form-field {
-  --mdc-outlined-text-field-label-text-font: inherit;
-  --mdc-outlined-text-field-input-text-font: inherit;
-  --mdc-outlined-text-field-label-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
-  --mdc-outlined-text-field-input-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
-  --mdc-outlined-text-field-outline-color: var(--color-pallete-scheme-surface-outline-variant, #c3c7c9);
-  --mdc-outlined-text-field-hover-outline-color: var(--color-pallete-scheme-surface-on-surface, #181c1e);
-  --mdc-outlined-text-field-focus-outline-color: var(--color-pallete-scheme-primary, #e42313);
-  --mdc-outlined-text-field-container-shape: 0.75rem;
+  --mat-form-field-outlined-label-text-font: inherit;
+  --mat-form-field-outlined-input-text-font: inherit;
+  --mat-form-field-outlined-label-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
+  --mat-form-field-outlined-input-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
+  --mat-form-field-outlined-outline-color: var(--color-pallete-scheme-surface-outline-variant, #c3c7c9);
+  --mat-form-field-outlined-hover-outline-color: var(--color-pallete-scheme-surface-on-surface, #181c1e);
+  --mat-form-field-outlined-focus-outline-color: var(--color-pallete-scheme-primary, #e42313);
+  --mat-form-field-outlined-container-shape: 0.75rem;
 }
 
-:host ::ng-deep .lib-dp-field .mdc-text-field--outlined {
+:host .lib-dp-field .mdc-text-field--outlined {
   background-color: #fff;
   border-radius: 0.75rem;
 }
@@ -44,8 +44,8 @@
 }
 
 .lib-dp-btn {
-  font-family: var(--buttons-wip-size-small-button-small-label-text-font, Heebo), sans-serif !important;
-  font-size: var(--buttons-wip-size-small-button-small-label-text-size, 0.875rem) !important;
-  font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500) !important;
+  font-family: var(--buttons-wip-size-small-button-small-label-text-font, Heebo), sans-serif;
+  font-size: var(--buttons-wip-size-small-button-small-label-text-size, 0.875rem);
+  font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500);
   --mat-text-button-label-text-color: var(--color-buttons-wip-color-text-enabled-button-text-label-color, #e42313);
 }

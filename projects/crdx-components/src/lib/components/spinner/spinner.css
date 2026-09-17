@@ -4,6 +4,7 @@
   justify-content: center;
 }
 
-:host ::ng-deep .lib-spinner {
-  --mdc-circular-progress-active-indicator-color: var(--lib-spinner-color, var(--Rojo-400, #e30613));
+:host .lib-spinner {
+  /* Material v22 usa este token (el viejo --mdc-circular-progress-* ya no aplica). */
+  --mat-progress-spinner-active-indicator-color: var(--lib-spinner-color, var(--color-pallete-scheme-primary, #e42313));
 }

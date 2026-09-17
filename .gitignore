@@ -2,3 +2,7 @@ node_modules/
 dist/
 out-tsc/
 *.js.map
+.atl/
+.angular/
+mcp.json
+.mcp.json

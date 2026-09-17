@@ -1,8 +1,14 @@
 :host {
-  --lib-alert-modal-bg: var(--app-dialogs-enabled-container-color, #ffffff);
-  --lib-alert-modal-text: var(--app-colors-neutral-dark, #3e3e3e);
-  --lib-alert-modal-border: var(--app-colors-neutral-border, #d2d2d2);
-  --lib-alert-modal-error: var(--app-colors-error, #ff4965);
+  --lib-alert-modal-bg: var(--dialogs-enabled-container-color, #ffffff);
+  --lib-alert-modal-text: var(--colors-neutral-dark, #3e3e3e);
+  --lib-alert-modal-border: var(--colors-neutral-border, #d2d2d2);
+  --lib-alert-modal-error: var(--colors-error, #ff4965);
+  --lib-alert-modal-padding: 2.5rem 3rem;
+  --lib-alert-modal-icon-size: 5.625rem;
+  --lib-alert-modal-content-max-width: 44.5rem;
+  --lib-alert-modal-action-btn-width: 7.5rem;
+  --lib-alert-modal-action-btn-height: 3.5rem;
+  --lib-alert-modal-action-btn-radius: 1rem;
 }
 
 .container {
@@ -12,7 +18,7 @@
     --message-font-weight: 700;
 
     background-color: var(--color);
-    padding: 2.5rem 3rem;
+    padding: var(--lib-alert-modal-padding);
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -31,9 +37,9 @@
 
 .container .message mat-icon {
     display: flex;
-    font-size: 5.625rem;
-    width: 5.625rem;
-    height: 5.625rem;
+    font-size: var(--lib-alert-modal-icon-size);
+    width: var(--lib-alert-modal-icon-size);
+    height: var(--lib-alert-modal-icon-size);
     color: var(--lib-alert-modal-error);
     justify-content: center;
     align-items: center;
@@ -100,7 +106,8 @@
 }
 
 .container .content {
-    width: 44.5rem;
+    max-width: var(--lib-alert-modal-content-max-width);
+    width: 100%;
     color: var(--message-color);
     text-align: center;
     font-size: 1rem;
@@ -117,9 +124,9 @@
 }
 
 .container .actions button {
-    width: 7.5rem;
-    height: 3.5rem;
+    width: var(--lib-alert-modal-action-btn-width);
+    height: var(--lib-alert-modal-action-btn-height);
     font-size: 1rem;
     font-weight: 500;
-    border-radius: 1rem;
+    border-radius: var(--lib-alert-modal-action-btn-radius);
 }

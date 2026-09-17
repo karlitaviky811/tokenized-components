@@ -24,43 +24,73 @@
   <section class="doc-section">
     <h2>Variantes</h2>
 
-    <h3>Tipo</h3>
-    <div class="variant-row">
-      <lib-chip label="Outlined"  variant="outlined" />
-      <lib-chip label="Filled"    variant="filled"   />
-      <lib-chip label="Selected"  variant="outlined" [selected]="true"  />
-      <lib-chip label="Disabled"  variant="outlined" [disabled]="true"  />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outlined / Filled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-chip label="Outlined"  variant="outlined" />
+        <lib-chip label="Filled"    variant="filled"   />
+        <lib-chip label="Selected"  variant="outlined" [selected]="true"  />
+        <lib-chip label="Disabled"  variant="outlined" [disabled]="true"  />
+      </div>
+      <div class="component-doc__footer">Outlined · Filled · Selected · Disabled</div>
     </div>
 
-    <h3>Con ícono leading</h3>
-    <div class="variant-row">
-      <lib-chip label="Filtro"    variant="outlined" icon="filter_list"  />
-      <lib-chip label="Activo"    variant="outlined" icon="check_circle" [selected]="true" />
-      <lib-chip label="Categoría" variant="filled"   icon="label"        />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Con ícono leading</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-chip label="Filtro"    variant="outlined" icon="filter_list"  />
+        <lib-chip label="Activo"    variant="outlined" icon="check_circle" [selected]="true" />
+        <lib-chip label="Categoría" variant="filled"   icon="label"        />
+      </div>
+      <div class="component-doc__footer">icon — Material Symbols name · leading position</div>
     </div>
 
-    <h3>Removable</h3>
-    <div class="variant-row">
-      <lib-chip label="Eliminar"  variant="outlined" [removable]="true" />
-      <lib-chip label="Tag activo" variant="filled"  [removable]="true" />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Removable</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-chip label="Eliminar"  variant="outlined" [removable]="true" />
+        <lib-chip label="Tag activo" variant="filled"  [removable]="true" />
+      </div>
+      <div class="component-doc__footer">removable=true — muestra ícono de cierre</div>
     </div>
 
-    <h3>Tamaños</h3>
-    <div class="variant-row">
-      <lib-chip label="Small"  variant="outlined" size="small"  />
-      <lib-chip label="Medium" variant="outlined" size="medium" />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Tamaños</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-chip label="Small"  variant="outlined" size="small"  />
+        <lib-chip label="Medium" variant="outlined" size="medium" />
+      </div>
+      <div class="component-doc__footer">size — Small · Medium</div>
     </div>
 
-    <h3>Toggle interactivo</h3>
-    <div class="variant-row">
-      @for (f of filters(); track f.value) {
-        <lib-chip
-          [label]="f.label"
-          variant="outlined"
-          [selected]="f.selected"
-          (click)="toggleFilter(f.value)"
-        />
-      }
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Toggle interactivo</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        @for (f of filters(); track f.value) {
+          <lib-chip
+            [label]="f.label"
+            variant="outlined"
+            [selected]="f.selected"
+            (click)="toggleFilter(f.value)"
+          />
+        }
+      </div>
+      <div class="component-doc__footer">Selección exclusiva — click para cambiar filtro activo</div>
     </div>
   </section>
 
@@ -80,7 +110,7 @@
   <div class="comp-hero" style="margin-top: 3rem;">
     <span class="comp-hero__tag">lib-assist-chip</span>
     <h1 class="comp-hero__name">Assist Chip</h1>
-    <p class="comp-hero__desc">Assist chip de Material 3 (Figma 261:718). Representa acciones inteligentes o contextuales. No tiene estado seleccionado.</p>
+    <p class="comp-hero__desc">Assist chip de Material 3. Representa acciones inteligentes o contextuales. No tiene estado seleccionado.</p>
   </div>
 
   <section class="doc-section">
@@ -97,17 +127,29 @@
   <section class="doc-section">
     <h2>Variantes</h2>
 
-    <h3>Estilo</h3>
-    <div class="variant-row">
-      <lib-assist-chip label="Outlined" appearance="outlined" />
-      <lib-assist-chip label="Elevated" appearance="elevated" />
-      <lib-assist-chip label="Disabled" appearance="outlined" [disabled]="true" />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outlined / Elevated / Disabled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-assist-chip label="Outlined" appearance="outlined" />
+        <lib-assist-chip label="Elevated" appearance="elevated" />
+        <lib-assist-chip label="Disabled" appearance="outlined" [disabled]="true" />
+      </div>
+      <div class="component-doc__footer">appearance — Outlined · Elevated · Disabled</div>
     </div>
 
-    <h3>Con ícono</h3>
-    <div class="variant-row">
-      <lib-assist-chip label="Agregar" appearance="outlined" icon="add_circle" />
-      <lib-assist-chip label="Evento"  appearance="elevated" icon="event" />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Con ícono</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-assist-chip label="Agregar" appearance="outlined" icon="add_circle" />
+        <lib-assist-chip label="Evento"  appearance="elevated" icon="event" />
+      </div>
+      <div class="component-doc__footer">icon — Material Symbols name · leading position</div>
     </div>
   </section>
 
@@ -124,7 +166,7 @@
   <div class="comp-hero" style="margin-top: 3rem;">
     <span class="comp-hero__tag">lib-suggestion-chip</span>
     <h1 class="comp-hero__name">Suggestion Chip</h1>
-    <p class="comp-hero__desc">Suggestion chip de Material 3 (Figma 261:71). Presenta sugerencias dinámicas. Es un toggle: soporta estado seleccionado.</p>
+    <p class="comp-hero__desc">Suggestion chip de Material 3. Presenta sugerencias dinámicas. Es un toggle: soporta estado seleccionado.</p>
   </div>
 
   <section class="doc-section">
@@ -144,29 +186,36 @@
   <section class="doc-section">
     <h2>Variantes</h2>
 
-    <h3>Estado</h3>
-    <div class="variant-row">
-      <lib-suggestion-chip label="Unselected" appearance="outlined" />
-      <lib-suggestion-chip label="Selected"   appearance="outlined" [selected]="true" />
-      <lib-suggestion-chip label="Elevated"   appearance="elevated" />
-      <lib-suggestion-chip label="Disabled"   appearance="outlined" [disabled]="true" />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Estados</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-suggestion-chip label="Unselected" appearance="outlined" />
+        <lib-suggestion-chip label="Selected"   appearance="outlined" [selected]="true" />
+        <lib-suggestion-chip label="Elevated"   appearance="elevated" />
+        <lib-suggestion-chip label="Disabled"   appearance="outlined" [disabled]="true" />
+      </div>
+      <div class="component-doc__footer">Estado — Unselected · Selected · Elevated · Disabled</div>
     </div>
 
-    <h3>Con ícono (selected)</h3>
-    <div class="variant-row">
-      <lib-suggestion-chip label="Favorito" appearance="outlined" icon="star" [selected]="true" />
-    </div>
-
-    <h3>Toggle interactivo</h3>
-    <div class="variant-row">
-      @for (s of suggestions(); track s.value) {
-        <lib-suggestion-chip
-          [label]="s.label"
-          appearance="outlined"
-          [selected]="s.selected"
-          (selectedChange)="toggleSuggestion(s.value, $event)"
-        />
-      }
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Toggle interactivo</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        @for (s of suggestions(); track s.value) {
+          <lib-suggestion-chip
+            [label]="s.label"
+            appearance="outlined"
+            [selected]="s.selected"
+            (selectedChange)="toggleSuggestion(s.value, $event)"
+          />
+        }
+      </div>
+      <div class="component-doc__footer">Toggle independiente — cada chip mantiene su propio estado</div>
     </div>
   </section>
 

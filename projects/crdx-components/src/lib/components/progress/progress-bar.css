@@ -1,0 +1,85 @@
+:host {
+  display: block;
+  width: 100%;
+
+  /* ── Design token chain ─────────────────────────────────────────── */
+  --lib-pb-track-color:  var(--progress-indicator-track-color, #e0e3e5);
+  --lib-pb-active-color: var(--progress-indicator-active-indicator-color, #19d27e);
+  --lib-pb-stop-color:   var(--progress-indicator-stop-indicator-color, #19d27e);
+  --lib-pb-track-shape:  var(--progress-indicator-track-shape, 1000px);
+  --lib-pb-stop-shape:   var(--progress-indicator-stop-indicator-shape, 1000px);
+  --lib-pb-h:            var(--progress-indicator-linear-track-thickness, 4px);
+  --lib-pb-h-thick:      var(--progress-indicator-linear-thick-track-thickness, 8px);
+  --lib-pb-stop-size:    var(--progress-indicator-linear-stop-indicator-size, 4px);
+}
+
+/* ── Container ──────────────────────────────────────────────────────── */
+
+.lib-pb {
+  position: relative;
+  height: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Track (background) ─────────────────────────────────────────────── */
+
+.lib-pb__track {
+  position: relative;
+  flex: 1;
+  height: var(--lib-pb-h);
+  background-color: var(--lib-pb-track-color);
+  border-radius: var(--lib-pb-track-shape);
+  overflow: hidden;
+}
+
+.lib-pb--thick .lib-pb__track {
+  height: var(--lib-pb-h-thick);
+  border-radius: 0.25rem;
+}
+
+/* ── Active fill ────────────────────────────────────────────────────── */
+
+.lib-pb__fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background-color: var(--lib-pb-active-color);
+  border-radius: var(--lib-pb-track-shape);
+  transition: width 0.25s ease;
+}
+
+.lib-pb--thick .lib-pb__fill {
+  border-radius: 0.25rem;
+}
+
+/* ── Stop indicator — dot at the far right end of track ─────────────── */
+
+.lib-pb__stop {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--lib-pb-stop-size);
+  height: var(--lib-pb-stop-size);
+  background-color: var(--lib-pb-stop-color);
+  border-radius: var(--lib-pb-stop-shape);
+  flex-shrink: 0;
+}
+
+/* ── Indeterminate animation ────────────────────────────────────────── */
+
+.lib-pb__fill--indeterminate {
+  width: 30%;
+  left: -30%;
+  transition: none;
+  animation: lib-pb-move 1.8s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+@keyframes lib-pb-move {
+  0%   { left: -35%; width: 35%; }
+  60%  { left: 100%; width: 35%; }
+  100% { left: 100%; width: 35%; }
+}

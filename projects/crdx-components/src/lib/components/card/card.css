@@ -9,10 +9,10 @@
 
 .lib-card {
   display: flex;
-  align-items: stretch;
+  flex-direction: column;
   overflow: hidden;
-  border-radius: var(--app-cards-outlined-enabled-container-outlined-card-container-shape, 0.75rem);
-  color: var(--app-pallete-scheme-surface-on-surface, #181c1e);
+  border-radius: var(--cards-outlined-enabled-container-outlined-card-container-shape, 0.75rem);
+  color: var(--pallete-scheme-surface-on-surface, #181c1e);
   box-sizing: border-box;
   cursor: pointer;
   transition: box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
@@ -30,31 +30,37 @@
 
 .lib-card--outlined {
   border: 0;
-  outline: var(--app-cards-outlined-enabled-outline-outlined-card-outline-width, 0.0625rem) solid
-    var(--app-cards-outlined-enabled-outline-outlined-card-outline-color, #c3c7c9);
+  outline: var(--cards-outlined-enabled-outline-outlined-card-outline-width, 0.0625rem) solid
+    var(--cards-outlined-enabled-outline-outlined-card-outline-color, #c3c7c9);
   outline-offset: -0.0625rem;
-  background: var(--app-cards-outlined-enabled-container-outlined-card-container-color, #f7fafc);
+  background: var(--cards-outlined-enabled-container-outlined-card-container-color, #f7fafc);
 }
 
 .lib-card--elevated {
   border: 0;
-  background: var(--app-cards-elevated-enabled-container-elevated-card-container-color, #f1f4f6);
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: var(--cards-elevated-enabled-container-elevated-card-container-color, #f1f4f6);
+  box-shadow: var(--shadow-elevation-1, 0 1px 3px 1px rgba(0, 0, 0, 0.15)), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .lib-card--filled {
   border: 0;
-  background: var(--app-cards-filled-enabled-container-filled-card-container-color, #e0e3e5);
+  background: var(--cards-filled-enabled-container-filled-card-container-color, #e0e3e5);
 }
 
 .lib-card--active {
-  outline-color: var(--app-pallete-scheme-surface-outline-variant, #d4d7db);
-  background: var(--app-pallete-scheme-surface-outline-variant, #d4d7db);
+  outline-color: var(--pallete-scheme-surface-outline-variant, #d4d7db);
+  background: var(--pallete-scheme-surface-outline-variant, #d4d7db);
 }
 
 .lib-card--disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+
+.lib-card__row {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .lib-card__content {
@@ -76,9 +82,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--app-pallete-scheme-primary-primary, #e42313);
-  color: var(--app-pallete-scheme-primary-on-primary, #fff);
-  font-family: var(--app-typescale-title-medium-font, Heebo), sans-serif;
+  background: var(--pallete-scheme-primary-primary, #e42313);
+  color: var(--pallete-scheme-primary-on-primary, #fff);
+  font-family: var(--typescale-title-medium-font, Heebo), sans-serif;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5rem;
@@ -119,23 +125,41 @@
 }
 
 .lib-card__title {
-  font-family: var(--app-typescale-title-medium-font, Heebo), sans-serif;
-  font-size: var(--app-typescale-title-medium-size, 1rem);
-  font-weight: var(--app-typescale-title-medium-weight, 500);
-  line-height: var(--app-typescale-title-medium-line-height, 1.5rem);
-  letter-spacing: var(--app-typescale-title-medium-tracking, 0.009375rem);
+  font-family: var(--typescale-title-medium-font, Heebo), sans-serif;
+  font-size: var(--typescale-title-medium-size, 1rem);
+  font-weight: var(--typescale-title-medium-weight, 500);
+  line-height: var(--typescale-title-medium-line-height, 1.5rem);
+  letter-spacing: var(--typescale-title-medium-tracking, 0.009375rem);
 }
 
 .lib-card--title-emphasized .lib-card__title {
-  font-weight: var(--app-typescale-title-medium-weight-emphasized, 700);
+  font-weight: var(--typescale-title-medium-weight-emphasized, 700);
 }
 
 .lib-card__subhead {
-  font-family: var(--app-typescale-body-medium-font, Heebo), sans-serif;
-  font-size: var(--app-typescale-body-medium-size, 0.875rem);
-  font-weight: var(--app-typescale-body-medium-weight, 400);
-  line-height: var(--app-typescale-body-medium-line-height, 1.25rem);
-  letter-spacing: var(--app-typescale-body-medium-tracking, 0.015625rem);
+  font-family: var(--typescale-body-medium-font, Heebo), sans-serif;
+  font-size: var(--typescale-body-medium-size, 0.875rem);
+  font-weight: var(--typescale-body-medium-weight, 400);
+  line-height: var(--typescale-body-medium-line-height, 1.25rem);
+  letter-spacing: var(--typescale-body-medium-tracking, 0.015625rem);
+}
+
+.lib-card__trailing {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-right: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.lib-card__trailing:empty {
+  display: none;
+}
+
+.lib-card__body:empty {
+  display: none;
 }
 
 .lib-card__media {
@@ -144,8 +168,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-left: 0.0625rem solid var(--app-pallete-scheme-surface-outline-variant, #c3c7c9);
-  background: var(--app-schemes-surface-container-high, #ebe7e7);
+  border-left: 0.0625rem solid var(--pallete-scheme-surface-outline-variant, #c3c7c9);
+  background: var(--schemes-surface-container-high, #ebe7e7);
   position: relative;
   z-index: 2;
 }
@@ -158,7 +182,7 @@
 }
 
 .lib-card__media svg {
-  fill: var(--app-schemes-outline, #b5b5b5);
+  fill: var(--schemes-outline, #b5b5b5);
 }
 
 .lib-card__media--empty {
@@ -179,7 +203,7 @@
   position: absolute;
   inset: -0.1875rem;
   border-radius: 0.875rem;
-  border: 0.1875rem solid var(--app-cards-outlined-focused-focus-indicator-outlined-card-focus-indicator-color, #5b5f61);
+  border: 0.1875rem solid var(--cards-outlined-focused-focus-indicator-outlined-card-focus-indicator-color, #5b5f61);
   pointer-events: none;
   z-index: 3;
 }
@@ -201,7 +225,7 @@
 
 .lib-card--outlined.lib-card--state-hovered,
 .lib-card--outlined:hover {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), var(--shadow-elevation-1, 0 1px 3px 1px rgba(0, 0, 0, 0.15));
 }
 
 .lib-card--outlined.lib-card--state-dragged {
@@ -214,7 +238,7 @@
 }
 
 .lib-card--elevated.lib-card--state-pressed {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-elevation-1, 0 1px 3px 1px rgba(0, 0, 0, 0.15)), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .lib-card--elevated.lib-card--state-dragged {
@@ -222,7 +246,7 @@
 }
 
 .lib-card--filled.lib-card--state-hovered {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-elevation-1, 0 1px 3px 1px rgba(0, 0, 0, 0.15)), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .lib-card--filled.lib-card--state-dragged {
@@ -231,7 +255,7 @@
 
 .lib-card--outlined.lib-card--state-hovered .lib-card__state-layer,
 .lib-card--outlined:hover .lib-card__state-layer {
-  background: rgba(24, 28, 30, 0.08);
+  background: var(--color-pallete-state-layers-on-surface-opacity-08, rgba(24, 28, 30, 0.08));
 }
 
 .lib-card--outlined.lib-card--state-focused .lib-card__state-layer {
@@ -248,7 +272,7 @@
 
 .lib-card--elevated.lib-card--state-hovered .lib-card__state-layer,
 .lib-card--elevated:hover .lib-card__state-layer {
-  background: rgba(24, 28, 30, 0.08);
+  background: var(--color-cards-elevated-hovered-state-layer-elevated-card-hover-state-layer-color, var(--color-pallete-state-layers-on-surface-opacity-08, rgba(24, 28, 30, 0.08)));
 }
 
 .lib-card--elevated.lib-card--state-focused .lib-card__state-layer {
@@ -265,7 +289,7 @@
 
 .lib-card--filled.lib-card--state-hovered .lib-card__state-layer,
 .lib-card--filled:hover .lib-card__state-layer {
-  background: rgba(24, 28, 30, 0.08);
+  background: var(--color-pallete-state-layers-on-surface-opacity-08, rgba(24, 28, 30, 0.08));
 }
 
 .lib-card--filled.lib-card--state-focused .lib-card__state-layer {

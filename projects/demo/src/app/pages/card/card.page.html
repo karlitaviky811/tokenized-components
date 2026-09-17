@@ -52,16 +52,83 @@
         @for (item of [1, 2, 3]; track item) {
           <lib-card title="Header" subhead="Subhead" variant="outlined" width="16rem" [active]="item === 3">
             <lib-icon-button slot="trailing" size="small" variant="standard">
-              <span class="material-symbols-outlined">arrow_drop_up</span>
+              <span class="material-symbols-outlined">chevron_right</span>
             </lib-icon-button>
-            <lib-icon-button slot="trailing" size="small" variant="standard">
-              <span class="material-symbols-outlined">arrow_drop_down</span>
-            </lib-icon-button>
-            <div class="demo-slot">slot</div>
           </lib-card>
         }
       </div>
       <div class="component-doc__footer">Building Blocks</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Stacked Card — Media &amp; text</h2>
+    <p>Variante de card apilada con imagen, texto de soporte y acciones. Tres estilos: outlined, elevated y filled.</p>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outlined</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="justify-content: center;">
+        <lib-stacked-card
+          variant="outlined"
+          headerText="Header"
+          subhead="Subhead"
+          avatarText="A"
+          cardTitle="Title"
+          subtitle="Subtitle"
+          supportingText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          primaryLabel="Primary"
+          secondaryLabel="Secondary"
+          style="max-width: 22.5rem;"
+        />
+      </div>
+      <div class="component-doc__footer">Style=Outlined, Layout=Media &amp; text</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Elevated</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="justify-content: center;">
+        <lib-stacked-card
+          variant="elevated"
+          headerText="Header"
+          subhead="Subhead"
+          avatarText="A"
+          cardTitle="Title"
+          subtitle="Subtitle"
+          supportingText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          primaryLabel="Primary"
+          secondaryLabel="Secondary"
+          style="max-width: 22.5rem;"
+        />
+      </div>
+      <div class="component-doc__footer">Style=Elevated, Layout=Media &amp; text</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Filled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="justify-content: center;">
+        <lib-stacked-card
+          variant="filled"
+          headerText="Header"
+          subhead="Subhead"
+          avatarText="A"
+          cardTitle="Title"
+          subtitle="Subtitle"
+          supportingText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          primaryLabel="Primary"
+          secondaryLabel="Secondary"
+          style="max-width: 22.5rem;"
+        />
+      </div>
+      <div class="component-doc__footer">Style=Filled, Layout=Media &amp; text</div>
     </div>
   </section>
 

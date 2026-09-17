@@ -1,0 +1,29 @@
+@use '@angular/material' as mat;
+
+/* Neutraliza el contenedor MDC del snackbar para que el panel visual de
+   LibSnackbarComponent (con su propio fondo/padding/elevación tokenizados)
+   se muestre sin el estilado por defecto de Material. Se aplica solo al panel
+   marcado con `panelClass: 'lib-snackbar-panel'`. */
+.lib-snackbar-panel {
+  .mat-mdc-snack-bar-surface,
+  .mdc-snackbar__surface {
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    min-width: auto;
+    border-radius: var(--snackbars-enabled-container-snackbar-container-shape, 0.25rem);
+  }
+
+  .mat-mdc-snack-bar-label,
+  .mdc-snackbar__label {
+    padding: 0;
+  }
+}
+
+/* Tokens globales del snackbar de Material (por si algún consumidor usa el
+   MatSnackBar nativo sin nuestro componente). */
+html {
+  @include mat.snack-bar-overrides((
+    container-shape: var(--snackbars-enabled-container-snackbar-container-shape, 0.25rem),
+  ));
+}

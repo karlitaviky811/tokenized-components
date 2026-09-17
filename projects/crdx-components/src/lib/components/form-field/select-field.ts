@@ -14,11 +14,10 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
-import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldAppearance, MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
-import { MatSelectModule, MatSelectChange } from '@angular/material/select';
+import { MatSelect, MatSelectTrigger, MatOption, MatSelectChange } from '@angular/material/select';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { LibCheckboxComponent } from '../checkbox/checkbox';
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -37,7 +36,7 @@ export type LibSelectMode = 'single' | 'multiple';
 @Component({
   selector: 'lib-select-field',
   standalone: true,
-  imports: [MatFormFieldModule, MatSelectModule, ScrollingModule, MatInputModule, MatIconModule, MatRippleModule, LibCheckboxComponent],
+  imports: [MatFormField, MatLabel, MatSuffix, MatSelect, MatSelectTrigger, MatOption, ScrollingModule, MatIcon, MatRippleModule, LibCheckboxComponent],
   templateUrl: './select-field.html',
   styleUrl: './select-field.css',
   providers: [
@@ -70,6 +69,7 @@ export class LibSelectFieldComponent<T = string> implements ControlValueAccessor
   readonly required = input(false, { transform: coerceBooleanProperty });
   readonly width = input<string | number | null>(null);
   readonly selectAllLabel = input('Seleccionar todos');
+  readonly hideSubscript = input(false, { transform: coerceBooleanProperty });
   readonly widthStyle = computed(() => {
     const v = this.width();
     return v == null || v === '' ? null : typeof v === 'number' ? `${v}px` : String(v);

@@ -1,0 +1,24 @@
+@use '@angular/material' as mat;
+
+html {
+  @include mat.bottom-sheet-overrides((
+    container-shape:             28px,
+    container-color:             var(--mat-sys-surface-container-low),
+    container-text-color:        var(--mat-sys-on-surface),
+    container-text-font:         var(--mat-sys-body-large-font),
+    container-text-line-height:  var(--mat-sys-body-large-line-height),
+    container-text-size:         var(--mat-sys-body-large-size),
+    container-text-tracking:     var(--mat-sys-body-large-tracking),
+    container-text-weight:       var(--mat-sys-body-large-weight),
+  ));
+
+  // Tokens propios del componente lib-bottom-sheet (CDK-based, lee --bottom-sheets-*)
+  --bottom-sheets-enabled-container-sheet-bottom-docked-container-shape:      28px;
+  --bottom-sheets-enabled-container-sheet-bottom-docked-container-color:      var(--mat-sys-surface-container-low);
+  --bottom-sheets-enabled-container-sheet-bottom-docked-container-text-color: var(--mat-sys-on-surface);
+  --bottom-sheets-enabled-container-sheet-bottom-docked-container-text-font:         var(--mat-sys-body-large-font);
+  --bottom-sheets-enabled-container-sheet-bottom-docked-container-text-line-height:  var(--mat-sys-body-large-line-height);
+  --bottom-sheets-enabled-container-sheet-bottom-docked-container-text-size:         var(--mat-sys-body-large-size);
+  --bottom-sheets-enabled-container-sheet-bottom-docked-container-text-tracking:     var(--mat-sys-body-large-tracking);
+  --bottom-sheets-enabled-container-sheet-bottom-docked-container-text-weight:       var(--mat-sys-body-large-weight);
+}

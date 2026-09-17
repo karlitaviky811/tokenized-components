@@ -231,9 +231,22 @@ onRowClickConfirm(row: DemoUser): void &#123;
 
   <!-- 3 ─────────────────────────────────────────────────────────────────────── -->
 
+  <!-- Template del lote de desembolso: scrollable lib-list-item con trailing amount -->
+  <ng-template #batchTemplate>
+    <div style="margin: 0 -1.5rem; max-height: 10.5rem; overflow-y: auto;">
+      <lib-list
+        [items]="batchItems()"
+        trailingType="none"
+        [showCheckbox]="false"
+        [showAvatar]="false"
+        [showDividers]="true"
+      />
+    </div>
+  </ng-template>
+
   <section class="doc-section">
     <h2>3. Selección múltiple → confirmación con lista</h2>
-    <p>Checkbox por fila vía <code>cellTemplate</code>. Las filas seleccionadas se mapean a <code>ConfirmModalListItem[]</code> y se pasan a <code>openWithScrollableList</code>, para que el usuario revise el lote antes de confirmar.</p>
+    <p>Checkbox por fila vía <code>cellTemplate</code>. Las filas seleccionadas se mapean a <code>LibListItemData[]</code> y se pasan via <code>bodyTemplate</code> al modal, para que el usuario revise el lote antes de confirmar.</p>
 
     <div class="component-doc">
       <div class="component-doc__header">
@@ -265,26 +278,29 @@ onRowClickConfirm(row: DemoUser): void &#123;
     </div>
 
     <h3>Uso</h3>
-    <pre><code>confirmSelection(): void &#123;
-  const listItems: ConfirmModalListItem[] = this.selectedRows().map((u) =&gt; (&#123;
-    id: u.id,
-    label: u.name,
-    supportingText: u.email,
-    amount: u.amount,
-  &#125;));
+    <pre><code>&#64;ViewChild('batchTemplate', &#123; static: true &#125;) batchTemplate!: TemplateRef&lt;unknown&gt;;
+readonly batchItems = signal&lt;LibListItemData[]&gt;([]);
+
+confirmSelection(): void &#123;
+  const selected = this.selectedRows();
+  this.batchItems.set(selected.map((u) =&gt; (&#123;
+    id: u.id, label: u.name, description: u.email,
+  &#125;)));
 
   this.confirmModal
-    .openWithScrollableList(
-      'Confirmar desembolso',
-      'Se procesarán ' + listItems.length + ' registros.',
-      listItems,
-      'Procesar',
-      'Cancelar',
+    .open('Confirmar desembolso', 'Procesar', '', 'Se procesarán ' + selected.length + ' registros.', '19.5rem', 'Cancelar',
+      &#123; bodyTemplate: this.batchTemplate &#125;,
     )
     .closed.subscribe((confirmed) =&gt; &#123;
       if (confirmed) this.selectedIds.set([]);
     &#125;);
 &#125;</code></pre>
+    <pre><code>&lt;ng-template #batchTemplate&gt;
+  &lt;div style="margin:0 -1.5rem; max-height:10.5rem; overflow-y:auto;"&gt;
+    &lt;lib-list [items]="batchItems()" trailingType="none"
+      [showCheckbox]="false" [showAvatar]="false" [showDividers]="true" /&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;</code></pre>
     <pre><code>&lt;ng-template cellTemplate="select" let-row&gt;
   &lt;lib-checkbox
     [checked]="isSelected(row)"
@@ -348,7 +364,7 @@ onRowClickPanel(row: DemoUser): void &#123;
       <tr><th>Patrón</th><th>Disparador</th><th>Modal</th><th>Usar cuando</th></tr>
       <tr><td>1. Confirmación</td><td>rowClick</td><td>openWithDescription</td><td>La fila lleva a otra vista y conviene confirmar</td></tr>
       <tr><td>2. Destructiva</td><td>cellTemplate + click</td><td>openWithIcon</td><td>La acción es irreversible y va por fila</td></tr>
-      <tr><td>3. Lote</td><td>checkbox + botón</td><td>openWithScrollableList</td><td>Se opera sobre varias filas y hay que revisar el lote</td></tr>
+      <tr><td>3. Lote</td><td>checkbox + botón</td><td>open + bodyTemplate</td><td>Se opera sobre varias filas y hay que revisar el lote</td></tr>
       <tr><td>4. Panel</td><td>rowClick</td><td>openSideModal</td><td>El detalle es extenso y no se quiere perder la tabla</td></tr>
     </table>
   </section>

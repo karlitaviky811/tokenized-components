@@ -1,73 +1,94 @@
 <article class="doc-page">
-  <section class="doc-section">
-    <h2>Tabs <code>mat-tab-group</code></h2>
-    <p>Navegación por pestañas con personalización via tokens de Material 3.</p>
+  <div class="comp-hero">
+    <span class="comp-hero__tag">mat-tab-group</span>
+    <h1 class="comp-hero__name">Tabs</h1>
+    <p class="comp-hero__desc">Navegación por pestañas de Angular Material 3, con tokens Credix aplicados. Soporta íconos, posición del header y animaciones configurables.</p>
+  </div>
 
-    <h3>Inputs</h3>
+  <section class="doc-section">
+    <h2>API</h2>
     <table class="api-table">
       <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
-      <tr><td>animationDuration</td><td>string</td><td>'500ms'</td><td>Duración de la animación</td></tr>
-      <tr><td>disablePagination</td><td>boolean</td><td>false</td><td>Deshabilita paginación</td></tr>
-      <tr><td>disableRipple</td><td>boolean</td><td>false</td><td>Deshabilita ripple</td></tr>
-      <tr><td>headerPosition</td><td>'above' | 'below'</td><td>'above'</td><td>Posición del header</td></tr>
-      <tr><td>color</td><td>ThemePalette</td><td>undefined</td><td>Color del tema</td></tr>
+      <tr><td>animationDuration</td><td>string</td><td>'500ms'</td><td>Duración de la animación de cambio de tab</td></tr>
+      <tr><td>disablePagination</td><td>boolean</td><td>false</td><td>Deshabilita paginación cuando hay overflow</td></tr>
+      <tr><td>disableRipple</td><td>boolean</td><td>false</td><td>Deshabilita el efecto ripple</td></tr>
+      <tr><td>headerPosition</td><td>'above' | 'below'</td><td>'above'</td><td>Posición del header de tabs</td></tr>
+      <tr><td>color</td><td>ThemePalette</td><td>undefined</td><td>Color del tema Material</td></tr>
     </table>
+  </section>
 
-    <h3>Variantes</h3>
-    <h4>Tabs básicos</h4>
-    <mat-tab-group>
-      <mat-tab label="Primero">Contenido del primer tab</mat-tab>
-      <mat-tab label="Segundo">Contenido del segundo tab</mat-tab>
-      <mat-tab label="Tercero">Contenido del tercer tab</mat-tab>
-    </mat-tab-group>
+  <section class="doc-section">
+    <h2>Variantes</h2>
 
-    <h4>Con iconos</h4>
-    <mat-tab-group>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <span class="material-symbols-outlined">home</span>
-          <span>Inicio</span>
-        </ng-template>
-        Contenido de Inicio
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <span class="material-symbols-outlined">person</span>
-          <span>Perfil</span>
-        </ng-template>
-        Contenido de Perfil
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <span class="material-symbols-outlined">settings</span>
-          <span>Configuración</span>
-        </ng-template>
-        Contenido de Configuración
-      </mat-tab>
-    </mat-tab-group>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Básico</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: stretch;">
+        <mat-tab-group>
+          <mat-tab label="Primero">Contenido del primer tab</mat-tab>
+          <mat-tab label="Segundo">Contenido del segundo tab</mat-tab>
+          <mat-tab label="Tercero">Contenido del tercer tab</mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="component-doc__footer">mat-tab-group · label como string · comportamiento por defecto</div>
+    </div>
 
-    <h4>Con color (primary)</h4>
-    <mat-tab-group color="primary">
-      <mat-tab label="Activos">Lista de elementos activos</mat-tab>
-      <mat-tab label="Pendientes">Lista de elementos pendientes</mat-tab>
-      <mat-tab label="Historial">Historial de actividades</mat-tab>
-    </mat-tab-group>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Con ícono</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: stretch;">
+        <mat-tab-group>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <span class="material-symbols-outlined">home</span>
+              <span>Inicio</span>
+            </ng-template>
+            Contenido de Inicio
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <span class="material-symbols-outlined">person</span>
+              <span>Perfil</span>
+            </ng-template>
+            Contenido de Perfil
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <span class="material-symbols-outlined">settings</span>
+              <span>Configuración</span>
+            </ng-template>
+            Contenido de Configuración
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="component-doc__footer">ng-template mat-tab-label · ícono Material Symbols + texto</div>
+    </div>
 
-    <h4>Header position below</h4>
-    <mat-tab-group headerPosition="below">
-      <mat-tab label="Archivo">Contenido de Archivo</mat-tab>
-      <mat-tab label="Editar">Contenido de Editar</mat-tab>
-      <mat-tab label="Ver">Contenido de Ver</mat-tab>
-    </mat-tab-group>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Header inferior</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: stretch;">
+        <mat-tab-group headerPosition="below">
+          <mat-tab label="Archivo">Contenido de Archivo</mat-tab>
+          <mat-tab label="Editar">Contenido de Editar</mat-tab>
+          <mat-tab label="Ver">Contenido de Ver</mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="component-doc__footer">headerPosition="below" · el indicador activo aparece sobre el header</div>
+    </div>
+  </section>
 
-    <h3>Ejemplo de uso</h3>
+  <section class="doc-section">
+    <h2>Uso</h2>
     <pre><code>&lt;mat-tab-group animationDuration="300ms"&gt;
-  &lt;mat-tab label="Primero"&gt;
-    Contenido del primer tab
-  &lt;/mat-tab&gt;
-  &lt;mat-tab label="Segundo"&gt;
-    Contenido del segundo tab
-  &lt;/mat-tab&gt;
+  &lt;mat-tab label="Primero"&gt;Contenido del primer tab&lt;/mat-tab&gt;
+  &lt;mat-tab label="Segundo"&gt;Contenido del segundo tab&lt;/mat-tab&gt;
 &lt;/mat-tab-group&gt;</code></pre>
   </section>
 </article>

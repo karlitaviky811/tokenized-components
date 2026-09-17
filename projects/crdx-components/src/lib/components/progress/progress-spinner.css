@@ -1,0 +1,62 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* ── Design token chain ─────────────────────────────────────────── */
+  --lib-ps-track-color:  var(--progress-indicator-track-color, #e0e3e5);
+  --lib-ps-active-color: var(--progress-indicator-active-indicator-color, #19d27e);
+}
+
+/* ── Base SVG ───────────────────────────────────────────────────────── */
+
+.lib-ps {
+  display: block;
+}
+
+/* ── Track ring (background) ────────────────────────────────────────── */
+
+.lib-ps__track {
+  stroke: var(--lib-ps-track-color);
+}
+
+/* ── Active arc ─────────────────────────────────────────────────────── */
+
+.lib-ps__active {
+  stroke: var(--lib-ps-active-color);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* ── Determinate: arc starts at 12 o'clock ──────────────────────────── */
+
+.lib-ps--determinate {
+  transform: rotate(-90deg);
+}
+
+/* ── Indeterminate animation ────────────────────────────────────────── */
+
+.lib-ps--indeterminate {
+  animation: lib-ps-rotate 1.5s linear infinite;
+  transform-origin: center;
+}
+
+.lib-ps--indeterminate .lib-ps__active {
+  animation: lib-ps-arc 1.5s ease-in-out infinite;
+}
+
+@keyframes lib-ps-rotate {
+  from { transform: rotate(-90deg); }
+  to   { transform: rotate(270deg); }
+}
+
+@keyframes lib-ps-arc {
+  0%, 100% {
+    stroke-dasharray: 5 113;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 85 113;
+    stroke-dashoffset: -30;
+  }
+}

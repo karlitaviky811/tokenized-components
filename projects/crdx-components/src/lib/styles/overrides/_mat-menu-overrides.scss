@@ -1,0 +1,46 @@
+// mat-menu renders in the CDK overlay container, outside Angular's component tree.
+// Component-scoped CSS never reaches it — these rules must live here as global styles.
+
+.lib-menu__panel {
+  min-width: var(--menus-wip-common-layout-default-menu-min-width, 12.5rem);
+  background-color: var(
+    --menus-wip-color-menu-color-surface-surface-container,
+    var(--color-pallete-scheme-surface-container, #ebeef0)
+  );
+  border-radius: var(--menus-wip-common-shape-default-menu-item-shape, 0.25rem);
+}
+
+.lib-menu__panel .mat-mdc-menu-item {
+  min-height: 3.5rem; // 56px
+  height: 3.5rem;
+  padding-inline: 0.75rem; // 12px left/right
+}
+
+.lib-menu__panel .mat-mdc-menu-item .mat-mdc-menu-item-text {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.75rem; // 12px — Figma gap between leading icon / content / trailing icon
+  font-family: var(--string-menus-wip-typography-menu-menu-item-label-text-font, Heebo), sans-serif;
+  font-size: var(--menus-wip-typography-menu-menu-item-label-text-size, 1rem);
+  font-weight: var(--menus-wip-typography-menu-menu-item-label-text-weight, 400);
+  line-height: var(--menus-wip-typography-menu-menu-item-label-text-line-height, 1.5rem);
+  letter-spacing: var(--menus-wip-typography-menu-menu-item-label-text-tracking, 0.03125rem);
+  color: var(
+    --menus-wip-color-menu-color-enabled-menu-item-label-text-color,
+    #181c1e
+  );
+}
+
+.lib-menu__panel .mat-mdc-menu-item .mat-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+  color: var(
+    --menus-wip-color-menu-color-enabled-menu-item-icon-icon-color,
+    #434749
+  );
+}
+

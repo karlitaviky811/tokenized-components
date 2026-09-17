@@ -10,7 +10,7 @@
     <div class="extraBlock" [ngClass]="data.subtitleAlign">
         <p class="subtitle">{{data.subtitle}}</p>
         <div class="extraBlock-content" [ngClass]="data.subtitleAlign">
-            @for (word of data.extraBlock; track $index) {
+            @for (word of data.extraBlock; track word) {
                 <span class="word">{{ word }}</span>
                 @if (!$last) {
                     <span class="separator">|</span>

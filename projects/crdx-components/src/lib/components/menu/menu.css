@@ -1,3 +1,7 @@
+:host {
+  display: inline-flex;
+}
+
 .lib-menu {
   display: inline-flex;
 }
@@ -14,7 +18,7 @@
 
 .lib-menu__trigger-label {
   font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-pallete-scheme-surface-on-surface-variant, #434749);
 }
 
 .lib-menu__trigger-value {
@@ -34,6 +38,5 @@
   width: 100%;
 }
 
-.lib-menu__panel {
-  max-width: 20rem;
-}
+/* Panel styles live in _mat-menu-overrides.scss — the CDK overlay is outside
+   this component's encapsulation boundary so scoped CSS never reaches it. */

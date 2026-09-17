@@ -5,7 +5,9 @@
   [removable]="removable()"
   (removed)="onRemove()"
 >
-  @if (icon()) {
+  @if (selected()) {
+    <mat-icon matChipAvatar>check</mat-icon>
+  } @else if (icon()) {
     <mat-icon matChipAvatar>{{ icon() }}</mat-icon>
   }
   {{ label() }}

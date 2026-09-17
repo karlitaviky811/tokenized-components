@@ -1,3 +1,10 @@
+/* === Subscript === */
+
+:host .lib-select-field__field--no-subscript .mat-mdc-form-field-subscript-wrapper,
+:host .lib-select-field__field--no-subscript .mat-mdc-form-field-bottom-align::before {
+  display: none;
+}
+
 /* === Base styles === */
 
 .lib-select-field__field {
@@ -20,17 +27,14 @@
   margin-right: 0.5rem;
 }
 
-:host ::ng-deep .lib-select-field__field .mat-mdc-select-arrow,
+/* Ocultar flecha nativa del mat-select (vive dentro del componente hijo). */
 :host ::ng-deep .lib-select-field__field .mat-mdc-select-arrow-wrapper {
   display: none !important;
 }
 
-:host ::ng-deep .mat-mdc-select-trigger {
-  padding-right: 0 !important;
-}
-
-.lib-select-field__field .mat-mdc-select-arrow-wrapper {
-  display: none !important;
+/* Remover padding-right que Material deja para la flecha nativa. */
+:host ::ng-deep .lib-select-field__field .mat-mdc-select-trigger {
+  padding-right: 0;
 }
 
 .lib-select-field__filter-option {
@@ -67,7 +71,7 @@
 }
 
 .lib-select-field__multi-trigger-input::placeholder {
-  color: rgba(0, 0, 0, 0.42);
+  color: var(--color-pallete-scheme-surface-on-surface-variant, #434749);
 }
 
 /* === Option items === */
@@ -91,110 +95,28 @@
   cursor: pointer;
 }
 
-/* === Virtual scroll panel === */
-
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel {
-  overflow: hidden !important;
+/* Ocultar pseudo-checkbox nativo de Material en opciones múltiples;
+   proyectamos lib-checkbox como reemplazo visual. */
+:host ::ng-deep .lib-select-field-panel .mat-mdc-option .mat-mdc-option-pseudo-checkbox {
+  display: none !important;
 }
 
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport {
+/* === Virtual scroll panel === */
+
+:host .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel,
+:host .mat-mdc-select-panel.lib-select-field-panel {
+  overflow: hidden;
+}
+
+
+:host .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport,
+:host .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport {
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--Gris-500, #6a7282) var(--Gris-100, #f3f4f6);
 }
 
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-pseudo-checkbox,
 :host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-pseudo-checkbox,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-mdc-option .mdc-list-item__start,
 :host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-mdc-option .mdc-list-item__start {
   display: none !important;
-}
-
-/* === Scrollbar === */
-
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar {
-  width: 0.625rem;
-}
-
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:vertical,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:vertical,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:horizontal,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:horizontal,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:start:decrement,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:start:decrement,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:end:increment,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:end:increment,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:start:decrement,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:start:decrement,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:end:increment,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:end:increment,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:vertical:start:decrement,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:vertical:start:decrement,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:vertical:end:increment,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:vertical:end:increment,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:horizontal:start:decrement,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:horizontal:start:decrement,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:horizontal:end:increment,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:horizontal:end:increment,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:vertical:decrement,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:vertical:decrement,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:vertical:increment,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:vertical:increment,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:horizontal:decrement,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:horizontal:decrement,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:horizontal:increment,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:single-button:horizontal:increment,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:decrement,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:decrement,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:increment,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:increment,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:decrement,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:decrement,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:increment,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:increment,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:start,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:start,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:end,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:vertical:end,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:start,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:start,
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:end,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-button:horizontal:end {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  -webkit-appearance: none !important;
-  appearance: none !important;
-}
-
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-track,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-track {
-  background: var(--Gris-100, #f3f4f6);
-  border-radius: var(--Corner-Radius-Full, 6.25rem);
-}
-
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-thumb,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-thumb {
-  background: var(--Gris-500, #6a7282);
-  border-radius: var(--Corner-Radius-Small, 0.5rem);
-  min-height: 3rem;
-}
-
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-thumb:hover,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--Gris-500, #6a7282) 80%, black);
-}
-
-:host ::ng-deep .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-thumb:active,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport::-webkit-scrollbar-thumb:active {
-  background: color-mix(in srgb, var(--Gris-500, #6a7282) 65%, black);
 }

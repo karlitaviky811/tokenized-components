@@ -4,6 +4,11 @@
   align-items: stretch;
 }
 
+/* Cuando la orientación es vertical, el host debe estirarse en el eje transversal del padre. */
+:host:has(.lib-divider--vertical) {
+  align-self: stretch;
+}
+
 .lib-divider {
   flex-shrink: 0;
   background: var(--color-divider-enabled-container-divider-color, #c3c7c9);

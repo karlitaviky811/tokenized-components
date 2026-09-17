@@ -7,6 +7,7 @@ import { SideModalHeaderConfig } from './side-modal.store';
 
 @Component({
   selector: 'lib-side-modal, app-side-modal',
+  standalone: true,
   imports: [NgComponentOutlet],
   templateUrl: './side-modal.html',
   styleUrl: './side-modal.css',

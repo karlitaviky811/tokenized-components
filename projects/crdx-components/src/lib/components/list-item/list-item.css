@@ -1,77 +1,100 @@
-/* Host: flex column para que el contenedor interno ocupe toda la altura y no quede hueco antes del padding. */
 :host {
-  display: flex;
-  flex-direction: column;
+  display: block;
   width: 100%;
-  min-height: 0;
 }
 
-.lib-list-item__container {
-  display: flex;
-  flex-direction: column;
-  /* Ocupa toda la altura del host para no dejar espacio vacío antes del padding */
-  flex: 1 1 0;
-  min-height: 0;
-}
-
-.lib-list-item__header {
-  padding-bottom: 0.5rem;
-}
-
-/* Quitar padding del MDC list item; el padding lo define el diseño Figma en .lib-list-item. */
-:host ::ng-deep .ui-list-option.mdc-list-item {
-  padding: 0;
-  min-height: var(--lists-wip-common-typography-one-line-list-item-container-height, 3.5rem);
-}
-
-/* Layout interno del list-item según Figma (7878:52476, state-layer): gap 16px, padding 16px horizontal, 8px vertical. */
 .lib-list-item {
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
   min-height: var(--lists-wip-common-typography-one-line-list-item-container-height, 3.5rem);
   position: relative;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Bordes entre items según Figma (List 7878:52476, Horizontal/Full-width divider).
-   Se aplica al contenedor del item para línea full-width entre cada elemento. */
-:host ::ng-deep mat-list .ui-list-option.lib-list-item--with-divider {
-  border-bottom: var(--divider-enabled-container-divider-thickness, 0.0625rem) solid
-    var(--color-divider-enabled-container-divider-color, #c3c7c9);
+.lib-list-item--multiline {
+  align-items: flex-start;
+  align-self: stretch;
+  gap: 1rem;
 }
 
-/* Sin borde después del último item (diseño Figma). */
-:host ::ng-deep mat-list .ui-list-option.lib-list-item--with-divider:last-child {
-  border-bottom: none;
+.lib-list-item--compact {
+  min-height: 2.5rem;
+}
+
+.lib-list-item__state-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
 }
 
 .lib-list-item__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-block: 0.5rem;
   min-height: 0;
   flex: 1;
   min-width: 0;
 }
 
-/* Tipografía del label según __app-tokens (lists-wip + date-pickers-docked menu list item) */
 .lib-list-item__label {
-  color: var(--color-lists-wip-common-color-enabled-list-list-item-label-text-color, #181c1e);
-  font-family: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-font, Heebo), sans-serif;
-  font-size: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-size, 1rem);
+  color: var(--lists-wip-common-color-enabled-list-item-label-text-color, #181c1e);
+  font-family: var(--lists-wip-common-typography-list-item-label-text-font, 'Heebo'), sans-serif;
+  font-size: var(--lists-wip-common-typography-list-item-label-text-size, 1rem);
   font-style: normal;
-  font-weight: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-weight, 400);
-  line-height: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-line-height, 1.5rem);
-  letter-spacing: var(--date-pickers-docked-enabled-label-text-menu-list-item-label-text-tracking, 0.03125rem);
+  font-weight: var(--lists-wip-common-typography-list-item-label-text-weight, 400);
+  line-height: var(--lists-wip-common-typography-list-item-label-text-line-height, 1.5rem);
+  letter-spacing: var(--lists-wip-common-typography-list-item-label-text-tracking, 0.03125rem);
 }
 
 .lib-list-item__description {
-  line-height: 1.25;
+  color: var(--lists-wip-common-color-enabled-list-item-supporting-text-color, #434749);
+  font-family: var(--lists-wip-common-typography-list-item-supporting-text-font, 'Heebo'), sans-serif;
+  font-size: var(--lists-wip-common-typography-list-item-supporting-text-size, 0.875rem);
+  font-style: normal;
+  font-weight: var(--lists-wip-common-typography-list-item-supporting-text-weight, 400);
+  line-height: var(--lists-wip-common-typography-list-item-supporting-text-line-height, 1.25rem);
+  letter-spacing: var(--lists-wip-common-typography-list-item-supporting-text-tracking, 0.015625rem);
 }
 
-/* Estilos compartidos para checkbox (leading y trailing) — inlineados desde el placeholder @extend */
+.lib-list-item__leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: var(--lists-wip-common-spacing-list-item-between-space, 1rem);
+}
+
+.lib-list-item--multiline .lib-list-item__leading {
+  align-self: flex-start;
+  padding-top: 0.25rem;
+  margin-right: 0;
+}
+
+.lib-list-item__avatar-image {
+  width: var(--lists-wip-common-typography-list-item-leading-avatar-size, 2.5rem);
+  height: var(--lists-wip-common-typography-list-item-leading-avatar-size, 2.5rem);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.lib-list-item__avatar-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--lists-wip-common-typography-list-item-leading-avatar-size, 2.5rem);
+  height: var(--lists-wip-common-typography-list-item-leading-avatar-size, 2.5rem);
+  border-radius: 50%;
+  background-color: var(--lists-wip-common-color-enabled-list-item-leading-avatar-color, #cde5ff);
+  color: var(--lists-wip-common-color-enabled-list-item-label-text-color, #181c1e);
+  font-family: var(--lists-wip-common-typography-list-item-label-text-font, 'Heebo'), sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 .lib-list-item__leading--checkbox {
   display: flex;
   align-items: center;
@@ -88,11 +111,19 @@
 
 .lib-list-item__leading--checkbox .mat-mdc-checkbox .mdc-checkbox__ripple,
 .lib-list-item__leading--checkbox .mat-mdc-checkbox .mdc-checkbox__state-layer {
-  left: 50% !important;
-  top: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  transform: translate(-50%, -50%) !important;
+  left: 50%;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+}
+
+.lib-list-item__trailing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .lib-list-item__trailing--checkbox {
@@ -112,9 +143,9 @@
 
 .lib-list-item__trailing--checkbox .mat-mdc-checkbox .mdc-checkbox__ripple,
 .lib-list-item__trailing--checkbox .mat-mdc-checkbox .mdc-checkbox__state-layer {
-  left: 50% !important;
-  top: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  transform: translate(-50%, -50%) !important;
+  left: 50%;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
 }

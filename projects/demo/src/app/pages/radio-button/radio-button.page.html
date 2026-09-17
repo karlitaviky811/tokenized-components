@@ -18,23 +18,37 @@
   </section>
 
   <section class="doc-section">
-    <h2>Variantes</h2>
+    <h2>Estados</h2>
 
-    <h3>Estados</h3>
-    <div class="variant-row">
-      <lib-radio-button value="a" [checked]="false">Unselected</lib-radio-button>
-      <lib-radio-button value="b" [checked]="true">Selected</lib-radio-button>
-      <lib-radio-button value="c" [disabled]="true">Disabled</lib-radio-button>
-      <lib-radio-button value="d" [disabled]="true" [checked]="true">Disabled selected</lib-radio-button>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Todos los estados</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-radio-button value="a" [checked]="false">Unselected</lib-radio-button>
+        <lib-radio-button value="b" [checked]="true">Selected</lib-radio-button>
+        <lib-radio-button value="c" [disabled]="true">Disabled</lib-radio-button>
+        <lib-radio-button value="d" [disabled]="true" [checked]="true">Disabled selected</lib-radio-button>
+      </div>
+      <div class="component-doc__footer">Unselected · Selected · Disabled · Disabled selected</div>
     </div>
 
-    <h3>Grupo interactivo</h3>
-    <mat-radio-group [value]="selected()" (change)="selected.set($event.value)" class="radio-group">
-      <lib-radio-button value="classic">Tarjeta Clásica</lib-radio-button>
-      <lib-radio-button value="gold">Tarjeta Gold</lib-radio-button>
-      <lib-radio-button value="platinum">Tarjeta Platinum</lib-radio-button>
-    </mat-radio-group>
-    <p class="selected-label">Seleccionada: <strong>{{ selected() }}</strong></p>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Grupo interactivo</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start; gap: 0.75rem;">
+        <mat-radio-group [value]="selected()" (change)="selected.set($event.value)" class="radio-group">
+          <lib-radio-button value="classic">Tarjeta Clásica</lib-radio-button>
+          <lib-radio-button value="gold">Tarjeta Gold</lib-radio-button>
+          <lib-radio-button value="platinum">Tarjeta Platinum</lib-radio-button>
+        </mat-radio-group>
+        <p class="selected-label" style="margin: 0;">Seleccionada: <strong>{{ selected() }}</strong></p>
+      </div>
+      <div class="component-doc__footer">mat-radio-group — vinculado a signal, emite al cambiar</div>
+    </div>
   </section>
 
   <section class="doc-section">

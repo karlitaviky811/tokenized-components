@@ -1,0 +1,61 @@
+:host {
+  display: inline-block;
+  width: min(100%, 13.75rem);
+}
+
+.lib-ddp-field {
+  width: 100%;
+  font-family: var(--color-date-pickers-docked-enabled-label-text-date-label-text-font, Heebo), sans-serif;
+  font-size: 0.875rem;
+}
+
+.lib-ddp-field.mat-mdc-form-field {
+  --mat-form-field-outlined-label-text-font: inherit;
+  --mat-form-field-outlined-input-text-font: inherit;
+  --mat-form-field-outlined-label-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
+  --mat-form-field-outlined-input-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
+  --mat-form-field-outlined-outline-color: var(--color-pallete-scheme-surface-outline-variant, #c3c7c9);
+  --mat-form-field-outlined-hover-outline-color: var(--color-pallete-scheme-surface-on-surface, #181c1e);
+  --mat-form-field-outlined-focus-outline-color: var(--color-pallete-scheme-primary, #e42313);
+  --mat-form-field-outlined-container-shape: 0.75rem;
+}
+
+:host .lib-ddp-field .mdc-text-field--outlined {
+  background-color: #fff;
+  border-radius: 0.75rem;
+}
+
+.lib-ddp-input {
+  font-size: 0.875rem;
+}
+
+.lib-ddp-field .mat-datepicker-toggle,
+.lib-ddp-clear {
+  color: var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
+  /* Material no separa el matIconSuffix del borde del field; alineado con el
+     criterio de lib-date-picker / lib-select-field. */
+  margin-right: 0.5rem;
+}
+
+.lib-ddp-clear {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Actions ────────────────────────────────────────────────────── */
+
+.lib-ddp-spacer {
+  flex: 1 0 0;
+}
+
+.lib-ddp-btn {
+  font-family: var(--buttons-wip-size-small-button-small-label-text-font, Heebo), sans-serif;
+  font-size: var(--buttons-wip-size-small-button-small-label-text-size, 0.875rem);
+  font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500);
+  --mat-text-button-label-text-color: var(--color-buttons-wip-color-text-enabled-button-text-label-color, #e42313);
+}

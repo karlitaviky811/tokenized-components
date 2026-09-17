@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal, TemplateRef } from '@angular/core';
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { ConfirmModal, ConfirmModalData } from './confirm-modal';
@@ -9,8 +9,7 @@ export interface ConfirmModalOpenOptions {
   description?: string;
   showTopIcon?: boolean;
   topIconName?: string;
-  variant?: ConfirmModalData['variant'];
-  listItems?: ConfirmModalData['listItems'];
+  bodyTemplate?: TemplateRef<unknown>;
   height?: string;
 }
 
@@ -47,19 +46,19 @@ export class ConfirmModalStore {
       panelClass: 'lib-confirm-modal-panel',
       backdropClass: 'lib-confirm-modal-backdrop',
       data: {
-        title: title,
-        reference: reference,
-        content: content,
+        title,
+        reference,
+        content,
         description: options.description,
         showTopIcon: options.showTopIcon,
         topIconName: options.topIconName,
-        variant: options.variant,
-        listItems: options.listItems,
-        labelButtonConfirm: labelButtonConfirm,
-        labelButtonCancel: labelButtonCancel,
-      },
+        bodyTemplate: options.bodyTemplate,
+        labelButtonConfirm,
+        labelButtonCancel,
+      } satisfies ConfirmModalData,
       closeOnNavigation: true
     });
+
     this.navSub?.unsubscribe();
     this.navSub = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -81,9 +80,7 @@ export class ConfirmModalStore {
     confirmLabel: string,
     cancelLabel = 'Cancelar'
   ): DialogRef<boolean, unknown> {
-    return this.open(title, confirmLabel, '', '', '19.5rem', cancelLabel, {
-      description,
-    });
+    return this.open(title, confirmLabel, '', '', '19.5rem', cancelLabel, { description });
   }
 
   openWithIcon(
@@ -97,39 +94,6 @@ export class ConfirmModalStore {
       description,
       showTopIcon: true,
       topIconName,
-    });
-  }
-
-  openWithList(
-    title: string,
-    description: string,
-    listItems: ConfirmModalData['listItems'],
-    confirmLabel: string,
-    cancelLabel = 'Cancelar',
-    showTopIcon = false
-  ): DialogRef<boolean, unknown> {
-    return this.open(title, confirmLabel, '', '', '19.5rem', cancelLabel, {
-      description,
-      showTopIcon,
-      variant: 'list',
-      listItems,
-    });
-  }
-
-  openWithScrollableList(
-    title: string,
-    description: string,
-    listItems: ConfirmModalData['listItems'],
-    confirmLabel: string,
-    cancelLabel = 'Cancelar',
-    showTopIcon = false
-  ): DialogRef<boolean, unknown> {
-    return this.open(title, confirmLabel, '', '', '19.5rem', cancelLabel, {
-      description,
-      showTopIcon,
-      variant: 'scrollable-list',
-      listItems,
-      height: 'auto',
     });
   }
 

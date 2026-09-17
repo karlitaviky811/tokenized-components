@@ -2,7 +2,7 @@
    Tokens M3: on-surface #1C1B1B, primary #BC0600, outline-variant #C4C7C9,
    surface-container-low #F6F3F2, onSurfaceVariant #444749. */
 
-lib-assist-chip {
+:host {
   display: inline-block;
 }
 

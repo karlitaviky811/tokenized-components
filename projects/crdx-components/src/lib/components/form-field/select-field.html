@@ -1,5 +1,6 @@
 <mat-form-field
   class="lib-select-field__field"
+  [class.lib-select-field__field--no-subscript]="hideSubscript()"
   [appearance]="matAppearance()"
   [style.width]="widthStyle() ?? null"
 >
@@ -12,6 +13,7 @@
     [disabled]="disabled() || disabledByControl()"
     [required]="required()"
     [placeholder]="placeholder()"
+    [hideSingleSelectionIndicator]="true"
     panelClass="lib-select-field-panel"
     (openedChange)="onPanelOpenChange($event)"
     (selectionChange)="onSelectionChange($event)"

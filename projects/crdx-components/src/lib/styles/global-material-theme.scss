@@ -18,18 +18,14 @@
   density: 0,
 ));
 
-@include mat.theme-overrides((
-  primary: var(--md-sys-color-secondary),
-  secondary: var(--md-sys-color-primary),
-  tertiary: var(--md-sys-color-tertiary),
-  error: var(--app-colors-rojo-primary-rojo-50),
-));
-/// Reset y tipografía base
 body,
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
   font-family: 'Heebo', sans-serif;
 }
 
@@ -64,5 +60,5 @@ body,
 .mdc-select,
 .mdc-data-table,
 .mdc-menu-item {
-  font-family: var(--md-sys-typescale-body-medium-font, 'Heebo'), sans-serif;
+  font-family: 'Heebo', sans-serif;
 }

@@ -1,1 +1,8 @@
 // App Bar page — styles handled globally via styles.scss
+
+.app-bar-preview {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  border: 1px solid var(--color-outline-variant, #c3c7c9);
+}

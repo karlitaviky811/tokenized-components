@@ -2,12 +2,14 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  DestroyRef,
+  inject,
   input,
   signal,
 } from '@angular/core';
-import { NgClass } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
+import { MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 export type LibButtonSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
@@ -22,7 +24,7 @@ export type LibButtonContentAlign = 'start' | 'center' | 'end';
 @Component({
   selector: 'lib-button',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, NgClass],
+  imports: [MatButton, MatIcon, NgClass, NgTemplateOutlet],
   templateUrl: './button.html',
   styleUrl: './button.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -77,24 +79,58 @@ export class LibButtonComponent {
     'lib-mat-btn--align-end': this.contentAlign() === 'end',
   }));
 
+  /** Duración mínima (ms) que el morph pressed permanece visible, aunque el
+   *  click sea instantáneo. Evita el "flash" imperceptible en clicks rápidos. */
+  private static readonly MIN_PRESSED_MS = 180;
+  private pressStartedAt = 0;
+  private releaseTimer: ReturnType<typeof setTimeout> | null = null;
+  private readonly destroyRef = inject(DestroyRef);
+
+  constructor() {
+    this.destroyRef.onDestroy(() => {
+      if (this.releaseTimer !== null) clearTimeout(this.releaseTimer);
+    });
+  }
+
   onPressStart(): void {
-    if (!this.disabled()) this.isPressed.set(true);
+    if (this.disabled()) return;
+    if (this.releaseTimer !== null) {
+      clearTimeout(this.releaseTimer);
+      this.releaseTimer = null;
+    }
+    this.pressStartedAt = Date.now();
+    this.isPressed.set(true);
   }
 
   onPressEnd(): void {
-    this.isPressed.set(false);
+    this.releasePressed();
   }
 
   onPressCancel(): void {
-    this.isPressed.set(false);
+    this.releasePressed();
   }
 
   onKeyDown(event: KeyboardEvent): void {
     if (this.disabled()) return;
-    if (event.code === 'Space' || event.code === 'Enter') this.isPressed.set(true);
+    if (event.code === 'Space' || event.code === 'Enter') this.onPressStart();
   }
 
   onKeyUp(): void {
-    this.isPressed.set(false);
+    this.releasePressed();
+  }
+
+  /** Libera el estado pressed respetando la duración mínima visible. */
+  private releasePressed(): void {
+    const elapsed = Date.now() - this.pressStartedAt;
+    const remaining = LibButtonComponent.MIN_PRESSED_MS - elapsed;
+    if (remaining <= 0) {
+      this.isPressed.set(false);
+      return;
+    }
+    if (this.releaseTimer !== null) clearTimeout(this.releaseTimer);
+    this.releaseTimer = setTimeout(() => {
+      this.isPressed.set(false);
+      this.releaseTimer = null;
+    }, remaining);
   }
 }

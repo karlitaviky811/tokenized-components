@@ -35,7 +35,7 @@
 
 .lib-progress-stepper[role="progressbar"]::after {
   content: '';
-  background: white;
+  background: var(--color-pallete-scheme-surface-container-lowest, #ffffff);
   position: absolute;
   inset: calc(var(--bar-width) / 2);
   aspect-ratio: 1;
@@ -57,8 +57,7 @@
   margin: 2rem auto;
   display: grid;
   place-items: center;
-  background:
-#f3f4f6;
+  background: var(--color-pallete-scheme-surface-container-low, #f1f4f6);
   border-radius: 50%;
 }
 

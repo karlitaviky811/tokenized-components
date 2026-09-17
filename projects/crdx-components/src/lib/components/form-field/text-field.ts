@@ -1,17 +1,21 @@
-import { ChangeDetectionStrategy, Component, computed, effect, input, model, output, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, input, model, output, signal, viewChild } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { DisabledReason, FormValueControl, ValidationError, WithOptionalFieldTree } from '@angular/forms/signals';
-import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
-import { MatInput, MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldAppearance, MatFormField, MatLabel, MatError, MatHint, MatPrefix, MatSuffix } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatIcon } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 type LibTextFieldAppearance = MatFormFieldAppearance | 'outlined' | 'filled';
+export type LibTextFieldFormat = 'id' | 'currency' | 'numeric' | 'alphanumeric' | 'email';
 
 @Component({
   selector: 'lib-text-field',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatIconModule, MatRippleModule],
+  imports: [MatFormField, MatLabel, MatError, MatHint, MatPrefix, MatSuffix, MatInput, MatIcon, MatRippleModule, FormsModule, NgxMaskDirective],
+  providers: [provideNgxMask()],
   templateUrl: './text-field.html',
   styleUrl: './text-field.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -49,25 +53,58 @@ export class LibTextFieldComponent implements FormValueControl<string> {
   });
   readonly type = input<string>('text');
   readonly hideRequiredMarker = input(false, { transform: coerceBooleanProperty });
+  readonly loading = input(false, { transform: coerceBooleanProperty });
 
+  // Format inputs
+  readonly format = input<LibTextFieldFormat>('alphanumeric');
+  readonly mask = input<string>('');
+  readonly currencySymbol = input<'$' | '₡'>('₡');
+  readonly charLimit = input<number | null>(null);
+
+  // Resolved appearance
   readonly resolvedAppearance = computed<MatFormFieldAppearance>(() => {
     const raw = this.appearance();
     if (raw === 'outlined') return 'outline';
     if (raw === 'filled') return 'fill';
     return raw;
   });
+
   readonly widthStyle = computed(() => (this.fullWidth() ? '100%' : this.width()));
+
   readonly shouldShowSuffix = computed(
     () => this.showSuffix() || (this.suffixIconBand() && (!!this.suffixIcon() || !!this.suffixTextIcon()))
   );
-  readonly shouldShowError = computed(() => this.invalid() || !!this.error());
+
+  // true solo entre un blur-inválido y el siguiente input del usuario.
+  // Implementa "passive validation": error visible al salir, se borra al volver a escribir.
+  private readonly _showErrors = signal(false);
+
+  readonly shouldShowError = computed(
+    () => (this.invalid() && this._showErrors()) || !!this.error()
+  );
+
+  // Format-derived computeds
+  readonly resolvedType = computed(() => this.format() === 'email' ? 'email' : 'text');
+
+  // Mask pattern: # → 0 (digit), X → A (alphanumeric). Separators (-, ., space) pass through literally.
+  readonly ngxMask = computed(() => {
+    switch (this.format()) {
+      case 'id': return this.mask().replace(/#/g, '0').replace(/X/g, 'A');
+      case 'currency':
+      case 'numeric': return 'separator.2';
+      default: return '';
+    }
+  });
+
+  readonly ngxPrefix = computed(() =>
+    this.format() === 'currency' ? `${this.currencySymbol()} ` : ''
+  );
+
+  readonly usesMask = computed(() => !!this.ngxMask());
 
   private readonly matInput = viewChild(MatInput);
 
   constructor() {
-    // MatInput's errorState only updates automatically when bound to an NgControl.
-    // This component uses FormValueControl (signals), so we sync it manually to
-    // make MatFormField render the mat-error slot instead of mat-hint.
     effect(() => {
       const input = this.matInput();
       if (input) {
@@ -76,7 +113,25 @@ export class LibTextFieldComponent implements FormValueControl<string> {
     });
   }
 
+  _onValueChange(val: string): void {
+    this.value.set(val);
+    this._showErrors.set(false);
+  }
+
+  _onBlur(): void {
+    if (this.invalid()) {
+      this._showErrors.set(true);
+    }
+    this.touch.emit();
+  }
+
   pressSuffixEvent(): void {
     this.suffixEvent.emit();
+  }
+
+  blockSpaceForEmail(event: KeyboardEvent): void {
+    if (this.format() === 'email' && event.key === ' ') {
+      event.preventDefault();
+    }
   }
 }

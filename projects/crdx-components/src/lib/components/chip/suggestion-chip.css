@@ -3,7 +3,7 @@
    secondary-container #696D6F, on-secondary-container #ECF0F2,
    surface-container-low #F6F3F2, state-layer onSurfaceVariant #444749. */
 
-lib-suggestion-chip {
+:host {
   display: inline-block;
 }
 

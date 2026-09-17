@@ -1,5 +1,5 @@
 :host {
-
+  display: inline-block;
 }
 
 /* El theming vive en styles/overrides/_mat-chips-overrides.scss via
@@ -12,12 +12,12 @@
    La distincion outlined/elevated se hace conmutando esas dos variables. */
 
 .lib-chip--outlined {
-  --mdc-chip-elevated-container-color: transparent;
+  --mat-chip-elevated-container-color: transparent;
 }
 
 
 /* Selected pierde el borde en ambos estilos: el CDN define
    flter-chip-selected-outline-width = 0. */
 .lib-chip--selected {
-  --mdc-chip-outline-width: 0;
+  --mat-chip-outline-width: 0;
 }

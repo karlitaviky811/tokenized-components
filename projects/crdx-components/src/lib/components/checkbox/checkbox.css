@@ -1,4 +1,3 @@
-/* Wrapper del mat-checkbox; solo ripple nativo de Material */
 .lib-checkbox__wrapper {
   position: relative;
   display: inline-flex;
@@ -9,33 +8,81 @@
   z-index: 1;
 }
 
+/* ============================================================
+   Standard — colores del checkbox y state layers
+   Figma: unselected enabled #434749, hover/focus/pressed #181C1E
+          selected fill #181C1E, state layers rgba(24,28,30,0.08/0.10)
+   ============================================================ */
+:host .mat-mdc-checkbox {
+  /* Unselected border */
+  --mat-checkbox-unselected-icon-color: var(--color-checkboxes-enabled-container-checkbox-unselected-outline-color, #434749);
+  --mat-checkbox-unselected-hover-icon-color: var(--color-checkboxes-hovered-container-checkbox-unselected-hover-outline-color, #181C1E);
+  --mat-checkbox-unselected-focus-icon-color: var(--color-checkboxes-focused-container-checkbox-unselected-focus-outline-color, #181C1E);
+  --mat-checkbox-unselected-pressed-icon-color: var(--color-checkboxes-pressed-container-checkbox-unselected-pressed-outline-color, #181C1E);
 
-:host ::ng-deep .lib-checkbox--error {
-  /* Selected error — relleno del checkbox marcado (Material 21 / M3) */
-  --mat-checkbox-selected-focus-icon-color: var(--app-checkboxes-enabled-container-checkbox-selected-error-container-color, #FF4965);
-  --mat-checkbox-selected-hover-icon-color: var(--app-checkboxes-enabled-container-checkbox-selected-error-container-color, #FF4965);
-  --mat-checkbox-selected-icon-color: var(--app-checkboxes-enabled-container-checkbox-selected-error-container-color, #FF4965);
+  /* Selected fill */
+  --mat-checkbox-selected-icon-color: var(--color-checkboxes-enabled-container-checkbox-selected-container-color, #181C1E);
+  --mat-checkbox-selected-hover-icon-color: var(--color-checkboxes-hovered-container-checkbox-selected-hover-container-color, #181C1E);
+  --mat-checkbox-selected-focus-icon-color: var(--color-checkboxes-focused-container-checkbox-selected-focus-container-color, #181C1E);
+  --mat-checkbox-selected-pressed-icon-color: var(--color-checkboxes-pressed-container-checkbox-selected-pressed-container-color, #181C1E);
 
-  /* Unselected error — borde del checkbox sin marcar.
-     En M3 NO hay variable de outline separada: el borde usa la misma var del icono. */
-  --mat-checkbox-unselected-focus-icon-color: var(--app-checkboxes-enabled-container-checkbox-unselected-error-outline-color, #FF4965);
+  /* Checkmark inside filled container */
+  --mat-checkbox-selected-checkmark-color: var(--color-checkboxes-enabled-icon-checkbox-selected-icon-color, #ffffff);
+
+  /* Hover state layer (0.08) */
+  --mat-checkbox-unselected-hover-state-layer-color: var(--color-checkboxes-hovered-state-layer-checkbox-unselected-hover-state-layer-color, rgba(24, 28, 30, 0.08));
+  --mat-checkbox-selected-hover-state-layer-color: var(--color-checkboxes-hovered-state-layer-checkbox-selected-hover-state-layer-color, rgba(24, 28, 30, 0.08));
+
+  /* Focus state layer (0.10) */
+  --mat-checkbox-unselected-focus-state-layer-color: var(--color-checkboxes-focused-state-layer-checkbox-unselected-focus-state-layer-color, rgba(24, 28, 30, 0.10));
+  
+  --mat-checkbox-selected-focus-state-layer-color: var(--color-checkboxes-focused-state-layer-checkbox-selected-focus-state-layer-color, rgba(24, 28, 30, 0.10));
+
+  /* Pressed state layer (0.10 — igual que focus según Figma) */
+  --mat-checkbox-unselected-pressed-state-layer-color: var(--color-checkboxes-pressed-state-layer-checkbox-unselected-pressed-state-layer-color, rgba(24, 28, 30, 0.10));
+  
+  --mat-checkbox-selected-pressed-state-layer-color: var(--color-checkboxes-pressed-state-layer-checkbox-selected-pressed-state-layer-color, rgba(24, 28, 30, 0.10));
+ 
+}
+
+/* ============================================================
+   Error variant — mismo patrón, color error #FF4965
+   Figma: state layers rgba(255,73,101,0.08) hover / 0.10 focus+pressed
+   ============================================================ */
+:host .lib-checkbox--error {
+  /* Unselected error border */
+  --mat-checkbox-unselected-icon-color: var(--color-checkboxes-enabled-container-checkbox-unselected-error-outline-color, #FF4965);
   --mat-checkbox-unselected-hover-icon-color: var(--color-checkboxes-hovered-container-checkbox-unselected-error-hover-outline-color, #FF4965);
-  --mat-checkbox-unselected-icon-color: var(--app-checkboxes-enabled-container-checkbox-unselected-error-outline-color, #FF4965);
+  --mat-checkbox-unselected-focus-icon-color: var(--color-checkboxes-focused-container-checkbox-unselected-error-focus-outline-color, #FF4965);
+  --mat-checkbox-unselected-pressed-icon-color: var(--color-checkboxes-pressed-container-checkbox-unselected-error-pressed-outline-color, #FF4965);
 
-  /* Color del texto que acompaña al checkbox */
-  color: var(--app-checkboxes-enabled-container-checkbox-unselected-error-outline-color, #FF4965);
+  /* Selected error fill */
+  --mat-checkbox-selected-icon-color: var(--color-checkboxes-enabled-container-checkbox-selected-error-container-color, #FF4965);
+  --mat-checkbox-selected-hover-icon-color: var(--color-checkboxes-hovered-container-checkbox-selected-error-hover-container-color, #FF4965);
+  --mat-checkbox-selected-focus-icon-color: var(--color-checkboxes-focused-container-checkbox-selected-error-focus-container-color, #FF4965);
+  --mat-checkbox-selected-pressed-icon-color: var(--color-checkboxes-pressed-container-checkbox-selected-error-pressed-container-color, #FF4965);
 
-  /* Ripple / state layer en error (focus). El alpha ya viene en el token,
-     por eso forzamos opacity:1 para que Material no lo vuelva a multiplicar. */
-  --mat-checkbox-unselected-focus-state-layer-color: var(--Checkboxes-focused-state-layer-checkbox-error-focus-state-layer-opacity, rgba(255, 73, 101, 0.10));
-  --mat-checkbox-selected-focus-state-layer-color: var(--Checkboxes-focused-state-layer-checkbox-error-focus-state-layer-opacity, rgba(255, 73, 101, 0.10));
-  --mat-checkbox-unselected-focus-state-layer-opacity: 1;
-  --mat-checkbox-selected-focus-state-layer-opacity: 1;
+  /* Error hover state layer (0.08) */
+  --mat-checkbox-unselected-hover-state-layer-color: var(--color-checkboxes-hovered-state-layer-checkbox-error-hover-state-layer-color, rgba(255, 73, 101, 0.08));
+  --mat-checkbox-selected-hover-state-layer-color: var(--color-checkboxes-hovered-state-layer-checkbox-error-hover-state-layer-color, rgba(255, 73, 101, 0.08));
 
-  /* Ripple / state layer en error (hover). Mismo color de error; opacity:1
-     porque el alpha ya viene en el valor del token. */
-  --mat-checkbox-unselected-hover-state-layer-color: var(--Checkboxes-hovered-state-layer-checkbox-error-hover-state-layer-opacity, rgba(255, 73, 101, 0.10));
-  --mat-checkbox-selected-hover-state-layer-color: var(--Checkboxes-hovered-state-layer-checkbox-error-hover-state-layer-opacity, rgba(255, 73, 101, 0.10));
-  --mat-checkbox-unselected-hover-state-layer-opacity: 1;
-  --mat-checkbox-selected-hover-state-layer-opacity: 1;
+  /* Error focus state layer (0.10) */
+  --mat-checkbox-unselected-focus-state-layer-color: var(--color-checkboxes-focused-state-layer-checkbox-error-focus-state-layer-color, rgba(255, 73, 101, 0.10));
+  --mat-checkbox-selected-focus-state-layer-color: var(--color-checkboxes-focused-state-layer-checkbox-error-focus-state-layer-color, rgba(255, 73, 101, 0.10));
+
+  /* Error pressed state layer (0.10) */
+  --mat-checkbox-unselected-pressed-state-layer-color: var(--color-checkboxes-pressed-state-layer-checkbox-error-pressed-state-layer-color, rgba(255, 73, 101, 0.10));
+  --mat-checkbox-selected-pressed-state-layer-color: var(--color-checkboxes-pressed-state-layer-checkbox-error-pressed-state-layer-color, rgba(255, 73, 101, 0.10));
+
+  /* Disabled: Figma reverts to neutral #181C1E at 38% opacity — el rojo NO aplica en disabled. */
+  --mat-checkbox-disabled-selected-icon-color: var(--color-checkboxes-disabled-container-checkbox-selected-error-disabled-container-color, #181C1E);
+  --mat-checkbox-disabled-unselected-icon-color: var(--color-checkboxes-disabled-container-checkbox-unselected-error-disabled-outline-color, #181C1E);
+}
+
+:host .mat-mdc-checkbox .mat-ripple-element {
+  background-color: var(--color-checkboxes-pressed-ripple-checkbox-unselected-ripple-color, rgba(24, 28, 30, 0.20));
+}
+
+:host .lib-checkbox--error .mat-ripple-element {
+  background-color: var(--color-checkboxes-pressed-ripple-checkbox-error-ripple-color, rgba(255, 73, 101, 0.20));
 }

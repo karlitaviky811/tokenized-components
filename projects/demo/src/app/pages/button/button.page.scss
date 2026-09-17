@@ -1,1 +1,5 @@
-// Button page — styles handled globally via styles.scss
+:host {
+  .doc-page {
+    max-width: 72rem;
+  }
+}

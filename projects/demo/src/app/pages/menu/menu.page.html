@@ -7,38 +7,38 @@
     <h4>Básico con button</h4>
     <button mat-stroked-button [matMenuTriggerFor]="basicMenu">
       Abrir menú
-      <span class="material-symbols-outlined">arrow_drop_down</span>
+      <mat-icon>arrow_drop_down</mat-icon>
     </button>
-    <mat-menu #basicMenu="matMenu">
+    <mat-menu #basicMenu="matMenu" class="lib-menu__panel">
       <button mat-menu-item>
-        <span class="material-symbols-outlined">person</span>
+        <mat-icon>person</mat-icon>
         <span>Perfil</span>
       </button>
       <button mat-menu-item>
-        <span class="material-symbols-outlined">settings</span>
+        <mat-icon>settings</mat-icon>
         <span>Configuración</span>
       </button>
       <button mat-menu-item>
-        <span class="material-symbols-outlined">logout</span>
+        <mat-icon>logout</mat-icon>
         <span>Cerrar sesión</span>
       </button>
     </mat-menu>
 
     <h4>Con icon-button</h4>
     <button mat-icon-button [matMenuTriggerFor]="iconMenu">
-      <span class="material-symbols-outlined">more_vert</span>
+      <mat-icon>more_vert</mat-icon>
     </button>
-    <mat-menu #iconMenu="matMenu">
+    <mat-menu #iconMenu="matMenu" class="lib-menu__panel">
       <button mat-menu-item>
-        <span class="material-symbols-outlined">content_copy</span>
+        <mat-icon>content_copy</mat-icon>
         <span>Duplicar</span>
       </button>
       <button mat-menu-item>
-        <span class="material-symbols-outlined">edit</span>
+        <mat-icon>edit</mat-icon>
         <span>Editar</span>
       </button>
       <button mat-menu-item>
-        <span class="material-symbols-outlined">delete</span>
+        <mat-icon>delete</mat-icon>
         <span>Eliminar</span>
       </button>
     </mat-menu>
@@ -47,18 +47,18 @@
     <button mat-stroked-button [matMenuTriggerFor]="dividerMenu">
       Más opciones
     </button>
-    <mat-menu #dividerMenu="matMenu">
+    <mat-menu #dividerMenu="matMenu" class="lib-menu__panel">
       <button mat-menu-item>
-        <span class="material-symbols-outlined">download</span>
+        <mat-icon>download</mat-icon>
         <span>Descargar</span>
       </button>
       <button mat-menu-item>
-        <span class="material-symbols-outlined">share</span>
+        <mat-icon>share</mat-icon>
         <span>Compartir</span>
       </button>
       <mat-divider />
       <button mat-menu-item>
-        <span class="material-symbols-outlined">report</span>
+        <mat-icon>report</mat-icon>
         <span>Reportar</span>
       </button>
     </mat-menu>
@@ -68,13 +68,13 @@
   Abrir menú
 &lt;/button&gt;
 
-&lt;mat-menu #menu="matMenu"&gt;
+&lt;mat-menu #menu="matMenu" class="lib-menu__panel"&gt;
   &lt;button mat-menu-item&gt;
-    &lt;span class="material-symbols-outlined"&gt;person&lt;/span&gt;
+    &lt;mat-icon&gt;person&lt;/mat-icon&gt;
     &lt;span&gt;Perfil&lt;/span&gt;
   &lt;/button&gt;
   &lt;button mat-menu-item&gt;
-    &lt;span class="material-symbols-outlined"&gt;settings&lt;/span&gt;
+    &lt;mat-icon&gt;settings&lt;/mat-icon&gt;
     &lt;span&gt;Configuración&lt;/span&gt;
   &lt;/button&gt;
 &lt;/mat-menu&gt;</code></pre>

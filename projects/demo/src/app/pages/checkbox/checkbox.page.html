@@ -19,15 +19,33 @@
   </section>
 
   <section class="doc-section">
-    <h2>Variantes</h2>
+    <h2>Estados</h2>
 
-    <h3>Estados</h3>
-    <div class="variant-row">
-      <lib-checkbox>Default</lib-checkbox>
-      <lib-checkbox [checked]="true">Checked</lib-checkbox>
-      <lib-checkbox [indeterminate]="true">Indeterminate</lib-checkbox>
-      <lib-checkbox [disabled]="true">Disabled</lib-checkbox>
-      <lib-checkbox [error]="true">Error</lib-checkbox>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Todos los estados</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-checkbox>Default</lib-checkbox>
+        <lib-checkbox [checked]="true">Checked</lib-checkbox>
+        <lib-checkbox [indeterminate]="true">Indeterminate</lib-checkbox>
+        <lib-checkbox [disabled]="true">Disabled</lib-checkbox>
+        <lib-checkbox [error]="true">Error</lib-checkbox>
+      </div>
+      <div class="component-doc__footer">Default · Checked · Indeterminate · Disabled · Error</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Disabled selected</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-checkbox [checked]="true"  [disabled]="true">Disabled checked</lib-checkbox>
+        <lib-checkbox [indeterminate]="true" [disabled]="true">Disabled indeterminate</lib-checkbox>
+      </div>
+      <div class="component-doc__footer">Combinaciones disabled + checked / indeterminate</div>
     </div>
   </section>
 

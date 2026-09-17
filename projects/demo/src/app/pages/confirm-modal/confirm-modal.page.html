@@ -1,53 +1,202 @@
 <article class="doc-page">
   <div class="comp-hero">
-    <span class="comp-hero__tag">lib-confirm</span>
-    <h1 class="comp-hero__name">Confirm Modal</h1>
-    <p class="comp-hero__desc">Modal de confirmación abierto via CDK Dialog. Interrumpe el flujo para obtener confirmación explícita antes de ejecutar una acción crítica.</p>
+    <span class="comp-hero__tag">lib-confirm · lib-dynamic-dialog</span>
+    <h1 class="comp-hero__name">Dialog</h1>
+    <p class="comp-hero__desc">Modal de confirmación via CDK Dialog. Las primeras variantes usan <code>ConfirmModal</code> con contenido fijo; las últimas tres usan <code>DynamicDialog</code> con las tres secciones independientes proyectadas via <code>TemplateRef</code>.</p>
   </div>
 
   <section class="doc-section">
     <h2>API — ConfirmModalData</h2>
     <table class="api-table">
-      <tr><th>Propiedad</th><th>Tipo</th><th>Descripción</th></tr>
-      <tr><td>title</td><td>string</td><td>Título del modal</td></tr>
-      <tr><td>content</td><td>string</td><td>Texto del cuerpo</td></tr>
-      <tr><td>description</td><td>string</td><td>Descripción adicional</td></tr>
-      <tr><td>variant</td><td>'basic' | 'list' | 'scrollable-list'</td><td>Variante visual</td></tr>
-      <tr><td>showTopIcon</td><td>boolean</td><td>Muestra ícono superior</td></tr>
-      <tr><td>topIconName</td><td>string</td><td>Nombre del ícono superior</td></tr>
-      <tr><td>listItems</td><td>ConfirmModalListItem[]</td><td>Items para variantes list</td></tr>
-      <tr><td>labelButtonCancel</td><td>string</td><td>Label del botón cancelar</td></tr>
-      <tr><td>labelButtonConfirm</td><td>string</td><td>Label del botón confirmar</td></tr>
+      <tr><th>Propiedad</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>title</td><td>string</td><td>—</td><td>Título del modal</td></tr>
+      <tr><td>content</td><td>string</td><td>—</td><td>Texto de soporte</td></tr>
+      <tr><td>description</td><td>string</td><td>—</td><td>Descripción adicional (alias de content)</td></tr>
+      <tr><td>showTopIcon</td><td>boolean</td><td>false</td><td>Muestra ícono superior centrado</td></tr>
+      <tr><td>topIconName</td><td>string</td><td>'check_box'</td><td>Nombre del ícono Material Symbols</td></tr>
+      <tr><td>primaryFilled</td><td>boolean</td><td>false</td><td>Botón confirmar con variant filled</td></tr>
+      <tr><td>bodyTemplate</td><td>TemplateRef</td><td>—</td><td>Contenido custom proyectado antes de las acciones</td></tr>
+      <tr><td>labelButtonCancel</td><td>string</td><td>'Cancelar'</td><td>Label botón cancelar</td></tr>
+      <tr><td>labelButtonConfirm</td><td>string</td><td>—</td><td>Label botón confirmar</td></tr>
     </table>
   </section>
 
   <section class="doc-section">
-    <h2>Demo</h2>
-    <div class="variant-row">
-      <lib-button
-        label="Abrir Confirm Modal"
-        variant="outlined"
-        shape="square"
-        size="medium"
-        [fullWidth]="false"
-        (click)="openConfirm()"
-      />
+    <h2>API — DynamicDialogData</h2>
+    <table class="api-table">
+      <tr><th>Propiedad</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>headerTemplate</td><td>TemplateRef</td><td>—</td><td>Sección superior: título, ícono, cualquier cabecera</td></tr>
+      <tr><td>bodyTemplate</td><td>TemplateRef</td><td>—</td><td>Sección central: formularios, listas, contenido rico</td></tr>
+      <tr><td>actionsTemplate</td><td>TemplateRef</td><td>—</td><td>Sección inferior: botones de acción personalizados</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes — ConfirmModal</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Basic — botón primario filled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir dialog" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openBasicFilled()" />
+      </div>
+      <div class="component-doc__footer">variant basic · sin ícono · primaryFilled=true · width 19.5rem</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> List dialog — avatar + checkbox</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir dialog" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openListDialog()" />
+      </div>
+      <div class="component-doc__footer">bodyTemplate · lib-list-item con avatar + overline + supporting · checkboxes · width 19.5rem</div>
     </div>
   </section>
 
   <section class="doc-section">
-    <h2>Uso</h2>
-    <pre><code>const dialogRef = this.dialog.open(ConfirmModal, &#123;
-  data: &#123;
-    title: '¿Eliminar registro?',
-    content: 'Esta acción no se puede deshacer.',
-    labelButtonCancel: 'Cancelar',
-    labelButtonConfirm: 'Eliminar',
-  &#125;,
-&#125;);
+    <h2>Variantes — DynamicDialog</h2>
 
-dialogRef.closed.subscribe(result =&gt; &#123;
-  if (result) &#123; /* confirmado */ &#125;
-&#125;);</code></pre>
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Scrollable list — 3 secciones proyectadas</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir dialog" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openScrollableListDialog()" />
+      </div>
+      <div class="component-doc__footer">headerTemplate · bodyTemplate max-height scroll · actionsTemplate · width 17.5rem</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Carga de documentos — acciones por item</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir dialog" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openDocumentDialog()" />
+      </div>
+      <div class="component-doc__footer">headerTemplate · bodyTemplate lib-list-item trailing icon · itemClick cierra dialog · actionsTemplate</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Con ícono + campos proyectados</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir dialog" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openAddressDialog()" />
+      </div>
+      <div class="component-doc__footer">headerTemplate con ícono centrado · bodyTemplate selects + text-field · actionsTemplate · width 19.5rem</div>
+    </div>
   </section>
 </article>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     ConfirmModal templates
+     ════════════════════════════════════════════════════════════════════════ -->
+
+<!-- List body: avatar + overline + supporting text + checkbox -->
+<ng-template #listBody>
+  <div style="margin: 0 -1.5rem;">
+    <lib-list
+      [items]="listItems()"
+      [selectedIds]="listSelectedIds()"
+      [showAvatar]="true"
+      [showDividers]="true"
+      trailingType="checkbox"
+      (selectionChange)="listSelectedIds.set($event)"
+    />
+  </div>
+</ng-template>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     DynamicDialog templates — scrollable list
+     ════════════════════════════════════════════════════════════════════════ -->
+
+<ng-template #scrollableListHeader>
+  <div class="dpage-header">
+    <h2 class="dpage-header__title">Dialog title</h2>
+    <p class="dpage-header__desc">A dialog is a type of modal window that appears in front of app content to provide critical information or ask for a decision.</p>
+  </div>
+</ng-template>
+
+<ng-template #scrollableListBody>
+  <div style="margin: 0 -1.5rem; max-height: 10.5rem; overflow-y: auto;">
+    <lib-list
+      [items]="scrollableListItems()"
+      [selectedIds]="scrollableSelectedIds()"
+      [showAvatar]="true"
+      [showDividers]="true"
+      trailingType="checkbox"
+      (selectionChange)="scrollableSelectedIds.set($event)"
+    />
+  </div>
+</ng-template>
+
+<ng-template #scrollableListActions>
+  <lib-button label="Cancelar"  variant="text" contentAlign="center" (click)="scrollableDialogRef()?.close(false)" />
+  <lib-button label="Confirmar" variant="text" contentAlign="center" (click)="scrollableDialogRef()?.close(scrollableSelectedIds())" />
+</ng-template>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     DynamicDialog templates — carga de documentos
+     ════════════════════════════════════════════════════════════════════════ -->
+
+<ng-template #documentHeader>
+  <div class="dpage-header">
+    <h2 class="dpage-header__title">Carga de documentos</h2>
+    <p class="dpage-header__desc">Puede elegir archivos con un tamaño máximo de 3 GB.</p>
+  </div>
+</ng-template>
+
+<ng-template #documentBody>
+  <div style="margin: 0 -1.5rem;">
+    <lib-list
+      [items]="documentItems()"
+      trailingType="none"
+      [showCheckbox]="false"
+      [showAvatar]="false"
+      [showDividers]="true"
+      (itemClick)="onDocumentItemClick($event)"
+    >
+      <ng-template #trailingTemplate let-item>
+        <span class="material-symbols-outlined" style="font-size:1.5rem;color:#434749;">
+          {{ documentIconMap.get(item.id) }}
+        </span>
+      </ng-template>
+    </lib-list>
+  </div>
+</ng-template>
+
+<ng-template #documentActions>
+  <lib-button label="Cancelar"     variant="text"   contentAlign="center" (click)="documentDialogRef()?.close(false)" />
+  <lib-button label="Subir archivo" variant="filled" contentAlign="center" (click)="documentDialogRef()?.close('upload')" />
+</ng-template>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     DynamicDialog templates — domicilio
+     ════════════════════════════════════════════════════════════════════════ -->
+
+<ng-template #addressHeader>
+  <div class="dpage-header dpage-header--centered">
+    <span class="material-symbols-outlined dpage-header__icon">home</span>
+    <h2 class="dpage-header__title">Domicilio</h2>
+    <p class="dpage-header__desc">Verifique la ubicación para la entrega entre las 8:00 a.m. y 5:00 p.m.</p>
+  </div>
+</ng-template>
+
+<ng-template #addressBody>
+  <lib-select-field label="Provincia" appearance="filled" [options]="provincias" [filterable]="false" />
+  <lib-select-field label="Cantón"    appearance="filled" [options]="cantones"   [filterable]="false" />
+  <lib-select-field label="Distrito"  appearance="filled" [options]="distritos"  [filterable]="false" />
+  <lib-text-field   label="Dirección exacta" appearance="filled" />
+</ng-template>
+
+<ng-template #addressActions>
+  <lib-button label="Cancelar"  variant="text"   contentAlign="center" (click)="addressDialogRef()?.close(false)" />
+  <lib-button label="Confirmar" variant="filled" contentAlign="center" (click)="addressDialogRef()?.close(true)" />
+</ng-template>

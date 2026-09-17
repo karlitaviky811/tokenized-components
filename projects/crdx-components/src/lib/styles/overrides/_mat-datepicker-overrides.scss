@@ -13,7 +13,7 @@ html {
     calendar-container-background-color:        var(--color-date-pickers-modal-enabled-container-color, #e5e9eb),
     calendar-container-text-color:              var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e),
 
-    calendar-body-label-text-color:             var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
+    calendar-body-label-text-color:             transparent,
     calendar-body-label-text-size:              var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
     calendar-body-label-text-weight:            var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
 
@@ -73,11 +73,6 @@ html {
     display: none;
   }
 
-  .mat-calendar-body-label {
-    color: transparent !important;
-    opacity: 0 !important;
-  }
-
   .mat-calendar-body-cell-content {
     display: flex;
     align-items: center;
@@ -85,8 +80,8 @@ html {
   }
 
   .mat-calendar {
-    width: 100% !important;
-    height: auto !important;
+    width: 100%;
+    height: auto;
   }
 
   .mat-calendar-content {
@@ -119,5 +114,28 @@ html {
     font-size: var(--buttons-wip-size-small-button-small-label-text-size, 0.875rem);
     font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500);
     --mat-text-button-label-text-color: var(--color-buttons-wip-color-text-enabled-button-text-label-color, #e42313);
+  }
+}
+
+/* ── lib-docked-date-picker ─────────────────────────────────────────────
+   Cuando el header custom muestra la lista de mes/año, oculta la grilla de
+   días nativa de Material. La clase la togglea el header sobre `.mat-calendar`.
+   Scopeado al panel del componente vía su `panelClass`. */
+.lib-ddp-panel {
+  /* Ancla para posicionar la lista de mes/año sobre el área del calendario. */
+  .mat-calendar {
+    position: relative;
+  }
+
+  /* Al mostrar la lista custom: ocultamos la grilla de días por completo
+     (display:none, para que no se filtre por debajo de la lista) pero
+     conservamos la altura del área con un min-height en el contenido, de modo
+     que la lista absoluta tenga espacio que cubrir y el panel no colapse. */
+  .mat-calendar.ddp-hide-grid .mat-calendar-content > * {
+    display: none;
+  }
+
+  .mat-calendar.ddp-hide-grid .mat-calendar-content {
+    min-height: 15rem;
   }
 }

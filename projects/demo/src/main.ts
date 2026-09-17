@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, inject, LOCALE_ID } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -13,7 +13,7 @@ registerLocaleData(localeEs);
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideAnimationsAsync(),
+    provideAnimations(),
     provideHttpClient(),
     provideRouter(APP_ROUTES),
     provideNativeDateAdapter(),

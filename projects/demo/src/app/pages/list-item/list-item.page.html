@@ -1,9 +1,12 @@
 <article class="doc-page">
-  <section class="doc-section">
-    <h2>List Item <code>lib-list-item</code></h2>
-    <p>Lista seleccionable con avatars, checkboxes y soporte de selección múltiple.</p>
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-list</span>
+    <h1 class="comp-hero__name">List</h1>
+    <p class="comp-hero__desc">Lista seleccionable con avatars, checkboxes y soporte de selección múltiple.</p>
+  </div>
 
-    <h3>Inputs</h3>
+  <section class="doc-section">
+    <h2>API</h2>
     <table class="api-table">
       <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
       <tr><td>items</td><td>LibListItemData[]</td><td>[]</td><td>Items de la lista</td></tr>
@@ -12,55 +15,198 @@
       <tr><td>disabled</td><td>boolean</td><td>false</td><td>Deshabilita toda la lista</td></tr>
       <tr><td>showCheckbox</td><td>boolean</td><td>true</td><td>Muestra checkboxes</td></tr>
       <tr><td>showAvatar</td><td>boolean</td><td>true</td><td>Muestra avatars</td></tr>
-      <tr><td>showDividers</td><td>boolean</td><td>true</td><td>Muestra divisores</td></tr>
+      <tr><td>showDividers</td><td>boolean</td><td>true</td><td>Muestra divisores entre items</td></tr>
       <tr><td>checkboxPosition</td><td>'leading' | 'trailing'</td><td>'trailing'</td><td>Posición del checkbox</td></tr>
+      <tr><td>trailingType</td><td>'checkbox' | 'icon' | 'none'</td><td>'checkbox'</td><td>Elemento trailing</td></tr>
+      <tr><td>trailingIcon</td><td>string</td><td>'chevron_right'</td><td>Ícono cuando trailingType='icon'</td></tr>
+      <tr><td>density</td><td>'default' | 'compact'</td><td>'default'</td><td>Densidad vertical</td></tr>
       <tr><td>width</td><td>string</td><td>undefined</td><td>Ancho de la lista</td></tr>
+      <tr><td>#trailingTemplate</td><td>ng-template</td><td>—</td><td>Slot custom por fila</td></tr>
       <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
       <tr><td>selectionChange</td><td>string[]</td><td></td><td>Emite IDs seleccionados</td></tr>
       <tr><td>itemClick</td><td>LibListItemData</td><td></td><td>Emite item clickeado</td></tr>
     </table>
+  </section>
 
-    <h3>Variantes</h3>
-    <h4>Básica (solo label + description)</h4>
-    <lib-list-item
-      [items]="items()"
-      [selectedIds]="selectedIds()"
-      [showCheckbox]="false"
-      [showAvatar]="false"
-      [showDividers]="false"
-      (selectionChange)="onSelectionChange($event)"
-    />
+  <section class="doc-section">
+    <h2>Variantes</h2>
 
-    <h4>Con avatar</h4>
-    <lib-list-item
-      [items]="items()"
-      [selectedIds]="selectedIds()"
-      [showCheckbox]="false"
-      [showDividers]="false"
-      (selectionChange)="onSelectionChange($event)"
-    />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Solo texto</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start;">
+        <lib-list
+          [items]="items()"
+          [selectedIds]="selectedIds()"
+          [showCheckbox]="false"
+          [showAvatar]="false"
+          [showDividers]="false"
+          (selectionChange)="onSelectionChange($event)"
+        />
+      </div>
+      <div class="component-doc__footer">showCheckbox=false · showAvatar=false · showDividers=false</div>
+    </div>
 
-    <h4>Con checkbox (trailing)</h4>
-    <lib-list-item
-      [items]="items()"
-      [selectedIds]="selectedIds()"
-      [showAvatar]="false"
-      [showDividers]="false"
-      (selectionChange)="onSelectionChange($event)"
-    />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Con avatar</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start;">
+        <lib-list
+          [items]="items()"
+          [selectedIds]="selectedIds()"
+          [showCheckbox]="false"
+          [showDividers]="false"
+          (selectionChange)="onSelectionChange($event)"
+        />
+      </div>
+      <div class="component-doc__footer">showAvatar=true · showCheckbox=false</div>
+    </div>
 
-    <h4>Con checkbox (leading)</h4>
-    <lib-list-item
-      [items]="items()"
-      [selectedIds]="selectedIds()"
-      [showAvatar]="false"
-      [showDividers]="false"
-      checkboxPosition="leading"
-      (selectionChange)="onSelectionChange($event)"
-    />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Checkbox trailing</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start;">
+        <lib-list
+          [items]="items()"
+          [selectedIds]="selectedIds()"
+          [showAvatar]="false"
+          [showDividers]="false"
+          (selectionChange)="onSelectionChange($event)"
+        />
+      </div>
+      <div class="component-doc__footer">trailingType="checkbox" (default) · checkboxPosition="trailing"</div>
+    </div>
 
-    <h3>LibListItemData interface</h3>
-    <pre><code>interface LibListItemData {{ '{' }}
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Checkbox leading</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start;">
+        <lib-list
+          [items]="items()"
+          [selectedIds]="selectedIds()"
+          [showAvatar]="false"
+          [showDividers]="false"
+          checkboxPosition="leading"
+          (selectionChange)="onSelectionChange($event)"
+        />
+      </div>
+      <div class="component-doc__footer">checkboxPosition="leading"</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Ícono trailing (navegación)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start;">
+        <lib-list
+          [items]="items()"
+          trailingType="icon"
+          trailingIcon="chevron_right"
+          [showAvatar]="false"
+          (itemClick)="onItemClick($event)"
+        />
+      </div>
+      <div class="component-doc__footer">trailingType="icon" · trailingIcon="chevron_right"</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Avatar + ícono trailing</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start;">
+        <lib-list
+          [items]="items()"
+          trailingType="icon"
+          trailingIcon="chevron_right"
+          (itemClick)="onItemClick($event)"
+        />
+      </div>
+      <div class="component-doc__footer">showAvatar=true · trailingType="icon"</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Densidad compacta</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start;">
+        <lib-list
+          [items]="items()"
+          [showAvatar]="false"
+          trailingType="none"
+          density="compact"
+        />
+      </div>
+      <div class="component-doc__footer">density="compact" · trailingType="none"</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> 3 líneas: overline + headline + supporting text</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start;">
+        <lib-list
+          [items]="threeLineItems()"
+          [selectedIds]="selectedIds()"
+          [showDividers]="true"
+          (selectionChange)="onSelectionChange($event)"
+          (itemClick)="onItemClick($event)"
+        />
+      </div>
+      <div class="component-doc__footer">overline · label · description · trailingSupportingText — Figma node 355:11298</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Menu (baseline)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-list
+          [items]="menuItems()"
+          [showCheckbox]="false"
+          [showAvatar]="false"
+          [showDividers]="false"
+          trailingType="none"
+          width="12.5rem"
+          (itemClick)="onItemClick($event)"
+        />
+      </div>
+      <div class="component-doc__footer">surface=true · width="12.5rem" — lista sobre superficie con elevación</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Trailing custom (template)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start;">
+        <lib-list [items]="items()" [showAvatar]="false" trailingType="none">
+          <ng-template #trailingTemplate let-item>
+            <lib-icon-button size="small" variant="standard" (click)="onItemClick(item)">
+              <span class="material-symbols-outlined">more_vert</span>
+            </lib-icon-button>
+          </ng-template>
+        </lib-list>
+      </div>
+      <div class="component-doc__footer">#trailingTemplate — slot custom por fila con acceso al item</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>interface LibListItemData &#123;
   id: string;
   label: string;
   description?: string;
@@ -68,27 +214,11 @@
   avatarImage?: string | null;
   avatarAlt?: string;
   disabled?: boolean;
-{{ '}' }}</code></pre>
+&#125;
 
-    <h3>Ejemplo de uso</h3>
-    <pre><code>// Básico (solo texto)
-&lt;lib-list-item
+&lt;lib-list
   [items]="items()"
-  [showCheckbox]="false"
-  [showAvatar]="false"
-  [showDividers]="false"
-/&gt;
-
-// Con avatar
-&lt;lib-list-item
-  [items]="items()"
-  [showCheckbox]="false"
-/&gt;
-
-// Con selección
-&lt;lib-list-item
-  [items]="items()"
-  [selectedIds]="selectedUsers"
+  [selectedIds]="selectedIds"
   (selectionChange)="onSelect($event)"
 /&gt;</code></pre>
   </section>

@@ -3,7 +3,7 @@
   width: 100%;
   --bars-common-app-bar-brand-width: 47;
   --bars-common-app-bar-brand-height: 25;
-  --lib-app-bar-hover-overlay: rgba(0, 0, 0, 0.08);
+  --lib-app-bar-hover-overlay: var(--color-pallete-state-layers-on-surface-opacity-08, rgba(0, 0, 0, 0.08));
   --lib-app-bar-focus-outline: rgba(0, 0, 0, 0.24);
 }
 
@@ -14,7 +14,7 @@
   width: 100%;
   flex-shrink: 0;
   align-self: stretch;
-  height: var(--app-bars-size-small-app-bar-small-container-height, 4rem);
+  height: var(--bars-size-small-app-bar-small-container-height, 4rem);
   padding: 0.5rem var(--bars-common-app-bar-right-padding, 0.25rem) 0.5rem var(--bars-common-app-bar-left-padding, 0.25rem);
   background-color: var(--bars-common-app-bar-container-color, #ebeef0);
   border-radius: 0;
@@ -66,8 +66,8 @@
 }
 
 .lib-app-bar__brand-icon use {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
 }
 
 .lib-app-bar__brand-dot {
@@ -109,8 +109,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
+  width: var(--icon-buttons-size-small-icon-button-small-container-height, 3rem);
+  height: var(--icon-buttons-size-small-icon-button-small-container-height, 3rem);
   flex: 0 0 auto;
   border: 0;
   border-radius: var(--icon-buttons-size-small-icon-button-small-container-shape-round, 1000px);

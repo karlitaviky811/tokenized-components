@@ -14,9 +14,9 @@ import {
   inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableDataSource, MatTable, MatColumnDef, MatHeaderCell, MatHeaderCellDef, MatCell, MatCellDef, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatNoDataRow } from '@angular/material/table';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { SharedTableCellTemplateDirective } from './shared-table-cell-template.directive';
 
 export interface TablePageEvent {
@@ -35,7 +35,7 @@ export interface SharedTableColumn<T extends Record<string, unknown> = Record<st
 @Component({
   selector: 'lib-shared-table, shared-table',
   standalone: true,
-  imports: [NgTemplateOutlet, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule],
+  imports: [NgTemplateOutlet, MatTable, MatColumnDef, MatHeaderCell, MatHeaderCellDef, MatCell, MatCellDef, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatNoDataRow, MatPaginator, MatProgressSpinner],
   templateUrl: './shared-table.component.html',
   styleUrl: './shared-table.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -89,7 +89,8 @@ export class SharedTableComponent<T extends Record<string, unknown> = Record<str
     effect(() => {
       const map: Record<string, SharedTableCellTemplateDirective['template']> = {};
       this.cellTemplatesQuery().forEach((entry) => {
-        if (entry.key) map[entry.key] = entry.template;
+        const key = entry.key();
+        if (key) map[key] = entry.template;
       });
       this.cellTemplates.set(map);
     });

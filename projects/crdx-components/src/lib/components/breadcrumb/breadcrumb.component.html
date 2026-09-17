@@ -8,9 +8,9 @@
       >
         <span class="lib-breadcrumb__parent-label">{{ parentLabel() }}</span>
       </button>
-      <span class="lib-breadcrumb__separator">/</span>
+      <span class="lib-breadcrumb__separator" aria-hidden="true">/</span>
     }
-    <span class="lib-breadcrumb__current">
+    <span class="lib-breadcrumb__current" role="button" tabindex="0">
       <span class="lib-breadcrumb__current-label">{{ currentLabel() }}</span>
     </span>
   </nav>

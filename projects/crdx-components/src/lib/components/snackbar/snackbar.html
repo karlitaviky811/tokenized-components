@@ -1,0 +1,37 @@
+@if (longerAction) {
+  <!-- Layout "longer action": texto arriba, acción (y cierre) abajo. -->
+  <div class="lib-snackbar lib-snackbar--longer" role="status" aria-live="polite">
+    <div class="lib-snackbar__content">
+      <p class="lib-snackbar__text">{{ data.message }}</p>
+    </div>
+    <div class="lib-snackbar__trailing lib-snackbar__trailing--bottom">
+      <button type="button" class="lib-snackbar__action" (click)="onAction()">
+        {{ data.actionLabel }}
+      </button>
+      @if (showClose) {
+        <button type="button" class="lib-snackbar__close" aria-label="Cerrar" (click)="onClose()">
+          <mat-icon aria-hidden="true">close</mat-icon>
+        </button>
+      }
+    </div>
+  </div>
+} @else {
+  <!-- Layout en línea: texto + (acción / cierre) en la misma fila. -->
+  <div class="lib-snackbar" role="status" aria-live="polite">
+    <p class="lib-snackbar__text">{{ data.message }}</p>
+    @if (hasAction || showClose) {
+      <div class="lib-snackbar__trailing">
+        @if (hasAction) {
+          <button type="button" class="lib-snackbar__action" (click)="onAction()">
+            {{ data.actionLabel }}
+          </button>
+        }
+        @if (showClose) {
+          <button type="button" class="lib-snackbar__close" aria-label="Cerrar" (click)="onClose()">
+            <mat-icon aria-hidden="true">close</mat-icon>
+          </button>
+        }
+      </div>
+    }
+  </div>
+}

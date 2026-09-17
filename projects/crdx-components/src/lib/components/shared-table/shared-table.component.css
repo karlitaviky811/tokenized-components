@@ -29,98 +29,98 @@
   flex-shrink: 0;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select {
-  width: fit-content !important;
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select {
+  width: fit-content;
   min-width: 0;
-  max-width: fit-content !important;
-  flex: 0 0 auto !important;
+  max-width: fit-content;
+  flex: 0 0 auto;
   --mat-paginator-page-size-select-width: 100%;
   --mat-paginator-page-size-select-touch-target-height: 100%;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field {
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field {
   position: relative;
-  width: fit-content !important;
+  width: fit-content;
   min-width: 0;
-  max-width: fit-content !important;
+  max-width: fit-content;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field-flex,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field-subscript-wrapper,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-trigger,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-value {
-  border: none !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field-flex,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field-subscript-wrapper,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-trigger,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-value {
+  border: none;
+  border-bottom: none;
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-text-field-wrapper,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-text-field,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-text-field--outlined {
-  padding: 0 !important;
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-text-field-wrapper,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-text-field,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-text-field--outlined {
+  padding: 0;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field-flex {
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field-flex {
   position: relative;
-  width: fit-content !important;
+  width: fit-content;
   min-width: 0;
-  max-width: fit-content !important;
+  max-width: fit-content;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix {
-  width: auto !important;
-  min-width: 0 !important;
-  flex: 0 0 auto !important;
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix {
+  width: auto;
+  min-width: 0;
+  flex: 0 0 auto;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-paginator-touch-target {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 5rem !important;
-  max-height: 1.625rem !important;
-  box-sizing: border-box !important;
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-paginator-touch-target {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 5rem;
+  max-height: 1.625rem;
+  box-sizing: border-box;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-value {
-  margin-right: 0 !important;
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-value {
+  margin-right: 0;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-trigger {
-  display: flex !important;
-  min-width: 2.0625rem !important;
-  width: max-content !important;
-  height: 1.625rem !important;
-  flex-direction: row !important;
-  align-items: center !important;
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-trigger {
+  display: flex;
+  min-width: 2.0625rem;
+  width: max-content;
+  height: 1.625rem;
+  flex-direction: row;
+  align-items: center;
   flex-shrink: 0;
-  gap: 0 !important;
-  border: none !important;
-  border-bottom: 0.0625rem solid var(--color-pallete-scheme-surface-outline-variant, var(--lib-table-border)) !important;
-  box-shadow: none !important;
+  gap: 0;
+  border: none;
+  border-bottom: 0.0625rem solid var(--color-pallete-scheme-surface-outline-variant, var(--lib-table-border));
+  box-shadow: none;
   align-self: stretch;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-arrow-wrapper {
-  margin-left: 0 !important;
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mat-mdc-select-arrow-wrapper {
+  margin-left: 0;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-notched-outline,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-notched-outline__leading,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-notched-outline__notch,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-notched-outline__trailing,
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-notched-outline .mat-mdc-notch-piece {
-  border: none !important;
-  border-width: 0 !important;
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-notched-outline,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-notched-outline__leading,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-notched-outline__notch,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-notched-outline__trailing,
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-notched-outline .mat-mdc-notch-piece {
+  border: none;
+  border-width: 0;
 }
 
-:host ::ng-deep .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-line-ripple {
-  display: none !important;
+:host .shared-table__paginator .mat-mdc-paginator-page-size-select .mdc-line-ripple {
+  display: none;
 }
 
 .shared-table__mat-table {
@@ -153,8 +153,8 @@
 }
 
 .shared-table__container.shared-table__container--no-paginator {
-  border-radius: var(--lib-table-radius) !important;
-  border-bottom: 0.0625rem solid var(--color-pallete-scheme-surface-outline-variant, var(--lib-table-border)) !important;
+  border-radius: var(--lib-table-radius);
+  border-bottom: 0.0625rem solid var(--color-pallete-scheme-surface-outline-variant, var(--lib-table-border));
 }
 
 .shared-table__container.shared-table__container--no-paginator .shared-table__body-wrap {
@@ -190,34 +190,33 @@
   z-index: 9999;
 }
 
-:host ::ng-deep .shared-table__loading-spinner,
-:host ::ng-deep .shared-table__loading-spinner .mat-mdc-circular-progress,
-:host ::ng-deep .shared-table__loading-spinner .mdc-circular-progress,
-:host ::ng-deep .shared-table__loading-spinner circle {
+:host .shared-table__loading-spinner,
+:host .shared-table__loading-spinner .mat-mdc-circular-progress,
+:host .shared-table__loading-spinner .mdc-circular-progress,
+:host .shared-table__loading-spinner circle {
   position: relative;
   z-index: 10000;
-  color: var(--lib-table-spinner) !important;
-  stroke: var(--lib-table-spinner) !important;
-  stroke-opacity: 1 !important;
-  opacity: 1 !important;
+  color: var(--lib-table-spinner);
+  stroke: var(--lib-table-spinner);
+  stroke-opacity: 1;
+  opacity: 1;
 }
 
-:host ::ng-deep .shared-table__loading-spinner .mdc-circular-progress__indicator,
-:host ::ng-deep .shared-table__loading-spinner .mdc-circular-progress__indeterminate-outer-circle,
-:host ::ng-deep .shared-table__loading-spinner .mdc-circular-progress__indeterminate-inner-circle {
-  stroke: var(--lib-table-spinner) !important;
-  stroke-width: 6 !important;
+:host .shared-table__loading-spinner .mdc-circular-progress__indicator,
+:host .shared-table__loading-spinner .mdc-circular-progress__indeterminate-outer-circle,
+:host .shared-table__loading-spinner .mdc-circular-progress__indeterminate-inner-circle {
+  stroke: var(--lib-table-spinner);
+  stroke-width: 6;
 }
 
-:host ::ng-deep .shared-table__loading-spinner {
-  --mdc-circular-progress-active-indicator-color: var(--lib-table-spinner) !important;
-  --mdc-circular-progress-track-color: rgba(0, 0, 0, 0.1) !important;
+:host .shared-table__loading-spinner {
+  --mat-progress-spinner-active-indicator-color: var(--lib-table-spinner);
 }
 
-:host(.lib-table--clickable-rows) ::ng-deep tr.mat-mdc-row {
+:host(.lib-table--clickable-rows) tr.mat-mdc-row {
   cursor: pointer;
 }
 
-:host(.lib-table--clickable-rows) ::ng-deep tr.mat-mdc-row:hover td.mat-mdc-cell {
+:host(.lib-table--clickable-rows) tr.mat-mdc-row:hover td.mat-mdc-cell {
   background: var(--lib-table-row-hover);
 }

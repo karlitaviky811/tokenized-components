@@ -1,12 +1,17 @@
 <button
+  matIconButton
   class="lib-icon-btn"
+  [ngClass]="classes()"
   [attr.type]="type()"
   [disabled]="disabled()"
-  matRipple
-  [matRippleDisabled]="disabled()"
-  [matRippleCentered]="true"
-  [ngClass]="classes()"
   [attr.aria-pressed]="toggle() ? selected() : null"
+  (pointerdown)="onPressStart()"
+  (pointerup)="onPressEnd()"
+  (pointerleave)="onPressCancel()"
+  (pointercancel)="onPressCancel()"
+  (keydown)="onKeyDown($event)"
+  (keyup)="onKeyUp()"
+  (blur)="onPressEnd()"
 >
   <span class="lib-icon-btn__content">
     <ng-content></ng-content>

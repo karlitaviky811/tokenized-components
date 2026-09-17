@@ -9,39 +9,200 @@
     <h2>API</h2>
     <table class="api-table">
       <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
-      <tr><td>size</td><td>'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'</td><td>'small'</td><td>Tamaño del botón</td></tr>
       <tr><td>variant</td><td>'filled' | 'tonal' | 'outlined' | 'standard' | 'action'</td><td>'standard'</td><td>Variante visual</td></tr>
-      <tr><td>shape</td><td>'round' | 'square'</td><td>'round'</td><td>Forma</td></tr>
-      <tr><td>space</td><td>'narrow' | 'default' | 'wide'</td><td>'default'</td><td>Padding horizontal</td></tr>
+      <tr><td>size</td><td>'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'</td><td>'small'</td><td>Tamaño del botón</td></tr>
+      <tr><td>shape</td><td>'round' | 'square'</td><td>'round'</td><td>Forma del contenedor</td></tr>
+      <tr><td>space</td><td>'narrow' | 'default' | 'wide'</td><td>'default'</td><td>Padding interior</td></tr>
       <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
-      <tr><td>toggle</td><td>boolean</td><td>false</td><td>Modo toggle</td></tr>
-      <tr><td>selected</td><td>boolean</td><td>false</td><td>Estado seleccionado</td></tr>
+      <tr><td>toggle</td><td>boolean</td><td>false</td><td>Habilita modo toggle</td></tr>
+      <tr><td>selected</td><td>boolean</td><td>false</td><td>Estado seleccionado (toggle)</td></tr>
     </table>
   </section>
 
   <section class="doc-section">
-    <h2>Variantes</h2>
+    <h2>Variantes × Tamaños</h2>
 
-    <h3>Tipo</h3>
-    <div class="variant-row">
-      <lib-icon-button variant="filled">  <span class="material-symbols-outlined">edit</span></lib-icon-button>
-      <lib-icon-button variant="tonal">   <span class="material-symbols-outlined">edit</span></lib-icon-button>
-      <lib-icon-button variant="outlined"><span class="material-symbols-outlined">edit</span></lib-icon-button>
-      <lib-icon-button variant="standard"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+    <!-- FILLED -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Filled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; gap: 1rem;">
+        <!-- Round: default (square) -->
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="filled" size="xsmall" shape="round" space="default"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="small"  shape="round" space="default"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="medium" shape="round" space="default"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="large"  shape="round" space="default"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="xlarge" shape="round" space="default"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+        </div>
+        <!-- Round: wide -->
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="filled" size="xsmall" shape="round" space="wide"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="small"  shape="round" space="wide"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="medium" shape="round" space="wide"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="large"  shape="round" space="wide"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="xlarge" shape="round" space="wide"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+        </div>
+        <!-- Round: narrow -->
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="filled" size="xsmall" shape="round" space="narrow"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="small"  shape="round" space="narrow"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="medium" shape="round" space="narrow"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="large"  shape="round" space="narrow"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+          <lib-icon-button variant="filled" size="xlarge" shape="round" space="narrow"><mat-icon svgIcon="add-create-filled"></mat-icon></lib-icon-button>
+        </div>
+        <!-- Square: default / wide / narrow -->
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="filled" size="medium" shape="square" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="filled" size="medium" shape="square" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="filled" size="medium" shape="square" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="filled" size="large"  shape="square" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="filled" size="large"  shape="square" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="filled" size="large"  shape="square" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+      </div>
+      <div class="component-doc__footer">Filled — F1: Round default · F2: Round wide · F3: Round narrow · F4: Square default/wide/narrow (medium+large)</div>
     </div>
 
-    <h3>Tamaños</h3>
-    <div class="variant-row">
-      <lib-icon-button variant="filled" size="xsmall"><span class="material-symbols-outlined">edit</span></lib-icon-button>
-      <lib-icon-button variant="filled" size="small"> <span class="material-symbols-outlined">edit</span></lib-icon-button>
-      <lib-icon-button variant="filled" size="medium"><span class="material-symbols-outlined">edit</span></lib-icon-button>
-      <lib-icon-button variant="filled" size="large"> <span class="material-symbols-outlined">edit</span></lib-icon-button>
+    <!-- TONAL -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Tonal</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; gap: 1rem;">
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="tonal" size="xsmall" shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="small"  shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="medium" shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="large"  shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="xlarge" shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="tonal" size="xsmall" shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="small"  shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="medium" shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="large"  shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="xlarge" shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="tonal" size="xsmall" shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="small"  shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="medium" shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="large"  shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="xlarge" shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="tonal" size="medium" shape="square" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="medium" shape="square" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="medium" shape="square" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="large"  shape="square" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="large"  shape="square" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="tonal" size="large"  shape="square" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+      </div>
+      <div class="component-doc__footer">Tonal — F1: Round default · F2: Round wide · F3: Round narrow · F4: Square default/wide/narrow (medium+large)</div>
     </div>
 
-    <h3>Deshabilitado</h3>
-    <div class="variant-row">
-      <lib-icon-button variant="filled"   [disabled]="true"><span class="material-symbols-outlined">edit</span></lib-icon-button>
-      <lib-icon-button variant="outlined" [disabled]="true"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+    <!-- OUTLINED -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outlined</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; gap: 1rem;">
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="outlined" size="xsmall" shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="small"  shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="medium" shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="large"  shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="xlarge" shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="outlined" size="xsmall" shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="small"  shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="medium" shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="large"  shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="xlarge" shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="outlined" size="xsmall" shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="small"  shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="medium" shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="large"  shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="xlarge" shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="outlined" size="medium" shape="square" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="medium" shape="square" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="medium" shape="square" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="large"  shape="square" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="large"  shape="square" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="outlined" size="large"  shape="square" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+      </div>
+      <div class="component-doc__footer">Outlined — F1: Round default · F2: Round wide · F3: Round narrow · F4: Square default/wide/narrow (medium+large)</div>
+    </div>
+
+    <!-- STANDARD -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Standard</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; gap: 1rem;">
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="standard" size="xsmall" shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="small"  shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="medium" shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="large"  shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="xlarge" shape="round" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="standard" size="xsmall" shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="small"  shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="medium" shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="large"  shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="xlarge" shape="round" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="standard" size="xsmall" shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="small"  shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="medium" shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="large"  shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="xlarge" shape="round" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+        <div class="variant-row" style="margin-bottom: 0; align-items: center;">
+          <lib-icon-button variant="standard" size="medium" shape="square" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="medium" shape="square" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="medium" shape="square" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="large"  shape="square" space="default"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="large"  shape="square" space="wide"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+          <lib-icon-button variant="standard" size="large"  shape="square" space="narrow"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        </div>
+      </div>
+      <div class="component-doc__footer">Standard — F1: Round default · F2: Round wide · F3: Round narrow · F4: Square default/wide/narrow (medium+large)</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Estados</h2>
+
+    <!-- DESHABILITADO -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Disabled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-icon-button variant="filled"   [disabled]="true"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        <lib-icon-button variant="tonal"    [disabled]="true"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        <lib-icon-button variant="outlined" [disabled]="true"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+        <lib-icon-button variant="standard" [disabled]="true"><span class="material-symbols-outlined">edit</span></lib-icon-button>
+      </div>
+      <div class="component-doc__footer">Deshabilitado — Filled · Tonal · Outlined · Standard</div>
     </div>
   </section>
 

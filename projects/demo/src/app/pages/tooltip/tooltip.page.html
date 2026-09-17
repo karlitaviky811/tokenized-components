@@ -13,28 +13,31 @@
       <tr><td>type</td><td>'single-line' | 'multi-line'</td><td>'single-line'</td><td>Variante</td></tr>
       <tr><td>maxWidth</td><td>string | null</td><td>null</td><td>Ancho máximo (multi-line)</td></tr>
     </table>
-    <p>No expone outputs.</p>
+    <p>No expone outputs. Es un componente PRESENTACIONAL: solo pinta la burbuja. El trigger, la visibilidad y el posicionamiento son responsabilidad del componente consumidor.</p>
   </section>
 
   <section class="doc-section">
     <h2>Variantes</h2>
 
-    <h3>Tipo</h3>
-    <div class="variant-row">
-      <lib-tooltip text="Tooltip single-line" />
-      <lib-tooltip
-        text="Tooltip multi-line con un texto más largo para demostrar el wrap del contenido"
-        type="multi-line"
-        maxWidth="200px"
-      />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Single-line / Multi-line</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="gap: 2rem; align-items: flex-start;">
+        <lib-tooltip text="Tooltip single-line" />
+        <lib-tooltip
+          text="Tooltip multi-line con un texto más largo para demostrar el wrap del contenido"
+          type="multi-line"
+          maxWidth="200px"
+        />
+      </div>
+      <div class="component-doc__footer">type="single-line" (default) · type="multi-line" con maxWidth</div>
     </div>
   </section>
 
-  <!-- ─── Integración en una vista ───────────────────────────────────────────── -->
-
   <section class="doc-section">
     <h2>Integración en una vista</h2>
-    <p>Importante antes de integrarlo: <code>lib-tooltip</code> es PRESENTACIONAL. Solo pinta la burbuja. No trae trigger, no se ancla a un elemento, no posiciona y no aporta accesibilidad. La vista que lo consume debe aportar tres cosas:</p>
 
     <table class="api-table">
       <tr><th>Responsabilidad</th><th>Quién la cubre</th><th>Cómo</th></tr>
@@ -44,19 +47,15 @@
       <tr><td>Accesibilidad</td><td>La vista</td><td><code>aria-describedby</code> + <code>role="tooltip"</code></td></tr>
     </table>
 
-    <h3>Caso modelo: hint en etiquetas de formulario</h3>
-    <p>Patrón habitual: un ícono de ayuda junto a la etiqueta que revela el tooltip en hover y en foco de teclado. El foco es obligatorio, si no el hint queda inaccesible sin mouse.</p>
-
     <div class="component-doc">
       <div class="component-doc__header">
-        <span class="component-doc__title"><span>❖</span> Tooltip integrado en una vista</span>
+        <span class="component-doc__title"><span>❖</span> Hint en etiquetas de formulario</span>
         <span class="component-doc__code-icon">&lt;/&gt;</span>
       </div>
       <div class="component-doc__preview">
         <div class="tooltip-demo">
           <div class="tooltip-demo__row">
             <span class="tooltip-demo__label">Cupo aprobado</span>
-
             <span class="tooltip-demo__anchor">
               <button
                 type="button"
@@ -69,7 +68,6 @@
               >
                 <span class="material-symbols-outlined" aria-hidden="true">info</span>
               </button>
-
               @if (isHintVisible('cupo')) {
                 <span class="tooltip-demo__bubble" id="hint-cupo" role="tooltip">
                   <lib-tooltip text="Monto máximo disponible" />
@@ -80,7 +78,6 @@
 
           <div class="tooltip-demo__row">
             <span class="tooltip-demo__label">Tasa de interés</span>
-
             <span class="tooltip-demo__anchor">
               <button
                 type="button"
@@ -93,7 +90,6 @@
               >
                 <span class="material-symbols-outlined" aria-hidden="true">info</span>
               </button>
-
               @if (isHintVisible('tasa')) {
                 <span class="tooltip-demo__bubble tooltip-demo__bubble--below" id="hint-tasa" role="tooltip">
                   <lib-tooltip
@@ -107,7 +103,7 @@
           </div>
         </div>
       </div>
-      <div class="component-doc__footer">Building Blocks</div>
+      <div class="component-doc__footer">Patrón: ícono de ayuda junto a etiqueta — hover y focus revelan el tooltip</div>
     </div>
   </section>
 
@@ -118,50 +114,29 @@
     <pre><code>&lt;lib-tooltip text="Más información" type="single-line" /&gt;</code></pre>
 
     <h3>Integrado en una vista</h3>
-    <p>Estado de visibilidad en el componente contenedor:</p>
-    <pre><code>private readonly activeHint = signal&lt;string | null&gt;(null);
+    <pre><code>// Estado de visibilidad en el componente contenedor
+private readonly activeHint = signal&lt;string | null&gt;(null);
 
-isHintVisible(id: string): boolean &#123;
-  return this.activeHint() === id;
-&#125;
-
+isHintVisible(id: string): boolean &#123; return this.activeHint() === id; &#125;
 showHint(id: string): void &#123; this.activeHint.set(id); &#125;
-hideHint(): void &#123; this.activeHint.set(null); &#125;</code></pre>
+hideHint(): void &#123; this.activeHint.set(null); &#125;
 
-    <p>Ancla, trigger y wiring de accesibilidad en la plantilla:</p>
-    <pre><code>&lt;span class="tooltip-demo__anchor"&gt;
+// Template
+&lt;span class="tooltip-anchor" style="position: relative; display: inline-flex;"&gt;
   &lt;button
-    type="button"
-    class="tooltip-demo__trigger"
     aria-describedby="hint-cupo"
     (mouseenter)="showHint('cupo')"
     (mouseleave)="hideHint()"
     (focus)="showHint('cupo')"
     (blur)="hideHint()"
   &gt;
-    &lt;span class="material-symbols-outlined" aria-hidden="true"&gt;info&lt;/span&gt;
+    &lt;span class="material-symbols-outlined"&gt;info&lt;/span&gt;
   &lt;/button&gt;
-
   &#64;if (isHintVisible('cupo')) &#123;
-    &lt;span class="tooltip-demo__bubble" id="hint-cupo" role="tooltip"&gt;
+    &lt;span style="position: absolute; bottom: calc(100% + 6px);" id="hint-cupo" role="tooltip"&gt;
       &lt;lib-tooltip text="Monto máximo disponible" /&gt;
     &lt;/span&gt;
   &#125;
 &lt;/span&gt;</code></pre>
-
-    <p>Posicionamiento, que el componente no resuelve:</p>
-    <pre><code>.tooltip-demo__anchor &#123;
-  position: relative;
-  display: inline-flex;
-&#125;
-
-.tooltip-demo__bubble &#123;
-  position: absolute;
-  bottom: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  pointer-events: none;
-&#125;</code></pre>
   </section>
 </article>

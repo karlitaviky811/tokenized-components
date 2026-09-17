@@ -4,13 +4,14 @@
   [attr.role]="jsEnabled() ? 'progressbar' : null"
   [attr.aria-valuemin]="0"
   [attr.aria-valuemax]="100"
+  [attr.aria-valuenow]="progress()"
   [attr.aria-busy]="isAnimating()"
   [attr.aria-live]="jsEnabled() ? 'polite' : null"
   [style.--progress]="progressPercentage()"
   [style.--size]="size()"
   [style.--bar-width]="barWidth()"
   [style.--color-bar-progress]="colorBarProgress()"
-  [style.--shadow-shadow-bar-progress]="shadowColorBarProgress()">
+  [style.--shadow-color-bar-progress]="shadowColorBarProgress()">
 
   <div class="lib-progress-stepper__content">
     <span class="lib-progress-stepper__step-text">Paso</span>

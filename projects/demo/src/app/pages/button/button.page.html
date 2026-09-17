@@ -8,56 +8,223 @@
   <section class="doc-section">
     <h2>API</h2>
     <table class="api-table">
-      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
-      <tr><td>label</td><td>string</td><td>''</td><td>Texto del botón</td></tr>
-      <tr><td>variant</td><td>'filled' | 'outlined' | 'tonal' | 'text' | 'elevated'</td><td>'filled'</td><td>Variante visual</td></tr>
-      <tr><td>size</td><td>'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'</td><td>'medium'</td><td>Tamaño</td></tr>
-      <tr><td>shape</td><td>'round' | 'square'</td><td>'round'</td><td>Forma del borde</td></tr>
-      <tr><td>fullWidth</td><td>boolean</td><td>false</td><td>Ocupa 100% del contenedor</td></tr>
-      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
-      <tr><td>type</td><td>'button' | 'submit' | 'reset'</td><td>'button'</td><td>Tipo HTML nativo</td></tr>
-      <tr><td>toggle</td><td>boolean</td><td>false</td><td>Habilita modo toggle</td></tr>
-      <tr><td>selected</td><td>boolean</td><td>false</td><td>Estado seleccionado (toggle)</td></tr>
-      <tr><td>icon</td><td>string</td><td>''</td><td>Nombre del ícono</td></tr>
-      <tr><td>iconPosition</td><td>'leading' | 'trailing'</td><td>'leading'</td><td>Posición del ícono</td></tr>
-      <tr><td>contentAlign</td><td>'start' | 'center' | 'end'</td><td>'center'</td><td>Alineación del contenido</td></tr>
+      <tr>
+        <th>Input</th>
+        <th>Tipo</th>
+        <th>Default</th>
+        <th>Descripción</th>
+      </tr>
+      <tr>
+        <td>label</td>
+        <td>string</td>
+        <td>''</td>
+        <td>Texto del botón</td>
+      </tr>
+      <tr>
+        <td>variant</td>
+        <td>'filled' | 'outlined' | 'tonal' | 'text' | 'elevated'</td>
+        <td>'filled'</td>
+        <td>Variante visual</td>
+      </tr>
+      <tr>
+        <td>size</td>
+        <td>'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'</td>
+        <td>'medium'</td>
+        <td>Tamaño</td>
+      </tr>
+      <tr>
+        <td>shape</td>
+        <td>'round' | 'square'</td>
+        <td>'round'</td>
+        <td>Forma del borde</td>
+      </tr>
+      <tr>
+        <td>fullWidth</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Ocupa 100% del contenedor</td>
+      </tr>
+      <tr>
+        <td>disabled</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Estado deshabilitado</td>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td>'button' | 'submit' | 'reset'</td>
+        <td>'button'</td>
+        <td>Tipo HTML nativo</td>
+      </tr>
+      <tr>
+        <td>toggle</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Habilita modo toggle</td>
+      </tr>
+      <tr>
+        <td>selected</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Estado seleccionado (toggle)</td>
+      </tr>
+      <tr>
+        <td>icon</td>
+        <td>string</td>
+        <td>''</td>
+        <td>Nombre del ícono</td>
+      </tr>
+      <tr>
+        <td>iconPosition</td>
+        <td>'leading' | 'trailing'</td>
+        <td>'leading'</td>
+        <td>Posición del ícono</td>
+      </tr>
+      <tr>
+        <td>contentAlign</td>
+        <td>'start' | 'center' | 'end'</td>
+        <td>'center'</td>
+        <td>Alineación del contenido</td>
+      </tr>
     </table>
   </section>
 
   <section class="doc-section">
-    <h2>Variantes</h2>
+    <h2>Variantes × Tamaños</h2>
 
-    <h3>Tipo</h3>
-    <div class="variant-row">
-      <lib-button label="Filled"   variant="filled"   shape="square" size="medium" [fullWidth]="false" />
-      <lib-button label="Outlined" variant="outlined" shape="square" size="medium" [fullWidth]="false" />
-      <lib-button label="Tonal"    variant="tonal"    shape="square" size="medium" [fullWidth]="false" />
-      <lib-button label="Text"     variant="text"     shape="square" size="medium" [fullWidth]="false" />
-      <lib-button label="Elevated" variant="elevated" shape="square" size="medium" [fullWidth]="false" />
+    <!-- FILLED -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Filled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; gap: 1rem;">
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="XSmall" variant="filled" shape="round" size="xsmall" icon="add-create" />
+          <lib-button label="Small" variant="filled" shape="round" size="small" icon="add-create" />
+          <lib-button label="Medium" variant="filled" shape="round" size="medium" icon="add-create" />
+          <lib-button label="Large" variant="filled" shape="round" size="large" icon="add-create" />
+          <lib-button label="XLarge" variant="filled" shape="round" size="xlarge" icon="add-create" />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="XSmall" variant="filled" shape="square" size="xsmall" icon="add-create"  />
+          <lib-button label="Small" variant="filled" shape="square" size="small" icon="add-create"  />
+          <lib-button label="Medium" variant="filled" shape="square" size="medium" icon="add-create"  />
+          <lib-button label="Large" variant="filled" shape="square" size="large" icon="add-create"  />
+          <lib-button label="XLarge" variant="filled" shape="square" size="xlarge" icon="add-create"  />
+        </div>
+      </div>
+      <div class="component-doc__footer">Type=Filled — Fila 1: Round · Fila 2: Square</div>
     </div>
 
-    <h3>Tamaños</h3>
-    <div class="variant-row">
-      <lib-button label="XSmall" variant="filled" shape="square" size="xsmall" [fullWidth]="false" />
-      <lib-button label="Small"  variant="filled" shape="square" size="small"  [fullWidth]="false" />
-      <lib-button label="Medium" variant="filled" shape="square" size="medium" [fullWidth]="false" />
-      <lib-button label="Large"  variant="filled" shape="square" size="large"  [fullWidth]="false" />
-      <lib-button label="XLarge" variant="filled" shape="square" size="xlarge" [fullWidth]="false" />
+    <!-- OUTLINED -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outlined</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; gap: 1rem;">
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="XSmall" variant="outlined" shape="round" size="xsmall" icon="add-create-tonal" />
+          <lib-button label="Small" variant="outlined" shape="round" size="small" icon="add-create-tonal"  />
+          <lib-button label="Medium" variant="outlined" shape="round" size="medium" icon="add-create-tonal"  />
+          <lib-button label="Large" variant="outlined" shape="round" size="large" icon="add-create-tonal"  />
+          <lib-button label="XLarge" variant="outlined" shape="round" size="xlarge" icon="add-create-tonal"  />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="XSmall" variant="outlined" shape="square" size="xsmall" icon="add-create-tonal"  />
+          <lib-button label="Small" variant="outlined" shape="square" size="small" icon="add-create-tonal"  />
+          <lib-button label="Medium" variant="outlined" shape="square" size="medium" icon="add-create-tonal"  />
+          <lib-button label="Large" variant="outlined" shape="square" size="large" icon="add-create-tonal"  />
+          <lib-button label="XLarge" variant="outlined" shape="square" size="xlarge" icon="add-create-tonal"  />
+        </div>
+      </div>
+      <div class="component-doc__footer">Type=Outlined — Fila 1: Round · Fila 2: Square</div>
     </div>
 
-    <h3>Forma</h3>
-    <div class="variant-row">
-      <lib-button label="Round"  variant="filled" shape="round"  size="medium" [fullWidth]="false" />
-      <lib-button label="Square" variant="filled" shape="square" size="medium" [fullWidth]="false" />
+    <!-- TONAL -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Tonal</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; gap: 1rem;">
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="XSmall" variant="tonal" shape="round" size="xsmall" icon="add-create-tonal"  />
+          <lib-button label="Small" variant="tonal" shape="round" size="small" icon="add-create-tonal"  />
+          <lib-button label="Medium" variant="tonal" shape="round" size="medium" icon="add-create-tonal"  />
+          <lib-button label="Large" variant="tonal" shape="round" size="large"  icon="add-create-tonal" />
+          <lib-button label="XLarge" variant="tonal" shape="round" size="xlarge" icon="add-create-tonal"  />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="XSmall" variant="tonal" shape="square" size="xsmall" icon="add-create-tonal"  />
+          <lib-button label="Small" variant="tonal" shape="square" size="small" icon="add-create-tonal"  />
+          <lib-button label="Medium" variant="tonal" shape="square" size="medium" icon="add-create-tonal"  />
+          <lib-button label="Large" variant="tonal" shape="square" size="large" icon="add-create-tonal"  />
+          <lib-button label="XLarge" variant="tonal" shape="square" size="xlarge" icon="add-create-tonal"  />
+        </div>
+      </div>
+      <div class="component-doc__footer">Type=Tonal — Fila 1: Round · Fila 2: Square</div>
     </div>
 
-    <h3>Full Width</h3>
-    <lib-button label="Full Width" variant="filled" shape="square" size="medium" [fullWidth]="true" />
+    <!-- TEXT -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Text</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; gap: 1rem;">
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="XSmall" variant="text" shape="round" size="xsmall" icon="add-create-elevated"  />
+          <lib-button label="Small" variant="text" shape="round" size="small" icon="add-create-elevated" />
+          <lib-button label="Medium" variant="text" shape="round" size="medium" icon="add-create-elevated" />
+          <lib-button label="Large" variant="text" shape="round" size="large" icon="add-create-elevated" />
+          <lib-button label="XLarge" variant="text" shape="round" size="xlarge" icon="add-create-elevated" />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="XSmall" variant="text" shape="square" size="xsmall" icon="add-create-elevated" />
+          <lib-button label="Small" variant="text" shape="square" size="small" icon="add-create-elevated" />
+          <lib-button label="Medium" variant="text" shape="square" size="medium" icon="add-create-elevated" />
+          <lib-button label="Large" variant="text" shape="square" size="large" icon="add-create-elevated" />
+          <lib-button label="XLarge" variant="text" shape="square" size="xlarge" icon="add-create-elevated" />
+        </div>
+      </div>
+      <div class="component-doc__footer">Type=Text — Fila 1: Round · Fila 2: Square</div>
+    </div>
 
-    <h3>Deshabilitado</h3>
+    <!-- ELEVATED -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Elevated</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; gap: 1rem;">
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="XSmall" variant="elevated" shape="round" size="xsmall" icon="add-create-elevated" />
+          <lib-button label="Small" variant="elevated" shape="round" size="small" icon="add-create-elevated" />
+          <lib-button label="Medium" variant="elevated" shape="round" size="medium" icon="add-create-elevated" />
+          <lib-button label="Large" variant="elevated" shape="round" size="large" icon="add-create-elevated" />
+          <lib-button label="XLarge" variant="elevated" shape="round" size="xlarge" icon="add-create-elevated" />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="XSmall" variant="elevated" shape="square" size="xsmall" icon="add-create-elevated" />
+          <lib-button label="Small" variant="elevated" shape="square" size="small" icon="add-create-elevated" />
+          <lib-button label="Medium" variant="elevated" shape="square" size="medium" icon="add-create-elevated" />
+          <lib-button label="Large" variant="elevated" shape="square" size="large" icon="add-create-elevated" />
+          <lib-button label="XLarge" variant="elevated" shape="square" size="xlarge" icon="add-create-elevated" />
+        </div>
+      </div>
+      <div class="component-doc__footer">Type=Elevated — Fila 1: Round · Fila 2: Square</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Estados</h2>
     <div class="variant-row">
-      <lib-button label="Disabled Filled"   variant="filled"   shape="square" size="medium" [disabled]="true" [fullWidth]="false" />
-      <lib-button label="Disabled Outlined" variant="outlined" shape="square" size="medium" [disabled]="true" [fullWidth]="false" />
+      <lib-button label="Disabled Filled" variant="filled" shape="round" size="medium" [disabled]="true" />
+      <lib-button label="Disabled Outlined" variant="outlined" shape="round" size="medium" [disabled]="true" />
+      <lib-button label="Disabled Tonal" variant="tonal" shape="round" size="medium" [disabled]="true" />
+      <lib-button label="Full Width" variant="filled" shape="square" size="medium" [fullWidth]="true" />
     </div>
   </section>
 

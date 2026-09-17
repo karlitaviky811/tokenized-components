@@ -2,7 +2,7 @@
 /// El grid del shell (section.container, .main-content) lo define cada app (ej. layout-shell.scss).
 /// Evita duplicar/conflictos con el layout del host.
 :root {
-  --header-height: var(--app-bars-size-small-app-bar-small-container-height, 4rem);
+  --header-height: var(--bars-size-small-app-bar-small-container-height, 4rem);
   // Opcional: altura lista/tabla como calc(100vh - header - cabecera lista - offset). Ej.: height: calc(100vh - var(--list-area-offset));
   --list-area-offset: 16.1875rem; // 80 + 72 + 107 (header, cabecera, contenido)
 }
@@ -19,11 +19,51 @@
   background: rgba(0, 0, 0, 0.35);
 }
 
-/* Keep confirm dialogs centered even when opened from right side sheets. */
-.lib-confirm-modal-panel.cdk-overlay-pane {
-  position: fixed !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  margin: 0 !important;
+.lib-bottom-sheet-backdrop.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.lib-confirm-modal-panel.cdk-overlay-pane.lib-confirm-modal-centered,
+.lib-dynamic-dialog-panel.cdk-overlay-pane.lib-dynamic-dialog-centered {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+/* ── Snackbar: neutraliza el contenedor MDC para que lib-snackbar controle
+   todo el visual (fondo, sombra, border-radius, tamaño). ─────────────────── */
+.lib-snackbar-panel {
+  &.mat-mdc-snack-bar-container {
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+    min-width: 0;
+    max-width: none;
+    border-radius: 0;
+  }
+
+  .mdc-snackbar__surface {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    min-width: 0;
+    max-width: none;
+    padding: 0;
+  }
+
+  .mat-mdc-snack-bar-label {
+    padding: 0;
+  }
+}
+
+.lib-icon-btn .mat-icon,
+.lib-icon-btn .material-symbols-outlined,
+.lib-icon-btn svg {
+  width: var(--lib-icon-btn-icon-size, 1.5rem);
+  height: var(--lib-icon-btn-icon-size, 1.5rem);
+  font-size: var(--lib-icon-btn-icon-size, 1.5rem);
+  line-height: 1;
+  vertical-align: middle;
 }

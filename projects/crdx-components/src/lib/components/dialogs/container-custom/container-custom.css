@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--color-pallete-scheme-surface-container-lowest, #ffffff);
     border-radius: 0.5rem;
 }
 

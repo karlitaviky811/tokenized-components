@@ -12,8 +12,8 @@
       <tr><td>label</td><td>string</td><td>''</td><td>Label del campo</td></tr>
       <tr><td>options</td><td>LibSelectOption[]</td><td>[]</td><td>Opciones disponibles</td></tr>
       <tr><td>mode</td><td>'single' | 'multiple'</td><td>'single'</td><td>Modo de selección</td></tr>
-      <tr><td>filterable</td><td>boolean</td><td>true</td><td>Permite filtrar opciones</td></tr>
       <tr><td>appearance</td><td>'outline' | 'filled'</td><td>'outline'</td><td>Estilo visual</td></tr>
+      <tr><td>filterable</td><td>boolean</td><td>true</td><td>Permite filtrar opciones</td></tr>
       <tr><td>placeholder</td><td>string</td><td>'Elegir opción'</td><td>Placeholder</td></tr>
       <tr><td>disabled</td><td>boolean</td><td>false</td><td>Deshabilitado</td></tr>
       <tr><td>required</td><td>boolean</td><td>false</td><td>Requerido</td></tr>
@@ -25,18 +25,86 @@
   </section>
 
   <section class="doc-section">
-    <h2>Variantes</h2>
+    <h2>Modo de selección</h2>
 
-    <h3>Modo</h3>
-    <div class="variant-row">
-      <lib-select-field label="Single"   [options]="options()" mode="single"   />
-      <lib-select-field label="Multiple" [options]="options()" mode="multiple" />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Single</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field label="País" [options]="options()" mode="single" />
+      </div>
+      <div class="component-doc__footer">mode="single" — selección de una opción</div>
     </div>
 
-    <h3>Estados</h3>
-    <div class="variant-row">
-      <lib-select-field label="Sin filtro" [options]="options()" [filterable]="false" />
-      <lib-select-field label="Disabled"   [options]="options()" [disabled]="true"    />
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Multiple</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field label="Países" [options]="options()" mode="multiple" />
+      </div>
+      <div class="component-doc__footer">mode="multiple" — selección múltiple con select all</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Apariencia</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outline / Filled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field label="Outline" [options]="options()" appearance="outline" />
+        <lib-select-field label="Filled"  [options]="options()" appearance="filled"  />
+      </div>
+      <div class="component-doc__footer">appearance — Outline (default) · Filled</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Con valor seleccionado</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Selección de país</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [(ngModel)]="selectedCountry"
+          appearance="outline"
+        />
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [(ngModel)]="selectedCountry"
+          appearance="filled"
+        />
+      </div>
+      <div class="component-doc__footer">ngModel — label flotante activo cuando hay valor · appearance="outline" · appearance="filled"</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Estados</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Sin filtro / Disabled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field label="Sin filtro" [options]="options()" [filterable]="false"  />
+        <lib-select-field label="Disabled"   [options]="options()" [disabled]="true"    />
+      </div>
+      <div class="component-doc__footer">filterable=false · disabled=true</div>
     </div>
   </section>
 

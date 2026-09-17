@@ -1,1 +1,33 @@
-// Confirm Modal page — styles handled globally via styles.scss
+.dpage-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dpage-header--centered {
+  align-items: center;
+  text-align: center;
+}
+
+.dpage-header__icon {
+  font-size: 1.5rem;
+  color: #5f6368;
+}
+
+.dpage-header__title {
+  font-family: Heebo, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: #181c1e;
+  margin: 0;
+}
+
+.dpage-header__desc {
+  font-family: Heebo, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #434749;
+  margin: 0;
+}

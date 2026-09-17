@@ -1,7 +1,7 @@
 :host {
-  --lib-error-modal-bg: var(--app-dialogs-enabled-container-color, #ffffff);
-  --lib-error-modal-text: var(--app-colors-neutral-dark, #3e3e3e);
-  --lib-error-modal-error: var(--app-colors-error, #ff4965);
+  --lib-error-modal-bg: var(--dialogs-enabled-container-color, #ffffff);
+  --lib-error-modal-text: var(--colors-neutral-dark, #3e3e3e);
+  --lib-error-modal-error: var(--colors-error, #ff4965);
 }
 
 .container{

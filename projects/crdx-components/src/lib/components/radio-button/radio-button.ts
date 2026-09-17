@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  HostBinding,
   input,
   output,
 } from '@angular/core';
@@ -14,6 +13,9 @@ import { MatRadioModule } from '@angular/material/radio';
   templateUrl: './radio-button.html',
   styleUrl: './radio-button.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[attr.aria-disabled]': 'disabled() ? true : null',
+  },
 })
 export class LibRadioButtonComponent {
   value = input<unknown>(null);
@@ -22,7 +24,4 @@ export class LibRadioButtonComponent {
 
   readonly checkedChange = output<unknown>();
 
-  @HostBinding('attr.aria-disabled') get ariaDisabled(): boolean | null {
-    return this.disabled() ? true : null;
-  }
 }

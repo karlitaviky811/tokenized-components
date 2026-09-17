@@ -2,15 +2,23 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  contentChild,
   input,
   output,
   TemplateRef,
 } from '@angular/core';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NgTemplateOutlet } from '@angular/common';
 import { LibCheckboxComponent } from '../checkbox/checkbox';
+
+/** Qué se muestra al final (derecha) de cada item.
+ *  - 'checkbox': selección (comportamiento histórico).
+ *  - 'icon': un ícono de acción/navegación (ej. chevron_right).
+ *  - 'none': sin elemento trailing. */
+export type LibListItemTrailing = 'checkbox' | 'icon' | 'none';
+
+/** Densidad vertical del item. 'default' ≈ 56px, 'compact' ≈ 40px (Figma). */
+export type LibListItemDensity = 'default' | 'compact';
 
 export interface LibListItemData {
   id: string;
@@ -25,80 +33,39 @@ export interface LibListItemData {
 @Component({
   selector: 'lib-list-item',
   standalone: true,
-  imports: [MatListModule, MatCheckboxModule, LibCheckboxComponent, NgTemplateOutlet],
+  imports: [MatListModule, MatIconModule, LibCheckboxComponent, NgTemplateOutlet],
   templateUrl: './list-item.html',
   styleUrl: './list-item.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LibListItemComponent {
-  items = input<LibListItemData[]>([]);
-  selectedIds = input<string[]>([]);
-  multiple = input(true);
+  data = input.required<LibListItemData>();
+  selected = input(false);
   disabled = input(false);
-  showCheckbox = input(true);
   showAvatar = input(true);
-  showDividers = input(true);
-  /** Posición del checkbox: 'leading' (izquierda) o 'trailing' (derecha). Por defecto 'trailing' según diseño Figma. */
+  showCheckbox = input(true);
   checkboxPosition = input<'leading' | 'trailing'>('trailing');
+  trailingType = input<LibListItemTrailing>('checkbox');
+  trailingIcon = input<string>('chevron_right');
+  density = input<LibListItemDensity>('default');
+  trailingTemplate = input<TemplateRef<{ $implicit: LibListItemData }> | null>(null);
 
-  /** Ancho de la lista. Acepta valores CSS (ej: '18.8rem', '300px', '100%'). Si no se pasa, la lista ocupa el ancho disponible. */
-  width = input<string | undefined>(undefined);
-  /** Fondo personalizado de la lista/items. Si no se define, usa el fondo por defecto de tokens. */
-  backgroundColor = input<string | undefined>(undefined);
+  readonly selectedChange = output<boolean>();
+  readonly rowClick = output<void>();
 
-  readonly selectionChange = output<string[]>();
-  readonly itemClick = output<LibListItemData>();
+  readonly effectiveTrailingCheckbox = computed(
+    () => !this.trailingTemplate() && this.trailingType() === 'checkbox' && this.showCheckbox(),
+  );
 
-  /** Template para proyectar contenido arriba de la lista (ej: checkbox, filtros) */
-  readonly headerTemplate = contentChild<TemplateRef<unknown>>('headerTemplate');
+  readonly effectiveTrailingIcon = computed(
+    () => !this.trailingTemplate() && this.trailingType() === 'icon',
+  );
 
-  /** Template para proyectar el contenido personalizado de cada item. Usar: let-item para acceder al item */
-  readonly itemTemplate = contentChild<TemplateRef<{ $implicit: LibListItemData }>>('itemTemplate');
-
-  readonly selectedSet = computed(() => new Set(this.selectedIds()));
-
-  trackById(_index: number, item: LibListItemData): string {
-    return item.id;
-  }
-
-  avatarInitial(item: LibListItemData): string {
+  readonly avatarInitial = computed((): string => {
+    const item = this.data();
     const explicit = item.avatarText?.trim();
-    if (explicit) {
-      return explicit.slice(0, 2).toUpperCase();
-    }
-
+    if (explicit) return explicit.slice(0, 2).toUpperCase();
     const label = item.label?.trim();
     return label ? label.charAt(0).toUpperCase() : '';
-  }
-
-  isItemSelected(item: LibListItemData): boolean {
-    return this.selectedSet().has(item.id);
-  }
-
-  onCheckboxChange(item: LibListItemData, selected: boolean): void {
-    const current = new Set(this.selectedIds());
-    if (this.multiple()) {
-      if (selected) {
-        current.add(item.id);
-      } else {
-        current.delete(item.id);
-      }
-    } else {
-      this.selectionChange.emit(selected ? [item.id] : []);
-      return;
-    }
-    this.selectionChange.emit([...current]);
-  }
-
-  onRowClick(item: LibListItemData, _event: Event): void {
-    if (this.showCheckbox() && !(item.disabled ?? this.disabled())) {
-      const isSelected = this.isItemSelected(item);
-      this.onCheckboxChange(item, !isSelected);
-    }
-    this.itemClick.emit(item);
-  }
-
-  onItemClick(item: LibListItemData): void {
-    this.itemClick.emit(item);
-  }
+  });
 }
