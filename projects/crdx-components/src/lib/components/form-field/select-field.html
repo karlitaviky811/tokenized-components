@@ -8,12 +8,13 @@
   <mat-label>{{ label() }}</mat-label>
   }
   <mat-select
-    [value]="displayValue"
+    #matSelectRef
+    [value]="displayValue()"
     [multiple]="isMultiple()"
-    [disabled]="disabled() || disabledByControl()"
+    [disabled]="disabled()"
     [required]="required()"
     [placeholder]="placeholder()"
-    [hideSingleSelectionIndicator]="true"
+    [errorStateMatcher]="errorStateMatcher"
     panelClass="lib-select-field-panel"
     (openedChange)="onPanelOpenChange($event)"
     (selectionChange)="onSelectionChange($event)"
@@ -40,59 +41,56 @@
       />
     </div>
     }
-    <cdk-virtual-scroll-viewport
-          class="lib-select-field__viewport app-scrollbar-figma"
-      [itemSize]="48"
-      minBufferPx="240"
-      maxBufferPx="240"
-      [style.height.px]="virtualViewportHeight()"
-    >
-      <div
-        *cdkVirtualFor="let row of virtualRows(); trackBy: trackByVirtualRow"
-        class="lib-select-field__virtual-row"
-      >
-        @if (row.kind === 'selectAll') {
-          <div
-            class="lib-select-field__select-all-option"
-            role="button"
-            tabindex="0"
-            (mousedown)="$event.stopPropagation()"
-            (click)="toggleAllSelection(); $event.stopPropagation()"
-            (keydown.enter)="toggleAllSelection(); $event.preventDefault(); $event.stopPropagation()"
-            (keydown.space)="toggleAllSelection(); $event.preventDefault(); $event.stopPropagation()"
-          >
-            <span class="lib-select-field__option-row">
-              <lib-checkbox
-                [checked]="allSelected()"
-                [indeterminate]="selectAllIndeterminate()"
-                (click)="$event.stopPropagation()"
-                (checkedChange)="onSelectAllCheckedChange($event)"
-              />
-              <span>{{ selectAllLabel() }}</span>
-            </span>
-          </div>
-        } @else {
-          <mat-option [value]="row.option.value">
-            @if (isMultiple()) {
+    <div class="lib-select-field__options-container app-scrollbar-figma">
+      @for (row of rows(); track trackByRow($index, row)) {
+        <div class="lib-select-field__row">
+          @if (row.kind === 'selectAll') {
+            <div
+              class="lib-select-field__select-all-option"
+              role="button"
+              tabindex="0"
+              (mousedown)="$event.stopPropagation()"
+              (click)="toggleAllSelection(); $event.stopPropagation()"
+              (keydown.enter)="toggleAllSelection(); $event.preventDefault(); $event.stopPropagation()"
+              (keydown.space)="toggleAllSelection(); $event.preventDefault(); $event.stopPropagation()"
+            >
               <span class="lib-select-field__option-row">
                 <lib-checkbox
-                  [checked]="isSelected(row.option.value)"
+                  [checked]="allSelected()"
+                  [indeterminate]="selectAllIndeterminate()"
                   (click)="$event.stopPropagation()"
-                  (checkedChange)="onOptionCheckedChange(row.option.value, $event)"
+                  (checkedChange)="onSelectAllCheckedChange($event)"
                 />
-                <span>{{ row.option.label }}</span>
+                <span>{{ selectAllLabel() }}</span>
               </span>
-            } @else {
-              {{ row.option.label }}
-            }
-          </mat-option>
-        }
-      </div>
-    </cdk-virtual-scroll-viewport>
+            </div>
+          } @else {
+            <mat-option [value]="row.option.value">
+              @if (isMultiple()) {
+                <span
+                  class="lib-select-field__option-row"
+                  (click)="onOptionCheckedChange(row.option.value, !isSelected(row.option.value)); $event.stopPropagation()"
+                >
+                  <lib-checkbox
+                    [checked]="isSelected(row.option.value)"
+                    (click)="$event.stopPropagation()"
+                    (checkedChange)="onOptionCheckedChange(row.option.value, $event)"
+                  />
+                  <span>{{ row.option.label }}</span>
+                </span>
+              } @else {
+                {{ row.option.label }}
+              }
+            </mat-option>
+          }
+        </div>
+      }
+    </div>
   </mat-select>
   <span class="lib-select-field__arrow-host" matSuffix matRipple [matRippleCentered]="true" [matRippleColor]="'rgba(67, 71, 73, 0.12)'">
-    <mat-icon class="lib-select-field__arrow">
-      {{ panelOpen() ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
-    </mat-icon>
+    <mat-icon class="lib-select-field__arrow">keyboard_arrow_down</mat-icon>
   </span>
+  @if (errorMessage()) {
+    <mat-error>{{ errorMessage() }}</mat-error>
+  }
 </mat-form-field>

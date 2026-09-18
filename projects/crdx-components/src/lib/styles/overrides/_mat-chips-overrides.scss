@@ -39,13 +39,16 @@ html {
     selected-focus-state-layer-color: var(--color-chips-wip-filter-focused-state-layer-filter-chip-selected-focus-state-layer-color, #434749),
     selected-focus-state-layer-opacity: 0.1,
 
-    disabled-label-text-color: var(--color-chips-wip-filter-disabled-label-text-filter-chip-disabled-label-text-color, #181c1e),
-    disabled-outline-color: var(--color-chips-wip-filter-disabled-container-filter-chip-disabled-unselected-outline-color, #181c1e),
+    // Los tokens del CDN resuelven a on-surface OPACO (casi negro). Con
+    // disabled-container-opacity:1 el chip disabled quedaba con fondo negro sólido.
+    // Aplicamos la opacidad de contenedor disabled M3 (12%) vía color-mix.
+    disabled-label-text-color: color-mix(in srgb, var(--color-chips-wip-filter-disabled-label-text-filter-chip-disabled-label-text-color, #181c1e) 38%, transparent),
+    disabled-outline-color: color-mix(in srgb, var(--color-chips-wip-filter-disabled-container-filter-chip-disabled-unselected-outline-color, #181c1e) 12%, transparent),
     disabled-container-opacity: 1,
-    flat-disabled-selected-container-color: var(--color-chips-wip-filter-disabled-container-filter-chip-disabled-selected-container-color, #181c1e),
-    elevated-disabled-container-color: var(--color-chips-wip-filter-disabled-container-filter-chip-elevated-disabled-container-color, #181c1e),
+    flat-disabled-selected-container-color: color-mix(in srgb, var(--color-chips-wip-filter-disabled-container-filter-chip-disabled-selected-container-color, #181c1e) 12%, transparent),
+    elevated-disabled-container-color: color-mix(in srgb, var(--color-chips-wip-filter-disabled-container-filter-chip-elevated-disabled-container-color, #181c1e) 12%, transparent),
     with-icon-disabled-icon-color: var(--color-chips-wip-filter-disabled-icon-filter-chip-with-leading-icon-disabled-icon-color, #181c1e),
-    //with-icon-disabled-icon-opacity: 0.38,
+    with-icon-disabled-icon-opacity: 0.38,
     with-trailing-icon-disabled-trailing-icon-color: var(--color-chips-wip-filter-disabled-icon-filter-chip-with-trailing-icon-disabled-icon-color, #181c1e),
     with-trailing-icon-disabled-trailing-icon-opacity: 0.38,
   ));

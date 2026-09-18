@@ -272,7 +272,14 @@
 
 .lib-card--elevated.lib-card--state-hovered .lib-card__state-layer,
 .lib-card--elevated:hover .lib-card__state-layer {
-  background: var(--color-cards-elevated-hovered-state-layer-elevated-card-hover-state-layer-color, var(--color-pallete-state-layers-on-surface-opacity-08, rgba(24, 28, 30, 0.08)));
+  /* El token del CDN resuelve a on-surface OPACO. Como el state-layer se pinta con
+     opacity:1, aplicamos aquí la opacidad de hover M3 (8%) con color-mix para no
+     obtener un overlay negro sólido. Fallback opaco para que el 8% sea consistente. */
+  background: color-mix(
+    in srgb,
+    var(--color-cards-elevated-hovered-state-layer-elevated-card-hover-state-layer-color, #181c1e) 8%,
+    transparent
+  );
 }
 
 .lib-card--elevated.lib-card--state-focused .lib-card__state-layer {

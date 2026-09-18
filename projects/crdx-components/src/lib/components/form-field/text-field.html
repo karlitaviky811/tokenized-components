@@ -17,8 +17,6 @@
   <mat-label>{{ label() }}</mat-label>
 
   @if (usesMask()) {
-    <!-- ngModel activates ngx-mask's CVA mode: writeValue handles initial/programmatic values,
-         onChange emits the clean value (dropSpecialCharacters strips separators and prefix). -->
     <input
       matInput
       [type]="resolvedType()"
@@ -59,18 +57,19 @@
 
   <mat-hint>{{ hint() }}</mat-hint>
 
-  @if(loading()) {
-    <span matSuffix class="lib-text-field__icon-host lib-text-field__icon-host--spinner">
-      <span class="lib-text-field__loading-ring"></span>
-    </span>
-  } @else if(shouldShowSuffix()) {
-    <span matSuffix class="lib-text-field__icon-host" matRipple [matRippleCentered]="true" [matRippleColor]="'rgba(67, 71, 73, 0.12)'" (click)="pressSuffixEvent()">
+  @if(shouldShowSuffix()) {
+    <span matSuffix class="lib-text-field__icon-host" [class.lib-text-field__icon-host--loading]="loading()" matRipple [matRippleCentered]="true" [matRippleColor]="'rgba(67, 71, 73, 0.12)'" (click)="pressSuffixEvent()">
       <mat-icon
         class="lib-text-field__icon lib-text-field__icon--suffix"
         [svgIcon]="suffixIcon()"
       >
         {{ suffixTextIcon() }}
       </mat-icon>
+    </span>
+  }
+  @if(loading()) {
+    <span matSuffix class="lib-text-field__icon-host lib-text-field__icon-host--spinner">
+      <span class="lib-text-field__loading-ring"></span>
     </span>
   }
 </mat-form-field>

@@ -317,13 +317,6 @@ mat-datepicker-content {
   }
 }
 
-// â”€â”€â”€ Datepicker toggle icon hover fix â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// --mat-icon-button-icon-color en el tema global es #ffffff (herencia del
-// color on-primary del tema rojo). En :hover, Material usa ese token y
-// sobreescribe el toggle-icon-color que seteamos. No existe un token
-// "toggle-hover-state-icon-color" en la API pÃºblica, asÃ­ que lo corregimos
-// seteando --mat-icon-button-icon-color directamente en el scope del toggle.
-
 lib-date-picker mat-datepicker-toggle .mat-mdc-icon-button,
 lib-date-range-picker mat-datepicker-toggle .mat-mdc-icon-button {
   --mat-icon-button-icon-color: var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);

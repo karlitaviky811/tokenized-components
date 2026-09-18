@@ -9,7 +9,8 @@ html {
   @include mat.form-field-overrides((
 
     filled-active-indicator-height: var(--text-fields-filled-enabled-active-indicator-filled-text-field-active-indicator-height, 0.0625rem),
-    filled-focus-active-indicator-height: var(--text-fields-filled-focused-active-indicator-filled-text-field-focus-active-indicator-height),
+    //filled-focus-active-indicator-height: var(--text-fields-filled-focused-active-indicator-filled-text-field-focus-active-indicator-height),
+        filled-focus-active-indicator-height:  0.1875rem,
     filled-container-shape: var(--text-fields-filled-enabled-container-filled-text-field-container-shape),
     filled-active-indicator-color: var(--color-text-fields-filled-enabled-active-indicator-filled-text-field-active-indicator-color),
     filled-caret-color: var(--color-text-fields-filled-enabled-caret-filled-text-field-caret-color),

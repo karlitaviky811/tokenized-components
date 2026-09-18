@@ -5,8 +5,8 @@ $_dp-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
 
 html {
   @include mat.datepicker-overrides((
-    calendar-container-shape:                   var(--color-date-pickers-modal-enabled-container-shape, 1.75rem),
-    calendar-container-touch-shape:             var(--color-date-pickers-modal-enabled-container-shape, 1.75rem),
+    calendar-container-shape:                   var(--date-pickers-modal-enabled-container-shape, 1.75rem),
+    calendar-container-touch-shape:             var(--date-pickers-modal-enabled-container-shape, 1.75rem),
     calendar-container-elevation-shadow:        var(--shadow-elevation-3, $_dp-shadow),
     calendar-container-touch-elevation-shadow:  var(--shadow-elevation-3, $_dp-shadow),
 
@@ -80,12 +80,27 @@ html {
   }
 
   .mat-calendar {
-    width: 100%;
+    width: auto;
     height: auto;
+    min-width: 100%;
   }
 
   .mat-calendar-content {
     padding: 0 0.75rem 0.5rem;
+  }
+
+  .mat-calendar-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .mat-calendar-body {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .mat-calendar-body-cell-container {
+    width: auto;
   }
 
   .mat-calendar-period-button {
@@ -117,20 +132,12 @@ html {
   }
 }
 
-/* ── lib-docked-date-picker ─────────────────────────────────────────────
-   Cuando el header custom muestra la lista de mes/año, oculta la grilla de
-   días nativa de Material. La clase la togglea el header sobre `.mat-calendar`.
-   Scopeado al panel del componente vía su `panelClass`. */
+
 .lib-ddp-panel {
-  /* Ancla para posicionar la lista de mes/año sobre el área del calendario. */
   .mat-calendar {
     position: relative;
   }
 
-  /* Al mostrar la lista custom: ocultamos la grilla de días por completo
-     (display:none, para que no se filtre por debajo de la lista) pero
-     conservamos la altura del área con un min-height en el contenido, de modo
-     que la lista absoluta tenga espacio que cubrir y el panel no colapse. */
   .mat-calendar.ddp-hide-grid .mat-calendar-content > * {
     display: none;
   }

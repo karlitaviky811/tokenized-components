@@ -1,14 +1,26 @@
-/* === Subscript === */
+
+
+:host {
+  display: block;
+}
 
 :host .lib-select-field__field--no-subscript .mat-mdc-form-field-subscript-wrapper,
 :host .lib-select-field__field--no-subscript .mat-mdc-form-field-bottom-align::before {
   display: none;
 }
 
-/* === Base styles === */
-
 .lib-select-field__field {
   display: block;
+  width: 100%;
+}
+
+.lib-select-field__arrow {
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+:host.lib-select-field--panel-open ::ng-deep .lib-select-field__field .lib-select-field__arrow {
+  transform: rotate(180deg);
 }
 
 .lib-select-field__arrow-host {
@@ -22,17 +34,13 @@
   overflow: hidden;
   border-radius: 50%;
   cursor: pointer;
-  /* El ripple ocupa todo el circulo de 2.5rem. Sin este margen el state layer
-     queda pegado al borde del field, porque Material no separa el matSuffix. */
   margin-right: 0.5rem;
 }
 
-/* Ocultar flecha nativa del mat-select (vive dentro del componente hijo). */
 :host ::ng-deep .lib-select-field__field .mat-mdc-select-arrow-wrapper {
   display: none !important;
 }
 
-/* Remover padding-right que Material deja para la flecha nativa. */
 :host ::ng-deep .lib-select-field__field .mat-mdc-select-trigger {
   padding-right: 0;
 }
@@ -74,7 +82,6 @@
   color: var(--color-pallete-scheme-surface-on-surface-variant, #434749);
 }
 
-/* === Option items === */
 
 .lib-select-field__option-row {
   display: inline-flex;
@@ -82,7 +89,13 @@
   gap: 0.75rem;
 }
 
-.lib-select-field__virtual-row {
+.lib-select-field__options-container {
+  max-height: 15rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.lib-select-field__row {
   height: 3rem;
 }
 
@@ -95,28 +108,6 @@
   cursor: pointer;
 }
 
-/* Ocultar pseudo-checkbox nativo de Material en opciones múltiples;
-   proyectamos lib-checkbox como reemplazo visual. */
 :host ::ng-deep .lib-select-field-panel .mat-mdc-option .mat-mdc-option-pseudo-checkbox {
-  display: none !important;
-}
-
-/* === Virtual scroll panel === */
-
-:host .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel,
-:host .mat-mdc-select-panel.lib-select-field-panel {
-  overflow: hidden;
-}
-
-
-:host .cdk-overlay-container .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport,
-:host .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport {
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-pseudo-checkbox,
-:host ::ng-deep .mat-mdc-select-panel.lib-select-field-panel .lib-select-field__viewport .mat-mdc-option .mdc-list-item__start {
   display: none !important;
 }

@@ -17,25 +17,4 @@
   padding-bottom: 0.5rem;
 }
 
-/* Zero out Material's built-in horizontal padding — AM22 no expone tokens para esto. */
-:host .ui-list-option .mdc-list-item {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* MDC applies height + min-height via .mdc-list-item.mdc-list-item--with-one-line
-   on the inner <a> element. The lib-list-item--multiline class lives on the host
-   <mat-list-item>, so we cross the tree boundary with descendant selector.
-   For multiline items we let the lib-list-item inner <div> own the sizing. */
-:host .ui-list-option .mdc-list-item.mdc-list-item--with-one-line {
-  height: auto;
-  min-height: 0;
-}
-
-/* Ensure the unscoped content wrapper fills the full width with no extra padding. */
-:host .ui-list-option .mat-mdc-list-item-unscoped-content,
-:host .ui-list-option .mdc-list-item__content {
-  padding: 0;
-  width: 100%;
-}
 

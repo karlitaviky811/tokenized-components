@@ -1,4 +1,5 @@
 :host {
+  display: block;
   --lib-side-modal-icon: #434749;
   --lib-side-modal-subtitle: #696d6f;
 }
@@ -36,7 +37,7 @@
   margin: 0;
 }
 
-.side-modal__header button {
+.side-modal__icon-btn {
   background-color: transparent;
   border: none;
   height: 2.5rem;
@@ -48,10 +49,6 @@
   justify-content: center;
   cursor: pointer;
   color: var(--lib-side-modal-subtitle);
-}
-
-.side-modal__header button mat-icon {
-  font-size: 1.5rem;
 }
 
 .side-modal__icon-btn svg {

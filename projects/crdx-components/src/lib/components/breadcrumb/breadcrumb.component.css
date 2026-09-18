@@ -186,7 +186,7 @@
   font-style: normal;
   line-height: var(--breadcrumbs-label-enabled-breadcrumb-label-text-line-height, 1.25rem);
   letter-spacing: var(--breadcrumbs-label-enabled-breadcrumb-label-text-tracking, 0.015625rem);
-  font-weight: inherit;
+  font-weight: 700;
 }
 
 .lib-breadcrumb__parent-label {
@@ -194,17 +194,7 @@
   z-index: 1;
 }
 
-.lib-breadcrumb__current:active .lib-breadcrumb__current-label {
-  font-weight: var(
-    --breadcrumbs-label-enabled-breadcrumb-label-text-weight,
-    400
-  );
-}
-
 .lib-breadcrumb__current:hover .lib-breadcrumb__current-label,
 .lib-breadcrumb__current:focus-visible .lib-breadcrumb__current-label {
-  font-weight: var(
-    --breadcrumbs-label-enabled-breadcrumb-label-text-weight,
-    400
-  );
+  font-weight: inherit;
 }

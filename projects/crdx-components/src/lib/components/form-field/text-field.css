@@ -1,44 +1,63 @@
 :host {
-	display: block;
+  display: block;
 }
 
 .lib-text-field__field {
-	display: block;
-	width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .lib-text-field__prefix-image {
-	width: 1.5rem;
-	height: 1.5rem;
-	font-size: 1.5rem;
-	overflow: visible;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.5rem;
+  overflow: visible;
 }
 
 .lib-text-field__icon-host {
-	position: relative;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 2.5rem;
-	height: 2.5rem;
-	flex-shrink: 0;
-	overflow: hidden;
-	border-radius: 50%;
-	cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .lib-text-field__prefix-image svg {
-	width: 1.5rem;
-	height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .lib-text-field__field textarea.mat-mdc-input-element {
-	resize: none;
+  resize: none;
 }
 
+/* Ancla para el overlay del spinner: el wrapper es la fila del input (sin el
+   subscript), así el spinner queda centrado verticalmente en el input. */
+:host ::ng-deep .lib-text-field__field .mat-mdc-text-field-wrapper {
+  position: relative;
+}
+
+/* El spinner se posiciona en overlay absoluto → NO consume ancho. Al mostrarse u
+   ocultarse el loading, el ancho del input no cambia. */
 .lib-text-field__icon-host--spinner {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: default;
   overflow: visible;
+  pointer-events: none;
+}
+
+/* Si hay un sufijo persistente, durante el loading ocultamos el ícono pero
+   mantenemos su espacio reservado (el spinner lo cubre) → ancho estable. */
+.lib-text-field__icon-host--loading .lib-text-field__icon--suffix {
+  visibility: hidden;
 }
 
 .lib-text-field__loading-ring {
@@ -58,5 +77,5 @@
 /* Hide browser-provided password reveal/clear controls to avoid duplicate icons. */
 :host input[type='password']::-ms-reveal,
 :host input[type='password']::-ms-clear {
-	display: none;
+  display: none;
 }

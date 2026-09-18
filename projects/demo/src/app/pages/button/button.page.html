@@ -86,6 +86,36 @@
         <td>'center'</td>
         <td>Alineación del contenido</td>
       </tr>
+      <tr>
+        <td>badgeCount</td>
+        <td>number | string</td>
+        <td>0</td>
+        <td>Número del badge de notificación</td>
+      </tr>
+      <tr>
+        <td>badgeVisible</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Muestra el badge de notificación</td>
+      </tr>
+      <tr>
+        <td>badgePosition</td>
+        <td>'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'</td>
+        <td>'top-right'</td>
+        <td>Posición del badge</td>
+      </tr>
+      <tr>
+        <td>badgeSize</td>
+        <td>'large' | 'small'</td>
+        <td>'small'</td>
+        <td>Tamaño del badge (small=dot, large=número)</td>
+      </tr>
+      <tr>
+        <td>badgeMode</td>
+        <td>'overlay' | 'inline'</td>
+        <td>'overlay'</td>
+        <td>Modo del badge: overlay=esquina, inline=al lado del label</td>
+      </tr>
     </table>
   </section>
 
@@ -215,6 +245,52 @@
         </div>
       </div>
       <div class="component-doc__footer">Type=Elevated — Fila 1: Round · Fila 2: Square</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Badge de notificación</h2>
+
+    <!-- OVERLAY -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Overlay (esquina)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; gap: 1rem;">
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button icon="notifications" variant="text" size="medium" [badgeVisible]="true" badgeMode="overlay" badgePosition="top-right" />
+          <lib-button icon="notifications" variant="text" size="medium" [badgeVisible]="true" [badgeCount]="5" badgeSize="large" badgeMode="overlay" badgePosition="top-right" />
+          <lib-button icon="mail" variant="tonal" size="medium" [badgeVisible]="true" [badgeCount]="12" badgeSize="large" badgeMode="overlay" badgePosition="top-right" />
+          <lib-button icon="favorite" variant="filled" size="medium" [badgeVisible]="true" badgeMode="overlay" badgePosition="top-right" />
+          <lib-button icon="shopping-cart" variant="outlined" size="medium" [badgeVisible]="true" [badgeCount]="3" badgeSize="large" badgeMode="overlay" badgePosition="top-right" />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="Label" icon="add-create" variant="text" size="medium" [badgeVisible]="true" badgeMode="overlay" badgePosition="top-right" />
+          <lib-button label="Label" icon="add-create" variant="filled" size="medium" [badgeVisible]="true" [badgeCount]="3" badgeSize="large" badgeMode="overlay" badgePosition="top-right" />
+          <lib-button label="Label" icon="add-create" variant="tonal" size="medium" [badgeVisible]="true" [badgeCount]="3" badgeSize="large" badgeMode="overlay" badgePosition="top-right" />
+          <lib-button label="Label" icon="add-create" variant="outlined" size="medium" [badgeVisible]="true" [badgeCount]="3" badgeSize="large" badgeMode="overlay" badgePosition="top-right" />
+        </div>
+      </div>
+      <div class="component-doc__footer">Badge overlay: dot (small) y con número (large) en la esquina superior derecha</div>
+    </div>
+
+    <!-- INLINE -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Inline (al lado del label)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <div class="variant-row" style="margin-bottom: 0;">
+          <lib-button label="Label" icon="add-create" variant="text" size="medium" [badgeVisible]="true" [badgeCount]="3" badgeSize="large" badgeMode="inline" />
+          <lib-button label="Label" icon="add-create" variant="filled" size="medium" [badgeVisible]="true" [badgeCount]="3" badgeSize="large" badgeMode="inline" />
+          <lib-button label="Label" icon="add-create" variant="tonal" size="medium" [badgeVisible]="true" [badgeCount]="3" badgeSize="large" badgeMode="inline" />
+          <lib-button label="Label" icon="add-create" variant="outlined" size="medium" [badgeVisible]="true" [badgeCount]="3" badgeSize="large" badgeMode="inline" />
+          <lib-button label="Label" icon="add-create" variant="elevated" size="medium" [badgeVisible]="true" [badgeCount]="3" badgeSize="large" badgeMode="inline" />
+        </div>
+      </div>
+      <div class="component-doc__footer">Badge inline: número al lado del texto del botón</div>
     </div>
   </section>
 

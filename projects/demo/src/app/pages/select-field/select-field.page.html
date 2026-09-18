@@ -78,13 +78,13 @@
         <lib-select-field
           label="País"
           [options]="options()"
-          [(ngModel)]="selectedCountry"
+          [formField]="countryForm.outline"
           appearance="outline"
         />
         <lib-select-field
           label="País"
           [options]="options()"
-          [(ngModel)]="selectedCountry"
+          [formField]="countryForm.filled"
           appearance="filled"
         />
       </div>
@@ -105,6 +105,75 @@
         <lib-select-field label="Disabled"   [options]="options()" [disabled]="true"    />
       </div>
       <div class="component-doc__footer">filterable=false · disabled=true</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Estado de error</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Validación del Signal Form (required)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [formField]="countryForm.validated"
+        />
+      </div>
+      <div class="component-doc__footer">[formField] + required — el error se activa al tocar y salir (abrí y cerrá sin elegir)</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Error suprimido ([showError]="false")</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [formField]="countryForm.suppressed"
+          [showError]="false"
+        />
+      </div>
+      <div class="component-doc__footer">[showError]="false" — mantiene el borde rojo, pero oculta el mensaje</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Ancho completo</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> fullWidth</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="display: block;">
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [fullWidth]="true"
+        />
+      </div>
+      <div class="component-doc__footer">[fullWidth]="true" — toma el ancho del contenedor</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> width fijo</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [width]="'12rem'"
+        />
+      </div>
+      <div class="component-doc__footer">[width]="'12rem'" — ancho explícito</div>
     </div>
   </section>
 

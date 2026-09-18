@@ -1,28 +1,21 @@
-/*
- * Confirm modal — Diseño desde Figma Tokens:
- *   323-2101 Basic dialog  (w=312, white header + divider + actions)
- *   323-2124 List dialog   (w=312, gray throughout + list full-width + actions)
- *   323-2142 Scrollable list (w=280, gray + list max-height 168px + scroll)
- */
-
 :host {
   display: block;
 }
 
 .confirm-modal {
-  --confirm-container-color: var(--dialogs-basic-enabled-container-dialog-container-color, #f7fafc);
+  --confirm-container-color: var(--color-dialogs-basic-enabled-container-dialog-container-color, #f7fafc);
   --confirm-container-shape: var(--dialogs-basic-enabled-container-dialog-container-shape, 1.75rem);
-  --confirm-headline-color: var(--dialogs-basic-enabled-headline-dialog-headline-color, #181c1e);
+  --confirm-headline-color: var(--color-dialogs-basic-enabled-headline-dialog-headline-color, #181c1e);
   --confirm-headline-font: var(--dialogs-basic-enabled-headline-dialog-headline-font, Heebo);
   --confirm-headline-size: var(--dialogs-basic-enabled-headline-dialog-headline-size, 1.5rem);
   --confirm-headline-weight: var(--dialogs-basic-enabled-headline-dialog-headline-weight, 400);
   --confirm-headline-line-height: var(--dialogs-basic-enabled-headline-dialog-headline-line-height, 2rem);
-  --confirm-supporting-color: var(--dialogs-basic-enabled-supporting-text-dialog-supporting-text-color, #434749);
+  --confirm-supporting-color: var(--color-dialogs-basic-enabled-supporting-text-dialog-supporting-text-color, #434749);
   --confirm-supporting-font: var(--dialogs-basic-enabled-supporting-text-dialog-supporting-text-font, Heebo);
   --confirm-supporting-size: var(--dialogs-basic-enabled-supporting-text-dialog-supporting-text-size, 0.875rem);
   --confirm-supporting-weight: var(--dialogs-basic-enabled-supporting-text-dialog-supporting-text-weight, 400);
   --confirm-supporting-line-height: var(--dialogs-basic-enabled-supporting-text-dialog-supporting-text-line-height, 1.25rem);
-  --confirm-action-color: var(--dialogs-basic-enabled-label-text-dialog-action-label-text-color, #e42313);
+  --confirm-action-color: var(--color-dialogs-basic-enabled-label-text-dialog-action-label-text-color, #e42313);
   --confirm-primary: var(--colors-rojo-primary-rojo-50, #e42313);
   --confirm-primary-hover: var(--colors-rojo-primary-rojo-40, #bf0600);
   --confirm-primary-on: var(--colors-rojo-primary-rojo-100, #ffffff);
@@ -42,26 +35,18 @@
   max-width: 35rem;
 }
 
-/* ── Text content (headline + supporting text) ───────────────────────── */
 
 .confirm-modal__text-content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1.5rem;
-}
+  padding: 1.5rem 1.5rem 0;
 
-/* Basic: white background, no bottom padding (separator provides gap) */
-.confirm-modal--basic .confirm-modal__text-content {
-  background: var(--dialogs-basic-enabled-container-dialog-container-color-top, #ffffff);
-  padding-bottom: 0;
 }
 
 .confirm-modal--with-icon .confirm-modal__text-content {
   align-items: center;
 }
-
-/* ── Top icon ─────────────────────────────────────────────────────────── */
 
 .confirm-modal__top-icon {
   width: 100%;
@@ -114,7 +99,6 @@
   margin: 0;
 }
 
-/* ── Separator (basic variant only) ─────────────────────────────────── */
 
 .confirm-modal__separator {
   width: 100%;
@@ -128,14 +112,14 @@
 .confirm-modal__body {
   padding: 0 1.5rem;
   width: 100%;
+  overflow-y: auto;
+  max-height: 10.5rem;
 }
 
-/* Gap between consecutive siblings inside the body (e.g. form fields) */
 .confirm-modal__body > * + * {
   margin-top: 0.5rem;
 }
 
-/* ── Actions ─────────────────────────────────────────────────────────── */
 
 .confirm-modal__actions {
   display: flex;
@@ -148,7 +132,6 @@
   width: 100%;
 }
 
-/* 323-2101 Basic: pad=20/24/20/8 */
 .confirm-modal--basic .confirm-modal__actions {
   padding-left: 0.5rem;
 }

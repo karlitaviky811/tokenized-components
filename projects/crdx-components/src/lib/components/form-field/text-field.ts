@@ -21,7 +21,6 @@ export type LibTextFieldFormat = 'id' | 'currency' | 'numeric' | 'alphanumeric' 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LibTextFieldComponent implements FormValueControl<string> {
-  // FormValueControl contract
   readonly value = model<string>('');
   readonly disabled = input<boolean>(false);
   readonly invalid = input<boolean>(false);
@@ -55,13 +54,11 @@ export class LibTextFieldComponent implements FormValueControl<string> {
   readonly hideRequiredMarker = input(false, { transform: coerceBooleanProperty });
   readonly loading = input(false, { transform: coerceBooleanProperty });
 
-  // Format inputs
   readonly format = input<LibTextFieldFormat>('alphanumeric');
   readonly mask = input<string>('');
   readonly currencySymbol = input<'$' | '₡'>('₡');
   readonly charLimit = input<number | null>(null);
 
-  // Resolved appearance
   readonly resolvedAppearance = computed<MatFormFieldAppearance>(() => {
     const raw = this.appearance();
     if (raw === 'outlined') return 'outline';
@@ -75,18 +72,14 @@ export class LibTextFieldComponent implements FormValueControl<string> {
     () => this.showSuffix() || (this.suffixIconBand() && (!!this.suffixIcon() || !!this.suffixTextIcon()))
   );
 
-  // true solo entre un blur-inválido y el siguiente input del usuario.
-  // Implementa "passive validation": error visible al salir, se borra al volver a escribir.
   private readonly _showErrors = signal(false);
 
   readonly shouldShowError = computed(
     () => (this.invalid() && this._showErrors()) || !!this.error()
   );
 
-  // Format-derived computeds
   readonly resolvedType = computed(() => this.format() === 'email' ? 'email' : 'text');
 
-  // Mask pattern: # → 0 (digit), X → A (alphanumeric). Separators (-, ., space) pass through literally.
   readonly ngxMask = computed(() => {
     switch (this.format()) {
       case 'id': return this.mask().replace(/#/g, '0').replace(/X/g, 'A');

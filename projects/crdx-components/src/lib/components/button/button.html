@@ -4,7 +4,16 @@
       <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
     }
     @if (label()) {
-      <span [class]="labelClass()">{{ label() }}</span>
+      <span [class]="labelClass()">
+        {{ label() }}
+        @if (badgeVisible() && badgeMode() === 'inline') {
+          <lib-badge
+            class="lib-mat-btn__badge--inline"
+            [label]="badgeCount().toString()"
+            [size]="badgeSize()"
+          ></lib-badge>
+        }
+      </span>
     }
     @if (iconPosition() === 'trailing' && icon()) {
       <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
@@ -31,5 +40,13 @@
     <ng-container [ngTemplateOutlet]="inputContent"></ng-container>
   } @else {
     <ng-content></ng-content>
+  }
+
+  @if (badgeVisible() && badgeMode() === 'overlay') {
+    <lib-badge
+      class="lib-mat-btn__badge"
+      [label]="badgeCount().toString()"
+      [size]="badgeSize()"
+    ></lib-badge>
   }
 </button>

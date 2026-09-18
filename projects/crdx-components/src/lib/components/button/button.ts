@@ -10,6 +10,7 @@ import {
 import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { LibBadgeComponent, LibBadgeSize } from '../badge/badge';
 
 export type LibButtonSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
@@ -21,10 +22,14 @@ export type LibButtonIconPosition = 'leading' | 'trailing';
 
 export type LibButtonContentAlign = 'start' | 'center' | 'end';
 
+export type LibButtonBadgePosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+
+export type LibButtonBadgeMode = 'overlay' | 'inline';
+
 @Component({
   selector: 'lib-button',
   standalone: true,
-  imports: [MatButton, MatIcon, NgClass, NgTemplateOutlet],
+  imports: [MatButton, MatIcon, NgClass, NgTemplateOutlet, LibBadgeComponent],
   templateUrl: './button.html',
   styleUrl: './button.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -48,9 +53,13 @@ export class LibButtonComponent {
   labelClass = input<string>('');
   pressed = input<boolean>(false);
   debugPadding = input<boolean>(false);
+  badgeCount = input<number | string>(0);
+  badgeVisible = input<boolean>(false);
+  badgePosition = input<LibButtonBadgePosition>('top-right');
+  badgeSize = input<LibBadgeSize>('small');
+  badgeMode = input<LibButtonBadgeMode>('overlay');
   readonly isPressed = signal(false);
 
-  /** Usa template interno si hay label/icon via input. */
   readonly hasInputContent = computed(
     () => this.label().length > 0 || this.icon().length > 0
   );
@@ -77,10 +86,15 @@ export class LibButtonComponent {
     'lib-mat-btn--align-start': this.contentAlign() === 'start',
     'lib-mat-btn--align-center': this.contentAlign() === 'center',
     'lib-mat-btn--align-end': this.contentAlign() === 'end',
+    'lib-mat-btn--has-badge': this.badgeVisible(),
+    'lib-mat-btn--badge-overlay': this.badgeVisible() && this.badgeMode() === 'overlay',
+    'lib-mat-btn--badge-inline': this.badgeVisible() && this.badgeMode() === 'inline',
+    'lib-mat-btn--badge-top-right': this.badgeVisible() && this.badgeMode() === 'overlay' && this.badgePosition() === 'top-right',
+    'lib-mat-btn--badge-top-left': this.badgeVisible() && this.badgeMode() === 'overlay' && this.badgePosition() === 'top-left',
+    'lib-mat-btn--badge-bottom-right': this.badgeVisible() && this.badgeMode() === 'overlay' && this.badgePosition() === 'bottom-right',
+    'lib-mat-btn--badge-bottom-left': this.badgeVisible() && this.badgeMode() === 'overlay' && this.badgePosition() === 'bottom-left',
   }));
 
-  /** Duración mínima (ms) que el morph pressed permanece visible, aunque el
-   *  click sea instantáneo. Evita el "flash" imperceptible en clicks rápidos. */
   private static readonly MIN_PRESSED_MS = 180;
   private pressStartedAt = 0;
   private releaseTimer: ReturnType<typeof setTimeout> | null = null;
@@ -119,7 +133,6 @@ export class LibButtonComponent {
     this.releasePressed();
   }
 
-  /** Libera el estado pressed respetando la duración mínima visible. */
   private releasePressed(): void {
     const elapsed = Date.now() - this.pressStartedAt;
     const remaining = LibButtonComponent.MIN_PRESSED_MS - elapsed;

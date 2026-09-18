@@ -3,10 +3,20 @@
   width: 100%;
 }
 
+/* Zero out Material's built-in horizontal padding and height constraints.
+   These must live here — list.css cannot cross the component boundary. */
+:host mat-list-item {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+}
+
 .lib-list-item {
   display: flex;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
   min-height: var(--lists-wip-common-typography-one-line-list-item-container-height, 3.5rem);
   position: relative;
   width: 100%;
@@ -34,7 +44,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block: 0.5rem;
   min-height: 0;
   flex: 1;
   min-width: 0;
@@ -70,7 +79,6 @@
 
 .lib-list-item--multiline .lib-list-item__leading {
   align-self: flex-start;
-  padding-top: 0.25rem;
   margin-right: 0;
 }
 
@@ -124,6 +132,7 @@
   justify-content: center;
   flex-shrink: 0;
   margin-left: auto;
+  align-self: center;
 }
 
 .lib-list-item__trailing--checkbox {

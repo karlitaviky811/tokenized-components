@@ -14,13 +14,10 @@
   --mat-form-field-outlined-input-text-font: inherit;
   --mat-form-field-outlined-label-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
   --mat-form-field-outlined-input-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
-  --mat-form-field-outlined-outline-color: var(--color-pallete-scheme-surface-outline-variant, #c3c7c9);
   --mat-form-field-outlined-hover-outline-color: var(--color-pallete-scheme-surface-on-surface, #181c1e);
-  --mat-form-field-outlined-focus-outline-color: var(--color-pallete-scheme-primary, #e42313);
-  --mat-form-field-outlined-container-shape: 0.75rem;
 }
 
-:host .lib-dp-field .mdc-text-field--outlined {
+:host ::ng-deep .lib-dp-field .mdc-text-field--outlined {
   background-color: #fff;
   border-radius: 0.75rem;
 }

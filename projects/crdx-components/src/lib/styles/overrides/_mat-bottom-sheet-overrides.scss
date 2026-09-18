@@ -12,7 +12,6 @@ html {
     container-text-weight:       var(--mat-sys-body-large-weight),
   ));
 
-  // Tokens propios del componente lib-bottom-sheet (CDK-based, lee --bottom-sheets-*)
   --bottom-sheets-enabled-container-sheet-bottom-docked-container-shape:      28px;
   --bottom-sheets-enabled-container-sheet-bottom-docked-container-color:      var(--mat-sys-surface-container-low);
   --bottom-sheets-enabled-container-sheet-bottom-docked-container-text-color: var(--mat-sys-on-surface);

@@ -1,10 +1,6 @@
 @use '@angular/material' as mat;
 
-/* Overrides GLOBALES del icon-button (Modelo B).
-   Solo tokens verdaderamente globales: forma base y opacidades de state-layer.
-   Los COLORES (icon/state-layer/ripple/container) y los TAMAÑOS se aplican por
-   instancia mediante clases en icon-button.css, porque el icon-button M3 no
-   tiene variantes de color nativas y este mixin es global. */
+
 html {
   @include mat.icon-button-overrides((
     container-shape: var(--icon-buttons-icon-button-enabled-icon-button-container-shape-round, 1000px),
@@ -15,16 +11,12 @@ html {
   ));
 }
 
-/* Material inyecta vertical-align: baseline en .mat-mdc-icon-button svg,
-   lo que desplaza el ícono fuera del centro visual del botón. */
+
 .mat-mdc-icon-button img,
 .mat-mdc-icon-button svg {
   vertical-align: middle;
 }
 
-/* Icon sizing para contenido proyectado vía ng-content (bypassa View Encapsulation).
-   --lib-icon-btn-icon-size se define por tamaño en icon-button.css y se hereda
-   por la cascada CSS hasta los descendientes proyectados. */
 .lib-icon-btn .mat-icon,
 .lib-icon-btn .material-symbols-outlined,
 .lib-icon-btn svg {

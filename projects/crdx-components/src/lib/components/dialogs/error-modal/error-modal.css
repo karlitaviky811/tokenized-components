@@ -18,21 +18,15 @@
     border-radius: 0.5rem;
 }
 
-.container > *:not(:last-child):not(:first-child){
+.container__title {
     margin-top: 1.5rem;
-}
-
-.container > *:last-child{
-    margin-top: 2.5rem;
-}
-
-.container h5{
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--lib-error-modal-text);
 }
 
-.container p{
+.container__message {
+    margin-top: 1.5rem;
     flex: 1;
     font-size: 1rem;
     font-weight: 400;
@@ -42,14 +36,15 @@
     line-height: 1.5rem;
 }
 
-.container .icon{
+.container .icon {
     width: 5.625rem;
     height: 5.625rem;
     font-size: 5.625rem;
     color: var(--lib-error-modal-error);
 }
 
-.container button{
+.container__action {
+    margin-top: 2.5rem;
     height: 3.5rem;
     width: 10rem;
     border-radius: 1rem;

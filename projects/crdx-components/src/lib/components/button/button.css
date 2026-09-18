@@ -35,6 +35,14 @@
   vertical-align: middle;
 }
 
+/* Anular margin-left negativo que Material aplica a iconos en botones;
+   sin esto el icono se desplaza 8px a la izquierda y rompe la simetría. */
+.lib-mat-btn > .mat-icon,
+.lib-mat-btn .mdc-button__label > .mat-icon {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .lib-mat-btn .mdc-button__label > span {
   display: inline-flex;
   align-items: center;
@@ -339,12 +347,17 @@
   justify-content: center;
 }
 
-.lib-mat-btn--shape-round {
-  --lib-mat-btn-radius: var(--lib-mat-btn-radius-round);
+.lib-mat-btn.lib-mat-btn--shape-round {
+  /* Use half the button height as the pill radius so the CSS transition
+     starts from the actual visual value, not from an arbitrarily large
+     number (e.g. 1000px) that would be clamped and hide the animation. */
+  --lib-mat-btn-radius: calc(var(--lib-mat-btn-height) / 2);
+  transition: border-radius 0.15s cubic-bezier(0.2, 0, 0, 1);
 }
 
-.lib-mat-btn--shape-square {
+.lib-mat-btn.lib-mat-btn--shape-square {
   --lib-mat-btn-radius: var(--lib-mat-btn-radius-square);
+  transition: border-radius 0.15s cubic-bezier(0.2, 0, 0, 1);
 }
 
 /* Elevated: toggle */
@@ -521,4 +534,47 @@
 
 .lib-mat-btn--variant-text.lib-mat-btn--toggle:not(.lib-mat-btn--selected):hover:not([disabled]) .mat-icon {
   color: var(--color-buttons-wip-button-hovered-button-hovered-icon-color-toggle-unselected, #e42313);
+}
+
+/* ── Badge ────────────────────────────────────────────────────────── */
+
+.lib-mat-btn {
+  position: relative;
+}
+
+.lib-mat-btn__badge {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lib-mat-btn--badge-top-right .lib-mat-btn__badge {
+  top: 0;
+  right: 0;
+  transform: translate(40%, -40%);
+}
+
+.lib-mat-btn--badge-top-left .lib-mat-btn__badge {
+  top: 0;
+  left: 0;
+  transform: translate(-40%, -40%);
+}
+
+.lib-mat-btn--badge-bottom-right .lib-mat-btn__badge {
+  bottom: 0;
+  right: 0;
+  transform: translate(40%, 40%);
+}
+
+.lib-mat-btn--badge-bottom-left .lib-mat-btn__badge {
+  bottom: 0;
+  left: 0;
+  transform: translate(-40%, 40%);
+}
+
+/* Inline badge — next to label */
+.lib-mat-btn__badge--inline {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-left: 0.25rem;
 }

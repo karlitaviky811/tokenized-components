@@ -8,7 +8,7 @@
   overflow: hidden;
   width: 100%;
   max-height: 85vh;
-  background: var(--dialogs-basic-enabled-container-dialog-container-color, #f7fafc);
+  background: var(--color-dialogs-basic-enabled-container-dialog-container-color, #f7fafc);
   border-radius: var(--dialogs-basic-enabled-container-dialog-container-shape, 1.75rem);
   box-shadow: var(
     --shadow-elevation-3,
@@ -31,6 +31,7 @@
   overflow-y: auto;
   width: 100%;
   padding: 1rem 1.5rem 0;
+  max-height: calc(85vh - 5rem);
 }
 
 .dynamic-dialog__body > * + * {
