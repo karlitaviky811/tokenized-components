@@ -60,7 +60,7 @@
           </ng-container>
         }
         <tr mat-row *matRowDef="let row; columns: displayedColumns()"></tr>
-        <tr mat-no-data-row>
+        <tr *matNoDataRow>
           <td
             class="shared-table__empty"
             [attr.colspan]="displayedColumns().length || 1"
