@@ -6,3 +6,16 @@ out-tsc/
 .angular/
 mcp.json
 .mcp.json
+
+# AI-generated scripts
+scripts/
+
+# AI assistants / agent tooling (local state, do not upload)
+.kiro/
+.agents/
+.claude/
+.cursor/
+.cursorrules
+.windsurf/
+.codeium/
+.aider*

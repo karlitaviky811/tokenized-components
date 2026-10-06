@@ -1,7 +1,7 @@
 <ng-template #inputContent>
   <div class="lib-mat-btn__content">
     @if (iconPosition() === 'leading' && icon()) {
-      <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+      <mat-icon>{{ icon() }}</mat-icon>
     }
     @if (label()) {
       <span [class]="labelClass()">
@@ -16,7 +16,7 @@
       </span>
     }
     @if (iconPosition() === 'trailing' && icon()) {
-      <mat-icon [svgIcon]="icon()">{{ icon() }}</mat-icon>
+      <mat-icon>{{ icon() }}</mat-icon>
     }
   </div>
 </ng-template>
