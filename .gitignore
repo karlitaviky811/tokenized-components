@@ -13,6 +13,7 @@ scripts/
 # AI assistants / agent tooling (local state, do not upload)
 .kiro/
 .agents/
+skills-lock.json
 .claude/
 .cursor/
 .cursorrules
