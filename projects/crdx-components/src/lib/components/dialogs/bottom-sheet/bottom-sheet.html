@@ -2,8 +2,8 @@
   class="container"
   role="dialog"
   aria-modal="true"
-  [@sheetAnimation]="dialogState()"
-  (@sheetAnimation.done)="onAnimationDone($event)"
+  [class.container--open]="rendered() && dialogState() === 'open'"
+  (transitionend)="onTransitionEnd($event)"
 >
   @if (showDragHandle) {
     <div class="header">

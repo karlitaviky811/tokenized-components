@@ -13,6 +13,7 @@
       <tr><td>leadingIcon</td><td>string</td><td>'icon-menu'</td><td>Ícono del leading</td></tr>
       <tr><td>brandLabel</td><td>string</td><td>'Credix'</td><td>Texto de marca</td></tr>
       <tr><td>brandIcon</td><td>string</td><td>'smiley'</td><td>Ícono de marca</td></tr>
+      <tr><td>background</td><td>string | null</td><td>null</td><td>Fondo del app bar (color, var() o gradiente). null usa el token del tema</td></tr>
       <tr><td>trailingActions</td><td>HeaderAction[]</td><td>[search]</td><td>Acciones trailing</td></tr>
       <tr><td>iconBasePath</td><td>string</td><td>'assets/icons'</td><td>Path base de íconos</td></tr>
       <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
@@ -38,6 +39,23 @@
       <lib-header
         [showLeading]="false"
         brandLabel="Sin menú"
+        [trailingActions]="[{ icon: 'search', ariaLabel: 'Buscar' }]"
+      />
+    </div>
+
+    <h3>Fondo configurable</h3>
+    <p>El input <code>background</code> acepta cualquier valor CSS de <code>background</code>: un color, un <code>var(--token)</code> o un gradiente.</p>
+    <div class="app-bar-preview">
+      <lib-header
+        brandLabel="Color sólido"
+        background="#ffffff"
+        [trailingActions]="[{ icon: 'search', ariaLabel: 'Buscar' }]"
+      />
+    </div>
+    <div class="app-bar-preview">
+      <lib-header
+        brandLabel="Gradiente"
+        background="linear-gradient(90deg, #e42313, #a8160a)"
         [trailingActions]="[{ icon: 'search', ariaLabel: 'Buscar' }]"
       />
     </div>

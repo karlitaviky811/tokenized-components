@@ -31,20 +31,20 @@
 .lib-card--outlined {
   border: 0;
   outline: var(--cards-outlined-enabled-outline-outlined-card-outline-width, 0.0625rem) solid
-    var(--cards-outlined-enabled-outline-outlined-card-outline-color, #c3c7c9);
+    var(--color-cards-outlined-enabled-outline-outlined-card-outline-color, #c3c7c9);
   outline-offset: -0.0625rem;
-  background: var(--cards-outlined-enabled-container-outlined-card-container-color, #f7fafc);
+  background: var(--color-cards-outlined-enabled-container-outlined-card-container-color, #f7fafc);
 }
 
 .lib-card--elevated {
   border: 0;
-  background: var(--cards-elevated-enabled-container-elevated-card-container-color, #f1f4f6);
+  background: var(--color-cards-elevated-enabled-container-elevated-card-container-color, #f1f4f6);
   box-shadow: var(--shadow-elevation-1, 0 1px 3px 1px rgba(0, 0, 0, 0.15)), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .lib-card--filled {
   border: 0;
-  background: var(--cards-filled-enabled-container-filled-card-container-color, #e0e3e5);
+  background: var(--color-cards-filled-enabled-container-filled-card-container-color, #e0e3e5);
 }
 
 .lib-card--active {
@@ -203,7 +203,7 @@
   position: absolute;
   inset: -0.1875rem;
   border-radius: 0.875rem;
-  border: 0.1875rem solid var(--cards-outlined-focused-focus-indicator-outlined-card-focus-indicator-color, #5b5f61);
+  border: 0.1875rem solid var(--color-cards-outlined-focused-focus-indicator-outlined-card-focus-indicator-color, #5b5f61);
   pointer-events: none;
   z-index: 3;
 }

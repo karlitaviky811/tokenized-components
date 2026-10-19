@@ -23,6 +23,7 @@ export class LibHeaderComponent {
   readonly brandLabel = input('Credix');
   readonly brandIcon = input('smiley');
   readonly brandIconPath = input<string | null>(null);
+  readonly background = input<string | null>(null);
   readonly trailingActions = input<readonly HeaderAction[]>([
     { icon: 'search', ariaLabel: 'Abrir buscador' },
   ]);

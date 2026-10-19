@@ -1,4 +1,4 @@
-<div class="container" [@dialogAnimation]="dialogState()" (@dialogAnimation.done)="onAnimationDone($event)">
+<div class="container" [class.container--open]="rendered() && dialogState() === 'open'" (transitionend)="onTransitionEnd($event)">
   <header class="side-modal__header">
     <div style="display: flex; align-items: center;">
       @if (shouldShowBack()) {

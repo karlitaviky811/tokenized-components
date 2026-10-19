@@ -17,4 +17,11 @@
   padding-bottom: 0.5rem;
 }
 
+/* Material aplica padding: 8px 0 al .mdc-list base (MDC spec, no tokenizable).
+   Lo quitamos para que la lista no agregue espacio vertical propio; el espaciado
+   lo controla el contenedor consumidor. */
+:host ::ng-deep .mdc-list {
+  padding-block: 0;
+}
+
 

@@ -1,7 +1,6 @@
-import { animate, state, style, transition, trigger,AnimationEvent } from '@angular/animations';
-import { DialogRef,DIALOG_DATA } from '@angular/cdk/dialog';
+import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { NgComponentOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, Type, WritableSignal } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal, Type, WritableSignal } from '@angular/core';
 import { SideModalHeaderConfig } from './side-modal.store';
 
 
@@ -12,13 +11,6 @@ import { SideModalHeaderConfig } from './side-modal.store';
   templateUrl: './side-modal.html',
   styleUrl: './side-modal.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('dialogAnimation',[
-      state('closed', style({ transform: 'translateX(100%)' })),
-      state('open', style({ transform: 'translateX(0)'})),
-      transition('open => closed', [animate('0.5s ease')]),
-    ])
-  ]
 })
 export class SideModal {
   readonly dialogData = inject(DIALOG_DATA);
@@ -29,6 +21,13 @@ export class SideModal {
   readonly footer: Type<unknown> | undefined = this.dialogData.footer;
   readonly headerConfig: SideModalHeaderConfig | undefined = this.dialogData.headerConfig;
   readonly dialogState:WritableSignal<'open' | 'closed'> = this.dialogData.dialogState;
+
+  /** Posición de render: arranca fuera para que la entrada se anime al primer frame. */
+  readonly rendered = signal(false);
+
+  constructor() {
+    afterNextRender(() => this.rendered.set(true));
+  }
 
   closeDialog(): void {
     this.dialogState.set('closed');
@@ -42,11 +41,9 @@ export class SideModal {
     this.headerConfig?.onBack?.();
   }
 
-  onAnimationDone(event: AnimationEvent): void {
-    if (event.toState === 'action' || event.toState === 'closed') {
+  onTransitionEnd(event: TransitionEvent): void {
+    if (event.propertyName === 'transform' && this.dialogState() === 'closed') {
       this.dialogRef.close(true);
     }
   }
-
-
 }

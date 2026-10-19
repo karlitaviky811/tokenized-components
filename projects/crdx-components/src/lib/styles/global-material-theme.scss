@@ -18,6 +18,22 @@
   density: 0,
 ));
 
+/* Material genera --mat-sys-primary desde mat.$blue-palette (azul), desconectado
+   del primary de marca del CDN (rojo). Remapeamos la familia primary/tertiary de
+   Material a los tokens de marca para que los componentes Material (spinner, toggle,
+   checkbox, radio, select, estados selected, ripples) usen el rojo de marca. */
+:root {
+  --mat-sys-primary: var(--color-pallete-scheme-primary);
+  --mat-sys-on-primary: var(--color-pallete-scheme-primary-on-primary);
+  --mat-sys-primary-container: var(--color-pallete-scheme-primary-container);
+  --mat-sys-on-primary-container: var(--color-pallete-scheme-primary-on-primary-container);
+  --mat-sys-inverse-primary: var(--color-pallete-scheme-primary-inverse-primary);
+  --mat-sys-tertiary: var(--color-pallete-scheme-tertiary);
+  --mat-sys-on-tertiary: var(--color-pallete-scheme-tertiary-on-tertiary);
+  --mat-sys-tertiary-container: var(--color-pallete-scheme-tertiary-container);
+  --mat-sys-on-tertiary-container: var(--color-pallete-scheme-tertiary-on-tertiary-container);
+}
+
 body,
 * {
   margin: 0;

@@ -1,7 +1,6 @@
-import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgComponentOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, Type, WritableSignal } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal, Type, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'lib-bottom-sheet',
@@ -9,13 +8,6 @@ import { ChangeDetectionStrategy, Component, inject, Type, WritableSignal } from
   templateUrl: './bottom-sheet.html',
   styleUrl: './bottom-sheet.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('sheetAnimation', [
-      state('closed', style({ transform: 'translateY(100%)' })),
-      state('open', style({ transform: 'translateY(0)' })),
-      transition('open => closed', [animate('0.3s ease')]),
-    ]),
-  ],
 })
 export class BottomSheet {
   private readonly dialogData = inject(DIALOG_DATA);
@@ -25,12 +17,19 @@ export class BottomSheet {
   readonly showDragHandle: boolean = this.dialogData.showDragHandle ?? true;
   readonly dialogState: WritableSignal<'open' | 'closed'> = this.dialogData.dialogState;
 
+  /** Posición de render: arranca fuera para que la entrada se anime al primer frame. */
+  readonly rendered = signal(false);
+
+  constructor() {
+    afterNextRender(() => this.rendered.set(true));
+  }
+
   close(): void {
     this.dialogState.set('closed');
   }
 
-  onAnimationDone(event: AnimationEvent): void {
-    if (event.toState === 'closed') {
+  onTransitionEnd(event: TransitionEvent): void {
+    if (event.propertyName === 'transform' && this.dialogState() === 'closed') {
       this.dialogRef.close();
     }
   }

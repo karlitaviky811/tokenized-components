@@ -1,4 +1,4 @@
-<header class="lib-app-bar" role="banner">
+<header class="lib-app-bar" role="banner" [style.background]="background()">
   <div class="lib-app-bar__leading">
     @if(showLeading()) {
     <button type="button" class="lib-app-bar__icon-button lib-app-bar__icon-button--leading" (click)="onLeadingClick()"
