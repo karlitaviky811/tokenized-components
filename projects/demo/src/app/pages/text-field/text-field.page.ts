@@ -90,8 +90,7 @@ export class TextFieldPage {
     () => this.idDocValue().length === this.currentIdType().dataLength
   );
 
-  // Campos de contacto — persisten en el modelo aunque estén ocultos.
-  // Si el usuario vuelve a ingresar el mismo ID, los valores reaparecen.
+  
   readonly contactModel = signal({ celular: '', correo: '' });
   readonly cf = form(this.contactModel, (p) => {
     required(p.correo, { message: 'El correo es requerido' });
@@ -130,5 +129,39 @@ export class TextFieldPage {
     required(p.correo, { message: 'El correo es requerido' });
     minLength(p.correo, 6, { message: 'Mínimo 6 caracteres' });
     pattern(p.correo, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, { message: 'Formato de correo inválido' });
+  });
+
+  // ── Demo: Formulario completo con máscaras — validación al blur ───────────
+  // Banco de pruebas: tabulá por cada campo y observá en el panel de estado
+  // cómo el blur marca `touched` y dispara la validación del formato.
+  readonly bigModel = signal({
+    nombre: '',
+    cedula: '',
+    telefono: '',
+    nacimiento: '',
+    correo: '',
+    ingreso: '',
+    notas: '',
+  });
+
+  readonly bigForm = form(this.bigModel, (p) => {
+    required(p.nombre, { message: 'El nombre es requerido' });
+    minLength(p.nombre, 3, { message: 'Mínimo 3 caracteres' });
+
+    required(p.cedula, { message: 'La cédula es requerida' });
+    pattern(p.cedula, /^\d{9}$/, { message: 'Cédula incompleta (9 dígitos)' });
+
+    required(p.telefono, { message: 'El teléfono es requerido' });
+    pattern(p.telefono, /^\d{8}$/, { message: 'Teléfono incompleto (8 dígitos)' });
+
+    required(p.nacimiento, { message: 'La fecha es requerida' });
+    pattern(p.nacimiento, /^\d{8}$/, { message: 'Fecha incompleta (dd/mm/aaaa)' });
+
+    required(p.correo, { message: 'El correo es requerido' });
+    minLength(p.correo, 6, { message: 'Mínimo 6 caracteres' });
+    pattern(p.correo, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, { message: 'Formato de correo inválido' });
+
+    required(p.ingreso, { message: 'El ingreso es requerido' });
+    // `notas` queda sin validador a propósito — contraste con los campos exigidos.
   });
 }

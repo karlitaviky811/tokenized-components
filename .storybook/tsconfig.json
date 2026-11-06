@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/storybook",
+    "types": ["node"]
+  },
+  "include": [
+    "../projects/crdx-components/src/**/*.stories.ts",
+    "../projects/crdx-components/src/**/*.ts",
+    "./preview.ts",
+    "./main.ts",
+    "./typings.d.ts"
+  ],
+  "exclude": ["../projects/crdx-components/src/**/*.spec.ts"]
+}

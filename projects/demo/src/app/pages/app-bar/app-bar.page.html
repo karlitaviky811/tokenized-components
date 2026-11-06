@@ -14,7 +14,7 @@
       <tr><td>brandLabel</td><td>string</td><td>'Credix'</td><td>Texto de marca</td></tr>
       <tr><td>brandIcon</td><td>string</td><td>'smiley'</td><td>Ícono de marca</td></tr>
       <tr><td>background</td><td>string | null</td><td>null</td><td>Fondo del app bar (color, var() o gradiente). null usa el token del tema</td></tr>
-      <tr><td>trailingActions</td><td>HeaderAction[]</td><td>[search]</td><td>Acciones trailing</td></tr>
+      <tr><td>trailingActions</td><td>HeaderAction[]</td><td>[]</td><td>Acciones trailing. Vacío por defecto: no se renderiza ningún botón salvo que se declaren</td></tr>
       <tr><td>iconBasePath</td><td>string</td><td>'assets/icons'</td><td>Path base de íconos</td></tr>
       <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
       <tr><td>leadingClick</td><td>void</td><td></td><td>Click en leading</td></tr>
@@ -32,6 +32,12 @@
           { icon: 'profile', ariaLabel: 'Perfil' }
         ]"
       />
+    </div>
+
+    <h3>Sin acciones trailing (por defecto)</h3>
+    <p>Si no se pasa <code>trailingActions</code>, no se renderiza ningún botón trailing.</p>
+    <div class="app-bar-preview">
+      <lib-header brandLabel="Solo marca" />
     </div>
 
     <h3>Sin leading</h3>

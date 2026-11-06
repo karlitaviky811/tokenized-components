@@ -253,6 +253,143 @@
   </section>
 
   <section class="doc-section">
+    <h2>Formulario completo con máscaras</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Alta de cliente — validación al blur</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: stretch; gap: 1.25rem;">
+        <p class="doc-desc" style="margin: 0;">
+          Banco de pruebas con varios formatos y máscaras en un solo formulario. Cada campo valida
+          <strong>al perder el foco</strong>: tabulá de un campo a otro (sin completarlos) y mirá cómo
+          aparece el error. El panel de estado de la derecha refleja en vivo el <code>touched</code>,
+          <code>valid</code> y <code>value</code> de cada campo — así confirmás que el blur marca el
+          campo y dispara su validación.
+        </p>
+
+        <div class="big-form">
+          <div class="big-form__grid">
+            <lib-text-field
+              label="Nombre completo"
+              format="alphanumeric"
+              [charLimit]="60"
+              placeholder="Ana Pérez Mora"
+              [formField]="bgForm.nombrie"
+              [fullWidth]="true"
+            />
+            <lib-text-field
+              label="Cédula nacional"
+              format="id"
+              mask="#-####-####"
+              placeholder="1-2345-6789"
+              [formField]="bigForm.cedula"
+              [fullWidth]="true"
+            />
+            <lib-text-field
+              label="Teléfono"
+              format="id"
+              mask="####-####"
+              placeholder="8888-8888"
+              [formField]="bigForm.telefono"
+              [fullWidth]="true"
+            />
+            <lib-text-field
+              label="Fecha de nacimiento"
+              format="id"
+              mask="##/##/####"
+              placeholder="dd/mm/aaaa"
+              [formField]="bigForm.nacimiento"
+              [fullWidth]="true"
+            />
+            <lib-text-field
+              label="Correo electrónico"
+              format="email"
+              placeholder="usuario@dominio.com"
+              [formField]="bigForm.correo"
+              [fullWidth]="true"
+            />
+            <lib-text-field
+              label="Ingreso mensual"
+              format="currency"
+              currencySymbol="₡"
+              placeholder="0,00"
+              [formField]="bigForm.ingreso"
+              [fullWidth]="true"
+            />
+            <lib-text-field
+              label="Notas (opcional)"
+              format="alphanumeric"
+              [charLimit]="120"
+              hint="Campo sin validación — para contraste"
+              [formField]="bigForm.notas"
+              [fullWidth]="true"
+            />
+          </div>
+
+          <aside class="inspect">
+            <p class="inspect__title">Estado en vivo</p>
+            <table class="inspect__table">
+              <tr>
+                <th>Campo</th><th>touched</th><th>valid</th><th>value</th>
+              </tr>
+              <tr>
+                <td>nombre</td>
+                <td>{{ bigForm.nombre().touched() ? '●' : '○' }}</td>
+                <td [class.ok]="bigForm.nombre().valid()">{{ bigForm.nombre().valid() ? '✓' : '✗' }}</td>
+                <td><code>{{ bigForm.nombre().value() || '—' }}</code></td>
+              </tr>
+              <tr>
+                <td>cedula</td>
+                <td>{{ bigForm.cedula().touched() ? '●' : '○' }}</td>
+                <td [class.ok]="bigForm.cedula().valid()">{{ bigForm.cedula().valid() ? '✓' : '✗' }}</td>
+                <td><code>{{ bigForm.cedula().value() || '—' }}</code></td>
+              </tr>
+              <tr>
+                <td>telefono</td>
+                <td>{{ bigForm.telefono().touched() ? '●' : '○' }}</td>
+                <td [class.ok]="bigForm.telefono().valid()">{{ bigForm.telefono().valid() ? '✓' : '✗' }}</td>
+                <td><code>{{ bigForm.telefono().value() || '—' }}</code></td>
+              </tr>
+              <tr>
+                <td>nacimiento</td>
+                <td>{{ bigForm.nacimiento().touched() ? '●' : '○' }}</td>
+                <td [class.ok]="bigForm.nacimiento().valid()">{{ bigForm.nacimiento().valid() ? '✓' : '✗' }}</td>
+                <td><code>{{ bigForm.nacimiento().value() || '—' }}</code></td>
+              </tr>
+              <tr>
+                <td>correo</td>
+                <td>{{ bigForm.correo().touched() ? '●' : '○' }}</td>
+                <td [class.ok]="bigForm.correo().valid()">{{ bigForm.correo().valid() ? '✓' : '✗' }}</td>
+                <td><code>{{ bigForm.correo().value() || '—' }}</code></td>
+              </tr>
+              <tr>
+                <td>ingreso</td>
+                <td>{{ bigForm.ingreso().touched() ? '●' : '○' }}</td>
+                <td [class.ok]="bigForm.ingreso().valid()">{{ bigForm.ingreso().valid() ? '✓' : '✗' }}</td>
+                <td><code>{{ bigForm.ingreso().value() || '—' }}</code></td>
+              </tr>
+              <tr>
+                <td>notas</td>
+                <td>{{ bigForm.notas().touched() ? '●' : '○' }}</td>
+                <td [class.ok]="bigForm.notas().valid()">{{ bigForm.notas().valid() ? '✓' : '✗' }}</td>
+                <td><code>{{ bigForm.notas().value() || '—' }}</code></td>
+              </tr>
+            </table>
+            <p class="inspect__overall" [class.ok]="bigForm().valid()">
+              Formulario: {{ bigForm().valid() ? 'válido ✓' : 'inválido ✗' }}
+            </p>
+          </aside>
+        </div>
+      </div>
+      <div class="component-doc__footer">
+        Validación al blur — el error se revela sólo al perder el foco (<code>_showErrors</code> se activa en <code>_onBlur</code>), no mientras se escribe.
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section">
     <h2>Uso</h2>
     <pre><code>// TS — validación de longitud exacta en el componente consumidor
 readonly idDocValue = signal('');

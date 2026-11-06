@@ -4,7 +4,7 @@ import { DisabledReason, FormValueControl, ValidationError, WithOptionalFieldTre
 import { MatFormFieldAppearance, MatFormField, MatLabel, MatError, MatHint, MatPrefix, MatSuffix } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';
-import { MatRippleModule } from '@angular/material/core';
+import { MatRippleModule, ErrorStateMatcher } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
@@ -77,6 +77,19 @@ export class LibTextFieldComponent implements FormValueControl<string> {
   readonly shouldShowError = computed(
     () => (this.invalid() && this._showErrors()) || !!this.error()
   );
+
+  /**
+   * Custom ErrorStateMatcher so masked inputs show errors too.
+   *
+   * Masked inputs use `[ngModel]`, which registers an NgControl. MatInput's
+   * `ngDoCheck` then calls `updateErrorState()` on every cycle and overwrites the
+   * `errorState` we set in the effect below. By driving the matcher from
+   * `shouldShowError()`, MatInput computes the SAME value we want — so masked and
+   * non-masked fields behave identically.
+   */
+  readonly errorStateMatcher: ErrorStateMatcher = {
+    isErrorState: () => this.shouldShowError(),
+  };
 
   readonly resolvedType = computed(() => this.format() === 'email' ? 'email' : 'text');
 

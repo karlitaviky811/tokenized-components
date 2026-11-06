@@ -1,6 +1,9 @@
 export * from './lib/lib-ui/lib-ui';
 export * from './lib/icons/register-icons';
 
+// Opt-in SSR hydration skipping for Material-wrapping components.
+export * from './lib/shared/hydration-skippable';
+
 // Core data display/navigation.
 export * from './lib/components/shared-table/shared-table.component';
 export * from './lib/components/breadcrumb/breadcrumb.component';

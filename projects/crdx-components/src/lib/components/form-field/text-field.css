@@ -66,12 +66,29 @@
   height: 1.125rem;
   border-radius: 50%;
   border: 0.125rem solid rgba(0, 0, 0, 0.12);
-  border-top-color: var(--mat-sys-primary, var(--color-pallete-scheme-primary, #006590));
+  /* Brand progress-indicator green (self-hosted fallback: the CDN token is
+     unreachable off-network). */
+  border-top-color: var(--Progress-indicator-common-color-progress-indicator-active-indicator-color, #19d27e);
   animation: lib-tf-spin 0.75s linear infinite;
 }
 
 @keyframes lib-tf-spin {
   to { transform: rotate(360deg); }
+}
+
+/* Trailing error indicator (filled red circle + "!"), shown in an error state.
+   Uses the SAME token as the form-field's error text (error-text-color) so the
+   icon and the supporting message always render in the exact same color. */
+.lib-text-field__icon-host--error {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color, #ff4965);
+}
+
+.lib-text-field__error-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* Hide browser-provided password reveal/clear controls to avoid duplicate icons. */
