@@ -1,0 +1,58 @@
+<mat-form-field class="lib-ddp-field" appearance="outline">
+  <mat-label>{{ label() }}</mat-label>
+  <input
+    matInput
+    class="lib-ddp-input"
+    [matDatepicker]="picker"
+    [value]="_displayValue()"
+    [disabled]="disabled()"
+    [min]="min()"
+    [max]="max()"
+    [placeholder]="placeholder()"
+    (dateChange)="_onChange($event)"
+  />
+
+  @if (showClear() && _displayValue()) {
+    <button
+      type="button"
+      matIconSuffix
+      class="lib-ddp-clear"
+      aria-label="Clear date"
+      (click)="_onClear()"
+    >
+      <mat-icon>cancel</mat-icon>
+    </button>
+  } @else {
+    <mat-datepicker-toggle matIconSuffix [for]="picker">
+      <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+    </mat-datepicker-toggle>
+  }
+
+  <mat-datepicker
+    #picker
+    panelClass="lib-ddp-panel"
+    [calendarHeaderComponent]="headerComponent"
+  >
+    <mat-datepicker-actions>
+      @if (showClear()) {
+        <button
+          mat-button
+          matDatepickerCancel
+          class="lib-ddp-btn lib-ddp-btn--clear"
+          (click)="_onClear()"
+        >
+          Clear
+        </button>
+      }
+      <span class="lib-ddp-spacer"></span>
+      <button mat-button matDatepickerCancel class="lib-ddp-btn lib-ddp-btn--cancel">
+        Cancel
+      </button>
+      <button mat-button matDatepickerApply class="lib-ddp-btn lib-ddp-btn--ok">
+        OK
+      </button>
+    </mat-datepicker-actions>
+  </mat-datepicker>
+
+  <mat-hint>{{ hint() }}</mat-hint>
+</mat-form-field>

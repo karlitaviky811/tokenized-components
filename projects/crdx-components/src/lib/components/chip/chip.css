@@ -1,0 +1,23 @@
+:host {
+  display: inline-block;
+}
+
+/* El theming vive en styles/overrides/_mat-chips-overrides.scss via
+   mat.chips-overrides(). Aca solo queda lo estructural y la conmutacion de
+   appearance, que la API de tokens de Material no cubre. */
+
+/* ── Appearance ──────────────────────────────────────────────────────────
+   Material no expone una prop de appearance para chips: siempre pinta
+   `elevated-container-color` como fondo y usa `outline-width` para el borde.
+   La distincion outlined/elevated se hace conmutando esas dos variables. */
+
+.lib-chip--outlined {
+  --mat-chip-elevated-container-color: transparent;
+}
+
+
+/* Selected pierde el borde en ambos estilos: el CDN define
+   flter-chip-selected-outline-width = 0. */
+.lib-chip--selected {
+  --mat-chip-outline-width: 0;
+}

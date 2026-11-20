@@ -1,0 +1,46 @@
+<div
+  class="confirm-modal"
+  [class.confirm-modal--with-icon]="data.showTopIcon"
+  [class.confirm-modal--basic]="isBasicVariant"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="confirm-modal-title"
+  [attr.aria-describedby]="supportingText ? 'confirm-modal-desc' : null"
+>
+  <div class="confirm-modal__text-content">
+    @if (data.showTopIcon) {
+      <div class="confirm-modal__top-icon" aria-hidden="true">
+        <mat-icon>{{ topIconName }}</mat-icon>
+      </div>
+    }
+    <header class="confirm-modal__header">
+      <h2 id="confirm-modal-title" class="confirm-modal__title">{{ data.title }}</h2>
+      @if (supportingText) {
+        <p id="confirm-modal-desc" class="confirm-modal__reference">{{ supportingText }}</p>
+      }
+    </header>
+  </div>
+
+  @if (data.bodyTemplate) {
+    <div class="confirm-modal__body app-scrollbar-figma">
+      <ng-container [ngTemplateOutlet]="data.bodyTemplate" />
+    </div>
+  }
+
+  <div class="confirm-modal__actions">
+    <lib-button
+      type="button"
+      variant="text"
+      (click)="onCancel()"
+      [label]="labelButtonCancel"
+      contentAlign="center"
+    ></lib-button>
+    <lib-button
+      type="button"
+      [variant]="data.primaryFilled ? 'filled' : 'text'"
+      (click)="onConfirm()"
+      [label]="data.labelButtonConfirm"
+      contentAlign="center"
+    ></lib-button>
+  </div>
+</div>

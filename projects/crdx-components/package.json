@@ -1,0 +1,22 @@
+{
+  "name": "crdx-components",
+  "version": "3.2.0",
+  "description": "Credix shared UI component library",
+  "peerDependencies": {
+    "@angular/animations": ">=22.0.0",
+    "@angular/cdk": ">=22.0.0",
+    "@angular/common": ">=22.0.0",
+    "@angular/core": ">=22.0.0",
+    "@angular/forms": ">=22.0.0",
+    "@angular/material": ">=22.0.0",
+    "@angular/platform-browser": ">=22.0.0",
+    "@angular/router": ">=22.0.0",
+    "@ngx-translate/core": ">=17.0.0",
+    "ngx-mask": ">=22.0.0",
+    "rxjs": ">=7.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

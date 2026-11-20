@@ -1,0 +1,17 @@
+:host {
+  display: inline-block;
+}
+
+.lib-dp-range-field {
+  width: 100%;
+  font-family: var(--date-pickers-docked-enabled-label-text-date-label-text-font, Heebo), sans-serif;
+}
+
+.lib-dp-range-field.mat-mdc-form-field {
+  --mat-form-field-outlined-label-text-font: inherit;
+  --mat-form-field-outlined-input-text-font: inherit;
+}
+
+.lib-dp-range-field .material-symbols-outlined {
+  font-size: 20px;
+}

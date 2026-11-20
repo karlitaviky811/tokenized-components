@@ -1,0 +1,231 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-chip</span>
+    <h1 class="comp-hero__name">Chip</h1>
+    <p class="comp-hero__desc">Filter chip de Material 3. Soporta estados outlined/filled, selected, removable e ícono leading.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>label</td><td>string</td><td>''</td><td>Texto del chip</td></tr>
+      <tr><td>variant</td><td>'outlined' | 'filled'</td><td>'outlined'</td><td>Variante visual</td></tr>
+      <tr><td>size</td><td>'small' | 'medium'</td><td>'medium'</td><td>Tamaño</td></tr>
+      <tr><td>selected</td><td>boolean</td><td>false</td><td>Estado seleccionado</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+      <tr><td>removable</td><td>boolean</td><td>false</td><td>Muestra ícono de eliminar</td></tr>
+      <tr><td>icon</td><td>string</td><td>''</td><td>Nombre del ícono leading (Material Symbols)</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>removed</td><td>void</td><td></td><td>Emite al presionar el ícono de eliminar</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outlined / Filled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-chip label="Outlined"  variant="outlined" />
+        <lib-chip label="Filled"    variant="filled"   />
+        <lib-chip label="Selected"  variant="outlined" [selected]="true"  />
+        <lib-chip label="Disabled"  variant="outlined" [disabled]="true"  />
+      </div>
+      <div class="component-doc__footer">Outlined · Filled · Selected · Disabled</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Con ícono leading</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-chip label="Filtro"    variant="outlined" icon="filter_list"  />
+        <lib-chip label="Activo"    variant="outlined" icon="check_circle" [selected]="true" />
+        <lib-chip label="Categoría" variant="filled"   icon="label"        />
+      </div>
+      <div class="component-doc__footer">icon — Material Symbols name · leading position</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Removable</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-chip label="Eliminar"  variant="outlined" [removable]="true" />
+        <lib-chip label="Tag activo" variant="filled"  [removable]="true" />
+      </div>
+      <div class="component-doc__footer">removable=true — muestra ícono de cierre</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Tamaños</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-chip label="Small"  variant="outlined" size="small"  />
+        <lib-chip label="Medium" variant="outlined" size="medium" />
+      </div>
+      <div class="component-doc__footer">size — Small · Medium</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Toggle interactivo</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        @for (f of filters(); track f.value) {
+          <lib-chip
+            [label]="f.label"
+            variant="outlined"
+            [selected]="f.selected"
+            (click)="toggleFilter(f.value)"
+          />
+        }
+      </div>
+      <div class="component-doc__footer">Selección exclusiva — click para cambiar filtro activo</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-chip
+  label="Filtro"
+  variant="outlined"
+  [selected]="isActive"
+  icon="filter_list"
+  [removable]="true"
+  (removed)="onRemove()"
+/&gt;</code></pre>
+  </section>
+
+  <!-- ASSIST CHIP -->
+  <div class="comp-hero" style="margin-top: 3rem;">
+    <span class="comp-hero__tag">lib-assist-chip</span>
+    <h1 class="comp-hero__name">Assist Chip</h1>
+    <p class="comp-hero__desc">Assist chip de Material 3. Representa acciones inteligentes o contextuales. No tiene estado seleccionado.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>label</td><td>string</td><td>''</td><td>Texto del chip</td></tr>
+      <tr><td>appearance</td><td>'outlined' | 'elevated'</td><td>'outlined'</td><td>Estilo visual</td></tr>
+      <tr><td>icon</td><td>string</td><td>''</td><td>Ícono leading (Material Symbols)</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outlined / Elevated / Disabled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-assist-chip label="Outlined" appearance="outlined" />
+        <lib-assist-chip label="Elevated" appearance="elevated" />
+        <lib-assist-chip label="Disabled" appearance="outlined" [disabled]="true" />
+      </div>
+      <div class="component-doc__footer">appearance — Outlined · Elevated · Disabled</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Con ícono</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-assist-chip label="Agregar" appearance="outlined" icon="add_circle" />
+        <lib-assist-chip label="Evento"  appearance="elevated" icon="event" />
+      </div>
+      <div class="component-doc__footer">icon — Material Symbols name · leading position</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-assist-chip
+  label="Agregar al calendario"
+  appearance="outlined"
+  icon="event"
+/&gt;</code></pre>
+  </section>
+
+  <!-- SUGGESTION CHIP -->
+  <div class="comp-hero" style="margin-top: 3rem;">
+    <span class="comp-hero__tag">lib-suggestion-chip</span>
+    <h1 class="comp-hero__name">Suggestion Chip</h1>
+    <p class="comp-hero__desc">Suggestion chip de Material 3. Presenta sugerencias dinámicas. Es un toggle: soporta estado seleccionado.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>label</td><td>string</td><td>''</td><td>Texto del chip</td></tr>
+      <tr><td>appearance</td><td>'outlined' | 'elevated'</td><td>'outlined'</td><td>Estilo visual</td></tr>
+      <tr><td>selected</td><td>boolean</td><td>false</td><td>Estado seleccionado</td></tr>
+      <tr><td>icon</td><td>string</td><td>''</td><td>Ícono leading (Material Symbols)</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>selectedChange</td><td>boolean</td><td></td><td>Emite el nuevo estado al hacer click</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Estados</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-suggestion-chip label="Unselected" appearance="outlined" />
+        <lib-suggestion-chip label="Selected"   appearance="outlined" [selected]="true" />
+        <lib-suggestion-chip label="Elevated"   appearance="elevated" />
+        <lib-suggestion-chip label="Disabled"   appearance="outlined" [disabled]="true" />
+      </div>
+      <div class="component-doc__footer">Estado — Unselected · Selected · Elevated · Disabled</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Toggle interactivo</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        @for (s of suggestions(); track s.value) {
+          <lib-suggestion-chip
+            [label]="s.label"
+            appearance="outlined"
+            [selected]="s.selected"
+            (selectedChange)="toggleSuggestion(s.value, $event)"
+          />
+        }
+      </div>
+      <div class="component-doc__footer">Toggle independiente — cada chip mantiene su propio estado</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-suggestion-chip
+  label="Angular"
+  appearance="outlined"
+  [selected]="isSelected"
+  (selectedChange)="onToggle($event)"
+/&gt;</code></pre>
+  </section>
+</article>

@@ -1,0 +1,6 @@
+<span [ngClass]="classes()" role="status">
+  <span class="lib-state-badge__label">{{ label() }}</span>
+  @if (showIcon()) {
+    <mat-icon class="lib-state-badge__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+  }
+</span>

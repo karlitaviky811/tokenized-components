@@ -1,0 +1,50 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-divider</span>
+    <h1 class="comp-hero__name">Divider</h1>
+    <p class="comp-hero__desc">Separador visual horizontal o vertical. Crea separación visual entre secciones de contenido.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>orientation</td><td>'horizontal' | 'vertical'</td><td>'horizontal'</td><td>Dirección del divisor</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Horizontal</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: stretch;">
+        <span style="padding-bottom: 0.5rem; font-size: 0.875rem; color: var(--color-neutral-60, #5b5f61);">Sección A</span>
+        <lib-divider />
+        <span style="padding-top: 0.5rem; font-size: 0.875rem; color: var(--color-neutral-60, #5b5f61);">Sección B</span>
+      </div>
+      <div class="component-doc__footer">orientation="horizontal" (default) — separador de ancho completo</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Vertical</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview divider-vertical-demo" style="gap: 1.5rem; align-items: center;">
+        <span style="font-size: 0.875rem; color: var(--color-neutral-60, #5b5f61);">Izquierda</span>
+        <lib-divider orientation="vertical" />
+        <span style="font-size: 0.875rem; color: var(--color-neutral-60, #5b5f61);">Derecha</span>
+      </div>
+      <div class="component-doc__footer">orientation="vertical" — separador de alto completo del contenedor</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-divider orientation="horizontal" /&gt;</code></pre>
+  </section>
+</article>

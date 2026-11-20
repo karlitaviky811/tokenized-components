@@ -1,0 +1,9 @@
+<span
+  [ngClass]="classes()"
+  role="status"
+  [attr.aria-label]="label() || null"
+>
+  @if (isLarge()) {
+    <span class="lib-badge__label">{{ label() }}</span>
+  }
+</span>

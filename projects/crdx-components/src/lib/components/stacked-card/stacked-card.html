@@ -1,0 +1,55 @@
+<div [ngClass]="classes()">
+  <div class="lib-stacked-card__header">
+    <div class="lib-stacked-card__header-content">
+      <div class="lib-stacked-card__avatar" aria-hidden="true">{{ initial() }}</div>
+      <div class="lib-stacked-card__header-text">
+        <p class="lib-stacked-card__header-title">{{ headerText() }}</p>
+        <p class="lib-stacked-card__header-subhead">{{ subhead() }}</p>
+      </div>
+    </div>
+    variant
+    <button
+      class="lib-stacked-card__icon-btn"
+      type="button"
+      aria-label="More options"
+      (click)="headerActionClick.emit()"
+    >
+      <span class="material-symbols-outlined">more_vert</span>
+    </button>
+  </div>
+
+  <div class="lib-stacked-card__media">
+    @if (hasMedia()) {
+      <img [src]="mediaUrl()" [alt]="mediaAlt()" class="lib-stacked-card__media-img" />
+    } @else {
+      <div class="lib-stacked-card__media-placeholder" aria-hidden="true"></div>
+    }
+  </div>
+
+  <div class="lib-stacked-card__body">
+    <div class="lib-stacked-card__headline">
+      <p class="lib-stacked-card__title">{{ cardTitle() }}</p>
+      <p class="lib-stacked-card__subtitle">{{ subtitle() }}</p>
+    </div>
+    <p class="lib-stacked-card__supporting">{{ supportingText() }}</p>
+
+    @if (showActions()) {
+      <div class="lib-stacked-card__actions">
+        @if (showSecondary()) {
+          <lib-button
+            [variant]="secondaryVariant()"
+            [label]="secondaryLabel()"
+            (click)="secondaryAction.emit()"
+          />
+        }
+        <lib-button
+          [variant]="primaryVariant()"
+          [label]="primaryLabel()"
+          (click)="primaryAction.emit()"
+        />
+      </div>
+    }
+  </div>
+
+  <span class="lib-stacked-card__state-layer" aria-hidden="true"></span>
+</div>

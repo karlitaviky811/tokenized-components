@@ -2,3 +2,21 @@ node_modules/
 dist/
 out-tsc/
 *.js.map
+.atl/
+.angular/
+mcp.json
+.mcp.json
+
+# AI-generated scripts
+scripts/
+
+# AI assistants / agent tooling (local state, do not upload)
+.kiro/
+.agents/
+skills-lock.json
+.claude/
+.cursor/
+.cursorrules
+.windsurf/
+.codeium/
+.aider*

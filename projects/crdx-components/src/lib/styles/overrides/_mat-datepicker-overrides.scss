@@ -1,0 +1,148 @@
+@use '@angular/material' as mat;
+
+$_dp-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+             0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+
+html {
+  @include mat.datepicker-overrides((
+    calendar-container-shape:                   var(--date-pickers-modal-enabled-container-shape, 1.75rem),
+    calendar-container-touch-shape:             var(--date-pickers-modal-enabled-container-shape, 1.75rem),
+    calendar-container-elevation-shadow:        var(--shadow-elevation-3, $_dp-shadow),
+    calendar-container-touch-elevation-shadow:  var(--shadow-elevation-3, $_dp-shadow),
+
+    calendar-container-background-color:        var(--color-date-pickers-modal-enabled-container-color, #e5e9eb),
+    calendar-container-text-color:              var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e),
+
+    calendar-body-label-text-color:             transparent,
+    calendar-body-label-text-size:              var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
+    calendar-body-label-text-weight:            var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
+
+    calendar-date-text-color:                   var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e),
+    calendar-date-outline-color:                transparent,
+    calendar-date-disabled-state-text-color:    color-mix(in srgb,
+                                                  var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
+                                                  transparent),
+
+    calendar-date-selected-state-background-color:
+      var(--color-date-pickers-modal-enabled-container-date-selected-container-color, #e42313),
+    calendar-date-selected-state-text-color:
+      var(--color-date-pickers-modal-enabled-label-text-date-selected-label-text-color, #ffffff),
+    calendar-date-selected-disabled-state-background-color: color-mix(in srgb,
+      var(--color-date-pickers-modal-enabled-container-date-selected-container-color, #e42313) 38%,
+      transparent),
+
+    calendar-date-today-outline-color:
+      var(--color-date-pickers-modal-enabled-container-date-today-container-outline-color, #5b5f61),
+    calendar-date-today-selected-state-outline-color:
+      var(--color-date-pickers-modal-enabled-container-date-selected-container-color, #e42313),
+    calendar-date-today-disabled-state-outline-color: color-mix(in srgb,
+      var(--color-date-pickers-modal-enabled-container-date-today-container-outline-color, #5b5f61) 38%,
+      transparent),
+
+    calendar-header-text-color:                 var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
+    calendar-header-divider-color:              transparent,
+    calendar-header-text-size:                  var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
+    calendar-header-text-weight:                var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
+
+    calendar-period-button-text-color:          var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
+    calendar-period-button-icon-color:          var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
+    calendar-period-button-text-size:           var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
+    calendar-period-button-text-weight:         var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
+
+    calendar-navigation-button-icon-color:      var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
+
+    toggle-icon-color:                          var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
+    toggle-active-state-icon-color:             var(--color-date-pickers-modal-enabled-container-date-selected-container-color, #e42313),
+
+    calendar-text-font:                         var(--color-date-pickers-docked-enabled-label-text-date-label-text-font, "Heebo"),
+    calendar-text-size:                         var(--color-date-pickers-docked-enabled-label-text-date-label-text-size, 1rem),
+
+    range-input-separator-color:
+      var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e),
+    range-input-disabled-state-separator-color: color-mix(in srgb,
+      var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
+      transparent),
+    range-input-disabled-state-text-color: color-mix(in srgb,
+      var(--color-date-pickers-modal-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
+      transparent),
+  ));
+}
+
+.mat-datepicker-content {
+  .mat-calendar-body tr:has(> .mat-calendar-body-label[colspan="7"]) {
+    display: none;
+  }
+
+  .mat-calendar-body-cell-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mat-calendar {
+    width: auto;
+    height: auto;
+    min-width: 100%;
+  }
+
+  .mat-calendar-content {
+    padding: 0 0.75rem 0.5rem;
+  }
+
+  .mat-calendar-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .mat-calendar-body {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .mat-calendar-body-cell-container {
+    width: auto;
+  }
+
+  .mat-calendar-period-button {
+    white-space: nowrap;
+  }
+}
+
+
+.cdk-overlay-pane:has(> .mat-datepicker-content) {
+  margin-top: 0.5rem;
+}
+
+.mat-datepicker-actions {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem 0.5rem;
+  gap: 0.5rem;
+
+  .dp-spacer {
+    flex: 1 0 0;
+  }
+
+  .dp-btn,
+  .mdp-btn {
+    font-family: var(--buttons-wip-size-small-button-small-label-text-font, Heebo), sans-serif;
+    font-size: var(--buttons-wip-size-small-button-small-label-text-size, 0.875rem);
+    font-weight: var(--buttons-wip-size-small-button-small-label-text-weight, 500);
+    --mat-text-button-label-text-color: var(--color-buttons-wip-color-text-enabled-button-text-label-color, #e42313);
+  }
+}
+
+
+.lib-ddp-panel {
+  .mat-calendar {
+    position: relative;
+  }
+
+  .mat-calendar.ddp-hide-grid .mat-calendar-content > * {
+    display: none;
+  }
+
+  .mat-calendar.ddp-hide-grid .mat-calendar-content {
+    min-height: 15rem;
+  }
+}

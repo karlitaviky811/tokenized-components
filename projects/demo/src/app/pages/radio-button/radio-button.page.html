@@ -1,0 +1,61 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-radio-button</span>
+    <h1 class="comp-hero__name">Radio Button</h1>
+    <p class="comp-hero__desc">Radio button de Material 3. Se agrupa con <code>mat-radio-group</code> para selección exclusiva entre opciones.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>value</td><td>unknown</td><td>null</td><td>Valor que representa este radio</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Estado deshabilitado</td></tr>
+      <tr><td>checked</td><td>boolean</td><td>false</td><td>Seleccionado (uso sin grupo)</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>checkedChange</td><td>unknown</td><td></td><td>Emite el value al seleccionar</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Estados</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Todos los estados</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-radio-button value="a" [checked]="false">Unselected</lib-radio-button>
+        <lib-radio-button value="b" [checked]="true">Selected</lib-radio-button>
+        <lib-radio-button value="c" [disabled]="true">Disabled</lib-radio-button>
+        <lib-radio-button value="d" [disabled]="true" [checked]="true">Disabled selected</lib-radio-button>
+      </div>
+      <div class="component-doc__footer">Unselected · Selected · Disabled · Disabled selected</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Grupo interactivo</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="flex-direction: column; align-items: flex-start; gap: 0.75rem;">
+        <mat-radio-group [value]="selected()" (change)="selected.set($event.value)" class="radio-group">
+          <lib-radio-button value="classic">Tarjeta Clásica</lib-radio-button>
+          <lib-radio-button value="gold">Tarjeta Gold</lib-radio-button>
+          <lib-radio-button value="platinum">Tarjeta Platinum</lib-radio-button>
+        </mat-radio-group>
+        <p class="selected-label" style="margin: 0;">Seleccionada: <strong>{{ selected() }}</strong></p>
+      </div>
+      <div class="component-doc__footer">mat-radio-group — vinculado a signal, emite al cambiar</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;mat-radio-group [(ngModel)]="plan"&gt;
+  &lt;lib-radio-button value="basic"&gt;Plan Básico&lt;/lib-radio-button&gt;
+  &lt;lib-radio-button value="pro"&gt;Plan Pro&lt;/lib-radio-button&gt;
+&lt;/mat-radio-group&gt;</code></pre>
+  </section>
+</article>

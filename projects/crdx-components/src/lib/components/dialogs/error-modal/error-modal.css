@@ -1,0 +1,54 @@
+:host {
+  --lib-error-modal-bg: var(--dialogs-enabled-container-color, #ffffff);
+  --lib-error-modal-text: var(--colors-neutral-dark, #3e3e3e);
+  --lib-error-modal-error: var(--colors-error, #ff4965);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lib-error-modal-bg);
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 2.5rem 3rem;
+    border-radius: 0.5rem;
+}
+
+.container__title {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--lib-error-modal-text);
+}
+
+.container__message {
+    margin-top: 1.5rem;
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--lib-error-modal-text);
+    text-align: center;
+    font-style: normal;
+    line-height: 1.5rem;
+}
+
+.container .icon {
+    width: 5.625rem;
+    height: 5.625rem;
+    font-size: 5.625rem;
+    color: var(--lib-error-modal-error);
+}
+
+.container__action {
+    margin-top: 2.5rem;
+    height: 3.5rem;
+    width: 10rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+}

@@ -1,0 +1,189 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-select-field</span>
+    <h1 class="comp-hero__name">Select Field</h1>
+    <p class="comp-hero__desc">Selector con soporte de modo single/multiple, filtrado y virtual scroll para listas largas.</p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>label</td><td>string</td><td>''</td><td>Label del campo</td></tr>
+      <tr><td>options</td><td>LibSelectOption[]</td><td>[]</td><td>Opciones disponibles</td></tr>
+      <tr><td>mode</td><td>'single' | 'multiple'</td><td>'single'</td><td>Modo de selección</td></tr>
+      <tr><td>appearance</td><td>'outline' | 'filled'</td><td>'outline'</td><td>Estilo visual</td></tr>
+      <tr><td>filterable</td><td>boolean</td><td>true</td><td>Permite filtrar opciones</td></tr>
+      <tr><td>placeholder</td><td>string</td><td>'Elegir opción'</td><td>Placeholder</td></tr>
+      <tr><td>disabled</td><td>boolean</td><td>false</td><td>Deshabilitado</td></tr>
+      <tr><td>required</td><td>boolean</td><td>false</td><td>Requerido</td></tr>
+      <tr><td>width</td><td>string | number | null</td><td>null</td><td>Ancho personalizado</td></tr>
+      <tr><td>selectAllLabel</td><td>string</td><td>'Seleccionar todos'</td><td>Label del select all (multiple)</td></tr>
+      <tr><th>Output</th><th>Tipo</th><th></th><th>Descripción</th></tr>
+      <tr><td>valueChange</td><td>T | T[]</td><td></td><td>Emite al cambiar selección</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Modo de selección</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Single</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field label="País" [options]="options()" mode="single" />
+      </div>
+      <div class="component-doc__footer">mode="single" — selección de una opción</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Multiple</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field label="Países" [options]="options()" mode="multiple" />
+      </div>
+      <div class="component-doc__footer">mode="multiple" — selección múltiple con select all</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Apariencia</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outline / Filled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field label="Outline" [options]="options()" appearance="outline" />
+        <lib-select-field label="Filled"  [options]="options()" appearance="filled"  />
+      </div>
+      <div class="component-doc__footer">appearance — Outline (default) · Filled</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Con valor seleccionado</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Selección de país</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [formField]="countryForm.outline"
+          appearance="outline"
+        />
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [formField]="countryForm.filled"
+          appearance="filled"
+        />
+      </div>
+      <div class="component-doc__footer">ngModel — label flotante activo cuando hay valor · appearance="outline" · appearance="filled"</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Estados</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Sin filtro / Disabled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field label="Sin filtro" [options]="options()" [filterable]="false"  />
+        <lib-select-field label="Disabled"   [options]="options()" [disabled]="true"    />
+      </div>
+      <div class="component-doc__footer">filterable=false · disabled=true</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Estado de error</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Validación del Signal Form (required)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [formField]="countryForm.validated"
+        />
+      </div>
+      <div class="component-doc__footer">[formField] + required — el error se activa al tocar y salir (abrí y cerrá sin elegir)</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Error suprimido ([showError]="false")</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [formField]="countryForm.suppressed"
+          [showError]="false"
+        />
+      </div>
+      <div class="component-doc__footer">[showError]="false" — mantiene el borde rojo, pero oculta el mensaje</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Ancho completo</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> fullWidth</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview" style="display: block;">
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [fullWidth]="true"
+        />
+      </div>
+      <div class="component-doc__footer">[fullWidth]="true" — toma el ancho del contenedor</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> width fijo</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-select-field
+          label="País"
+          [options]="options()"
+          [width]="'12rem'"
+        />
+      </div>
+      <div class="component-doc__footer">[width]="'12rem'" — ancho explícito</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-select-field
+  label="País"
+  [options]="countries"
+  mode="single"
+  (valueChange)="onCountryChange($event)"
+/&gt;</code></pre>
+  </section>
+</article>

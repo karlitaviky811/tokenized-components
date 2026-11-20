@@ -1,0 +1,345 @@
+﻿@use 'src/lib/styles/index' as lib-styles;
+@use '@angular/material' as mat;
+
+// Credix brand tokens
+$crdx-primary:    #E42313;
+$crdx-doc-purple: #7B2FE0;
+$crdx-doc-teal:   #00829D;
+$crdx-surface:    #F7FAFC;
+$crdx-border:     #E0E3E5;
+
+body {
+  margin: 0;
+  font-family: 'Heebo', sans-serif;
+  background: #fafafa;
+}
+
+// â”€â”€â”€ Base doc layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+.doc-page { max-width: 56.25rem; }
+
+// â”€â”€â”€ Component hero header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+.comp-hero {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 0.0625rem solid $crdx-border;
+}
+
+.comp-hero__tag {
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8125rem;
+  background: #f4f5f6;
+  color: $crdx-primary;
+  border: 0.0625rem solid $crdx-border;
+  padding: 0.125rem 0.625rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.625rem;
+}
+
+.comp-hero__name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1d1e;
+  margin: 0.25rem 0 0.5rem;
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.comp-hero__desc {
+  font-size: 1rem;
+  color: #5b5f61;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 40rem;
+}
+
+.comp-hero__desc code {
+  font-family: monospace;
+  background: #eef1f3;
+  border-radius: 0.25rem;
+  padding: 0.0625rem 0.3125rem;
+  font-size: 0.85em;
+  color: #181c1e;
+}
+
+.doc-section { margin-bottom: 3rem; }
+.doc-section h2 { margin-bottom: 0.25rem; }
+.doc-section h2 code { font-size: 0.8em; color: #666; font-weight: 400; }
+.doc-section h3 { margin: 1rem 0 0.5rem; font-size: 0.95rem; color: #444; }
+.doc-section p { color: #555; margin: 0.25rem 0 1rem; }
+
+.doc-section p code {
+  font-family: monospace;
+  background: #EEF1F3;
+  border-radius: 0.25rem;
+  padding: 0.0625rem 0.3125rem;
+  font-size: 0.85em;
+  color: #181C1E;
+}
+
+.variant-row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.75rem; }
+
+.api-table {
+  width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1rem;
+}
+.api-table th, .api-table td {
+  border: 0.0625rem solid $crdx-border; padding: 0.4rem 0.6rem; text-align: left;
+}
+.api-table th { background: $crdx-surface; font-weight: 500; }
+.api-table td:first-child { font-family: monospace; font-weight: 500; }
+
+pre {
+  background: #1e1e2e; color: #cdd6f4; padding: 1rem; border-radius: 0.5rem;
+  overflow-x: auto; font-size: 0.82rem; line-height: 1.5;
+}
+
+.table-demo {
+  display: flex;
+  flex-direction: column;
+  height: 21.875rem;
+  border: 0.0625rem solid $crdx-border;
+  border-radius: 0.5rem;
+}
+
+// â”€â”€â”€ Component documentation frame (estilo Figma / Credix DS) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+.component-doc {
+  border: 0.09375rem solid $crdx-doc-purple;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  font-family: 'Heebo', sans-serif;
+}
+
+.component-doc__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.375rem 0.75rem;
+  background: #fff;
+  border-bottom: 0.0625rem solid rgba(123, 47, 224, 0.15);
+}
+
+.component-doc__title {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $crdx-doc-purple;
+  line-height: 1.4;
+}
+
+.component-doc__code-icon {
+  font-size: 0.75rem;
+  font-family: monospace;
+  font-weight: 700;
+  color: $crdx-doc-purple;
+  opacity: 0.65;
+}
+
+.component-doc__preview {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: $crdx-surface;
+}
+
+.component-doc__footer {
+  padding: 0.3125rem 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $crdx-doc-teal;
+  background: #fff;
+  border-top: 0.0625rem solid rgba(123, 47, 224, 0.1);
+}
+
+
+
+// â”€â”€â”€ Angular Material datepicker â€” Credix token overrides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// mat.datepicker-overrides() es la API pÃºblica. Los valores referencian tokens
+// Figma (--date-pickers-docked-*) de resolved-root.css. Los fallbacks son los
+// valores literales que Figma define, por si el archivo de tokens no carga.
+//
+// Elevation shadow: Figma define container-elevation: 6 (nÃºmero). Lo mapeamos
+// a su box-shadow equivalente en M2. Usamos variables SCSS para valores con
+// comas â€” de lo contrario el parser SCSS los interpreta como separadores del map.
+
+$_dp-shadow: 0px 3px 5px -1px rgba(0, 0, 0, .20),
+             0px 6px 10px 0px rgba(0, 0, 0, .14),
+             0px 1px 18px 0px rgba(0, 0, 0, .12);
+
+:root {
+  @include mat.datepicker-overrides((
+    // â”€â”€ Shape & Elevation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // container-shape: Figma --date-pickers-docked-enabled-container-container-shape = 16 (nÃºmero sin unidad)
+    calendar-container-shape:               var(--date-pickers-docked-enabled-container-container-shape, 1rem),
+    calendar-container-touch-shape:         var(--date-pickers-docked-enabled-container-container-shape, 1rem),
+    // elevation: Figma container-elevation = 6 â†’ equivalente box-shadow M2
+    calendar-container-elevation-shadow:    $_dp-shadow,
+    calendar-container-touch-elevation-shadow: $_dp-shadow,
+
+    // â”€â”€ Container â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    calendar-container-background-color:    var(--color-date-pickers-docked-enabled-container-container-color, #e5e9eb),
+    calendar-container-text-color:          var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e),
+
+    // â”€â”€ Body label (etiqueta del mes visible a la izquierda del grid) â”€â”€â”€â”€â”€â”€â”€
+    calendar-body-label-text-color:         var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
+    calendar-body-label-text-size:          var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
+    calendar-body-label-text-weight:        var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
+
+    // â”€â”€ Celdas de fecha â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    calendar-date-text-color:               var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e),
+    calendar-date-outline-color:            transparent,
+    calendar-date-disabled-state-text-color: color-mix(in srgb,
+                                               var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
+                                               transparent),
+
+    // â”€â”€ Fecha seleccionada â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    calendar-date-selected-state-background-color:
+      var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
+    calendar-date-selected-state-text-color:
+      var(--color-date-pickers-docked-enabled-label-text-date-selected-label-text-color, #ffffff),
+    calendar-date-selected-disabled-state-background-color: color-mix(in srgb,
+      var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313) 38%,
+      transparent),
+
+    // â”€â”€ Hoy â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    calendar-date-today-outline-color:
+      var(--color-date-pickers-docked-enabled-container-date-today-container-outline-color, #5b5f61),
+    calendar-date-today-selected-state-outline-color:
+      var(--color-date-pickers-docked-enabled-label-text-date-selected-label-text-color, #ffffff),
+    calendar-date-today-disabled-state-outline-color: color-mix(in srgb,
+      var(--color-date-pickers-docked-enabled-container-date-today-container-outline-color, #5b5f61) 38%,
+      transparent),
+
+    // â”€â”€ State layers (hover / focus) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    /*calendar-date-hover-state-background-color:
+      var(--color-date-pickers-docked-hovered-state-layer-date-unselected-hover-state-layer-color, rgba(67, 71, 73, .08)),
+    calendar-date-focus-state-background-color:
+      var(--color-date-pickers-docked-focused-state-layer-date-unselected-focus-state-layer-color, rgba(67, 71, 73, .10)),
+*/
+    // â”€â”€ Range (preview / in-range) â€” no usados en picker simple â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    calendar-date-preview-state-outline-color:
+      var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
+    calendar-date-in-range-state-background-color:
+      var(--color-date-pickers-docked-enabled-container-menu-list-item-selected-container-color, #e0e3e5),
+    calendar-date-in-comparison-range-state-background-color:
+      var(--color-date-pickers-docked-enabled-container-menu-list-item-selected-container-color, #e0e3e5),
+    calendar-date-in-overlap-range-state-background-color:
+      var(--color-date-pickers-docked-enabled-container-menu-list-item-selected-container-color, #e0e3e5),
+    calendar-date-in-overlap-range-selected-state-background-color:
+      var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
+
+    // â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    calendar-header-text-color:             var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
+    calendar-header-divider-color:          transparent,
+    calendar-header-text-size:              var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
+    calendar-header-text-weight:            var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
+
+    // â”€â”€ Period button (selector mes/aÃ±o) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    calendar-period-button-text-color:      var(--color-date-pickers-docked-enabled-label-text-menu-button-label-text-color, #434749),
+    calendar-period-button-icon-color:      var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
+    calendar-period-button-text-size:       var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem),
+    calendar-period-button-text-weight:     var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500),
+
+    // â”€â”€ Botones de navegaciÃ³n (â† â†’) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    calendar-navigation-button-icon-color:  var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
+
+    // â”€â”€ Toggle (Ã­cono calendario en el input) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    toggle-icon-color:                      var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749),
+    toggle-active-state-icon-color:         var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313),
+
+    // â”€â”€ TipografÃ­a â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    calendar-text-font:                     var(--date-pickers-docked-enabled-label-text-date-label-text-font, "Heebo"),
+    calendar-text-size:                     var(--date-pickers-docked-enabled-label-text-date-label-text-size, 1rem),
+
+    // â”€â”€ Range input separator (no usado en picker simple) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    range-input-separator-color:
+      var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e),
+    range-input-disabled-state-separator-color: color-mix(in srgb,
+      var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
+      transparent),
+    range-input-disabled-state-text-color: color-mix(in srgb,
+      var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e) 38%,
+      transparent),
+  ));
+}
+
+// â”€â”€â”€ Datepicker width + actions footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// No existe mixin token para el ancho â€” se setea como CSS directo.
+// container-width: 360 en Figma es un nÃºmero sin unidad â†’ calc(*1px).
+// .mat-calendar width:100% garantiza que el grid de fechas llene el contenedor.
+
+mat-datepicker-content {
+  width: var(--date-pickers-docked-enabled-container-container-width, 22.5rem);
+
+  .mat-calendar {
+    width: 100%;
+  }
+
+  // Oculta la fila de label completa (ej: "JUN") que Material inserta cuando
+  // el mes empieza en el primer dÃ­a de la semana (colspan="7" = fila entera).
+  // Para meses que empiezan en dÃ­as intermedios, el label tiene colspan < 7 y
+  // actÃºa como espaciador â€” ese caso se mantiene visible.
+  .mat-calendar-body tr:has(> .mat-calendar-body-label[colspan="7"]) {
+    display: none;
+  }
+
+  // Footer Cancel / OK â€” Figma: Cancel=gris, OK=rojo Credix, right-aligned
+  .mat-datepicker-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem 0.75rem;
+  }
+
+  // BEM: .lib-dp-btn es el bloque; --cancel y --ok solo cambian el color de label.
+  .lib-dp-btn {
+    font-family: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-font, "Heebo");
+    font-size: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-size, 0.875rem);
+    font-weight: var(--date-pickers-docked-enabled-label-text-menu-button-label-text-weight, 500);
+
+    &--cancel {
+      --mat-text-button-label-text-color: var(--color-date-pickers-docked-enabled-label-text-date-unselected-label-text-color, #181c1e);
+    }
+
+    &--ok {
+      --mat-text-button-label-text-color: var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313);
+    }
+  }
+}
+
+lib-date-picker mat-datepicker-toggle .mat-mdc-icon-button,
+lib-date-range-picker mat-datepicker-toggle .mat-mdc-icon-button {
+  --mat-icon-button-icon-color: var(--color-date-pickers-docked-enabled-icon-menu-button-icon-color, #434749);
+  --mat-icon-button-hover-state-layer-color: var(--color-date-pickers-docked-hovered-state-layer-menu-button-hover-state-layer-color, rgba(67, 71, 73, .08));
+}
+
+lib-date-picker mat-datepicker-toggle.mat-datepicker-toggle-active .mat-mdc-icon-button,
+lib-date-range-picker mat-datepicker-toggle.mat-datepicker-toggle-active .mat-mdc-icon-button {
+  --mat-icon-button-icon-color: var(--color-date-pickers-docked-enabled-container-date-selected-container-color, #e42313);
+}
+
+// â”€â”€â”€ Demo slot placeholder (representa contenido proyectado) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+.demo-slot {
+  height: 2rem;
+  border-radius: 0.25rem;
+  background: $crdx-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin: 0 1rem 0.75rem;
+}

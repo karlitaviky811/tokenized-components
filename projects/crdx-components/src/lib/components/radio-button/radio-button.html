@@ -1,0 +1,8 @@
+<mat-radio-button
+  [value]="value()"
+  [disabled]="disabled()"
+  [checked]="checked()"
+  (change)="checkedChange.emit($event.value)"
+>
+  <ng-content />
+</mat-radio-button>

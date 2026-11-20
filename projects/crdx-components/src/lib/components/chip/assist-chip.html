@@ -1,0 +1,16 @@
+<button
+  type="button"
+  class="lib-assist-chip"
+  [class.lib-assist-chip--outlined]="appearance() === 'outlined'"
+  [class.lib-assist-chip--elevated]="appearance() === 'elevated'"
+  [class.lib-assist-chip--has-icon]="hasIcon()"
+  [disabled]="disabled()"
+>
+  <span class="lib-assist-chip__state-layer">
+    @if (hasIcon()) {
+      <mat-icon class="lib-assist-chip__icon">{{ icon() }}</mat-icon>
+    }
+    <span class="lib-assist-chip__label">{{ label() }}</span>
+    <ng-content />
+  </span>
+</button>

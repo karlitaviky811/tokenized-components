@@ -1,0 +1,17 @@
+@if (currentLabel() || parentLabel()) {
+  <nav class="lib-breadcrumb">
+    @if (parentLabel()) {
+      <button
+        type="button"
+        class="lib-breadcrumb__parent"
+        (click)="navigateToParent()"
+      >
+        <span class="lib-breadcrumb__parent-label">{{ parentLabel() }}</span>
+      </button>
+      <span class="lib-breadcrumb__separator" aria-hidden="true">/</span>
+    }
+    <span class="lib-breadcrumb__current" role="button" tabindex="0">
+      <span class="lib-breadcrumb__current-label">{{ currentLabel() }}</span>
+    </span>
+  </nav>
+}

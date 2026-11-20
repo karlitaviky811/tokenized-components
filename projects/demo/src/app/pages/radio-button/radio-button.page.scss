@@ -1,0 +1,11 @@
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.selected-label {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #555;
+}

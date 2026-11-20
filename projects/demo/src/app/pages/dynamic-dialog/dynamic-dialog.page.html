@@ -1,0 +1,225 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-dynamic-dialog</span>
+    <h1 class="comp-hero__name">Dynamic Dialog</h1>
+    <p class="comp-hero__desc">
+      Dialog de contenido libre con tres secciones independientes: <code>headerTemplate</code>,
+      <code>bodyTemplate</code> y <code>actionsTemplate</code>. Cada sección se proyecta solo si se
+      provee un <code>TemplateRef</code> — el componente es una carcasa sin contenido predefinido.
+    </p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API — DynamicDialogData</h2>
+    <table class="api-table">
+      <tr><th>Propiedad</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>headerTemplate</td><td>TemplateRef</td><td>—</td><td>Sección superior: título, ícono, cualquier cabecera</td></tr>
+      <tr><td>bodyTemplate</td><td>TemplateRef</td><td>—</td><td>Sección central: formularios, listas, contenido rico</td></tr>
+      <tr><td>actionsTemplate</td><td>TemplateRef</td><td>—</td><td>Sección inferior: botones de acción personalizados</td></tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Formulario de domicilio — 3 secciones</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button
+          label="Abrir dialog"
+          variant="outlined"
+          shape="square"
+          size="medium"
+          [fullWidth]="false"
+          (click)="openAddressDialog()"
+        />
+      </div>
+      <div class="component-doc__footer">headerTemplate · bodyTemplate con selects y text-field · actionsTemplate con Cancelar / Confirmar</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Carga de documentos — acciones por item</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button
+          label="Abrir dialog"
+          variant="outlined"
+          shape="square"
+          size="medium"
+          [fullWidth]="false"
+          (click)="openDocumentDialog()"
+        />
+      </div>
+      <div class="component-doc__footer">headerTemplate con ícono · bodyTemplate con lib-list-item · itemClick cierra dialog</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Selección de cuentas — lista con avatar</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button
+          label="Abrir dialog"
+          variant="outlined"
+          shape="square"
+          size="medium"
+          [fullWidth]="false"
+          (click)="openListDialog()"
+        />
+      </div>
+      <div class="component-doc__footer">headerTemplate · bodyTemplate con lib-list-item avatar + checkbox · actionsTemplate</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Identificación — chips Nacional / DIMEX</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button
+          label="Abrir dialog"
+          variant="outlined"
+          shape="square"
+          size="medium"
+          [fullWidth]="false"
+          (click)="openIdDialog()"
+        />
+      </div>
+      <div class="component-doc__footer">headerTemplate · bodyTemplate con suggestion chips radio + text-field reactivo · actionsTemplate</div>
+    </div>
+  </section>
+</article>
+
+<!-- ── Domicilio: header ──────────────────────────────────────────────────── -->
+<ng-template #addressHeader>
+  <div class="ddemo-header">
+    <span class="material-symbols-outlined ddemo-header__icon">home</span>
+    <h2 class="ddemo-header__title">Domicilio</h2>
+    <p class="ddemo-header__desc">Verifique la ubicación para la entrega entre las 8:00 a.m. y 5:00 p.m.</p>
+  </div>
+</ng-template>
+
+<!-- ── Domicilio: body ───────────────────────────────────────────────────── -->
+<ng-template #addressBody>
+  <lib-select-field label="Provincia" appearance="outline" [options]="provincias" [filterable]="false" />
+  <lib-select-field label="Cantón"    appearance="outline" [options]="cantones"   [filterable]="false" />
+  <lib-select-field label="Distrito"  appearance="outline" [options]="distritos"  [filterable]="false" />
+  <lib-text-field   label="Dirección exacta" appearance="outline" />
+  <span>Al confirmar actualizaremos sus datos</span>
+</ng-template>
+
+<!-- ── Domicilio: actions ────────────────────────────────────────────────── -->
+<ng-template #addressActions>
+  <lib-button label="Cancelar" variant="text" contentAlign="center" (click)="addressDialogRef()?.close(false)" />
+  <lib-button label="Confirmar" variant="filled" contentAlign="center" (click)="addressDialogRef()?.close(true)" />
+</ng-template>
+
+<!-- ── Documentos: header ────────────────────────────────────────────────── -->
+<ng-template #documentHeader>
+  <div class="ddemo-header">
+    <h2 class="ddemo-header__title">Carga de documentos</h2>
+    <p class="ddemo-header__desc">Puede elegir archivos con un tamaño máximo de 3 GB.</p>
+  </div>
+</ng-template>
+
+<!-- ── Documentos: body ──────────────────────────────────────────────────── -->
+<ng-template #documentBody>
+  <div style="margin: 0 -1.5rem;">
+    <lib-list
+      [items]="documentItems()"
+      trailingType="none"
+      [showCheckbox]="false"
+      [showAvatar]="false"
+      [showDividers]="true"
+      (itemClick)="onDocumentItemClick($event)"
+    >
+      <ng-template #trailingTemplate let-item>
+        <span class="material-symbols-outlined" style="font-size:1.5rem;color:#434749;">
+          {{ documentIconMap.get(item.id) }}
+        </span>
+      </ng-template>
+    </lib-list>
+  </div>
+</ng-template>
+
+<!-- ── Documentos: actions ───────────────────────────────────────────────── -->
+<ng-template #documentActions>
+  <lib-button label="Cancelar" variant="text" contentAlign="center" (click)="documentDialogRef()?.close(false)" />
+  <lib-button label="Subir archivo" variant="filled" contentAlign="center" (click)="documentDialogRef()?.close('upload')" />
+</ng-template>
+
+<!-- ── Lista: header ─────────────────────────────────────────────────────── -->
+<ng-template #listHeader>
+  <div class="ddemo-header">
+    <h2 class="ddemo-header__title">Seleccionar cuenta</h2>
+    <p class="ddemo-header__desc">Elija la cuenta asociada a la operación.</p>
+  </div>
+</ng-template>
+
+<!-- ── Lista: body ───────────────────────────────────────────────────────── -->
+<ng-template #listBody>
+  <div style="margin: 0 -1.5rem;">
+    <lib-list
+      [items]="listItems()"
+      [selectedIds]="listSelectedIds()"
+      [showAvatar]="true"
+      [showDividers]="true"
+      trailingType="checkbox"
+      (selectionChange)="listSelectedIds.set($event)"
+    />
+  </div>
+</ng-template>
+
+<!-- ── Lista: actions ────────────────────────────────────────────────────── -->
+<ng-template #listActions>
+  <lib-button label="Cancelar" variant="text" contentAlign="center" (click)="listDialogRef()?.close(false)" />
+  <lib-button label="Confirmar" variant="text" contentAlign="center" (click)="listDialogRef()?.close(listSelectedIds())" />
+</ng-template>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     DynamicDialog templates — identificación (Nacional / DIMEX)
+     ════════════════════════════════════════════════════════════════════════ -->
+
+<ng-template #idHeader>
+  <div class="ddemo-header">
+    <h2 class="ddemo-header__title">Identificación</h2>
+    <p class="ddemo-header__desc">Ingrese su número de documento para continuar.</p>
+  </div>
+</ng-template>
+
+<ng-template #idBody>
+  <div class="id-chip-group">
+    <lib-suggestion-chip
+      label="Nacional"
+      appearance="outlined"
+      [selected]="idType() === 'nacional'"
+      [icon]="idType() === 'nacional' ? 'check' : ''"
+      (click)="selectIdType('nacional')"
+    />
+    <lib-suggestion-chip
+      label="DIMEX"
+      appearance="outlined"
+      [selected]="idType() === 'dimex'"
+      [icon]="idType() === 'dimex' ? 'check' : ''"
+      (click)="selectIdType('dimex')"
+    />
+  </div>
+  <lib-text-field
+    [label]="idFieldLabel()"
+    appearance="outline"
+    [fullWidth]="true"
+    [value]="idNumber()"
+    (valueChange)="idNumber.set($event)"
+  />
+</ng-template>
+
+<ng-template #idActions>
+  <lib-button label="Cancelar"   variant="text"   contentAlign="center" (click)="idDialogRef()?.close(false)" />
+  <lib-button label="Verificar"  variant="filled"  contentAlign="center" (click)="idDialogRef()?.close({ type: idType(), number: idNumber() })" />
+</ng-template>

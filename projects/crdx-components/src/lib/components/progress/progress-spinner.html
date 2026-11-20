@@ -1,0 +1,31 @@
+<svg
+  class="lib-ps"
+  [class.lib-ps--determinate]="isDeterminate()"
+  [class.lib-ps--indeterminate]="!isDeterminate()"
+  [attr.width]="spinnerSize()"
+  [attr.height]="spinnerSize()"
+  [attr.viewBox]="viewBox()"
+  role="progressbar"
+  [attr.aria-valuenow]="isDeterminate() ? clampedValue() : null"
+  [attr.aria-valuemin]="isDeterminate() ? 0 : null"
+  [attr.aria-valuemax]="isDeterminate() ? 100 : null"
+>
+  <circle
+    class="lib-ps__track"
+    [attr.cx]="center()"
+    [attr.cy]="center()"
+    [attr.r]="radius()"
+    [attr.stroke-width]="strokeWidth()"
+    fill="none"
+  />
+  <circle
+    class="lib-ps__active"
+    [attr.cx]="center()"
+    [attr.cy]="center()"
+    [attr.r]="radius()"
+    [attr.stroke-width]="strokeWidth()"
+    fill="none"
+    [attr.stroke-dasharray]="isDeterminate() ? circumference() : null"
+    [attr.stroke-dashoffset]="isDeterminate() ? dashOffset() : null"
+  />
+</svg>
