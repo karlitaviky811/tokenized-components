@@ -1,0 +1,77 @@
+<div
+  [ngClass]="classes()"
+  [style.width]="fullWidth() ? '100%' : width()"
+  [style.min-width]="fullWidth() ? '0rem' : width()"
+  [attr.aria-disabled]="disabled()"
+  role="button"
+  tabindex="0"
+  (click)="onCardClick()"
+  (keydown)="onCardKeydown($event)"
+>
+  <div class="lib-card__row" [style.min-height]="height()">
+    <div class="lib-card__content">
+      @if (leadingKind() === 'icon') {
+        <div
+          class="lib-card__leading lib-card__leading--icon"
+          aria-hidden="true"
+          [style.width]="leadingContainerSize()"
+          [style.height]="leadingContainerSize()"
+        >
+          @if (hasLeadingIcon()) {
+            @if (isLeadingImage()) {
+              <img [src]="leadingIcon()" alt="" [style.width]="leadingIconSize()" [style.height]="leadingIconSize()" />
+            } @else {
+              <svg
+                viewBox="0 0 24 24"
+                [style.width]="leadingIconSize()"
+                [style.height]="leadingIconSize()"
+              >
+                <g [innerHTML]="leadingIcon()"></g>
+              </svg>
+            }
+          } @else {
+            <span>{{ initial() }}</span>
+          }
+        </div>
+      } @else {
+        <div class="lib-card__avatar" aria-hidden="true">
+          {{ initial() }}
+        </div>
+      }
+
+      <div class="lib-card__text">
+        <p class="lib-card__title">{{ title() }}</p>
+        @if (subhead()) {
+          <p class="lib-card__subhead">{{ subhead() }}</p>
+        }
+      </div>
+    </div>
+
+    <div class="lib-card__trailing">
+      <ng-content select="[slot=trailing]" />
+    </div>
+
+    @if (showMedia()) {
+      <div class="lib-card__media" [class.lib-card__media--empty]="!hasMedia()">
+        @if (hasMedia()) {
+          @if (isMediaImage()) {
+            <img [src]="mediaIcon()" [alt]="mediaAlt()" />
+          } @else {
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <g [innerHTML]="mediaIcon()"></g>
+            </svg>
+          }
+        }
+      </div>
+    }
+  </div>
+
+  <div class="lib-card__body">
+    <ng-content />
+  </div>
+
+  <span class="lib-card__state-layer" aria-hidden="true"></span>
+  @if (state() === 'focused') {
+    <span class="lib-card__focus-indicator" aria-hidden="true"></span>
+  }
+</div>

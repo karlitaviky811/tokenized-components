@@ -1,0 +1,21 @@
+<div
+  class="lib-pb"
+  [class.lib-pb--thick]="isThick()"
+  [class.lib-pb--indeterminate]="!isDeterminate()"
+  role="progressbar"
+  [attr.aria-valuenow]="isDeterminate() ? clampedValue() : null"
+  [attr.aria-valuemin]="isDeterminate() ? 0 : null"
+  [attr.aria-valuemax]="isDeterminate() ? 100 : null"
+>
+  <div class="lib-pb__track">
+    <div
+      class="lib-pb__fill"
+      [class.lib-pb__fill--indeterminate]="!isDeterminate()"
+      [style.width]="isDeterminate() ? widthPercent() : null"
+    ></div>
+  </div>
+
+  @if (showStop()) {
+    <div class="lib-pb__stop"></div>
+  }
+</div>

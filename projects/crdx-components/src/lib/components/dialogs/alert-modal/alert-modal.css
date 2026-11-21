@@ -1,0 +1,132 @@
+:host {
+  --lib-alert-modal-bg: var(--dialogs-enabled-container-color, #ffffff);
+  --lib-alert-modal-text: var(--colors-neutral-dark, #3e3e3e);
+  --lib-alert-modal-border: var(--colors-neutral-border, #d2d2d2);
+  --lib-alert-modal-error: var(--colors-error, #ff4965);
+  --lib-alert-modal-padding: 2.5rem 3rem;
+  --lib-alert-modal-icon-size: 5.625rem;
+  --lib-alert-modal-content-max-width: 44.5rem;
+  --lib-alert-modal-action-btn-width: 7.5rem;
+  --lib-alert-modal-action-btn-height: 3.5rem;
+  --lib-alert-modal-action-btn-radius: 1rem;
+}
+
+.container {
+    --color: var(--lib-alert-modal-bg);
+    --message-color: var(--lib-alert-modal-text);
+    --message-font-size: 2rem;
+    --message-font-weight: 700;
+
+    background-color: var(--color);
+    padding: var(--lib-alert-modal-padding);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    text-align: center;
+}
+
+.container .message {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    white-space: pre-line;
+}
+
+.container .message mat-icon {
+    display: flex;
+    font-size: var(--lib-alert-modal-icon-size);
+    width: var(--lib-alert-modal-icon-size);
+    height: var(--lib-alert-modal-icon-size);
+    color: var(--lib-alert-modal-error);
+    justify-content: center;
+    align-items: center;
+}
+
+.container .extraBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.container .extraBlock.left {
+    align-items: flex-start;
+}
+
+.container .extraBlock.center {
+    align-items: center;
+}
+
+.container .extraBlock-content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    color: var(--message-color);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    gap: 0.5rem;
+}
+
+.container .extraBlock-content.left {
+    justify-content: start;
+    padding-left: 1rem;
+}
+
+.container .extraBlock-content.center {
+    justify-content: center;
+}
+
+.container .extra-block .word {
+    white-space: nowrap;
+}
+
+.container .extraBlock-content .separator {
+    color: var(--lib-alert-modal-border);
+}
+
+.container .title {
+    color: var(--message-color);
+    text-align: center;
+    font-size: var(--message-font-size);
+    font-style: normal;
+    font-weight: var(--message-font-weight);
+    line-height: normal;
+}
+
+.container .subtitle {
+    color: var(--message-color);
+    font-style: normal;
+    font-weight: var(--message-font-weight);
+    line-height: normal;
+}
+
+.container .content {
+    max-width: var(--lib-alert-modal-content-max-width);
+    width: 100%;
+    color: var(--message-color);
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.container .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.container .actions button {
+    width: var(--lib-alert-modal-action-btn-width);
+    height: var(--lib-alert-modal-action-btn-height);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: var(--lib-alert-modal-action-btn-radius);
+}

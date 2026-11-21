@@ -1,0 +1,24 @@
+@use '@angular/material' as mat;
+
+
+.lib-snackbar-panel {
+  .mat-mdc-snack-bar-surface,
+  .mdc-snackbar__surface {
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    min-width: auto;
+    border-radius: var(--snackbars-enabled-container-snackbar-container-shape, 0.25rem);
+  }
+
+  .mat-mdc-snack-bar-label,
+  .mdc-snackbar__label {
+    padding: 0;
+  }
+}
+
+html {
+  @include mat.snack-bar-overrides((
+    container-shape: var(--snackbars-enabled-container-snackbar-container-shape, 0.25rem),
+  ));
+}

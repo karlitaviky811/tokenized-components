@@ -1,0 +1,203 @@
+<article class="doc-page">
+
+  <!-- ── lib-progress-bar ─────────────────────────────────────────── -->
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-progress-bar</span>
+    <h1 class="comp-hero__name">Progress Bar</h1>
+    <p class="comp-hero__desc">
+      Indicador de progreso lineal siguiendo la especificación M3 Progress Indicators.
+      Soporta modo <code>determinate</code> (progreso conocido) e <code>indeterminate</code>
+      (duración desconocida). Dos variantes de grosor: <code>baseline</code> (4 dp) y
+      <code>thick</code> (8 dp).
+    </p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>mode</td><td>'determinate' | 'indeterminate'</td><td>'determinate'</td><td>Modo de progreso</td></tr>
+      <tr><td>value</td><td>number</td><td>0</td><td>Porcentaje (0–100). Solo aplica en modo determinate</td></tr>
+      <tr><td>thickness</td><td>'baseline' | 'thick'</td><td>'baseline'</td><td>Grosor del track: 4 dp (baseline) o 8 dp (thick)</td></tr>
+    </table>
+  </section>
+
+  <!-- ── Determinate ── -->
+  <section class="doc-section">
+    <h2>Determinate — baseline (4 dp)</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Valores de progreso</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <div class="bars-stack">
+          <lib-progress-bar mode="determinate" [value]="0" />
+          <lib-progress-bar mode="determinate" [value]="10" />
+          <lib-progress-bar mode="determinate" [value]="20" />
+          <lib-progress-bar mode="determinate" [value]="50" />
+          <lib-progress-bar mode="determinate" [value]="80" />
+          <lib-progress-bar mode="determinate" [value]="100" />
+        </div>
+      </div>
+      <div class="component-doc__footer">value: 0 · 10 · 20 · 50 · 80 · 100 · thickness="baseline"</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Determinate — thick (8 dp)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <div class="bars-stack">
+          <lib-progress-bar mode="determinate" thickness="thick" [value]="0" />
+          <lib-progress-bar mode="determinate" thickness="thick" [value]="10" />
+          <lib-progress-bar mode="determinate" thickness="thick" [value]="50" />
+          <lib-progress-bar mode="determinate" thickness="thick" [value]="80" />
+          <lib-progress-bar mode="determinate" thickness="thick" [value]="100" />
+        </div>
+      </div>
+      <div class="component-doc__footer">thickness="thick" · track de 8 dp</div>
+    </div>
+  </section>
+
+  <!-- ── Indeterminate ── -->
+  <section class="doc-section">
+    <h2>Indeterminate</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Baseline · Thick</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <div class="bars-stack">
+          <lib-progress-bar mode="indeterminate" />
+          <lib-progress-bar mode="indeterminate" thickness="thick" />
+        </div>
+      </div>
+      <div class="component-doc__footer">mode="indeterminate" · animación continua</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;!-- Determinate --&gt;
+&lt;lib-progress-bar mode="determinate" [value]="uploadProgress()" /&gt;
+&lt;lib-progress-bar mode="determinate" thickness="thick" [value]="50" /&gt;
+
+&lt;!-- Indeterminate --&gt;
+&lt;lib-progress-bar mode="indeterminate" /&gt;
+&lt;lib-progress-bar mode="indeterminate" thickness="thick" /&gt;</code></pre>
+  </section>
+
+  <section class="doc-section">
+    <h2>Tokens de diseño</h2>
+    <table class="api-table">
+      <tr><th>Token CSS</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>--progress-indicator-track-color</td><td>#e0e3e5</td><td>Color del track de fondo</td></tr>
+      <tr><td>--progress-indicator-active-indicator-color</td><td>#19d27e</td><td>Color del indicador activo</td></tr>
+      <tr><td>--progress-indicator-stop-indicator-color</td><td>#19d27e</td><td>Color del punto de parada (extremo del track)</td></tr>
+      <tr><td>--progress-indicator-track-shape</td><td>1000px</td><td>Border-radius del track (pill)</td></tr>
+      <tr><td>--progress-indicator-linear-track-thickness</td><td>4px</td><td>Alto del track — variante baseline</td></tr>
+      <tr><td>--progress-indicator-linear-thick-track-thickness</td><td>8px</td><td>Alto del track — variante thick</td></tr>
+      <tr><td>--progress-indicator-linear-stop-indicator-size</td><td>4px</td><td>Tamaño del dot indicador de fin</td></tr>
+    </table>
+  </section>
+
+  <!-- ── lib-progress-spinner ─────────────────────────────────────── -->
+  <div class="comp-hero" style="margin-top: 3rem;">
+    <span class="comp-hero__tag">lib-progress-spinner</span>
+    <h1 class="comp-hero__name">Progress Spinner</h1>
+    <p class="comp-hero__desc">
+      Indicador de progreso circular (M3). Soporta modo <code>determinate</code> e
+      <code>indeterminate</code>. Tamaños: <code>baseline</code> (40 dp, stroke 4 dp) y
+      <code>thick</code> (44 dp, stroke 8 dp).
+    </p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr><th>Input</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>mode</td><td>'determinate' | 'indeterminate'</td><td>'determinate'</td><td>Modo de progreso</td></tr>
+      <tr><td>value</td><td>number</td><td>0</td><td>Porcentaje (0–100). Solo aplica en modo determinate</td></tr>
+      <tr><td>thickness</td><td>'baseline' | 'thick'</td><td>'baseline'</td><td>Tamaño y grosor del spinner</td></tr>
+    </table>
+  </section>
+
+  <!-- ── Circular Determinate ── -->
+  <section class="doc-section">
+    <h2>Determinate</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Baseline (4 dp, 40 px)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview spinners-row">
+        <lib-progress-spinner mode="determinate" [value]="0" />
+        <lib-progress-spinner mode="determinate" [value]="10" />
+        <lib-progress-spinner mode="determinate" [value]="30" />
+        <lib-progress-spinner mode="determinate" [value]="50" />
+        <lib-progress-spinner mode="determinate" [value]="80" />
+        <lib-progress-spinner mode="determinate" [value]="100" />
+      </div>
+      <div class="component-doc__footer">value: 0 · 10 · 30 · 50 · 80 · 100 · thickness="baseline"</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Thick (8 dp, 44 px)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview spinners-row">
+        <lib-progress-spinner mode="determinate" thickness="thick" [value]="0" />
+        <lib-progress-spinner mode="determinate" thickness="thick" [value]="30" />
+        <lib-progress-spinner mode="determinate" thickness="thick" [value]="50" />
+        <lib-progress-spinner mode="determinate" thickness="thick" [value]="80" />
+        <lib-progress-spinner mode="determinate" thickness="thick" [value]="100" />
+      </div>
+      <div class="component-doc__footer">thickness="thick" · stroke 8 dp · diámetro 44 px</div>
+    </div>
+  </section>
+
+  <!-- ── Circular Indeterminate ── -->
+  <section class="doc-section">
+    <h2>Indeterminate</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Baseline · Thick</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview spinners-row">
+        <lib-progress-spinner mode="indeterminate" />
+        <lib-progress-spinner mode="indeterminate" thickness="thick" />
+      </div>
+      <div class="component-doc__footer">mode="indeterminate" · arc animado</div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;!-- Determinate --&gt;
+&lt;lib-progress-spinner mode="determinate" [value]="progress()" /&gt;
+&lt;lib-progress-spinner mode="determinate" thickness="thick" [value]="75" /&gt;
+
+&lt;!-- Indeterminate --&gt;
+&lt;lib-progress-spinner mode="indeterminate" /&gt;
+&lt;lib-progress-spinner mode="indeterminate" thickness="thick" /&gt;</code></pre>
+  </section>
+
+  <section class="doc-section">
+    <h2>Tokens de diseño</h2>
+    <table class="api-table">
+      <tr><th>Token CSS</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>--progress-indicator-track-color</td><td>#e0e3e5</td><td>Color del anillo de fondo</td></tr>
+      <tr><td>--progress-indicator-active-indicator-color</td><td>#19d27e</td><td>Color del arco activo</td></tr>
+    </table>
+  </section>
+
+</article>

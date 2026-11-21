@@ -1,0 +1,96 @@
+<mat-form-field
+  class="lib-select-field__field"
+  [class.lib-select-field__field--no-subscript]="hideSubscript()"
+  [appearance]="matAppearance()"
+  [style.width]="widthStyle() ?? null"
+>
+  @if (label()) {
+  <mat-label>{{ label() }}</mat-label>
+  }
+  <mat-select
+    #matSelectRef
+    [value]="displayValue()"
+    [multiple]="isMultiple()"
+    [disabled]="disabled()"
+    [required]="required()"
+    [placeholder]="placeholder()"
+    [errorStateMatcher]="errorStateMatcher"
+    panelClass="lib-select-field-panel"
+    (openedChange)="onPanelOpenChange($event)"
+    (selectionChange)="onSelectionChange($event)"
+  >
+    @if (isMultiple()) {
+    <mat-select-trigger
+      >{{ multiTriggerLabel() || placeholder() }}</mat-select-trigger
+    >
+    } @if (filterable()) {
+    <div
+      class="lib-select-field__filter-option"
+      (mousedown)="$event.stopPropagation()"
+    >
+      <input
+        #filterInput
+        class="lib-select-field__filter-input"
+        type="text"
+        [placeholder]="filterPlaceholder()"
+        [value]="filterTerm()"
+        (mousedown)="$event.stopPropagation()"
+        (click)="$event.stopPropagation()"
+        (input)="onFilterInput($event)"
+        (keydown)="onFilterKeydown($event)"
+      />
+    </div>
+    }
+    <div class="lib-select-field__options-container app-scrollbar-figma">
+      @for (row of rows(); track trackByRow($index, row)) {
+        <div class="lib-select-field__row">
+          @if (row.kind === 'selectAll') {
+            <div
+              class="lib-select-field__select-all-option"
+              role="button"
+              tabindex="0"
+              (mousedown)="$event.stopPropagation()"
+              (click)="toggleAllSelection(); $event.stopPropagation()"
+              (keydown.enter)="toggleAllSelection(); $event.preventDefault(); $event.stopPropagation()"
+              (keydown.space)="toggleAllSelection(); $event.preventDefault(); $event.stopPropagation()"
+            >
+              <span class="lib-select-field__option-row">
+                <lib-checkbox
+                  [checked]="allSelected()"
+                  [indeterminate]="selectAllIndeterminate()"
+                  (click)="$event.stopPropagation()"
+                  (checkedChange)="onSelectAllCheckedChange($event)"
+                />
+                <span>{{ selectAllLabel() }}</span>
+              </span>
+            </div>
+          } @else {
+            <mat-option [value]="row.option.value">
+              @if (isMultiple()) {
+                <span
+                  class="lib-select-field__option-row"
+                  (click)="onOptionCheckedChange(row.option.value, !isSelected(row.option.value)); $event.stopPropagation()"
+                >
+                  <lib-checkbox
+                    [checked]="isSelected(row.option.value)"
+                    (click)="$event.stopPropagation()"
+                    (checkedChange)="onOptionCheckedChange(row.option.value, $event)"
+                  />
+                  <span>{{ row.option.label }}</span>
+                </span>
+              } @else {
+                {{ row.option.label }}
+              }
+            </mat-option>
+          }
+        </div>
+      }
+    </div>
+  </mat-select>
+  <span class="lib-select-field__arrow-host" matSuffix matRipple [matRippleCentered]="true" [matRippleColor]="'rgba(67, 71, 73, 0.12)'">
+    <mat-icon class="lib-select-field__arrow">keyboard_arrow_down</mat-icon>
+  </span>
+  @if (errorMessage()) {
+    <mat-error>{{ errorMessage() }}</mat-error>
+  }
+</mat-form-field>

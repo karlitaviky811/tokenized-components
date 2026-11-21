@@ -1,0 +1,126 @@
+@use '@angular/material' as mat;
+
+html {
+  --Text-fields-outlined-enabled-container-outlined-text-field-container-shape: var(--text-fields-outlined-enabled-container-outlined-text-field-container-shape, 0.25rem);
+  --Text-fields-outlined-enabled-outline-outlined-text-field-outline-width:
+    0.0625rem;
+  --Text-fields-outlined-enabled-outline-outline-text-field-outline-color: var(--color-text-fields-outlined-enabled-outline-outline-text-field-outline-color, #74787A);
+
+  @include mat.form-field-overrides((
+
+    filled-active-indicator-height: var(--text-fields-filled-enabled-active-indicator-filled-text-field-active-indicator-height, 0.0625rem),
+    //filled-focus-active-indicator-height: var(--text-fields-filled-focused-active-indicator-filled-text-field-focus-active-indicator-height),
+        filled-focus-active-indicator-height:  0.1875rem,
+    filled-container-shape: var(--text-fields-filled-enabled-container-filled-text-field-container-shape),
+    filled-active-indicator-color: var(--color-text-fields-filled-enabled-active-indicator-filled-text-field-active-indicator-color),
+    filled-caret-color: var(--color-text-fields-filled-enabled-caret-filled-text-field-caret-color),
+    filled-container-color: var(--color-text-fields-filled-enabled-container-filled-text-field-container-color),
+    filled-disabled-active-indicator-color: color-mix(in srgb,
+      var(--color-text-fields-filled-disabled-active-indicator-filled-text-field-disabled-active-indicator-color, #181c1e)
+      calc(var(--text-fields-filled-disabled-active-indicator-filled-text-field-disabled-active-indicator-opacity) / 1rem * 16%),
+      transparent),
+    filled-disabled-container-color: color-mix(in srgb,
+      var(--color-text-fields-filled-disabled-container-filled-text-field-disabled-container-color, #181c1e)
+      calc(var(--text-fields-filled-disabled-container-filled-text-field-disabled-container-opacity) / 1rem * 16%),
+      transparent),
+    filled-disabled-input-text-color: color-mix(in srgb,
+      var(--color-text-fields-filled-disabled-input-text-filled-text-field-disabled-input-text-color, #181c1e)
+      calc(var(--text-fields-filled-disabled-input-text-filled-text-field-disabled-input-text-opacity) / 1rem * 16%),
+      transparent),
+    filled-disabled-label-text-color: color-mix(in srgb,
+      var(--color-text-fields-filled-disabled-label-text-filled-text-field-disabled-label-text-color, #181c1e)
+      calc(var(--text-fields-filled-disabled-label-text-filled-text-field-disabled-label-text-opacity) / 1rem * 16%),
+      transparent),
+    filled-error-active-indicator-color: var(--color-text-fields-filled-error-active-indicator-filled-text-field-error-active-indicator-color),
+    filled-error-caret-color: var(--color-text-fields-filled-error-caret-filled-text-field-error-caret-color),
+    filled-error-focus-active-indicator-color: var(--color-text-fields-filled-error-focus-filled-text-field-error-focus-active-indicator-color),
+    filled-error-focus-label-text-color: var(--color-text-fields-filled-error-focus-filled-text-field-error-focus-label-text-color),
+    filled-error-hover-active-indicator-color: var(--color-text-fields-filled-error-hover-filled-text-field-error-hover-active-indicator-color),
+    filled-error-hover-label-text-color: var(--color-text-fields-filled-error-hover-filled-text-field-error-hover-label-text-color),
+    filled-error-label-text-color: var(--color-text-fields-filled-error-label-text-filled-text-field-error-label-text-color),
+    filled-focus-active-indicator-color: var(--color-text-fields-filled-focused-active-indicator-filled-text-field-focus-active-indicator-color),
+    filled-focus-label-text-color: var(--color-text-fields-filled-focused-label-text-filled-text-field-focus-label-text-color),
+    filled-hover-active-indicator-color: var(--color-text-fields-filled-hover-active-indicator-filled-text-field-hover-active-indicator-color),
+    filled-hover-label-text-color: var(--color-text-fields-filled-hover-label-text-filled-text-field-hover-label-text-color),
+    filled-input-text-color: var(--color-text-fields-filled-enabled-input-text-filled-text-field-input-text-color),
+    filled-input-text-placeholder-color: var(--color-text-fields-filled-enabled-input-text-filled-text-field-input-text-placeholder-color),
+    filled-label-text-color: var(--color-text-fields-filled-enabled-label-text-filled-text-field-label-text-color),
+    filled-label-text-font: var(--text-fields-filled-enabled-label-text-filled-text-field-label-text-font),
+    filled-label-text-size: var(--text-fields-filled-enabled-label-text-filled-text-field-label-text-size),
+    filled-label-text-tracking: var(--text-fields-filled-enabled-label-text-filled-text-field-label-text-tracking),
+    filled-label-text-weight: var(--text-fields-filled-enabled-label-text-filled-text-field-label-text-weight),
+    filled-label-display: var(--text-fields-filled-enabled-label-text-filled-text-field-label-display),
+    filled-with-label-container-padding-top: var(--text-fields-filled-enabled-label-text-filled-text-field-with-label-container-padding-top),
+    filled-with-label-container-padding-bottom: var(--text-fields-filled-enabled-label-text-filled-text-field-with-label-container-padding-bottom),
+    outlined-outline-width: 0.0625rem,
+    outlined-focus-outline-width: var(--text-fields-outlined-focused-outline-outlined-text-field-focus-outline-width),
+    outlined-container-shape: var(--Text-fields-outlined-enabled-container-outlined-text-field-container-shape),
+    outlined-caret-color: var( --Text-fields-outlined-enabled-outline-outline-text-field-outline-color),
+    outlined-disabled-input-text-color: color-mix(in srgb,
+      var(--color-text-fields-outlined-disabled-input-text-outlined-text-field-disabled-input-text-color)
+      calc(var(--text-fields-outlined-disabled-input-text-outlined-text-field-disabled-input-text-opacity) / 1rem * 16%),
+      transparent),
+    outlined-disabled-label-text-color: color-mix(in srgb,
+      var(--color-text-fields-outlined-disabled-label-text-outlined-text-field-disabled-label-text-color)
+      calc(var(--text-fields-outlined-disabled-label-text-outlined-text-field-disabled-label-text-opacity) / 1rem * 16%),
+      transparent),
+    disabled-input-text-placeholder-color: color-mix(in srgb,
+      var(--color-text-fields-outlined-disabled-input-text-outlined-text-field-disabled-input-text-color)
+      calc(var(--text-fields-outlined-disabled-input-text-outlined-text-field-disabled-input-text-opacity) / 1rem * 16%),
+      transparent),
+    disabled-leading-icon-color: color-mix(in srgb,
+      var(--color-text-fields-outlined-disabled-leading-icon-outlined-text-field-disabled-leading-icon-color)
+      calc(var(--text-fields-outlined-disabled-leading-icon-outlined-text-field-disabled-leading-icon-opacity, 38) / 1rem * 16%),
+      transparent),
+    disabled-select-arrow-color: color-mix(in srgb,
+      var(--color-text-fields-outlined-disabled-leading-icon-outlined-text-field-disabled-leading-icon-color)
+      calc(var(--text-fields-outlined-disabled-leading-icon-outlined-text-field-disabled-leading-icon-opacity, 38) / 1rem * 16%),
+      transparent),
+    disabled-trailing-icon-color: color-mix(in srgb,
+      var(--color-text-fields-outlined-disabled-trailing-icon-outlined-text-field-disabled-trailing-icon-color)
+      calc(var(--text-fields-outlined-disabled-trailing-icon-outlined-text-field-disabled-trailing-icon-opacity, 38) / 1rem * 16%),
+      transparent),
+    outlined-error-caret-color: var(--color-text-fields-outlined-enabled-caret-outlined-text-field-error-focus-caret-color),
+    outlined-error-focus-label-text-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color),
+    outlined-error-focus-outline-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color),
+    outlined-error-hover-label-text-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color),
+    outlined-error-hover-outline-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color),
+    outlined-error-label-text-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color),
+    outlined-error-outline-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color),
+    error-text-color: var(--color-text-fields-outlined-error-outline-outlined-text-field-error-outline-color),
+    outlined-focus-label-text-color: var(--color-text-fields-outlined-focused-label-text-outlined-text-field-focus-label-text-color),
+    outlined-focus-outline-color: var(--color-text-fields-outlined-focused-outline-outlined-text-field-focus-outline-color),
+    outlined-hover-outline-color: var(--color-text-fields-outlined-hovered-outline-outlined-text-field-hover-outline-color),
+    outlined-input-text-color: var(--color-text-fields-outlined-enabled-input-text-outlined-text-field-input-text-color),
+    outlined-input-text-placeholder-color: var(--color-text-fields-outlined-enabled-input-text-outlined-text-field-input-text-placeholder-color),
+    outlined-label-text-color: var(--color-text-fields-outlined-enabled-label-text-outlined-text-field-label-text-color),
+    outlined-outline-color: var(--color-text-fields-outlined-enabled-outline-outline-text-field-outline-color),
+    outlined-label-text-font: var(--text-fields-outlined-enabled-label-text-outlined-text-field-label-text-font),
+    outlined-label-text-size: var(--text-fields-outlined-enabled-label-text-outlined-text-field-label-text-size),
+    outlined-label-text-tracking: var(--text-fields-outlined-enabled-label-text-outlined-text-field-label-text-tracking),
+    outlined-label-text-populated-size: var(--text-fields-outlined-enabled-label-text-outlined-text-field-label-text-populated-size, 0.75rem),
+    subscript-text-font: var(--text-fields-outlined-enabled-supporting-text-outlined-text-field-supporting-text-font),
+    subscript-text-size: 0.75rem,
+    subscript-text-line-height: var(--text-fields-outlined-enabled-supporting-text-outlined-text-field-supporting-text-line-height),
+    subscript-text-tracking: var(--text-fields-outlined-enabled-supporting-text-outlined-text-field-supporting-text-tracking),
+    subscript-text-weight: var(--text-fields-outlined-enabled-supporting-text-outlined-text-field-supporting-text-weight),
+  ));
+
+  .mat-mdc-form-field .mat-mdc-form-field-hint-wrapper,
+  .mat-mdc-form-field .mat-mdc-form-field-hint,
+  .mat-mdc-form-field .mat-mdc-form-field-hint-start,
+  .mat-mdc-form-field .mat-mdc-form-field-hint-end {
+    color: var(--color-text-fields-outlined-enabled-supporting-text-outlined-text-field-supporting-text-color);
+  }
+
+  .mat-mdc-form-field.mat-form-field-disabled {
+    .mat-icon,
+    .mat-mdc-form-field-icon-wrapper svg {
+      opacity: calc(var(--text-fields-outlined-disabled-input-text-outlined-text-field-disabled-input-text-opacity) / 1rem * 16 / 100);
+    }
+    .mat-mdc-form-field-subscript-wrapper,
+    mat-hint {
+      opacity: calc(var(--text-fields-outlined-disabled-input-text-outlined-text-field-disabled-input-text-opacity) / 1rem * 16 / 100);
+    }
+  }
+}

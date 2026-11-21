@@ -1,0 +1,52 @@
+<ng-template #inputContent>
+  <div class="lib-mat-btn__content">
+    @if (iconPosition() === 'leading' && icon()) {
+      <mat-icon>{{ icon() }}</mat-icon>
+    }
+    @if (label()) {
+      <span [class]="labelClass()">
+        {{ label() }}
+        @if (badgeVisible() && badgeMode() === 'inline') {
+          <lib-badge
+            class="lib-mat-btn__badge--inline"
+            [label]="badgeCount().toString()"
+            [size]="badgeSize()"
+          ></lib-badge>
+        }
+      </span>
+    }
+    @if (iconPosition() === 'trailing' && icon()) {
+      <mat-icon>{{ icon() }}</mat-icon>
+    }
+  </div>
+</ng-template>
+
+<button
+  [matButton]="variant()"
+  class="lib-mat-btn"
+  [attr.type]="type()"
+  [disabled]="disabled()"
+  [ngClass]="classes()"
+  [attr.aria-pressed]="toggle() ? selected() : null"
+  (pointerdown)="onPressStart()"
+  (pointerup)="onPressEnd()"
+  (pointerleave)="onPressCancel()"
+  (pointercancel)="onPressCancel()"
+  (keydown)="onKeyDown($event)"
+  (keyup)="onKeyUp()"
+  (blur)="onPressEnd()"
+>
+  @if (hasInputContent()) {
+    <ng-container [ngTemplateOutlet]="inputContent"></ng-container>
+  } @else {
+    <ng-content></ng-content>
+  }
+
+  @if (badgeVisible() && badgeMode() === 'overlay') {
+    <lib-badge
+      class="lib-mat-btn__badge"
+      [label]="badgeCount().toString()"
+      [size]="badgeSize()"
+    ></lib-badge>
+  }
+</button>

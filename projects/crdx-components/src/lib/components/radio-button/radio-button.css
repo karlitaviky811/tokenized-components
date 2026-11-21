@@ -1,0 +1,4 @@
+﻿:host {
+  display: inline-flex;
+  --mat-radio-state-layer-size: var(--radio-button-enabled-state-layer-radio-button-state-layer-size, 40px);
+}

@@ -1,0 +1,807 @@
+<article class="doc-page">
+  <div class="comp-hero">
+    <span class="comp-hero__tag">lib-button</span>
+    <h1 class="comp-hero__name">Button</h1>
+    <p class="comp-hero__desc">
+      Botón con variantes de Material 3, formas, tamaños y soporte de toggle.
+    </p>
+  </div>
+
+  <section class="doc-section">
+    <h2>API</h2>
+    <table class="api-table">
+      <tr>
+        <th>Input</th>
+        <th>Tipo</th>
+        <th>Default</th>
+        <th>Descripción</th>
+      </tr>
+      <tr>
+        <td>label</td>
+        <td>string</td>
+        <td>''</td>
+        <td>Texto del botón</td>
+      </tr>
+      <tr>
+        <td>variant</td>
+        <td>'filled' | 'outlined' | 'tonal' | 'text' | 'elevated'</td>
+        <td>'filled'</td>
+        <td>Variante visual</td>
+      </tr>
+      <tr>
+        <td>size</td>
+        <td>'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'</td>
+        <td>'medium'</td>
+        <td>Tamaño</td>
+      </tr>
+      <tr>
+        <td>shape</td>
+        <td>'round' | 'square'</td>
+        <td>'round'</td>
+        <td>Forma del borde</td>
+      </tr>
+      <tr>
+        <td>fullWidth</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Ocupa 100% del contenedor</td>
+      </tr>
+      <tr>
+        <td>disabled</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Estado deshabilitado</td>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td>'button' | 'submit' | 'reset'</td>
+        <td>'button'</td>
+        <td>Tipo HTML nativo</td>
+      </tr>
+      <tr>
+        <td>toggle</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Habilita modo toggle</td>
+      </tr>
+      <tr>
+        <td>selected</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Estado seleccionado (toggle)</td>
+      </tr>
+      <tr>
+        <td>icon</td>
+        <td>string</td>
+        <td>''</td>
+        <td>Nombre del ícono</td>
+      </tr>
+      <tr>
+        <td>iconPosition</td>
+        <td>'leading' | 'trailing'</td>
+        <td>'leading'</td>
+        <td>Posición del ícono</td>
+      </tr>
+      <tr>
+        <td>contentAlign</td>
+        <td>'start' | 'center' | 'end'</td>
+        <td>'center'</td>
+        <td>Alineación del contenido</td>
+      </tr>
+      <tr>
+        <td>badgeCount</td>
+        <td>number | string</td>
+        <td>0</td>
+        <td>Número del badge de notificación</td>
+      </tr>
+      <tr>
+        <td>badgeVisible</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>Muestra el badge de notificación</td>
+      </tr>
+      <tr>
+        <td>badgePosition</td>
+        <td>'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'</td>
+        <td>'top-right'</td>
+        <td>Posición del badge</td>
+      </tr>
+      <tr>
+        <td>badgeSize</td>
+        <td>'large' | 'small'</td>
+        <td>'small'</td>
+        <td>Tamaño del badge (small=dot, large=número)</td>
+      </tr>
+      <tr>
+        <td>badgeMode</td>
+        <td>'overlay' | 'inline'</td>
+        <td>'overlay'</td>
+        <td>Modo del badge: overlay=esquina, inline=al lado del label</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Variantes × Tamaños</h2>
+
+    <!-- FILLED -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Filled</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div
+        class="component-doc__preview"
+        style="flex-direction: column; gap: 1rem"
+      >
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="XSmall"
+            variant="filled"
+            shape="round"
+            size="xsmall"
+            icon="add_circle"
+          />
+          <lib-button
+            label="Small"
+            variant="filled"
+            shape="round"
+            size="small"
+            icon="add_circle"
+          />
+          <lib-button
+            label="Medium"
+            variant="filled"
+            shape="round"
+            size="medium"
+            icon="add_circle"
+          />
+          <lib-button
+            label="Large"
+            variant="filled"
+            shape="round"
+            size="large"
+            icon="add_circle"
+          />
+          <lib-button
+            label="XLarge"
+            variant="filled"
+            shape="round"
+            size="xlarge"
+            icon="add_circle"
+          />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="XSmall"
+            variant="filled"
+            shape="square"
+            size="xsmall"
+            icon="add"
+          />
+          <lib-button
+            label="Small"
+            variant="filled"
+            shape="square"
+            size="small"
+            icon="add"
+          />
+          <lib-button
+            label="Medium"
+            variant="filled"
+            shape="square"
+            size="medium"
+            icon="add"
+          />
+          <lib-button
+            label="Large"
+            variant="filled"
+            shape="square"
+            size="large"
+            icon="add"
+          />
+          <lib-button
+            label="XLarge"
+            variant="filled"
+            shape="square"
+            size="xlarge"
+            icon="add"
+          />
+        </div>
+      </div>
+      <div class="component-doc__footer">
+        Type=Filled — Fila 1: Round · Fila 2: Square
+      </div>
+    </div>
+
+    <!-- OUTLINED -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Outlined</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div
+        class="component-doc__preview"
+        style="flex-direction: column; gap: 1rem"
+      >
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="XSmall"
+            variant="outlined"
+            shape="round"
+            size="xsmall"
+            icon="add"
+          />
+          <lib-button
+            label="Small"
+            variant="outlined"
+            shape="round"
+            size="small"
+            icon="add"
+          />
+          <lib-button
+            label="Medium"
+            variant="outlined"
+            shape="round"
+            size="medium"
+            icon="add"
+          />
+          <lib-button
+            label="Large"
+            variant="outlined"
+            shape="round"
+            size="large"
+            icon="add"
+          />
+          <lib-button
+            label="XLarge"
+            variant="outlined"
+            shape="round"
+            size="xlarge"
+            icon="add"
+          />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="XSmall"
+            variant="outlined"
+            shape="square"
+            size="xsmall"
+            icon="add"
+          />
+          <lib-button
+            label="Small"
+            variant="outlined"
+            shape="square"
+            size="small"
+            icon="add"
+          />
+          <lib-button
+            label="Medium"
+            variant="outlined"
+            shape="square"
+            size="medium"
+            icon="add"
+          />
+          <lib-button
+            label="Large"
+            variant="outlined"
+            shape="square"
+            size="large"
+            icon="add"
+          />
+          <lib-button
+            label="XLarge"
+            variant="outlined"
+            shape="square"
+            size="xlarge"
+            icon="add"
+          />
+        </div>
+      </div>
+      <div class="component-doc__footer">
+        Type=Outlined — Fila 1: Round · Fila 2: Square
+      </div>
+    </div>
+
+    <!-- TONAL -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Tonal</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div
+        class="component-doc__preview"
+        style="flex-direction: column; gap: 1rem"
+      >
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="XSmall"
+            variant="tonal"
+            shape="round"
+            size="xsmall"
+            icon="add"
+          />
+          <lib-button
+            label="Small"
+            variant="tonal"
+            shape="round"
+            size="small"
+            icon="add"
+          />
+          <lib-button
+            label="Medium"
+            variant="tonal"
+            shape="round"
+            size="medium"
+            icon="add"
+          />
+          <lib-button
+            label="Large"
+            variant="tonal"
+            shape="round"
+            size="large"
+            icon="add"
+          />
+          <lib-button
+            label="XLarge"
+            variant="tonal"
+            shape="round"
+            size="xlarge"
+            icon="add"
+          />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="XSmall"
+            variant="tonal"
+            shape="square"
+            size="xsmall"
+            icon="add"
+          />
+          <lib-button
+            label="Small"
+            variant="tonal"
+            shape="square"
+            size="small"
+            icon="add"
+          />
+          <lib-button
+            label="Medium"
+            variant="tonal"
+            shape="square"
+            size="medium"
+            icon="add"
+          />
+          <lib-button
+            label="Large"
+            variant="tonal"
+            shape="square"
+            size="large"
+            icon="add"
+          />
+          <lib-button
+            label="XLarge"
+            variant="tonal"
+            shape="square"
+            size="xlarge"
+            icon="add"
+          />
+        </div>
+      </div>
+      <div class="component-doc__footer">
+        Type=Tonal — Fila 1: Round · Fila 2: Square
+      </div>
+    </div>
+
+    <!-- TEXT -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Text</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div
+        class="component-doc__preview"
+        style="flex-direction: column; gap: 1rem"
+      >
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="XSmall"
+            variant="text"
+            shape="round"
+            size="xsmall"
+            icon="add"
+          />
+          <lib-button
+            label="Small"
+            variant="text"
+            shape="round"
+            size="small"
+            icon="add"
+          />
+          <lib-button
+            label="Medium"
+            variant="text"
+            shape="round"
+            size="medium"
+            icon="add"
+          />
+          <lib-button
+            label="Large"
+            variant="text"
+            shape="round"
+            size="large"
+            icon="add"
+          />
+          <lib-button
+            label="XLarge"
+            variant="text"
+            shape="round"
+            size="xlarge"
+            icon="add"
+          />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="XSmall"
+            variant="text"
+            shape="square"
+            size="xsmall"
+            icon="add"
+          />
+          <lib-button
+            label="Small"
+            variant="text"
+            shape="square"
+            size="small"
+            icon="add"
+          />
+          <lib-button
+            label="Medium"
+            variant="text"
+            shape="square"
+            size="medium"
+            icon="add"
+          />
+          <lib-button
+            label="Large"
+            variant="text"
+            shape="square"
+            size="large"
+            icon="add"
+          />
+          <lib-button
+            label="XLarge"
+            variant="text"
+            shape="square"
+            size="xlarge"
+            icon="add"
+          />
+        </div>
+      </div>
+      <div class="component-doc__footer">
+        Type=Text — Fila 1: Round · Fila 2: Square
+      </div>
+    </div>
+
+    <!-- ELEVATED -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Elevated</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div
+        class="component-doc__preview"
+        style="flex-direction: column; gap: 1rem"
+      >
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="XSmall"
+            variant="elevated"
+            shape="round"
+            size="xsmall"
+            icon="add"
+          />
+          <lib-button
+            label="Small"
+            variant="elevated"
+            shape="round"
+            size="small"
+            icon="add"
+          />
+          <lib-button
+            label="Medium"
+            variant="elevated"
+            shape="round"
+            size="medium"
+            icon="add"
+          />
+          <lib-button
+            label="Large"
+            variant="elevated"
+            shape="round"
+            size="large"
+            icon="add"
+          />
+          <lib-button
+            label="XLarge"
+            variant="elevated"
+            shape="round"
+            size="xlarge"
+            icon="add"
+          />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="XSmall"
+            variant="elevated"
+            shape="square"
+            size="xsmall"
+            icon="add"
+          />
+          <lib-button
+            label="Small"
+            variant="elevated"
+            shape="square"
+            size="small"
+            icon="add"
+          />
+          <lib-button
+            label="Medium"
+            variant="elevated"
+            shape="square"
+            size="medium"
+            icon="add"
+          />
+          <lib-button
+            label="Large"
+            variant="elevated"
+            shape="square"
+            size="large"
+            icon="add"
+          />
+          <lib-button
+            label="XLarge"
+            variant="elevated"
+            shape="square"
+            size="xlarge"
+            icon="add"
+          />
+        </div>
+      </div>
+      <div class="component-doc__footer">
+        Type=Elevated — Fila 1: Round · Fila 2: Square
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Badge de notificación</h2>
+
+    <!-- OVERLAY -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"
+          ><span>❖</span> Overlay (esquina)</span
+        >
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div
+        class="component-doc__preview"
+        style="flex-direction: column; gap: 1rem"
+      >
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            icon="notifications"
+            variant="text"
+            size="medium"
+            [badgeVisible]="true"
+            badgeMode="overlay"
+            badgePosition="top-right"
+          />
+          <lib-button
+            icon="notifications"
+            variant="text"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="5"
+            badgeSize="large"
+            badgeMode="overlay"
+            badgePosition="top-right"
+          />
+          <lib-button
+            icon="mail"
+            variant="tonal"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="12"
+            badgeSize="large"
+            badgeMode="overlay"
+            badgePosition="top-right"
+          />
+          <lib-button
+            icon="favorite"
+            variant="filled"
+            size="medium"
+            [badgeVisible]="true"
+            badgeMode="overlay"
+            badgePosition="top-right"
+          />
+          <lib-button
+            icon="shopping_cart"
+            variant="outlined"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="3"
+            badgeSize="large"
+            badgeMode="overlay"
+            badgePosition="top-right"
+          />
+        </div>
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="Label"
+            icon="add"
+            variant="text"
+            size="medium"
+            [badgeVisible]="true"
+            badgeMode="overlay"
+            badgePosition="top-right"
+          />
+          <lib-button
+            label="Label"
+            icon="add"
+            variant="filled"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="3"
+            badgeSize="large"
+            badgeMode="overlay"
+            badgePosition="top-right"
+          />
+          <lib-button
+            label="Label"
+            icon="add"
+            variant="tonal"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="3"
+            badgeSize="large"
+            badgeMode="overlay"
+            badgePosition="top-right"
+          />
+          <lib-button
+            label="Label"
+            icon="add"
+            variant="outlined"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="3"
+            badgeSize="large"
+            badgeMode="overlay"
+            badgePosition="top-right"
+          />
+        </div>
+      </div>
+      <div class="component-doc__footer">
+        Badge overlay: dot (small) y con número (large) en la esquina superior
+        derecha
+      </div>
+    </div>
+
+    <!-- INLINE -->
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"
+          ><span>❖</span> Inline (al lado del label)</span
+        >
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <div class="variant-row" style="margin-bottom: 0">
+          <lib-button
+            label="Label"
+            icon="add"
+            variant="text"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="3"
+            badgeSize="large"
+            badgeMode="inline"
+          />
+          <lib-button
+            label="Label"
+            icon="add"
+            variant="filled"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="3"
+            badgeSize="large"
+            badgeMode="inline"
+          />
+          <lib-button
+            label="Label"
+            icon="add"
+            variant="tonal"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="3"
+            badgeSize="large"
+            badgeMode="inline"
+          />
+          <lib-button
+            label="Label"
+            icon="add"
+            variant="outlined"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="3"
+            badgeSize="large"
+            badgeMode="inline"
+          />
+          <lib-button
+            label="Label"
+            icon="add"
+            variant="elevated"
+            size="medium"
+            [badgeVisible]="true"
+            [badgeCount]="3"
+            badgeSize="large"
+            badgeMode="inline"
+          />
+        </div>
+      </div>
+      <div class="component-doc__footer">
+        Badge inline: número al lado del texto del botón
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Estados</h2>
+    <div class="variant-row">
+      <lib-button
+        label="Disabled Filled"
+        variant="filled"
+        shape="round"
+        size="medium"
+        [disabled]="true"
+      />
+      <lib-button
+        label="Disabled Outlined"
+        variant="outlined"
+        shape="round"
+        size="medium"
+        [disabled]="true"
+      />
+      <lib-button
+        label="Disabled Tonal"
+        variant="tonal"
+        shape="round"
+        size="medium"
+        [disabled]="true"
+      />
+      <lib-button
+        label="Full Width"
+        variant="filled"
+        shape="square"
+        size="medium"
+        [fullWidth]="true"
+      />
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>&lt;lib-button
+  label="Guardar"
+  variant="filled"
+  shape="square"
+  size="medium"
+  [fullWidth]="true"
+  [disabled]="form.invalid"
+  type="submit"
+/&gt;</code></pre>
+  </section>
+</article>
+

@@ -1,0 +1,77 @@
+<aside
+  class="lib-sidebar"
+  role="navigation"
+  aria-label="Navegación principal"
+  [class.lib-sidebar--show-labels]="hasLabels()"
+  [class.lib-sidebar--floating]="type() === 'floating'"
+  [class.lib-sidebar--align-middle]="alignment() === 'middle'"
+>
+  <div class="lib-sidebar__header">
+    <ng-content select="[sidebar-header]"></ng-content>
+  </div>
+
+  <nav class="lib-sidebar__nav" aria-label="Secciones">
+    <ul class="lib-sidebar__list">
+      @for (item of items(); track trackById($index, item)) {
+        <li
+          class="lib-sidebar__item"
+          [class.lib-sidebar__item--selected]="isSelected(item)"
+          [class.lib-sidebar__item--disabled]="item.disabled"
+        >
+          <button
+            type="button"
+            class="lib-sidebar__button"
+            [class.lib-sidebar__button--expanded]="hasLabels()"
+            [class.lib-sidebar__button--selected]="isSelected(item)"
+            [attr.aria-label]="item.ariaLabel ?? item.label"
+            [attr.aria-current]="isSelected(item) ? 'page' : null"
+            [attr.title]="shouldShowLabel(item) ? null : (item.ariaLabel || item.label)"
+            [disabled]="item.disabled"
+            (click)="onSelect(item)"
+          >
+            <span class="lib-sidebar__active" [class.lib-sidebar__active--expanded]="hasLabels()">
+              @if (iconRef(item); as iconSrc) {
+                <span class="lib-sidebar__icon" aria-hidden="true">
+                  <ng-container
+                    [ngTemplateOutlet]="renderIcon"
+                    [ngTemplateOutletContext]="{ $implicit: iconSrc, svgClass: 'lib-sidebar__icon-svg', imgClass: 'lib-sidebar__icon-img' }"
+                  ></ng-container>
+                </span>
+              }
+
+              @if (shouldShowLabel(item)) {
+                <span class="lib-sidebar__label">{{ item.label }}</span>
+              }
+
+              @if (accessoryRef(item); as accessorySrc) {
+                <span class="lib-sidebar__accessory" aria-hidden="true">
+                  <ng-container
+                    [ngTemplateOutlet]="renderIcon"
+                    [ngTemplateOutletContext]="{ $implicit: accessorySrc, svgClass: 'lib-sidebar__accessory-svg', imgClass: 'lib-sidebar__accessory-img' }"
+                  ></ng-container>
+                </span>
+              }
+            </span>
+          </button>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <div class="lib-sidebar__footer">
+    <ng-content select="[sidebar-footer]"></ng-content>
+  </div>
+
+  <ng-template #renderIcon let-src let-svgClass="svgClass" let-imgClass="imgClass">
+    @if (isSprite(src)) {
+      <svg [attr.class]="svgClass">
+        <use [attr.href]="src"></use>
+      </svg>
+    } @else {
+      <span
+        [attr.class]="imgClass"
+        [style.--lib-sidebar-icon-src]="'url(&quot;' + src + '&quot;)'"
+      ></span>
+    }
+  </ng-template>
+</aside>

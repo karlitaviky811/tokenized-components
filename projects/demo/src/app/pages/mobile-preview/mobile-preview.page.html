@@ -1,0 +1,50 @@
+<div class="mobile-preview">
+  <div class="mobile-preview__card">
+    <span class="mobile-preview__label">Placeholder</span>
+
+    <svg class="mobile-preview__logo" viewBox="0 0 209 59" xmlns="http://www.w3.org/2000/svg" aria-label="Logo">
+      <!-- Red shape (simplified brand mark) -->
+      <rect x="0" y="5" width="88" height="49" rx="4" fill="#E42313" />
+      <!-- Gray wordmark placeholder -->
+      <rect x="100" y="16" width="109" height="10" rx="2" fill="#5B5F61" />
+      <rect x="100" y="32" width="85" height="10" rx="2" fill="#5B5F61" />
+    </svg>
+
+    <span class="mobile-preview__subtitle">Gif de marca</span>
+  </div>
+
+  <lib-button
+    variant="filled"
+    label="Adjuntar foto"
+    icon="attach_file"
+    iconPosition="leading"
+    (click)="openGalleryDialog()"
+  />
+
+  <input
+    #fileInput
+    type="file"
+    style="display: none"
+    (change)="onFileSelected($event)"
+  />
+</div>
+
+<!-- Gallery action items with per-item trailing icon -->
+<ng-template #galleryTemplate>
+  <div style="margin: 0 -1.5rem;">
+    <lib-list
+      [items]="galleryItems()"
+      trailingType="none"
+      [showCheckbox]="false"
+      [showAvatar]="false"
+      [showDividers]="true"
+      (itemClick)="onGalleryItemClick($event)"
+    >
+      <ng-template #trailingTemplate let-item>
+        <span class="material-symbols-outlined" style="font-size:1.5rem;color:#434749;">
+          {{ galleryIconMap.get(item.id) }}
+        </span>
+      </ng-template>
+    </lib-list>
+  </div>
+</ng-template>

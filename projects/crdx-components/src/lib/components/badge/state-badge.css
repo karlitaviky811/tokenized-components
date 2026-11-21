@@ -1,0 +1,76 @@
+:host {
+  display: inline-flex;
+
+  --lib-state-badge-gap:        var(--badges-state-badge-container-state-badge-content-gap, 0.25rem);
+  --lib-state-badge-padding-x:  var(--badges-state-badge-container-state-badge-lateral-padding, 0.5rem);
+  --lib-state-badge-padding-y:  var(--badges-state-badge-container-state-badge-height-padding, 0.25rem);
+  --lib-state-badge-shape:      var(--badges-state-badge-container-state-badge-shape, 1000px);
+  --lib-state-badge-font:       var(--badges-state-badge-text-state-badge-label-text-font, 'Heebo'), sans-serif;
+  --lib-state-badge-weight:     var(--badges-state-badge-text-state-badge-label-text-weight, 500);
+  --lib-state-badge-size:       var(--badges-state-badge-text-state-badge-label-text-size, 1rem);
+  --lib-state-badge-tracking:   var(--badges-state-badge-text-state-badge-label-text-tracking, 0.03125rem);
+  --lib-state-badge-lh:         var(--badges-state-badge-text-state-badge-label-text-line-height, 1.5rem);
+}
+
+.lib-state-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lib-state-badge-gap);
+  padding: var(--lib-state-badge-padding-y) var(--lib-state-badge-padding-x);
+  border-radius: var(--lib-state-badge-shape);
+  max-width: 13rem;
+  min-width: 1rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.lib-state-badge__label {
+  flex: 1 0 0;
+  min-width: 0;
+  text-align: center;
+  word-break: break-word;
+  font-family: var(--lib-state-badge-font);
+  font-size: var(--lib-state-badge-size);
+  font-weight: var(--lib-state-badge-weight);
+  line-height: var(--lib-state-badge-lh);
+  letter-spacing: var(--lib-state-badge-tracking);
+}
+
+.lib-state-badge__icon {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Variantes ────────────────────────────────────────────────────────── */
+
+.lib-state-badge--error {
+  background-color: var(--badges-state-badge-container-state-badge-label-error-color, #ffdad4);
+  color: var(--badges-state-badge-text-state-badge-label-error-color, #e42313);
+}
+
+.lib-state-badge--success {
+  background-color: var(--badges-state-badge-container-state-badge-label-succes-color, #e9ffec);
+  color: var(--badges-state-badge-text-state-badge-label-succes-color, #00a661);
+}
+
+.lib-state-badge--information {
+  background-color: var(--badges-state-badge-container-state-badge-label-information-color, #e9f1ff);
+  color: var(--badges-state-badge-text-state-badge-label-information-color, #007bc8);
+}
+
+.lib-state-badge--warning {
+  background-color: var(--badges-state-badge-container-state-badge-label-warning-color, #fff0c3);
+  color: var(--badges-state-badge-text-state-badge-label-warning-color, #806e17);
+}
+
+.lib-state-badge--neutral {
+  background-color: var(--badges-state-badge-container-state-badge-label-neutral-color, #e0e3e5);
+  color: var(--badges-state-badge-text-state-badge-label-neutral-color, #74787a);
+}

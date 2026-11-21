@@ -1,0 +1,144 @@
+:host {
+  display: block;
+  width: 100%;
+  --bars-common-app-bar-brand-width: 47;
+  --bars-common-app-bar-brand-height: 25;
+  --lib-app-bar-hover-overlay: var(--color-pallete-state-layers-on-surface-opacity-08, rgba(0, 0, 0, 0.08));
+  --lib-app-bar-focus-outline: rgba(0, 0, 0, 0.24);
+}
+
+.lib-app-bar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+  align-self: stretch;
+  height: var(--bars-size-small-app-bar-small-container-height, 4rem);
+  padding: 0.5rem var(--bars-common-app-bar-right-padding, 0.25rem) 0.5rem var(--bars-common-app-bar-left-padding, 0.25rem);
+  background-color: var(--bars-common-app-bar-container-color, #ebeef0);
+  border-radius: 0;
+  box-sizing: border-box;
+  column-gap: 0;
+}
+
+.lib-app-bar__leading,
+.lib-app-bar__actions {
+  display: flex;
+  align-items: center;
+}
+
+.lib-app-bar__leading {
+  justify-self: start;
+  width: var(--bars-common-app-bar-icon-touch-target-size, 3rem);
+}
+
+.lib-app-bar__actions {
+  justify-self: end;
+  justify-content: flex-end;
+  gap: 0;
+  min-width: var(--bars-common-app-bar-icon-touch-target-size, 3rem);
+}
+
+.lib-app-bar__actions:empty {
+  min-width: 0;
+}
+
+.lib-app-bar__brand {
+  justify-self: center;
+  position: relative;
+  width: var(--bars-common-app-bar-brand-width, 2.9375rem);
+  height: var(--bars-common-app-bar-brand-height, 1.5625rem);
+  aspect-ratio: 47 / 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: var(--bars-common-app-bar-central-icon, #e42313);
+}
+
+.lib-app-bar__brand-icon {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 47 / 25;
+  display: block;
+  object-fit: contain;
+}
+
+.lib-app-bar__brand-icon use {
+  width: 100%;
+  height: 100%;
+}
+
+.lib-app-bar__brand-dot {
+  position: absolute;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+}
+
+.lib-app-bar__brand-dot--primary {
+  top: 0.375rem;
+  left: 0.375rem;
+}
+
+.lib-app-bar__brand-dot--secondary {
+  top: 0.1875rem;
+  left: 1rem;
+}
+
+.lib-app-bar__brand-dot--tertiary {
+  top: 0.5rem;
+  left: 1.625rem;
+}
+
+.lib-app-bar__brand-curve {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 2rem;
+  height: 1.125rem;
+  border-bottom: 0.25rem solid var(--bars-common-app-bar-central-icon, #e42313);
+  border-right: 0.25rem solid var(--bars-common-app-bar-central-icon, #e42313);
+  border-left: 0;
+  border-top: 0;
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+
+.lib-app-bar__icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-buttons-size-small-icon-button-small-container-height, 3rem);
+  height: var(--icon-buttons-size-small-icon-button-small-container-height, 3rem);
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: var(--icon-buttons-size-small-icon-button-small-container-shape-round, 1000px);
+  background: transparent;
+  color: var(--bars-common-app-bar-leading-icon, #181c1e);
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.lib-app-bar__icon-button--trailing {
+  color: var(--bars-common-app-bar-trailing-icon, #434749);
+}
+
+.lib-app-bar__icon-button:hover,
+.lib-app-bar__icon-button:focus-visible {
+  background-color: var(--lib-app-bar-hover-overlay, rgba(0, 0, 0, 0.08));
+}
+
+.lib-app-bar__icon-button:focus-visible {
+  outline: 0.125rem solid var(--lib-app-bar-focus-outline, rgba(0, 0, 0, 0.24));
+  outline-offset: 0.125rem;
+}
+
+.lib-app-bar__icon {
+  font-size: var(--bars-common-app-bar-icon-size, 1.5rem);
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  display: block;
+  object-fit: contain;
+}

@@ -1,0 +1,126 @@
+.doc-desc {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: #555;
+  max-width: 48rem;
+}
+
+.doc-value {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: #666;
+
+  code {
+    background: #f4f4f4;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+  }
+}
+
+.id-type-selector {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-section {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--color-primary, #006590);
+  background: var(--color-surface-variant, #f4f8fa);
+  border-radius: 0 0.5rem 0.5rem 0;
+
+  &__title {
+    margin: 0 0 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary, #006590);
+    letter-spacing: 0.01em;
+  }
+}
+
+// ── Formulario completo con máscaras ────────────────────────────────────────
+.big-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
+  gap: 1.5rem;
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.25rem;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.inspect {
+  position: sticky;
+  top: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-outline, #d7dee2);
+  background: var(--color-surface-variant, #f4f8fa);
+  border-radius: 0.5rem;
+
+  &__title {
+    margin: 0 0 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary, #006590);
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+
+    th,
+    td {
+      padding: 0.3rem 0.4rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    th {
+      font-weight: 600;
+      color: #666;
+    }
+
+    td.ok {
+      color: #1a8a4f;
+      font-weight: 600;
+    }
+
+    td:not(.ok):nth-child(3) {
+      color: #c62828;
+      font-weight: 600;
+    }
+
+    code {
+      font-family: monospace;
+      font-size: 0.72rem;
+      color: #444;
+      word-break: break-all;
+    }
+  }
+
+  &__overall {
+    margin: 0.75rem 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #c62828;
+
+    &.ok {
+      color: #1a8a4f;
+    }
+  }
+}

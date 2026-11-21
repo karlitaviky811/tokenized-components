@@ -1,0 +1,80 @@
+@use '@angular/material' as mat;
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@include mat.core();
+
+@include mat.theme((
+  color: (
+    theme-type: light,
+    primary: mat.$blue-palette,
+    tertiary: mat.$blue-palette,
+  ),
+  typography: (
+    brand-family: 'Heebo',
+    plain-family: 'Heebo',
+  ),
+  density: 0,
+));
+
+/* Material genera --mat-sys-primary desde mat.$blue-palette (azul), desconectado
+   del primary de marca del CDN (rojo). Remapeamos la familia primary/tertiary de
+   Material a los tokens de marca para que los componentes Material (spinner, toggle,
+   checkbox, radio, select, estados selected, ripples) usen el rojo de marca. */
+:root {
+  --mat-sys-primary: var(--color-pallete-scheme-primary);
+  --mat-sys-on-primary: var(--color-pallete-scheme-primary-on-primary);
+  --mat-sys-primary-container: var(--color-pallete-scheme-primary-container);
+  --mat-sys-on-primary-container: var(--color-pallete-scheme-primary-on-primary-container);
+  --mat-sys-inverse-primary: var(--color-pallete-scheme-primary-inverse-primary);
+  --mat-sys-tertiary: var(--color-pallete-scheme-tertiary);
+  --mat-sys-on-tertiary: var(--color-pallete-scheme-tertiary-on-tertiary);
+  --mat-sys-tertiary-container: var(--color-pallete-scheme-tertiary-container);
+  --mat-sys-on-tertiary-container: var(--color-pallete-scheme-tertiary-on-tertiary-container);
+}
+
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+}
+
+/// Tipografía común en componentes Material
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-unelevated-button,
+.mat-mdc-icon-button,
+.mat-mdc-fab,
+.mat-mdc-mini-fab,
+.mat-mdc-tab,
+.mat-mdc-tab-link,
+.mat-mdc-chip,
+.mat-mdc-form-field,
+.mat-mdc-form-field input,
+.mat-mdc-select,
+.mat-mdc-select-trigger,
+.mat-mdc-select-value,
+.mat-mdc-option,
+.mat-mdc-table,
+.mat-mdc-header-cell,
+.mat-mdc-cell,
+.mat-mdc-paginator,
+.mat-mdc-menu-item,
+.mat-mdc-tooltip,
+.mat-mdc-snack-bar-label,
+.mdc-list-item__primary-text,
+.mdc-button,
+.mdc-tab,
+.mdc-text-field,
+.mdc-select,
+.mdc-data-table,
+.mdc-menu-item {
+  font-family: 'Heebo', sans-serif;
+}

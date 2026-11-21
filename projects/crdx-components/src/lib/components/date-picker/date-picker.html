@@ -1,0 +1,28 @@
+<mat-form-field class="lib-dp-field" appearance="outline">
+  <mat-label>{{ _label() }}</mat-label>
+  <input
+    matInput
+    class="lib-dp-input"
+    [matDatepicker]="picker"
+    [value]="_displayValue()"
+    [disabled]="disabled()"
+    [min]="min()"
+    [max]="max()"
+    (dateChange)="_onChange($event)"
+    [placeholder]="placeholder()"
+  >
+  <mat-datepicker-toggle matIconSuffix [for]="picker">
+    <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+  </mat-datepicker-toggle>
+  <mat-datepicker #picker [calendarHeaderComponent]="headerComponent">
+    <mat-datepicker-actions>
+      @if (showClear()) {
+        <button mat-button matDatepickerCancel class="lib-dp-btn lib-dp-btn--clear" (click)="_onClear()">Clear</button>
+      }
+      <span class="lib-dp-spacer"></span>
+      <button mat-button matDatepickerCancel class="lib-dp-btn lib-dp-btn--cancel">Cancel</button>
+      <button mat-button matDatepickerApply class="lib-dp-btn lib-dp-btn--ok">OK</button>
+    </mat-datepicker-actions>
+  </mat-datepicker>
+  <mat-hint>{{ hint() }}</mat-hint>
+</mat-form-field>

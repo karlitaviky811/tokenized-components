@@ -1,0 +1,172 @@
+<article class="doc-page">
+
+  <div class="comp-hero">
+    <span class="comp-hero__tag">LibSnackbarStore</span>
+    <h1 class="comp-hero__name">Snackbar</h1>
+    <p class="comp-hero__desc">
+      Notificaciones temporales que informan al usuario sobre una operación completada o en curso.
+      Aparecen en la parte inferior de la pantalla y desaparecen automáticamente. Siguen la
+      especificación M3 Snackbar. Se muestran vía <code>LibSnackbarStore</code>, que envuelve
+      <code>MatSnackBar</code>.
+    </p>
+  </div>
+
+  <!-- ── API ── -->
+  <section class="doc-section">
+    <h2>API — <code>LibSnackbarStore</code></h2>
+    <table class="api-table">
+      <tr><th>Método</th><th>Parámetros</th><th>Descripción</th></tr>
+      <tr><td>open(message, options?)</td><td>string, LibSnackbarOpenOptions</td><td>Snackbar con texto. Retorna MatSnackBarRef</td></tr>
+      <tr><td>openWithAction(message, actionLabel, options?)</td><td>string, string, LibSnackbarOpenOptions</td><td>Snackbar con texto + botón de acción</td></tr>
+      <tr><td>dismiss()</td><td>—</td><td>Cierra el snackbar activo</td></tr>
+    </table>
+
+    <h3 style="margin-top:1.5rem">LibSnackbarOpenOptions</h3>
+    <table class="api-table">
+      <tr><th>Propiedad</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>showClose</td><td>boolean</td><td>false</td><td>Muestra el botón de cierre (X)</td></tr>
+      <tr><td>longerAction</td><td>boolean</td><td>false</td><td>Acción debajo del texto (layout en columna)</td></tr>
+      <tr><td>duration</td><td>number</td><td>4000</td><td>Duración en ms. 0 = no auto-dismiss</td></tr>
+      <tr><td>horizontalPosition</td><td>MatSnackBarHorizontalPosition</td><td>'center'</td><td>Posición horizontal</td></tr>
+      <tr><td>verticalPosition</td><td>MatSnackBarVerticalPosition</td><td>'bottom'</td><td>Posición vertical</td></tr>
+    </table>
+  </section>
+
+  <!-- ── Variantes ── -->
+  <section class="doc-section">
+    <h2>Variantes</h2>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Solo texto (1 línea)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openTextOnly()" />
+      </div>
+      <div class="component-doc__footer">Mensaje simple · auto-dismiss 4s · sin acción ni cierre</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Texto + acción</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openWithAction()" />
+      </div>
+      <div class="component-doc__footer">Acción inline a la derecha del texto</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Texto + cierre</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openWithClose()" />
+      </div>
+      <div class="component-doc__footer">showClose=true · botón X de 48×48 px</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Texto + acción + cierre</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openWithActionAndClose()" />
+      </div>
+      <div class="component-doc__footer">Acción inline + botón X</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Longer action (acción debajo)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openLongerAction()" />
+      </div>
+      <div class="component-doc__footer">longerAction=true · acción alineada abajo-derecha · altura 112px</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Longer action + cierre</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openLongerActionAndClose()" />
+      </div>
+      <div class="component-doc__footer">longerAction=true · showClose=true</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Sin auto-dismiss</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openNoDismiss()" />
+      </div>
+      <div class="component-doc__footer">duration=0 · showClose=true · persiste hasta que el usuario cierre</div>
+    </div>
+
+    <div class="component-doc">
+      <div class="component-doc__header">
+        <span class="component-doc__title"><span>❖</span> Duración personalizada (8s)</span>
+        <span class="component-doc__code-icon">&lt;/&gt;</span>
+      </div>
+      <div class="component-doc__preview">
+        <lib-button label="Abrir" variant="outlined" shape="square" size="medium" [fullWidth]="false" (click)="openLongDuration()" />
+      </div>
+      <div class="component-doc__footer">duration=8000</div>
+    </div>
+  </section>
+
+  <!-- ── Uso ── -->
+  <section class="doc-section">
+    <h2>Uso</h2>
+    <pre><code>// Inyectar el store
+private readonly snackbar = inject(LibSnackbarStore);
+
+// Solo texto
+this.snackbar.open('Guardado correctamente.');
+
+// Con acción (suscribirse para el callback)
+const ref = this.snackbar.openWithAction('Elemento eliminado.', 'Deshacer');
+ref.onAction().subscribe(() => this.restore());
+
+// Con cierre manual
+this.snackbar.open('Procesando...', &#123; duration: 0, showClose: true &#125;);
+
+// Con acción larga debajo del texto
+this.snackbar.openWithAction(
+  'No se pudo conectar.',
+  'Reintentar conexión',
+  &#123; longerAction: true, showClose: true &#125;,
+);
+
+// Cerrar programáticamente
+this.snackbar.dismiss();</code></pre>
+  </section>
+
+  <!-- ── Tokens ── -->
+  <section class="doc-section">
+    <h2>Tokens de diseño</h2>
+    <table class="api-table">
+      <tr><th>Token CSS</th><th>Default</th><th>Descripción</th></tr>
+      <tr><td>--color-snackbars-enabled-container-snackbar-container-color</td><td>#2d3133</td><td>Color de fondo del contenedor</td></tr>
+      <tr><td>--snackbars-enabled-container-snackbar-container-shape</td><td>4px</td><td>Border-radius del contenedor</td></tr>
+      <tr><td>--snackbars-enabled-container-snackbar-container-with-single-line-height</td><td>48px</td><td>Altura mínima (1 línea)</td></tr>
+      <tr><td>--color-snackbars-enabled-supporting-text-snackbar-supporting-text-color</td><td>#f5eff7</td><td>Color del texto del mensaje</td></tr>
+      <tr><td>--snackbars-enabled-supporting-text-snackbar-supporting-text-size</td><td>14px</td><td>Tamaño del texto del mensaje</td></tr>
+      <tr><td>--color-snackbars-enabled-label-text-snackbar-label-text-color</td><td>#ffb4a8</td><td>Color del texto de acción</td></tr>
+      <tr><td>--snackbars-enabled-label-text-snackbar-label-text-weight</td><td>500</td><td>Peso del texto de acción</td></tr>
+      <tr><td>--color-snackbars-enabled-icon-snackbar-icon-color</td><td>#f5eff7</td><td>Color del ícono de cierre</td></tr>
+      <tr><td>--shadow-elevation-3</td><td>0 1px 3px rgba(0,0,0,0.3), 0 4px 8px 3px rgba(0,0,0,0.15)</td><td>Sombra del contenedor (Elevation/3)</td></tr>
+    </table>
+  </section>
+
+</article>

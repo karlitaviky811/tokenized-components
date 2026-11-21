@@ -1,0 +1,49 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  --lib-badge-large-bg:    var(--badges-container-badge-large-color, #ff4965);
+  --lib-badge-small-bg:    var(--badges-container-badge-color, #ff4965);
+  --lib-badge-large-size:  var(--badges-container-badge-large-size, 1rem);
+  --lib-badge-shape:       var(--badges-container-badge-shape, 1000px);
+  --lib-badge-label-color: var(--badges-label-text-badge-large-label-text-color, #ffffff);
+}
+
+.lib-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--lib-badge-shape);
+  box-sizing: border-box;
+}
+
+/* ── Large — pill que muestra número ──────────────────────────────────── */
+
+.lib-badge--large {
+  background-color: var(--lib-badge-large-bg);
+  height: var(--lib-badge-large-size);
+  min-width: var(--lib-badge-large-size);
+  max-width: 2.125rem;
+  padding: 0 0.25rem;
+}
+
+.lib-badge__label {
+  color: var(--lib-badge-label-color);
+  font-family: var(--typescale-label-small-font, 'Heebo'), sans-serif;
+  font-size: var(--typescale-label-small-size, 0.6875rem);
+  font-weight: var(--typescale-label-small-weight, 500);
+  line-height: var(--typescale-label-small-line-height, 1rem);
+  letter-spacing: var(--typescale-label-small-tracking, 0.03125rem);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ── Small — dot indicador ────────────────────────────────────────────── */
+
+.lib-badge--small {
+  background-color: var(--lib-badge-small-bg);
+  width: var(--badges-container-badge-size, 0.375rem);
+  height: var(--badges-container-badge-size, 0.375rem);
+  border-radius: 100px;
+}

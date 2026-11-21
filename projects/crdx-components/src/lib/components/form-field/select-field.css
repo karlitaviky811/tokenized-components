@@ -1,0 +1,113 @@
+
+
+:host {
+  display: block;
+}
+
+:host .lib-select-field__field--no-subscript .mat-mdc-form-field-subscript-wrapper,
+:host .lib-select-field__field--no-subscript .mat-mdc-form-field-bottom-align::before {
+  display: none;
+}
+
+.lib-select-field__field {
+  display: block;
+  width: 100%;
+}
+
+.lib-select-field__arrow {
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+:host.lib-select-field--panel-open ::ng-deep .lib-select-field__field .lib-select-field__arrow {
+  transform: rotate(180deg);
+}
+
+.lib-select-field__arrow-host {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+:host ::ng-deep .lib-select-field__field .mat-mdc-select-arrow-wrapper {
+  display: none !important;
+}
+
+:host ::ng-deep .lib-select-field__field .mat-mdc-select-trigger {
+  padding-right: 0;
+}
+
+.lib-select-field__filter-option {
+  pointer-events: auto;
+  height: auto;
+  padding: 0;
+  line-height: 0;
+}
+
+.lib-select-field__filter-option .mat-pseudo-checkbox {
+  display: none;
+}
+
+.lib-select-field__filter-option .lib-select-field__filter-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+}
+
+.lib-select-field__multi-trigger-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 0.875rem;
+  color: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.lib-select-field__multi-trigger-input::placeholder {
+  color: var(--color-pallete-scheme-surface-on-surface-variant, #434749);
+}
+
+
+.lib-select-field__option-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lib-select-field__options-container {
+  max-height: 15rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.lib-select-field__row {
+  height: 3rem;
+}
+
+.lib-select-field__select-all-option {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+:host ::ng-deep .lib-select-field-panel .mat-mdc-option .mat-mdc-option-pseudo-checkbox {
+  display: none !important;
+}

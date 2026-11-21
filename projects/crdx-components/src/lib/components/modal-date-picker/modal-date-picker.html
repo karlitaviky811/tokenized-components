@@ -1,0 +1,28 @@
+<div class="lib-mdp__container">
+  <div class="lib-mdp__header">
+    <div class="lib-mdp__header__content">
+      <span class="lib-mdp__header__label">{{ label() }}</span>
+      <span class="lib-mdp__header__headline">{{ _headline() }}</span>
+    </div>
+    <button mat-icon-button class="lib-mdp__header__edit" aria-label="Edit date">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+
+  <mat-calendar
+    class="lib-mdp__calendar"
+    [selected]="_selected()"
+    [minDate]="min()"
+    [maxDate]="max()"
+    (selectedChange)="_onSelect($event)"
+  ></mat-calendar>
+
+  <div class="lib-mdp__actions">
+    @if (showClear()) {
+      <button mat-button class="lib-mdp__btn lib-mdp__btn--clear" (click)="_onClear()">Clear</button>
+    }
+    <span class="lib-mdp__spacer"></span>
+    <button mat-button class="lib-mdp__btn lib-mdp__btn--cancel" (click)="_onCancel()">Cancel</button>
+    <button mat-button class="lib-mdp__btn lib-mdp__btn--ok" (click)="_onApply()">OK</button>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="shell" [class.shell--open]="sidebarOpen()">
+  <header class="shell__topbar">
+    <button
+      class="shell__menu"
+      type="button"
+      (click)="toggleSidebar()"
+      [attr.aria-expanded]="sidebarOpen()"
+      aria-controls="shell-nav"
+      aria-label="Alternar menú de navegación"
+    >
+      <span class="shell__menu-bar"></span>
+      <span class="shell__menu-bar"></span>
+      <span class="shell__menu-bar"></span>
+    </button>
+    <div class="shell__brand-icon">C</div>
+    <span class="shell__brand-name">Credix DS</span>
+  </header>
+
+  <div class="shell__backdrop" (click)="closeSidebar()" aria-hidden="true"></div>
+
+  <nav class="shell__nav" id="shell-nav">
+    <div class="shell__brand">
+      <div class="shell__brand-icon">C</div>
+      <span class="shell__brand-name">Credix DS</span>
+    </div>
+
+    <div class="shell__groups">
+      @for (group of groups; track group.label) {
+        <div class="shell__group">
+          <span class="shell__group-label">{{ group.label }}</span>
+
+          @for (item of group.items; track item.label) {
+            @if (item.path) {
+              <a
+                class="shell__link"
+                [routerLink]="item.path"
+                routerLinkActive="shell__link--active"
+                (click)="closeSidebar()"
+              >
+                {{ item.label }}
+              </a>
+            } @else {
+              <span class="shell__link shell__link--soon">
+                {{ item.label }}
+                <span class="shell__badge">soon</span>
+              </span>
+            }
+          }
+        </div>
+      }
+    </div>
+  </nav>
+
+  <main class="shell__content">
+    <router-outlet />
+  </main>
+</div>
