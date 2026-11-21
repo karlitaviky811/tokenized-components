@@ -40,7 +40,7 @@ export type LibButtonBadgeMode = 'overlay' | 'inline';
 export class LibButtonComponent {
   size = input<LibButtonSize>('medium');
   disabled = input(false);
-  type = input<'button' | 'submit' | 'reset'>('button');
+  type = input<'button' | 'submit' | 'reset'>('submit');
   fullWidth = input(false);
   variant = input<LibButtonVariant>('filled');
   shape = input<LibButtonShape>('round');
@@ -53,11 +53,14 @@ export class LibButtonComponent {
   labelClass = input<string>('');
   pressed = input<boolean>(false);
   debugPadding = input<boolean>(false);
-  badgeCount = input<number | string>(0);
+  badgeCount = input<number>(0);
   badgeVisible = input<boolean>(false);
   badgePosition = input<LibButtonBadgePosition>('top-right');
   badgeSize = input<LibBadgeSize>('small');
   badgeMode = input<LibButtonBadgeMode>('overlay');
+  readonly prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
   readonly isPressed = signal(false);
 
   readonly hasInputContent = computed(
@@ -126,7 +129,7 @@ export class LibButtonComponent {
 
   onKeyDown(event: KeyboardEvent): void {
     if (this.disabled()) return;
-    if (event.code === 'Space' || event.code === 'Enter') this.onPressStart();
+    if (event.code === 'Space') this.onPressStart();
   }
 
   onKeyUp(): void {
