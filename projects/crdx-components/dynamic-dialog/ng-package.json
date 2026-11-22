@@ -1,0 +1,5 @@
+{
+  "lib": {
+    "entryFile": "../src/lib/components/dialogs/dynamic-dialog/index.ts"
+  }
+}

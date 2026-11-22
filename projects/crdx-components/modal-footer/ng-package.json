@@ -1,0 +1,5 @@
+{
+  "lib": {
+    "entryFile": "../src/lib/components/footer-actions/modal-footer-actions/index.ts"
+  }
+}

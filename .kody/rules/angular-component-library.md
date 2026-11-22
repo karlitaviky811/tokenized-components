@@ -32,45 +32,22 @@ Revisa los cambios de la biblioteca `crdx-components` buscando regresiones funci
 
 ### Bad example
 ```typescript
-// Se ejecuta también durante SSR y falla porque window no existe.
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 ```
 
 ### Good example
 ```typescript
-import { isPlatformBrowser } from '@angular/common';
-import { inject, PLATFORM_ID } from '@angular/core';
-
-const platformId = inject(PLATFORM_ID);
 const prefersReducedMotion = isPlatformBrowser(platformId)
   && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 ```
 
 ### Bad example
-```typescript
-// Rompe consumidores que usaban el selector anterior sin migración.
-@Component({ selector: 'crdx-icon-action' })
-export class IconButtonComponent {}
-```
-
-### Good example
-```typescript
-// El cambio de selector se documenta como incompatible y actualiza consumidores.
-@Component({ selector: 'crdx-icon-action' })
-export class IconButtonComponent {}
-```
-
-### Bad example
 ```css
-/* Cambia el estado pressed sin verificar disabled ni el ripple de Material. */
-.lib-icon-btn--pressed {
-  border-radius: 0;
-}
+.lib-icon-btn--pressed { border-radius: 0; }
 ```
 
 ### Good example
 ```css
-/* El estado mantiene el límite disabled y propaga el token al ripple. */
 .lib-icon-btn.lib-icon-btn--pressed:not([disabled]) {
   --mat-icon-button-container-shape: var(--lib-icon-btn-pressed-radius);
 }

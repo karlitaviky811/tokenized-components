@@ -1,0 +1,5 @@
+{
+  "lib": {
+    "entryFile": "../src/lib/components/date-range-picker/index.ts"
+  }
+}

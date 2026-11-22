@@ -35,13 +35,14 @@ export type LibButtonBadgeMode = 'overlay' | 'inline';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class.lib-mat-btn-host--full]': 'fullWidth()',
+    '[attr.data-render-id]': 'renderId',
   },
 })
 export class LibButtonComponent {
   size = input<LibButtonSize>('medium');
   disabled = input(false);
   type = input<'button' | 'submit' | 'reset'>('submit');
-  fullWidth = input(false);
+  fullWidth = input(true);
   variant = input<LibButtonVariant>('filled');
   shape = input<LibButtonShape>('round');
   toggle = input(false);
@@ -58,6 +59,7 @@ export class LibButtonComponent {
   badgePosition = input<LibButtonBadgePosition>('top-right');
   badgeSize = input<LibBadgeSize>('small');
   badgeMode = input<LibButtonBadgeMode>('overlay');
+  readonly renderId = Math.random().toString(36).slice(2);
   readonly prefersReducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
   ).matches;
@@ -123,9 +125,7 @@ export class LibButtonComponent {
     this.releasePressed();
   }
 
-  onPressCancel(): void {
-    this.releasePressed();
-  }
+  onPressCancel(): void {}
 
   onKeyDown(event: KeyboardEvent): void {
     if (this.disabled()) return;
