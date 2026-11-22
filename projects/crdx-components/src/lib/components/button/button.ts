@@ -35,13 +35,14 @@ export type LibButtonBadgeMode = 'overlay' | 'inline';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class.lib-mat-btn-host--full]': 'fullWidth()',
+    '[attr.data-render-id]': 'renderId',
   },
 })
 export class LibButtonComponent {
   size = input<LibButtonSize>('medium');
   disabled = input(false);
-  type = input<'button' | 'submit' | 'reset'>('button');
-  fullWidth = input(false);
+  type = input<'button' | 'submit' | 'reset'>('submit');
+  fullWidth = input(true);
   variant = input<LibButtonVariant>('filled');
   shape = input<LibButtonShape>('round');
   toggle = input(false);
@@ -53,11 +54,15 @@ export class LibButtonComponent {
   labelClass = input<string>('');
   pressed = input<boolean>(false);
   debugPadding = input<boolean>(false);
-  badgeCount = input<number | string>(0);
+  badgeCount = input<number>(0);
   badgeVisible = input<boolean>(false);
   badgePosition = input<LibButtonBadgePosition>('top-right');
   badgeSize = input<LibBadgeSize>('small');
   badgeMode = input<LibButtonBadgeMode>('overlay');
+  readonly renderId = Math.random().toString(36).slice(2);
+  readonly prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
   readonly isPressed = signal(false);
 
   readonly hasInputContent = computed(
@@ -120,13 +125,11 @@ export class LibButtonComponent {
     this.releasePressed();
   }
 
-  onPressCancel(): void {
-    this.releasePressed();
-  }
+  onPressCancel(): void {}
 
   onKeyDown(event: KeyboardEvent): void {
     if (this.disabled()) return;
-    if (event.code === 'Space' || event.code === 'Enter') this.onPressStart();
+    if (event.code === 'Space') this.onPressStart();
   }
 
   onKeyUp(): void {

@@ -1,0 +1,5 @@
+{
+  "lib": {
+    "entryFile": "../src/lib/components/modal-date-picker/index.ts"
+  }
+}

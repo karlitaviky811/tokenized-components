@@ -1,0 +1,5 @@
+{
+  "lib": {
+    "entryFile": "../src/lib/components/circular-progress-stepper/index.ts"
+  }
+}

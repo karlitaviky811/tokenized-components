@@ -14,18 +14,13 @@ Evalúa si el Pull Request cambia un contrato público de `crdx-components` y pu
 - La biblioteca actual declara versión `3.2.1` y sus consumidores requieren Angular 22, Angular Material 22, `@ngx-translate/core` 17, `ngx-mask` 22 y RxJS 7.
 
 ### Cambios que requieren alerta
-Revisa si el PR modifica alguno de estos contratos:
-- Exports públicos en `projects/crdx-components/src/index.ts` o índices de componentes.
-- Selector Angular, `input()`, `output()`, tipos, interfaces o servicios públicos.
-- Tokens CSS, clases públicas, estructura DOM documentada o comportamiento observable de un componente.
-- `peerDependencies`, versión del paquete o configuración de publicación en `projects/crdx-components/package.json`.
-- Compatibilidad SSR, Angular 22, Angular Material 22, traducciones, máscaras o RxJS.
+Revisa cambios en exports públicos, selectores Angular, `input()`, `output()`, tipos, interfaces, tokens CSS, clases públicas, DOM observable, `peerDependencies`, versión o publicación del paquete.
 
 Si el cambio es incompatible, el PR debe incluir:
-1. Clasificación de versión semántica adecuada. Un cambio incompatible para consumidores requiere una versión major o una estrategia explícita de compatibilidad.
+1. Clasificación de versión semántica adecuada. Un cambio incompatible requiere una versión major o una estrategia explícita de compatibilidad.
 2. Impacto separado para `mfe-sac` y `mfe-workspace`.
 3. Instrucciones de migración o una alternativa compatible hacia atrás.
-4. Evidencia de validación en los consumidores afectados, cuando el contrato modificado pueda romper compilación, carga federada, render SSR o interacción visible.
+4. Evidencia de validación cuando el contrato pueda romper compilación, carga federada, SSR o interacción visible.
 
 ### Reglas de decisión
 - Alerta si el PR presupone que `mfe-sac` recibirá cambios nuevos automáticamente: usa una versión exacta `3.1.0` y requiere una actualización explícita.
@@ -37,20 +32,10 @@ Si el cambio es incompatible, el PR debe incluir:
 
 ### Bad example
 ```markdown
-El PR elimina el export público `IconButtonComponent`, mantiene la versión `3.2.2` y no menciona consumidores.
+El PR elimina un export público, mantiene versión minor y no menciona consumidores.
 ```
 
 ### Good example
 ```markdown
-El PR conserva el export anterior como alias deprecado, documenta la migración y valida que `mfe-sac` y `mfe-workspace` continúan compilando con Angular 22.
-```
-
-### Bad example
-```markdown
-El PR modifica un token CSS público usado por los componentes sin indicar si los remotos federados requieren ajuste visual.
-```
-
-### Good example
-```markdown
-El PR mantiene el token anterior con fallback, documenta el nuevo token y valida los estados visuales afectados en los consumidores conocidos.
+El PR conserva un alias deprecado, documenta migración y valida consumidores afectados.
 ```

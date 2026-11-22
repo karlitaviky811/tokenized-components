@@ -27,7 +27,7 @@
   [attr.type]="type()"
   [disabled]="disabled()"
   [ngClass]="classes()"
-  [attr.aria-pressed]="toggle() ? selected() : null"
+  [attr.aria-pressed]="selected()"
   (pointerdown)="onPressStart()"
   (pointerup)="onPressEnd()"
   (pointerleave)="onPressCancel()"

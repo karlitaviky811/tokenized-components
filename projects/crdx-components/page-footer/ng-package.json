@@ -1,0 +1,5 @@
+{
+  "lib": {
+    "entryFile": "../src/lib/components/footer-actions/page-footer-actions/index.ts"
+  }
+}
